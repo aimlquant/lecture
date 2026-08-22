@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 250" role="img" aria-labelledby="t2">
+  <title id="t2">문장별 생성과 문단 생성의 마지막 500밀리초 음량</title>
+  <defs>
+    <style>
+      .grid { stroke:#dfe2e7; stroke-width:1; }
+      .base { stroke:#a32f3c; stroke-width:1.5; stroke-dasharray:6 4; }
+      .ax   { font:400 11px ui-monospace,monospace; fill:#5a6472; }
+      .lb   { font:700 12.5px Inter,"Noto Sans KR",sans-serif;
+               paint-order:stroke fill; stroke:#fafaf9; stroke-width:4px; stroke-linejoin:round; }
+      .n1   { fill:#b4552a; }
+      .n2   { fill:#2c6e4a; }
+      .n3   { fill:#a32f3c; }
+      .ln1  { fill:none; stroke:#b4552a; stroke-width:2.5; }
+      .ln2  { fill:none; stroke:#2c6e4a; stroke-width:2.5; }
+    </style>
+  </defs>
+
+  <line class="grid" x1="86" y1="24.0" x2="702" y2="24.0"/>
+  <line class="grid" x1="86" y1="71.5" x2="702" y2="71.5"/>
+  <line class="grid" x1="86" y1="119.0" x2="702" y2="119.0"/>
+  <line class="grid" x1="86" y1="166.5" x2="702" y2="166.5"/>
+  <line class="grid" x1="86" y1="214.0" x2="702" y2="214.0"/>
+  <text class="ax" x="78" y="28.0" text-anchor="end">−10</text>
+  <text class="ax" x="78" y="75.5" text-anchor="end">−30</text>
+  <text class="ax" x="78" y="123.0" text-anchor="end">−50</text>
+  <text class="ax" x="78" y="170.5" text-anchor="end">−70</text>
+  <text class="ax" x="78" y="218.0" text-anchor="end">−90</text>
+  <text class="ax" x="26" y="119.0" transform="rotate(-90 26 119.0)" text-anchor="middle">dBFS</text>
+
+  <line class="base" x1="86" y1="116.6" x2="702" y2="116.6"/>
+  <text class="lb n3" x="698" y="108.6" text-anchor="end">배경 −49</text>
+
+  <polyline class="ln1" points="106,121.4 165,90.5 224,45.4 283,95.2 342,97.6 401,102.4 460,95.2 519,100.0 578,109.5 637,114.2 696,133.2"/>
+  <circle fill="#b4552a" cx="224" cy="45.4" r="5"/>
+  <text class="lb n1" x="224" y="34.4" text-anchor="middle">−19</text>
+  <text class="lb n1" x="698" y="151" text-anchor="end">문장별 생성</text>
+
+  <polyline class="ln2" points="106,109.5 165,121.4 224,176.0 283,187.9 342,187.9 401,185.5 460,183.1 519,185.5 578,187.9 637,199.8 696,199.8"/>
+  <circle fill="#2c6e4a" cx="696" cy="199.8" r="5"/>
+  <text class="lb n2" x="688" y="217.8" text-anchor="end">−84</text>
+  <text class="lb n2" x="106" y="217.8">문단 생성</text>
+
+  <text class="ax" x="86" y="14">문장이 끝나는 지점</text>
+  <text class="ax" x="702" y="14" text-anchor="end">클립 끝</text>
+</svg>

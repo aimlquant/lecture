@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 190" role="img" aria-labelledby="t1">
+  <title id="t1">프로필, 생성, 확인 세 단계와 반복 구간</title>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 4 L0 8 z" fill="#0f2c59"/>
+    </marker>
+    <style>
+      .box  { fill:#ffffff; stroke:#0f2c59; stroke-width:2; }
+      .once { fill:#e8eef8; stroke:#0f2c59; stroke-width:2; }
+      .n    { font:700 15px Inter,"Noto Sans KR",sans-serif; fill:#101114; }
+      .s    { font:400 12.5px Inter,"Noto Sans KR",sans-serif; fill:#5a6472; }
+      .k    { font:700 10.5px ui-monospace,monospace; fill:#0f2c59; letter-spacing:.1em; }
+      .loop { fill:none; stroke:#b4552a; stroke-width:2; stroke-dasharray:5 4; }
+      .lt   { font:700 12px Inter,"Noto Sans KR",sans-serif; fill:#b4552a;
+              paint-order:stroke fill; stroke:#fafaf9; stroke-width:4px; stroke-linejoin:round; }
+    </style>
+  </defs>
+
+  <rect class="once" x="14" y="46" width="192" height="72" rx="3"/>
+  <text class="k" x="26" y="68">1 · 한 번만</text>
+  <text class="n" x="26" y="90">프로필 만들기</text>
+  <text class="s" x="26" y="108">참조 음성 + 그 전사</text>
+
+  <rect class="box" x="264" y="46" width="176" height="72" rx="3"/>
+  <text class="k" x="276" y="68">2 · 문단마다</text>
+  <text class="n" x="276" y="90">문단 넣기</text>
+  <text class="s" x="276" y="108">한 문단이 오디오 한 조각</text>
+
+  <rect class="box" x="498" y="46" width="176" height="72" rx="3"/>
+  <text class="k" x="510" y="68">3 · 문단마다</text>
+  <text class="n" x="510" y="90">듣고 확인</text>
+  <text class="s" x="510" y="108">전문·숫자를 본다</text>
+
+  <line x1="206" y1="82" x2="256" y2="82" stroke="#0f2c59" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="440" y1="82" x2="490" y2="82" stroke="#0f2c59" stroke-width="2" marker-end="url(#ah)"/>
+
+  <path class="loop" d="M586 118 L586 152 L352 152 L352 122" marker-end="url(#ah)"/>
+  <text class="lt" x="469" y="171" text-anchor="middle">다음 문단</text>
+</svg>

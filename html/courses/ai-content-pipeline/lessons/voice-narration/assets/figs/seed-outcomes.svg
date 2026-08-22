@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 176" role="img" aria-labelledby="t3">
+  <title id="t3">같은 문장을 시드 여덟 개로 생성한 결과</title>
+  <defs>
+    <style>
+      .ok   { fill:#e4efe8; stroke:#2c6e4a; stroke-width:2; }
+      .bad  { fill:#f8ece5; stroke:#a32f3c; stroke-width:2; }
+      .sd   { font:700 12px ui-monospace,monospace; fill:#101114; }
+      .rs   { font:700 13px Inter,"Noto Sans KR",sans-serif; }
+      .rok  { fill:#2c6e4a; }
+      .rbad { fill:#a32f3c; }
+      .hd   { font:700 12.5px Inter,"Noto Sans KR",sans-serif; fill:#5a6472; }
+      .q    { font:400 12px ui-monospace,monospace; fill:#a32f3c; }
+    </style>
+  </defs>
+
+  <text class="hd" x="14" y="20">시드</text>
+  <text class="hd" x="14" y="62">결과</text>
+  <text class="hd" x="14" y="104">들린 것</text>
+
+  <g>
+    <rect class="bad" x="76" y="30" width="76" height="40" rx="3"/>
+    <text class="sd" x="114" y="20" text-anchor="middle">20260823</text>
+    <text class="rs rbad" x="114" y="56" text-anchor="middle">실패</text>
+    <text class="q" x="114" y="104" text-anchor="middle">상지추</text>
+  </g>
+  <g>
+    <rect class="ok" x="158" y="30" width="76" height="40" rx="3"/>
+    <text class="sd" x="196" y="20" text-anchor="middle">20260824</text>
+    <text class="rs rok" x="196" y="56" text-anchor="middle">정확</text>
+  </g>
+  <g>
+    <rect class="ok" x="240" y="30" width="56" height="40" rx="3"/>
+    <text class="sd" x="268" y="20" text-anchor="middle">1</text>
+    <text class="rs rok" x="268" y="56" text-anchor="middle">정확</text>
+  </g>
+  <g>
+    <rect class="ok" x="302" y="30" width="56" height="40" rx="3"/>
+    <text class="sd" x="330" y="20" text-anchor="middle">42</text>
+    <text class="rs rok" x="330" y="56" text-anchor="middle">정확</text>
+  </g>
+  <g>
+    <rect class="bad" x="364" y="30" width="56" height="40" rx="3"/>
+    <text class="sd" x="392" y="20" text-anchor="middle">99</text>
+    <text class="rs rbad" x="392" y="56" text-anchor="middle">실패</text>
+    <text class="q" x="392" y="104" text-anchor="middle">상지초</text>
+  </g>
+  <g>
+    <rect class="ok" x="426" y="30" width="66" height="40" rx="3"/>
+    <text class="sd" x="459" y="20" text-anchor="middle">1234</text>
+    <text class="rs rok" x="459" y="56" text-anchor="middle">정확</text>
+  </g>
+  <g>
+    <rect class="bad" x="498" y="30" width="66" height="40" rx="3"/>
+    <text class="sd" x="531" y="20" text-anchor="middle">5555</text>
+    <text class="rs rbad" x="531" y="56" text-anchor="middle">실패</text>
+    <text class="q" x="531" y="104" text-anchor="middle">3지초</text>
+  </g>
+  <g>
+    <rect class="ok" x="570" y="30" width="76" height="40" rx="3"/>
+    <text class="sd" x="608" y="20" text-anchor="middle">31337</text>
+    <text class="rs rok" x="608" y="56" text-anchor="middle">정확</text>
+  </g>
+
+  <line x1="76" y1="130" x2="646" y2="130" stroke="#dfe2e7" stroke-width="1"/>
+  <text class="rs rok" x="76" y="152">정확 5</text>
+  <text class="rs rbad" x="160" y="152">실패 3</text>
+  <text class="hd" x="240" y="152">— 같은 문장, 같은 표기</text>
+</svg>

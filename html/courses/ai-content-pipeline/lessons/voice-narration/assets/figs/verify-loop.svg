@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="t4">
+  <title id="t4">정규화, 생성, 받아쓰기, 두 관문 대조, 통과 또는 재시도</title>
+  <defs>
+    <marker id="a2" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 4 L0 8 z" fill="#0f2c59"/>
+    </marker>
+    <marker id="a3" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 4 L0 8 z" fill="#b4552a"/>
+    </marker>
+    <style>
+      .b   { fill:#ffffff; stroke:#0f2c59; stroke-width:2; }
+      .g   { fill:#eef1f5; stroke:#5a6472; stroke-width:1.5; }
+      .ok  { fill:#e4efe8; stroke:#2c6e4a; stroke-width:2; }
+      .n   { font:700 14px Inter,"Noto Sans KR",sans-serif; fill:#101114; }
+      .s   { font:400 12px Inter,"Noto Sans KR",sans-serif; fill:#5a6472; }
+      .go  { font:700 14px Inter,"Noto Sans KR",sans-serif; fill:#2c6e4a; }
+      .fl  { stroke:#0f2c59; stroke-width:2; fill:none; }
+      .rt  { stroke:#b4552a; stroke-width:2; fill:none; stroke-dasharray:5 4; }
+      .el  { font:700 11.5px Inter,"Noto Sans KR",sans-serif;
+             paint-order:stroke fill; stroke:#fafaf9; stroke-width:4px; stroke-linejoin:round; }
+      .elp { fill:#2c6e4a; }
+      .elf { fill:#b4552a; }
+    </style>
+  </defs>
+
+  <rect class="g" x="14" y="16" width="132" height="52" rx="3"/>
+  <text class="n" x="26" y="40">대본 원문</text>
+  <text class="s" x="26" y="58">숫자가 살아 있다</text>
+
+  <rect class="b" x="186" y="16" width="132" height="52" rx="3"/>
+  <text class="n" x="198" y="40">정규화</text>
+  <text class="s" x="198" y="58">엔진에 맞춰</text>
+
+  <rect class="b" x="358" y="16" width="132" height="52" rx="3"/>
+  <text class="n" x="370" y="40">생성</text>
+  <text class="s" x="370" y="58">문단 한 번에</text>
+
+  <rect class="b" x="530" y="16" width="132" height="52" rx="3"/>
+  <text class="n" x="542" y="40">받아쓰기</text>
+  <text class="s" x="542" y="58">같은 GPU 로</text>
+
+  <rect class="b" x="358" y="132" width="304" height="76" rx="3"/>
+  <text class="n" x="374" y="156">두 관문으로 대조</text>
+  <text class="s" x="374" y="176">수사 토큰을 개별로 — 한 단어 붕괴를 잡는다</text>
+  <text class="s" x="374" y="194">문장 전체를 유사도로 — 잘림을 잡는다</text>
+
+  <rect class="ok" x="186" y="240" width="180" height="46" rx="3"/>
+  <text class="go" x="198" y="262">통과 · 조건을 원장에</text>
+  <text class="s" x="198" y="279">시드·표기·해시·길이</text>
+
+  <rect class="b" x="414" y="240" width="196" height="46" rx="3"/>
+  <text class="n" x="426" y="262">조건을 바꿔 재생성</text>
+  <text class="s" x="426" y="279">다른 시드 또는 표기</text>
+
+  <line class="fl" x1="146" y1="42" x2="178" y2="42" marker-end="url(#a2)"/>
+  <line class="fl" x1="318" y1="42" x2="350" y2="42" marker-end="url(#a2)"/>
+  <line class="fl" x1="490" y1="42" x2="522" y2="42" marker-end="url(#a2)"/>
+  <path class="fl" d="M596 68 L596 124" marker-end="url(#a2)"/>
+  <!-- 통과 분기: 박스 왼쪽 아래에서 꺾어 통과 박스 상단 중앙으로 -->
+  <path class="fl" d="M400 208 L400 216 L276 216 L276 234" marker-end="url(#a2)"/>
+  <text class="el elp" x="338" y="210" text-anchor="middle">맞으면</text>
+  <!-- 실패 분기: 색을 실패 경로와 맞춘다 -->
+  <path class="rt" d="M512 208 L512 232" marker-end="url(#a3)"/>
+  <text class="el elf" x="526" y="224">어긋나면</text>
+  <path class="rt" d="M610 263 L676 263 L676 100 L424 100 L424 62" marker-end="url(#a3)"/>
+</svg>
