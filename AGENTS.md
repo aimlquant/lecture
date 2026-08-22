@@ -53,9 +53,15 @@ html/
     ├── index.html                      # 코스 개요와 차시 목록
     └── lessons/<lesson_id>/
         ├── index.html                  # 차시 페이지. 영상 임베드와 자료 링크
+        ├── report.html                 # 상세 리포트. 학습자가 다시 읽는 텍스트 교재
         ├── slides.html                 # 교안. core 본편 뒤 deep 부록
         └── assets/                     # 이 차시에 귀속된 CSS·JS·figs
 ```
+
+**세 파일이 한 벌이다.** `report.html` 은 슬라이드를 만드는 중간 산출물이 아니라 학습자가
+다시 읽는 공개 산출물이다 (2026-08-22 결정, `seminar` 와 같은 모양). 하나라도 빠지면
+게시하지 않는다 — `lecture-materials` 의 `validate.py` 가 게이트로 강제한다. 코스에는
+`index.html` 개요 페이지가 있어야 한다.
 
 `course_id` 와 `lesson_id` 는 곧 공개 URL 경로다. **한 번 발행하면 바꾸지 않는다.**
 차시 번호와 표시 제목은 `lesson_id` 와 분리된 별도 필드이므로, 순서를 바꿔도 URL 은
