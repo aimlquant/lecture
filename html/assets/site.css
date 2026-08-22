@@ -87,13 +87,17 @@ h1 {
   color: var(--muted);
 }
 
+/* eyebrow 는 늘 back 링크나 브랜드 표기 아래에 온다. margin 0 이면 바로 위 줄과
+   붙어 읽힌다. 아래 h1 과는 한 덩어리로 묶어 붙인다. */
 .eyebrow {
-  margin: 0;
+  margin: 32px 0 0;
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.16em;
   color: var(--muted);
 }
+
+.eyebrow + h1 { margin-top: 10px; }
 
 .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
 
