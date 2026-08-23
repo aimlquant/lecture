@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title">
+  <title id="title">73개 구간에서 개별 반올림 오차가 2.733초로 누적되는 비교 차트</title>
+  <style>
+    .bg{fill:#fafaf9}.panel{fill:#fff;stroke:#d7dce3;stroke-width:2}.grid{stroke:#e1e5ea;stroke-width:1}.axis{stroke:#6f7886;stroke-width:2}.bad{fill:none;stroke:#b4552a;stroke-width:5}.good{fill:none;stroke:#2c6e4a;stroke-width:5}.band{fill:#dcecdf}.card{fill:#fff4e8;stroke:#b4552a;stroke-width:2}.h{font:800 19px Inter,"Noto Sans KR",sans-serif;fill:#101114}.k{font:700 13px Inter,"Noto Sans KR",sans-serif;fill:#5a6472}.badT{font:800 16px Inter,"Noto Sans KR",sans-serif;fill:#9d4323}.goodT{font:800 15px Inter,"Noto Sans KR",sans-serif;fill:#23633f}
+  </style>
+  <rect class="bg" width="960" height="420"/>
+  <rect class="panel" x="28" y="24" width="904" height="370" rx="14"/>
+  <line class="grid" x1="100" y1="86" x2="600" y2="86"/><line class="grid" x1="100" y1="174" x2="600" y2="174"/><line class="grid" x1="100" y1="262" x2="600" y2="262"/><line class="axis" x1="100" y1="332" x2="600" y2="332"/><line class="axis" x1="100" y1="60" x2="100" y2="332"/>
+  <text class="k" x="88" y="336" text-anchor="end">0</text><text class="k" x="88" y="266" text-anchor="end">1초</text><text class="k" x="88" y="178" text-anchor="end">2초</text><text class="k" x="88" y="90" text-anchor="end">3초</text>
+  <text class="k" x="100" y="360">1</text><text class="k" x="264" y="360">24</text><text class="k" x="434" y="360">48</text><text class="k" x="586" y="360">73구간</text>
+  <rect class="band" x="100" y="322" width="500" height="10"/>
+  <polyline class="bad" points="100,328 171,295 243,257 314,219 386,181 457,143 529,105 600,81"/>
+  <polyline class="good" points="100,328 171,327 243,329 314,326 386,328 457,327 529,329 600,326"/>
+  <circle cx="600" cy="81" r="7" fill="#b4552a"/><text class="badT" x="580" y="64" text-anchor="end">2.733초 누적</text>
+  <text class="goodT" x="580" y="312" text-anchor="end">누적 스냅 · 한 프레임 안</text>
+  <text class="h" x="126" y="112">개별 구간 편향</text><text class="k" x="126" y="136">같은 방향이면 뒤로 갈수록 커진다</text>
+  <rect class="card" x="650" y="116" width="250" height="88" rx="10"/><text class="h" x="672" y="150">마지막 화면이 김</text><text class="k" x="672" y="178">끝 여백보다 마지막 파일 중복 확인</text>
+  <rect class="card" x="650" y="236" width="250" height="88" rx="10"/><text class="h" x="672" y="270">총 길이는 맞음</text><text class="k" x="672" y="298">중간 경계의 실제 프레임 확인</text>
+</svg>

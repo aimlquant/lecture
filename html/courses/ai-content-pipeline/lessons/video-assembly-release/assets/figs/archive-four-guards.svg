@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title">
+  <title id="title">네 가드를 모두 통과한 뒤에만 NAS 쓰기를 여는 흐름</title>
+  <defs><marker id="a" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto"><path d="M0 0L10 4L0 8z" fill="#0f2c59"/></marker><marker id="r" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto"><path d="M0 0L10 4L0 8z" fill="#a32f3c"/></marker></defs>
+  <style>
+    .bg{fill:#fafaf9}.gate{fill:#fff;stroke:#0f2c59;stroke-width:2}.ok{fill:#e4efe8;stroke:#2c6e4a;stroke-width:2}.stop{fill:#f8ece5;stroke:#a32f3c;stroke-width:2}.h{font:800 17px Inter,"Noto Sans KR",sans-serif;fill:#101114}.k{font:700 11.5px Inter,"Noto Sans KR",sans-serif;fill:#5a6472}.arrow{stroke:#0f2c59;stroke-width:2.5;fill:none;marker-end:url(#a)}.fail{stroke:#a32f3c;stroke-width:2;stroke-dasharray:5 4;fill:none;marker-end:url(#r)}
+  </style>
+  <rect class="bg" width="960" height="420"/>
+  <g transform="translate(28 84)"><rect class="gate" width="188" height="108" rx="11"/><text class="h" x="20" y="40">1 · 절대경로</text><text class="k" x="20" y="68">위치 흔들림 차단</text></g>
+  <g transform="translate(266 84)"><rect class="gate" width="188" height="108" rx="11"/><text class="h" x="20" y="40">2 · 공유 표식</text><text class="k" x="20" y="68">마운트 누락 차단</text></g>
+  <g transform="translate(504 84)"><rect class="gate" width="188" height="108" rx="11"/><text class="h" x="20" y="40">3 · 파일시스템</text><text class="k" x="20" y="68">로컬 오인 차단</text></g>
+  <g transform="translate(742 84)"><rect class="gate" width="188" height="108" rx="11"/><text class="h" x="20" y="40">4 · 여유 공간</text><text class="k" x="20" y="68">최소 2GiB</text></g>
+  <path class="arrow" d="M216 138H258"/><path class="arrow" d="M454 138H496"/><path class="arrow" d="M692 138H734"/>
+  <rect class="ok" x="692" y="272" width="238" height="104" rx="11"/><text class="h" x="714" y="314">NAS 쓰기 열기</text><text class="k" x="714" y="342">네 조건을 모두 증명함</text><path class="arrow" d="M836 192V272"/>
+  <rect class="stop" x="28" y="272" width="470" height="104" rx="11"/><text class="h" x="50" y="314">즉시 중단</text><text class="k" x="50" y="342">하나라도 실패하면 루트 디스크에 쓰지 않는다</text>
+  <path class="fail" d="M122 192V272"/><path class="fail" d="M360 192V232H263V272"/><path class="fail" d="M598 192V232H382V272"/>
+</svg>

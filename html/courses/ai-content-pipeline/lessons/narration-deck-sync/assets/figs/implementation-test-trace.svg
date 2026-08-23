@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title">
+  <title id="title">구현 세 부분과 계약 테스트 두 부분의 추적 관계</title>
+  <defs><marker id="a" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto"><path d="M0 0L10 4L0 8z" fill="#0f2c59"/></marker></defs>
+  <style>
+    .bg{fill:#fafaf9}.src{fill:#fff;stroke:#0f2c59;stroke-width:2}.test{fill:#e4efe8;stroke:#2c6e4a;stroke-width:2}.h{font:800 18px Inter,"Noto Sans KR",sans-serif;fill:#101114}.s{font:500 12px Inter,"Noto Sans KR",sans-serif;fill:#5a6472}.arrow{stroke:#0f2c59;stroke-width:2;fill:none;marker-end:url(#a)}
+  </style>
+  <rect class="bg" width="960" height="420"/>
+  <g transform="translate(34 38)"><rect class="src" width="270" height="92" rx="10"/><text class="h" x="22" y="38">대본 파서</text><text class="s" x="22" y="64">ID · 문단 · 문장 수</text></g>
+  <g transform="translate(34 164)"><rect class="src" width="270" height="92" rx="10"/><text class="h" x="22" y="38">덱 생성기</text><text class="s" x="22" y="64">흐린 항목 · 정적 상태 · 프레임 계획</text></g>
+  <g transform="translate(34 290)"><rect class="src" width="270" height="92" rx="10"/><text class="h" x="22" y="38">문장 정렬기</text><text class="s" x="22" y="64">추정 · 관측 보정 · 단조 증가</text></g>
+  <g transform="translate(656 88)"><rect class="test" width="270" height="112" rx="10"/><text class="h" x="22" y="42">대본 계약 테스트</text><text class="s" x="22" y="70">ID 집합 · 순서 · 길이 · 표기</text></g>
+  <g transform="translate(656 244)"><rect class="test" width="270" height="112" rx="10"/><text class="h" x="22" y="42">덱 계약 테스트</text><text class="s" x="22" y="70">근거 · 밀도 · 시각자료 · 크기</text></g>
+  <path class="arrow" d="M304 84H470V126H656"/><path class="arrow" d="M304 210H500V276H656"/><path class="arrow" d="M304 336H470V318H656"/><path class="arrow" d="M304 84H430V266H656"/><path class="arrow" d="M304 210H530V168H656"/>
+  <circle cx="470" cy="126" r="6" fill="#0f2c59"/><circle cx="500" cy="276" r="6" fill="#0f2c59"/>
+</svg>

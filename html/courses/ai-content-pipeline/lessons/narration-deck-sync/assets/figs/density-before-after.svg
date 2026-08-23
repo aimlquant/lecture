@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title">
+  <title id="title">같은 1강의 초기안과 현재 공개안 화면 구성 비교</title>
+  <style>
+    .bg{fill:#fafaf9}.panel{fill:#fff;stroke:#d7dce3;stroke-width:2}.old{fill:#f3ded3}.new{fill:#dcecdf}.oldLine{stroke:#b4552a;stroke-width:18}.newLine{stroke:#2c6e4a;stroke-width:18}.axis{stroke:#c7cdd6;stroke-width:2}.h{font:700 22px Inter,"Noto Sans KR",sans-serif;fill:#101114}.k{font:700 15px Inter,"Noto Sans KR",sans-serif;fill:#5a6472}.v{font:800 32px Inter,"Noto Sans KR",sans-serif}.s{font:500 14px Inter,"Noto Sans KR",sans-serif;fill:#5a6472}.oldText{fill:#9d4323}.newText{fill:#23633f}
+  </style>
+  <rect class="bg" width="960" height="420"/>
+  <rect class="panel" x="30" y="24" width="900" height="372" rx="14"/>
+  <rect class="old" x="64" y="54" width="390" height="92" rx="10"/>
+  <text class="k oldText" x="88" y="84">초기안</text><text class="v oldText" x="88" y="126">73장</text>
+  <text class="k oldText" x="206" y="96">미사용 시각 컴포넌트</text><text class="v oldText" x="206" y="130">14종</text>
+  <rect class="new" x="506" y="54" width="390" height="92" rx="10"/>
+  <text class="k newText" x="530" y="84">현재 공개안</text><text class="v newText" x="530" y="126">47장</text>
+  <text class="s" x="648" y="110">내용은 남기고</text><text class="s" x="648" y="130">말하는 항목만 밝힘</text>
+  <text class="h" x="64" y="196">본문이 얇은 장</text>
+  <line class="axis" x1="266" y1="188" x2="856" y2="188"/>
+  <line class="oldLine" x1="266" y1="224" x2="655" y2="224"/><text class="k oldText" x="670" y="230">66% · 48장</text>
+  <line class="newLine" x1="266" y1="258" x2="366" y2="258"/><text class="k newText" x="381" y="264">17% · 8장</text>
+  <text class="h" x="64" y="322">표·도해가 있는 장</text>
+  <line class="axis" x1="266" y1="314" x2="856" y2="314"/>
+  <line class="oldLine" x1="266" y1="350" x2="378" y2="350"/><text class="k oldText" x="393" y="356">19% · 14장</text>
+  <line class="newLine" x1="266" y1="384" x2="467" y2="384"/><text class="k newText" x="482" y="390">34% · 16장</text>
+</svg>

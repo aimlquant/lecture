@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title">
+  <title id="title">한 슬라이드를 이루는 일곱 필드의 역할</title>
+  <defs><marker id="a" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto"><path d="M0 0L10 4L0 8z" fill="#0f2c59"/></marker></defs>
+  <style>
+    .bg{fill:#fafaf9}.core{fill:#e8eef8;stroke:#0f2c59;stroke-width:2}.box{fill:#fff;stroke:#d7dce3;stroke-width:2}.time{fill:#e4efe8;stroke:#2c6e4a;stroke-width:2}.h{font:800 20px Inter,"Noto Sans KR",sans-serif;fill:#101114}.k{font:700 13px Inter,"Noto Sans KR",sans-serif;fill:#0f2c59}.s{font:500 12px Inter,"Noto Sans KR",sans-serif;fill:#5a6472}.arrow{stroke:#0f2c59;stroke-width:2;fill:none;marker-end:url(#a)}
+  </style>
+  <rect class="bg" width="960" height="420"/>
+  <rect class="core" x="350" y="44" width="260" height="332" rx="14"/>
+  <text class="k" x="376" y="78">SLIDE ID · s16</text><text class="h" x="376" y="116">제목</text><text class="s" x="376" y="138">한 줄 결론</text>
+  <rect class="box" x="376" y="162" width="208" height="82" rx="8"/><text class="k" x="394" y="192">화면</text><text class="s" x="394" y="216">처음부터 자리 잡는 항목</text>
+  <rect class="time" x="376" y="266" width="208" height="82" rx="8"/><text class="k" x="394" y="296">내레이션 시간</text><text class="s" x="394" y="320">도입 뒤 항목을 밝힘</text>
+  <g><rect class="box" x="34" y="62" width="250" height="76" rx="10"/><text class="h" x="56" y="94">리포트</text><text class="s" x="56" y="118">주장과 수치의 근거 절 ID</text><path class="arrow" d="M284 100H350"/></g>
+  <g><rect class="box" x="34" y="172" width="250" height="76" rx="10"/><text class="h" x="56" y="204">레이아웃</text><text class="s" x="56" y="228">정보 관계와 배치 형식</text><path class="arrow" d="M284 210H350"/></g>
+  <g><rect class="box" x="676" y="62" width="250" height="76" rx="10"/><text class="h" x="698" y="94">리드</text><text class="s" x="698" y="118">결론의 조건과 맥락</text><path class="arrow" d="M676 100H610"/></g>
+  <g><rect class="time" x="676" y="172" width="250" height="76" rx="10"/><text class="h" x="698" y="204">도입</text><text class="s" x="698" y="228">첫 항목 전 문장 수</text><path class="arrow" d="M676 210H640V290H584"/></g>
+  <g><rect class="time" x="676" y="282" width="250" height="76" rx="10"/><text class="h" x="698" y="314">드러내기</text><text class="s" x="698" y="338">항목별 또는 한 번에</text><path class="arrow" d="M676 320H584"/></g>
+</svg>

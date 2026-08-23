@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title">
+  <title id="title">최종 MP4의 스트림과 길이 및 경계 프레임을 다시 검증하는 지도</title>
+  <style>
+    .bg{fill:#fafaf9}.core{fill:#e8eef8;stroke:#0f2c59;stroke-width:3}.box{fill:#fff;stroke:#d7dce3;stroke-width:2}.pixel{fill:#e4efe8;stroke:#2c6e4a;stroke-width:2}.h{font:800 18px Inter,"Noto Sans KR",sans-serif;fill:#101114}.k{font:700 12px Inter,"Noto Sans KR",sans-serif;fill:#5a6472}.s{font:500 11px Inter,"Noto Sans KR",sans-serif;fill:#5a6472}.link{stroke:#8d98a8;stroke-width:2;fill:none}
+  </style>
+  <rect class="bg" width="960" height="420"/>
+  <path class="link" d="M222 103H360M222 205H360M222 307H360M600 103H738M600 205H738"/>
+  <rect class="core" x="360" y="72" width="240" height="236" rx="14"/><text class="h" x="480" y="126" text-anchor="middle">최종 MP4</text><path d="M408 158h144v82H408z" fill="#fff" stroke="#0f2c59" stroke-width="2"/><path d="M461 179l44 20-44 20z" fill="#2c6e4a"/><text class="k" x="480" y="276" text-anchor="middle">컨테이너를 다시 조사</text>
+  <g transform="translate(30 58)"><rect class="box" width="192" height="90" rx="9"/><text class="h" x="18" y="35">화면</text><text class="s" x="18" y="61">H.264 · 크기 · 30fps</text></g>
+  <g transform="translate(30 160)"><rect class="box" width="192" height="90" rx="9"/><text class="h" x="18" y="35">길이</text><text class="s" x="18" y="61">계획 · 오디오 · 영상 · 출력</text></g>
+  <g transform="translate(30 262)"><rect class="box" width="192" height="90" rx="9"/><text class="h" x="18" y="35">음량</text><text class="s" x="18" y="61">무음 · 평균 · 피크</text></g>
+  <g transform="translate(738 58)"><rect class="box" width="192" height="90" rx="9"/><text class="h" x="18" y="35">소리</text><text class="s" x="18" y="61">AAC · 48kHz · 단일 채널</text></g>
+  <g transform="translate(738 160)"><rect class="box" width="192" height="90" rx="9"/><text class="h" x="18" y="35">배치</text><text class="s" x="18" y="61">두 스트림 · 빠른 시작</text></g>
+  <rect class="pixel" x="666" y="278" width="264" height="90" rx="9"/><text class="h" x="686" y="313">경계 픽셀</text><text class="s" x="686" y="339">기대 상태와 전체 후보 최근접 대조</text>
+  <path class="link" d="M600 268H640V323H666"/>
+</svg>

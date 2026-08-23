@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title">
+  <title id="title">비공개 승인에서 공개와 익명 확인 및 롤백으로 이어지는 배포 흐름</title>
+  <defs><marker id="a" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto"><path d="M0 0L10 4L0 8z" fill="#0f2c59"/></marker><marker id="r" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto"><path d="M0 0L10 4L0 8z" fill="#b4552a"/></marker></defs>
+  <style>
+    .bg{fill:#fafaf9}.step{fill:#fff;stroke:#0f2c59;stroke-width:2}.public{fill:#e4efe8;stroke:#2c6e4a;stroke-width:2}.check{fill:#e8eef8;stroke:#0f2c59;stroke-width:2}.rollback{fill:#f8ece5;stroke:#a32f3c;stroke-width:2}.h{font:800 16px Inter,"Noto Sans KR",sans-serif;fill:#101114}.k{font:700 11px Inter,"Noto Sans KR",sans-serif;fill:#5a6472}.arrow{stroke:#0f2c59;stroke-width:2.5;fill:none;marker-end:url(#a)}.back{stroke:#b4552a;stroke-width:2.5;stroke-dasharray:7 5;fill:none;marker-end:url(#r)}
+  </style>
+  <rect class="bg" width="960" height="420"/>
+  <g transform="translate(26 50)"><rect class="step" width="170" height="94" rx="10"/><text class="h" x="18" y="38">비공개 업로드</text><text class="k" x="18" y="64">파일 해시 고정</text></g>
+  <g transform="translate(238 50)"><rect class="step" width="170" height="94" rx="10"/><text class="h" x="18" y="38">자산 승인</text><text class="k" x="18" y="64">영상·해시 확인</text></g>
+  <g transform="translate(450 50)"><rect class="step" width="170" height="94" rx="10"/><text class="h" x="18" y="38">메타 승인</text><text class="k" x="18" y="64">제목·설명·태그</text></g>
+  <g transform="translate(662 50)"><rect class="public" width="170" height="94" rx="10"/><text class="h" x="18" y="38">공개</text><text class="k" x="18" y="64">승인 뒤 상태 전환</text></g>
+  <path class="arrow" d="M196 97H238"/><path class="arrow" d="M408 97H450"/><path class="arrow" d="M620 97H662"/><path class="arrow" d="M747 144V210"/>
+  <rect class="check" x="154" y="210" width="678" height="104" rx="12"/><text class="h" x="180" y="246">익명 공개 확인</text><text class="k" x="244" y="280" text-anchor="middle">YouTube 시청·임베드</text><text class="k" x="410" y="280" text-anchor="middle">재생목록 1·2·3강</text><text class="k" x="576" y="280" text-anchor="middle">Pages 링크·canonical</text><text class="k" x="742" y="280" text-anchor="middle">채널 홈 강의 섹션</text><path d="M327 260V292M493 260V292M659 260V292" stroke="#9aa3b1"/>
+  <path class="arrow" d="M832 262H900V350H760"/>
+  <rect class="public" x="590" y="338" width="170" height="58" rx="10"/><text class="h" x="675" y="374" text-anchor="middle">배포 완료</text>
+  <rect class="rollback" x="26" y="338" width="240" height="58" rx="10"/><text class="h" x="146" y="374" text-anchor="middle">실패 · 비공개 전환</text>
+  <path class="back" d="M154 262H90V338"/><path class="back" d="M146 338V184H111V144"/>
+</svg>

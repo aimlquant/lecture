@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title">
+  <title id="title">자동 구조 관문과 사람 경험 관문을 모두 통과하는 배포 후보</title>
+  <defs><marker id="a" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto"><path d="M0 0L10 4L0 8z" fill="#0f2c59"/></marker></defs>
+  <style>
+    .bg{fill:#fafaf9}.in{fill:#e8eef8;stroke:#0f2c59;stroke-width:2}.auto{fill:#fff;stroke:#0f2c59;stroke-width:2}.human{fill:#fff4e8;stroke:#b4552a;stroke-width:2}.out{fill:#e4efe8;stroke:#2c6e4a;stroke-width:2}.h{font:800 19px Inter,"Noto Sans KR",sans-serif;fill:#101114}.k{font:700 13px Inter,"Noto Sans KR",sans-serif}.s{font:500 12px Inter,"Noto Sans KR",sans-serif;fill:#5a6472}.arrow{stroke:#0f2c59;stroke-width:3;fill:none;marker-end:url(#a)}
+  </style>
+  <rect class="bg" width="960" height="420"/>
+  <rect class="in" x="30" y="154" width="140" height="112" rx="12"/><text class="k" x="100" y="190" text-anchor="middle">입력</text><text class="h" x="100" y="224" text-anchor="middle">렌더 후보</text>
+  <rect class="auto" x="210" y="54" width="250" height="312" rx="14"/><text class="k" x="238" y="91">자동 구조 관문</text><text class="h" x="238" y="126">규칙 위반을 막는다</text><text class="s" x="238" y="168">✓ ID와 순서</text><text class="s" x="238" y="204">✓ 문장·도입·항목 수</text><text class="s" x="238" y="240">✓ 리포트 근거 절</text><text class="s" x="238" y="276">✓ 레이아웃 값</text><text class="s" x="238" y="312">✓ 프레임 픽셀 대조</text>
+  <rect class="human" x="520" y="54" width="240" height="312" rx="14"/><text class="k" x="548" y="91" fill="#9d4323">사람 경험 관문</text><text class="h" x="548" y="126">시청 품질을 본다</text><text class="s" x="548" y="168">✓ 말과 화면의 연결</text><text class="s" x="548" y="204">✓ 강조 속도의 리듬</text><text class="s" x="548" y="240">✓ 흐린 항목 가독성</text><text class="s" x="548" y="276">✓ 실제 크기 정보량</text><text class="s" x="548" y="312">✓ 의미에 맞는 전환</text>
+  <rect class="out" x="820" y="154" width="110" height="112" rx="12"/><text class="k" x="875" y="194" text-anchor="middle">통과</text><text class="h" x="875" y="228" text-anchor="middle">배포 후보</text>
+  <path class="arrow" d="M170 210H210"/><path class="arrow" d="M460 210H520"/><path class="arrow" d="M760 210H820"/>
+</svg>

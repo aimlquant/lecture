@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title">
+  <title id="title">동일한 영상 규격을 가진 세그먼트를 재인코딩 없이 이어 붙이는 구조</title>
+  <defs><marker id="a" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto"><path d="M0 0L10 4L0 8z" fill="#0f2c59"/></marker></defs>
+  <style>
+    .bg{fill:#fafaf9}.input{fill:#fff;stroke:#0f2c59;stroke-width:2}.seg{fill:#e8eef8;stroke:#0f2c59;stroke-width:2}.out{fill:#e4efe8;stroke:#2c6e4a;stroke-width:2}.chip{fill:#fff;stroke:#c7cdd6}.h{font:800 18px Inter,"Noto Sans KR",sans-serif;fill:#101114}.k{font:700 12px Inter,"Noto Sans KR",sans-serif;fill:#5a6472}.s{font:600 12px ui-monospace,monospace;fill:#0f2c59}.arrow{stroke:#0f2c59;stroke-width:2.5;fill:none;marker-end:url(#a)}
+  </style>
+  <rect class="bg" width="960" height="420"/>
+  <rect class="input" x="32" y="70" width="176" height="112" rx="11"/><text class="h" x="56" y="112">PNG 화면</text><text class="k" x="56" y="140">1920×1080</text>
+  <rect class="input" x="32" y="238" width="176" height="112" rx="11"/><text class="h" x="56" y="280">스냅된 체류</text><text class="k" x="56" y="308">정수 프레임</text>
+  <path class="arrow" d="M208 126H260V178H312"/><path class="arrow" d="M208 294H260V242H312"/>
+  <rect class="seg" x="312" y="54" width="336" height="312" rx="14"/><text class="h" x="338" y="92">segment.mp4</text><text class="k" x="338" y="116">화면 하나 · 체류 하나 · 길이를 가진 파일</text>
+  <g transform="translate(338 160)"><rect class="chip" width="88" height="54" rx="8"/><text class="s" x="44" y="33" text-anchor="middle">1920×1080</text></g>
+  <g transform="translate(436 160)"><rect class="chip" width="88" height="54" rx="8"/><text class="s" x="44" y="33" text-anchor="middle">30fps</text></g>
+  <g transform="translate(534 160)"><rect class="chip" width="88" height="54" rx="8"/><text class="s" x="44" y="33" text-anchor="middle">yuv420p</text></g>
+  <g transform="translate(338 234)"><rect class="chip" width="88" height="54" rx="8"/><text class="s" x="44" y="33" text-anchor="middle">H.264</text></g>
+  <g transform="translate(436 234)"><rect class="chip" width="88" height="54" rx="8"/><text class="s" x="44" y="33" text-anchor="middle">GOP 120</text></g>
+  <g transform="translate(534 234)"><rect class="chip" width="88" height="54" rx="8"/><text class="s" x="44" y="27" text-anchor="middle">timescale</text><text class="s" x="44" y="43" text-anchor="middle">30000</text></g>
+  <path class="arrow" d="M648 210H718"/><rect class="out" x="718" y="112" width="210" height="196" rx="13"/><text class="h" x="742" y="154">concat copy</text><text class="k" x="742" y="180">같은 규격만 연결</text><path d="M750 214h146M750 240h146M750 266h146" stroke="#2c6e4a" stroke-width="8"/><text class="s" x="823" y="292" text-anchor="middle">slides.mp4</text>
+</svg>

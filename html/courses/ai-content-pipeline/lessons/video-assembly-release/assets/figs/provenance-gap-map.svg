@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title">
+  <title id="title">현재 해시로 이어지는 계보와 아웃라인 및 프레임 명세의 공백</title>
+  <defs><marker id="a" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto"><path d="M0 0L10 4L0 8z" fill="#0f2c59"/></marker><marker id="r" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto"><path d="M0 0L10 4L0 8z" fill="#b4552a"/></marker></defs>
+  <style>
+    .bg{fill:#fafaf9}.have{fill:#e4efe8;stroke:#2c6e4a;stroke-width:2}.gap{fill:#fff4e8;stroke:#b4552a;stroke-width:2;stroke-dasharray:7 5}.h{font:800 17px Inter,"Noto Sans KR",sans-serif;fill:#101114}.k{font:700 11.5px Inter,"Noto Sans KR",sans-serif;fill:#5a6472}.arrow{stroke:#0f2c59;stroke-width:2.5;fill:none;marker-end:url(#a)}.missing{stroke:#b4552a;stroke-width:2.5;stroke-dasharray:6 5;fill:none;marker-end:url(#r)}
+  </style>
+  <rect class="bg" width="960" height="420"/>
+  <g transform="translate(30 74)"><rect class="have" width="184" height="104" rx="11"/><text class="h" x="18" y="40">콘텐츠</text><text class="k" x="18" y="68">정본 리비전 있음</text></g>
+  <g transform="translate(270 74)"><rect class="have" width="184" height="104" rx="11"/><text class="h" x="18" y="40">대본</text><text class="k" x="18" y="68">전체·문단 해시 있음</text></g>
+  <g transform="translate(510 74)"><rect class="have" width="184" height="104" rx="11"/><text class="h" x="18" y="40">문단 오디오</text><text class="k" x="18" y="68">WAV 해시 있음</text></g>
+  <g transform="translate(750 74)"><rect class="have" width="180" height="104" rx="11"/><text class="h" x="18" y="40">최종 영상</text><text class="k" x="18" y="68">MP4 해시 있음</text></g>
+  <path class="arrow" d="M214 126H262"/><path class="arrow" d="M454 126H502"/><path class="arrow" d="M694 126H742"/>
+  <g transform="translate(270 270)"><rect class="gap" width="184" height="104" rx="11"/><text class="h" x="18" y="40">아웃라인 전체</text><text class="k" x="18" y="68">리비전·해시 없음</text></g>
+  <g transform="translate(510 270)"><rect class="gap" width="184" height="104" rx="11"/><text class="h" x="18" y="40">프레임 명세</text><text class="k" x="18" y="68">명세 해시 없음</text></g>
+  <path class="missing" d="M454 322H510"/><path class="missing" d="M694 322H840V178"/>
+  <text class="h" x="30" y="324">화면 계보 공백</text><text class="k" x="30" y="350">없는 연결은 숨기지 않고 보완 대상으로 남긴다</text>
+</svg>

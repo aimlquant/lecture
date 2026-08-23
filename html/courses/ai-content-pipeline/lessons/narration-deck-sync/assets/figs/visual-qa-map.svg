@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title">
+  <title id="title">최종 크기 화면을 중심으로 한 여섯 시각 품질 검사</title>
+  <style>
+    .bg{fill:#fafaf9}.screen{fill:#e8eef8;stroke:#0f2c59;stroke-width:3}.box{fill:#fff;stroke:#d7dce3;stroke-width:2}.ok{fill:#e4efe8;stroke:#2c6e4a;stroke-width:2}.h{font:800 18px Inter,"Noto Sans KR",sans-serif;fill:#101114}.k{font:700 13px Inter,"Noto Sans KR",sans-serif;fill:#0f2c59}.s{font:500 11.5px Inter,"Noto Sans KR",sans-serif;fill:#5a6472}.link{stroke:#8d98a8;stroke-width:2;fill:none}
+  </style>
+  <rect class="bg" width="960" height="420"/>
+  <path class="link" d="M180 126V172H348M480 126V150M780 126V172H612M180 294V250H348M480 294V270M780 294V250H612"/>
+  <rect class="screen" x="348" y="150" width="264" height="120" rx="10"/>
+  <rect x="372" y="174" width="216" height="72" rx="4" fill="#fff" stroke="#0f2c59"/>
+  <text class="h" x="480" y="205" text-anchor="middle">최종 표시 크기</text><text class="k" x="480" y="231" text-anchor="middle">1280×720 · 1920×1080</text>
+  <g transform="translate(50 34)"><rect class="box" width="260" height="92" rx="10"/><text class="h" x="20" y="38">글자</text><text class="s" x="20" y="64">넘침 · 잘림 · 작은 본문</text></g>
+  <g transform="translate(350 34)"><rect class="box" width="260" height="92" rx="10"/><text class="h" x="20" y="38">격자</text><text class="s" x="20" y="64">폭 · 행 · 열 · 중심선 · 간격</text></g>
+  <g transform="translate(650 34)"><rect class="box" width="260" height="92" rx="10"/><text class="h" x="20" y="38">상태</text><text class="s" x="20" y="64">흐림 · 현재 · 지난 항목</text></g>
+  <g transform="translate(50 294)"><rect class="ok" width="260" height="92" rx="10"/><text class="h" x="20" y="38">표</text><text class="s" x="20" y="64">머리글 · 행 순서 · 셀 정렬</text></g>
+  <g transform="translate(350 294)"><rect class="ok" width="260" height="92" rx="10"/><text class="h" x="20" y="38">도해</text><text class="s" x="20" y="64">화살표 경계 · 축 · 라벨</text></g>
+  <g transform="translate(650 294)"><rect class="ok" width="260" height="92" rx="10"/><text class="h" x="20" y="38">프레임</text><text class="s" x="20" y="64">전환 중이 아닌 고정 픽셀</text></g>
+</svg>

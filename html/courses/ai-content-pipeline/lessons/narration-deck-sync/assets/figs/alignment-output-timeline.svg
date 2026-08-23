@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title">
+  <title id="title">비례 추정과 받아쓰기 경계로 문장 시작 시각을 만드는 정렬 결과</title>
+  <style>
+    .bg{fill:#fafaf9}.card{fill:#fff;stroke:#d7dce3;stroke-width:2}.axis{stroke:#0f2c59;stroke-width:4}.tick{stroke:#0f2c59;stroke-width:2}.estimate{fill:#b4552a}.asr{fill:#0f2c59}.final{fill:#2c6e4a}.h{font:800 21px Inter,"Noto Sans KR",sans-serif;fill:#101114}.k{font:700 13px Inter,"Noto Sans KR",sans-serif;fill:#5a6472}.v{font:800 16px ui-monospace,monospace}.s{font:500 12px Inter,"Noto Sans KR",sans-serif;fill:#5a6472}
+  </style>
+  <rect class="bg" width="960" height="420"/>
+  <rect class="card" x="32" y="28" width="896" height="364" rx="14"/>
+  <text class="h" x="62" y="68">설명 예</text><text class="k" x="142" y="68">가정한 12.0초 문단 · 문장 3개</text>
+  <line class="axis" x1="92" y1="228" x2="868" y2="228"/>
+  <g class="k"><text x="86" y="258">0초</text><text x="340" y="258">4초</text><text x="600" y="258">8초</text><text x="850" y="258">12초</text></g>
+  <g class="tick"><line x1="92" y1="218" x2="92" y2="240"/><line x1="351" y1="218" x2="351" y2="240"/><line x1="609" y1="218" x2="609" y2="240"/><line x1="868" y1="218" x2="868" y2="240"/></g>
+  <text class="k" x="62" y="118">비례 추정</text><circle class="estimate" cx="351" cy="112" r="9"/><circle class="estimate" cx="609" cy="112" r="9"/><text class="v estimate" x="325" y="94">4.0</text><text class="v estimate" x="583" y="94">8.0</text>
+  <text class="k" x="62" y="164">받아쓰기 관측</text><circle class="asr" cx="370" cy="158" r="9"/><circle class="asr" cx="590" cy="158" r="9"/><text class="v asr" x="344" y="142">4.3</text><text class="v asr" x="564" y="142">7.7</text>
+  <text class="k" x="62" y="206">최종 시작</text><circle class="final" cx="361" cy="200" r="11"/><circle class="final" cx="580" cy="200" r="11"/><text class="v final" x="326" y="190">4.15</text><text class="v final" x="545" y="190">7.55</text>
+  <path d="M361 211V228M580 211V228" stroke="#2c6e4a" stroke-width="3"/>
+  <g transform="translate(62 294)"><rect class="card" width="252" height="72" rx="9"/><text class="k" x="18" y="29">키</text><text class="h" x="18" y="55">슬라이드 ID</text></g>
+  <g transform="translate(334 294)"><rect class="card" width="252" height="72" rx="9"/><text class="k" x="18" y="29">경계</text><text class="h" x="18" y="55">문장 시작 시각</text></g>
+  <g transform="translate(606 294)"><rect class="card" width="252" height="72" rx="9"/><text class="k" x="18" y="29">검증값</text><text class="h" x="18" y="55">추정 + 관측</text></g>
+</svg>

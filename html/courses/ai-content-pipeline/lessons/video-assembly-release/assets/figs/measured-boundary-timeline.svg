@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title">
+  <title id="title">문장 시작과 문단 끝 경계의 차이로 계산한 화면 체류 시간</title>
+  <defs><marker id="a" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto"><path d="M0 0L10 4L0 8z" fill="#0f2c59"/></marker></defs>
+  <style>
+    .bg{fill:#fafaf9}.card{fill:#fff;stroke:#d7dce3;stroke-width:2}.s1{fill:#e8eef8;stroke:#0f2c59;stroke-width:2}.s2{fill:#dcecdf;stroke:#2c6e4a;stroke-width:2}.s3{fill:#f3ded3;stroke:#b4552a;stroke-width:2}.pause{fill:#eef1f5;stroke:#6f7886;stroke-width:2}.h{font:800 18px Inter,"Noto Sans KR",sans-serif;fill:#101114}.k{font:700 13px Inter,"Noto Sans KR",sans-serif;fill:#5a6472}.v{font:800 17px ui-monospace,monospace;fill:#0f2c59}.arrow{stroke:#0f2c59;stroke-width:2;fill:none;marker-end:url(#a)}
+  </style>
+  <rect class="bg" width="960" height="420"/><rect class="card" x="30" y="28" width="900" height="364" rx="14"/>
+  <g transform="translate(68 150)"><rect class="s1" width="206" height="104" rx="9"/><text class="h" x="20" y="42">상태 1</text><text class="v" x="20" y="76">4.00초</text></g>
+  <g transform="translate(274 150)"><rect class="s2" width="258" height="104" rx="9"/><text class="h" x="20" y="42">상태 2</text><text class="v" x="20" y="76">5.00초</text></g>
+  <g transform="translate(532 150)"><rect class="s3" width="335" height="104" rx="9"/><text class="h" x="20" y="42">상태 3</text><text class="v" x="20" y="76">6.45초</text></g>
+  <rect class="pause" x="838" y="150" width="29" height="104" rx="8"/>
+  <g class="v"><text x="68" y="124">0</text><text x="254" y="124">4</text><text x="512" y="124">9</text><text x="790" y="124">15</text><text x="827" y="94">15.45초</text></g>
+  <g stroke="#0f2c59" stroke-width="2"><line x1="68" y1="132" x2="68" y2="270"/><line x1="274" y1="132" x2="274" y2="270"/><line x1="532" y1="132" x2="532" y2="270"/><line x1="838" y1="132" x2="838" y2="270"/><line x1="867" y1="132" x2="867" y2="270"/></g>
+  <path class="arrow" d="M68 310H867"/><text class="k" x="68" y="344">다음 경계 − 현재 경계 = 체류 시간</text><text class="k" x="868" y="344" text-anchor="end">마지막 상태가 0.45초 쉼까지 유지</text>
+</svg>

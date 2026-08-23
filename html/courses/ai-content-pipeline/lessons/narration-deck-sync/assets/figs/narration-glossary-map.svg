@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title">
+  <title id="title">도입과 비례 추정부터 프레임 계획까지 이어지는 여섯 핵심 용어</title>
+  <defs><marker id="a" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto"><path d="M0 0L10 4L0 8z" fill="#0f2c59"/></marker></defs>
+  <style>
+    .bg{fill:#fafaf9}.box{fill:#fff;stroke:#0f2c59;stroke-width:2}.accent{fill:#e4efe8;stroke:#2c6e4a;stroke-width:2}.h{font:800 19px Inter,"Noto Sans KR",sans-serif;fill:#101114}.s{font:500 11.5px Inter,"Noto Sans KR",sans-serif;fill:#5a6472}.arrow{stroke:#0f2c59;stroke-width:2.5;fill:none;marker-end:url(#a)}
+  </style>
+  <rect class="bg" width="960" height="420"/>
+  <g transform="translate(34 54)"><rect class="box" width="220" height="104" rx="11"/><text class="h" x="20" y="42">도입</text><text class="s" x="20" y="69">첫 항목 전 문장 수</text></g>
+  <g transform="translate(34 262)"><rect class="box" width="220" height="104" rx="11"/><text class="h" x="20" y="42">비례 추정</text><text class="s" x="20" y="69">글자 비율의 기준점</text></g>
+  <g transform="translate(330 158)"><rect class="accent" width="240" height="104" rx="11"/><text class="h" x="20" y="42">문장 정렬</text><text class="s" x="20" y="69">문장 시작 시각 결정</text></g>
+  <g transform="translate(646 36)"><rect class="box" width="280" height="86" rx="11"/><text class="h" x="20" y="38">드러내기</text><text class="s" x="20" y="63">흐린 항목을 밝힌다</text></g>
+  <g transform="translate(646 167)"><rect class="box" width="280" height="86" rx="11"/><text class="h" x="20" y="38">화면 상태</text><text class="s" x="20" y="63">특정 항목까지 밝아진 모습</text></g>
+  <g transform="translate(646 298)"><rect class="accent" width="280" height="86" rx="11"/><text class="h" x="20" y="38">프레임 계획</text><text class="s" x="20" y="63">상태 수와 순서 목록</text></g>
+  <path class="arrow" d="M254 106H292V188H330"/><path class="arrow" d="M254 314H292V232H330"/><path class="arrow" d="M570 210H610V79H646"/><path class="arrow" d="M786 122V167"/><path class="arrow" d="M786 253V298"/>
+</svg>
