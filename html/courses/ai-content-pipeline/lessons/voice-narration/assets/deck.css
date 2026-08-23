@@ -683,6 +683,9 @@ a {
 
 .deck-quick-links {
   display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
   gap: 6px;
@@ -693,6 +696,7 @@ a {
   height: 32px;
   padding: 0 9px;
   font-size: 11px;
+  white-space: nowrap;
 }
 
 .deck-settings button:hover,

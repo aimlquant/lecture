@@ -1392,6 +1392,9 @@ body.chrome-hidden .report-settings {
 }
 .report-quick-links {
   display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
   gap: 6px;
@@ -1421,6 +1424,7 @@ body.chrome-hidden .report-settings {
   min-width: 0;
   font-size: 11px;
   letter-spacing: 0;
+  white-space: nowrap;
 }
 .report-settings-action {
   height: 34px;
