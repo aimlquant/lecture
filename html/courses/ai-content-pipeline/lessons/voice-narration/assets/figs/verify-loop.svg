@@ -62,5 +62,7 @@
   <!-- 실패 분기: 색을 실패 경로와 맞춘다 -->
   <path class="rt" d="M512 208 L512 232" marker-end="url(#a3)"/>
   <text class="el elf" x="526" y="224">어긋나면</text>
-  <path class="rt" d="M610 263 L676 263 L676 100 L424 100 L424 62" marker-end="url(#a3)"/>
+  <!-- 재시도 경로는 생성 박스 아래쪽 경계에 닿게 끝낸다. 62 로 두면 화살촉이
+       박스(y 16~68) 안으로 6px 파고든다. -->
+  <path class="rt" d="M610 263 L676 263 L676 100 L424 100 L424 70" marker-end="url(#a3)"/>
 </svg>
