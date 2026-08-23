@@ -163,3 +163,90 @@ h1 {
 }
 
 .footer-links a { font-weight: 650; text-decoration: none; color: var(--primary); }
+
+/* ---- 차시 목록 -----------------------------------------------------------
+ * 경유 페이지를 없애기 위한 것이다. 전에는 강의 홈 → 코스 → 차시 → 리포트로 네 번
+ * 눌러야 했고, 가운데 두 페이지는 항목이 하나뿐인데 "보기 →" 링크만 갖고 있었다.
+ * 지금은 홈이 차시를 직접 나열하고 카드에서 내용으로 바로 간다. `study` 가 회차를
+ * 홈에서 직접 보여주는 것과 같은 방식이다. */
+
+h2 {
+  margin: clamp(36px, 5vw, 56px) 0 0;
+  font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+  letter-spacing: -0.02em;
+}
+
+.course-label {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 22px 0 0;
+  font-size: 0.94rem;
+  color: var(--muted);
+}
+
+.course-label a { font-weight: 700; color: var(--primary); text-decoration: none; }
+
+.lessons {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lesson {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 26px 22px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: var(--surface);
+}
+
+.lesson-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+.badge {
+  padding: 3px 9px;
+  border-radius: 2px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.badge--soon { background: #f2f3f5; color: var(--muted); }
+
+.lesson-index {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+
+.lesson h3 {
+  margin: 12px 0 0;
+  font-size: 1.12rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
+.lesson p { margin: 10px 0 0; font-size: 0.94rem; color: var(--muted); }
+
+.lesson-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 14px 0 0;
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+.lesson-meta span:not(:last-child)::after { content: " ·"; }
+
+/* 카드 안의 버튼은 본문보다 작게. 카드가 여러 개 나란히 놓이므로 시선이 흩어진다. */
+.lesson .actions { margin-top: auto; padding-top: 18px; gap: 10px; }
+.lesson .actions .button { padding: 9px 16px; font-size: 0.86rem; }
