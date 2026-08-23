@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 250" role="img" aria-labelledby="t6">
+  <title id="t6">일정한 게인은 큰 소리와 작은 소리의 폭을 그대로 유지하고 동적 정규화는 그 폭을 눌러 밋밋하게 만든다</title>
+  <defs>
+    <style>
+      .axis { stroke: #dfe2e7; stroke-width: 1.4; }
+      .span { stroke: #101114; stroke-width: 1.3; fill: none; opacity: 0.55; }
+      .label { font-size: 13px; font-weight: 700; fill: #101114; }
+      .range { font-size: 12px; font-weight: 700; }
+      .mid { text-anchor: middle; }
+    </style>
+  </defs>
+  <g>
+    <rect x="38" y="156" width="16" height="40" rx="2" fill="#5a6472" opacity="0.85"/>
+    <rect x="62" y="101" width="16" height="95" rx="2" fill="#5a6472" opacity="0.85"/>
+    <rect x="86" y="141" width="16" height="55" rx="2" fill="#5a6472" opacity="0.85"/>
+    <rect x="110" y="76" width="16" height="120" rx="2" fill="#5a6472" opacity="0.85"/>
+    <rect x="134" y="126" width="16" height="70" rx="2" fill="#5a6472" opacity="0.85"/>
+    <rect x="158" y="91" width="16" height="105" rx="2" fill="#5a6472" opacity="0.85"/>
+    <rect x="182" y="146" width="16" height="50" rx="2" fill="#5a6472" opacity="0.85"/>
+    <rect x="206" y="111" width="16" height="85" rx="2" fill="#5a6472" opacity="0.85"/>
+    <path class="span" d="M234 76 L244 76 M239 76 L239 156 M234 156 L244 156"/>
+    <line class="axis" x1="20" y1="196" x2="240" y2="196"/>
+    <text class="label mid" x="130" y="220">원본</text>
+    <text class="range mid" x="130" y="240" fill="#5a6472">다이내믹 레인지 7.8 LU</text>
+  </g>
+  <g>
+    <rect x="274" y="116" width="16" height="80" rx="2" fill="#b4552a" opacity="0.85"/>
+    <rect x="298" y="79" width="16" height="117" rx="2" fill="#b4552a" opacity="0.85"/>
+    <rect x="322" y="106" width="16" height="90" rx="2" fill="#b4552a" opacity="0.85"/>
+    <rect x="346" y="62" width="16" height="134" rx="2" fill="#b4552a" opacity="0.85"/>
+    <rect x="370" y="96" width="16" height="100" rx="2" fill="#b4552a" opacity="0.85"/>
+    <rect x="394" y="72" width="16" height="124" rx="2" fill="#b4552a" opacity="0.85"/>
+    <rect x="418" y="109" width="16" height="87" rx="2" fill="#b4552a" opacity="0.85"/>
+    <rect x="442" y="85" width="16" height="111" rx="2" fill="#b4552a" opacity="0.85"/>
+    <path class="span" d="M470 62 L480 62 M475 62 L475 116 M470 116 L480 116"/>
+    <line class="axis" x1="256" y1="196" x2="476" y2="196"/>
+    <text class="label mid" x="366" y="220">동적 정규화</text>
+    <text class="range mid" x="366" y="240" fill="#b4552a">다이내믹 레인지 5.3 LU</text>
+  </g>
+  <g>
+    <rect x="510" y="126" width="16" height="70" rx="2" fill="#2c6e4a" opacity="0.85"/>
+    <rect x="534" y="71" width="16" height="125" rx="2" fill="#2c6e4a" opacity="0.85"/>
+    <rect x="558" y="111" width="16" height="85" rx="2" fill="#2c6e4a" opacity="0.85"/>
+    <rect x="582" y="46" width="16" height="150" rx="2" fill="#2c6e4a" opacity="0.85"/>
+    <rect x="606" y="96" width="16" height="100" rx="2" fill="#2c6e4a" opacity="0.85"/>
+    <rect x="630" y="61" width="16" height="135" rx="2" fill="#2c6e4a" opacity="0.85"/>
+    <rect x="654" y="116" width="16" height="80" rx="2" fill="#2c6e4a" opacity="0.85"/>
+    <rect x="678" y="81" width="16" height="115" rx="2" fill="#2c6e4a" opacity="0.85"/>
+    <path class="span" d="M706 46 L716 46 M711 46 L711 126 M706 126 L716 126"/>
+    <line class="axis" x1="492" y1="196" x2="712" y2="196"/>
+    <text class="label mid" x="602" y="220">순수 게인 +10.5dB</text>
+    <text class="range mid" x="602" y="240" fill="#2c6e4a">다이내믹 레인지 7.6 LU</text>
+  </g>
+</svg>

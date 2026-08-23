@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 250" role="img" aria-labelledby="t5">
+  <title id="t5">앱 라이선스는 MIT 인데 그 앱이 내려받는 모델 가중치는 엔진마다 다른 라이선스를 따른다</title>
+  <defs>
+    <marker id="ls-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#0f2c59"/>
+    </marker>
+    <style>
+      .box { fill: #ffffff; stroke: #0f2c59; stroke-width: 1.6; rx: 8; }
+      .box-app { fill: #e8eef8; stroke: #0f2c59; stroke-width: 2; }
+      .box-warn { fill: #ffffff; stroke: #b4552a; stroke-width: 2.4; }
+      .name { font-size: 14px; font-weight: 700; fill: #101114; }
+      .kind { font-size: 12px; fill: #5a6472; }
+      .chip-ok { font-size: 12px; font-weight: 700; fill: #2c6e4a; }
+      .chip-warn { font-size: 12px; font-weight: 700; fill: #b4552a; }
+      .edge { stroke: #0f2c59; stroke-width: 1.6; fill: none; }
+      .edge-label { font-size: 12px; fill: #5a6472; paint-order: stroke fill;
+                    stroke: #fafaf9; stroke-width: 3px; stroke-linejoin: round; }
+      .mid { text-anchor: middle; }
+    </style>
+  </defs>
+
+  <rect class="box box-app" x="230" y="12" width="260" height="60" rx="8"/>
+  <text class="name mid" x="360" y="36">로컬 음성 합성 앱</text>
+  <text class="kind mid" x="360" y="56">앱 라이선스 MIT · 여러 엔진을 감싼다</text>
+
+  <path class="edge" d="M360 72 L360 112 M120 112 L600 112"/>
+  <path class="edge" d="M120 112 L120 134" marker-end="url(#ls-arrow)"/>
+  <path class="edge" d="M360 112 L360 134" marker-end="url(#ls-arrow)"/>
+  <path class="edge" d="M600 112 L600 134" marker-end="url(#ls-arrow)"/>
+  <text class="edge-label mid" x="360" y="97">모델 가중치를 내려받는다</text>
+
+  <rect class="box" x="20" y="140" width="200" height="86" rx="8"/>
+  <text class="name mid" x="120" y="166">Chatterbox</text>
+  <text class="kind mid" x="120" y="186">Multilingual</text>
+  <text class="chip-ok mid" x="120" y="210">MIT</text>
+
+  <rect class="box" x="260" y="140" width="200" height="86" rx="8"/>
+  <text class="name mid" x="360" y="166">Qwen3-TTS</text>
+  <text class="kind mid" x="360" y="186">Kokoro · LuxTTS</text>
+  <text class="chip-ok mid" x="360" y="210">Apache-2.0</text>
+
+  <rect class="box box-warn" x="500" y="140" width="200" height="86" rx="8"/>
+  <text class="name mid" x="600" y="166">TADA 3B</text>
+  <text class="kind mid" x="600" y="186">표기 요구 · 사용 제한</text>
+  <text class="chip-warn mid" x="600" y="210">llama3.2 커뮤니티</text>
+</svg>

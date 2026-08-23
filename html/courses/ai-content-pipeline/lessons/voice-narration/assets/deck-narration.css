@@ -1,13 +1,17 @@
 /* =========================================================================
- * 내레이션 덱 — `deck.css` 위에 얹는 밀도 규칙
+ * 내레이션 덱 — `deck.css` 위에 얹는 규칙
  *
- * 발표용 덱의 밀도는 사람이 말하는 것을 전제로 한다. 제목 아래 lead 한 줄, 본문,
- * takeaway 한 줄. 내레이션 영상에서는 그 문장을 오디오가 말하므로 화면의 문장이
- * 내레이션과 경쟁한다. 다른 문장을 들으며 글을 읽으면 둘 다 놓친다.
+ * 발표용 덱의 밀도는 사람이 말하는 것을 전제로 한다. 내레이션 영상에서는 그 문장을
+ * 오디오가 말하므로 화면의 글이 내레이션과 경쟁한다.
  *
- * 그래서 항목 수를 줄이고 남은 것을 키운다. 슬라이드 하나에 20초 남짓 머무는데
- * 그중 읽기에 쓰는 시간은 4초 안쪽이어야 한다 — 한국어 묵독 9자/초 기준으로 화면
- * 글자 40자 정도다. 이 파일은 그 목표에 맞춘 크기 조정만 담는다.
+ * 처음에는 그 경쟁을 화면을 비워서 피했다. 결과는 본문이 얇은 슬라이드 66% 였다.
+ * 지금은 **시간 정렬** 로 푼다 — 내용을 다 올려 두고 내레이션이 그 항목에 닿을 때
+ * 밝힌다. 아직 말하지 않은 항목은 흐리게 둔다. 숨기지 않는 이유는 둘이다.
+ *   1. 숨기면 레이아웃이 움직여 시선이 튄다
+ *   2. 숨기면 화면이 비어 보이는 문제가 되돌아온다
+ *
+ * `stepping` 클래스가 없으면 전부 밝은 상태다. 자바스크립트가 없거나 죽어도 내용이
+ * 사라지지 않는다. 영상 프레임은 생성기가 상태 클래스를 직접 박아 굽는다.
  *
  * `deck.css` 를 수정하지 않는다. 공용 템플릿은 발표용 덱이 함께 쓴다.
  * ========================================================================= */
@@ -15,95 +19,174 @@
 /* 한글은 어절 경계에서만 끊는다. 좁은 카드에서 단어가 쪼개지는 것을 막는다. */
 .slide h1,
 .slide h2,
+.slide p,
+.slide li,
 .slide th,
-.slide td,
-.narration-anchor p {
+.slide td {
   word-break: keep-all;
   overflow-wrap: break-word;
 }
 
-/* ---- statement — 한 줄 앵커 ------------------------------------------------
- * 발표용 `.panel` 은 반쪽 열을 채우는 컴포넌트라, 한 구절만 넣으면 빈 상자가 된다.
- * 앵커는 화면 폭을 쓰고 세로로 가운데 온다. */
+/* ---- 드러내기 ------------------------------------------------------------ */
+.stepping .slide [data-reveal] {
+  opacity: 0.26;
+  transition: opacity 0.28s ease, box-shadow 0.28s ease, background 0.28s ease;
+}
+
+.stepping .slide [data-reveal].is-shown {
+  opacity: 1;
+}
+
+/* 방금 말한 항목을 한 번 더 표시한다. 색을 바꾸지 않고 테두리만 준다 —
+   색까지 바꾸면 슬라이드마다 강조색이 달라져 산만해진다. */
+.stepping .slide .card.is-now,
+.stepping .slide .kpi.is-now,
+.stepping .slide .panel.is-now,
+.stepping .slide .flow__step.is-now,
+.stepping .slide .balance-grid article.is-now,
+.stepping .slide .decision-grid article.is-now,
+.stepping .slide .shift article.is-now,
+.stepping .slide .question-list article.is-now {
+  box-shadow: 0 0 0 3px var(--primary), var(--shadow);
+}
+
+.stepping .slide tbody tr.is-now {
+  background: var(--primary-soft);
+}
+
+.stepping .slide .lead.is-now {
+  color: var(--primary);
+}
+
+/* ---- 제목과 리드 --------------------------------------------------------- */
+.slide > h1 {
+  margin-bottom: 6px;
+}
+
+.slide .lead {
+  font-size: 25px;
+  line-height: 1.45;
+  color: var(--muted);
+  max-width: 1080px;
+}
+
+/* ---- lead 레이아웃 — 한 줄 앵커 ------------------------------------------
+ * 발표용 `.panel` 은 반쪽 열을 채우는 컴포넌트라 한 구절만 넣으면 빈 상자가 된다. */
 .narration-anchor {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: 0;
+  gap: 16px;
 }
 
 .narration-anchor p {
   margin: 0;
   max-width: 1080px;
-  font-size: 54px;
-  line-height: 1.28;
+  font-size: 46px;
+  line-height: 1.3;
   font-weight: 700;
   letter-spacing: -0.03em;
   color: var(--primary);
 }
 
-.narration-anchor p + p {
-  margin-top: 18px;
-  font-size: 34px;
+.narration-anchor p ~ p {
+  font-size: 30px;
   font-weight: 600;
   color: var(--muted);
 }
 
-/* ---- points / numbers — 카드 안을 가운데로 --------------------------------
- * 발표용 카드는 제목 아래 설명 문단을 전제로 높이를 잡는다. 내레이션 카드에는
- * 설명이 없으므로 그 자리가 빈 여백으로 남는다. 내용을 세로 가운데로 보낸다. */
-.slide .card,
-.slide .kpi {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
+/* ---- 카드와 수치 — 영상에서 읽히는 크기 ---------------------------------- */
 .slide .card h2 {
-  margin: 0;
-  font-size: 31px;
+  margin: 0 0 8px;
+  font-size: 26px;
   line-height: 1.3;
 }
 
-.slide .card > span {
-  margin-bottom: 18px;
+.slide .card p {
+  font-size: 19px;
+  line-height: 1.5;
 }
 
 .slide .kpi > strong {
-  margin-bottom: 14px;
-  font-size: 56px;
+  margin-bottom: 10px;
+  font-size: 50px;
   line-height: 1.05;
   letter-spacing: -0.04em;
 }
 
 .slide .kpi h2 {
-  margin: 0;
-  font-size: 25px;
-  color: var(--muted);
+  margin: 0 0 6px;
+  font-size: 22px;
 }
 
-/* ---- table — 영상에서 읽히는 크기 ----------------------------------------
- * 리포트는 가까이서 읽지만 영상은 멀리서 본다. 같은 표를 그대로 쓰면 작다. */
+.slide .kpi p {
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+/* ---- 패널·흐름·전환·저울·판단 -------------------------------------------- */
+.slide .panel h2,
+.slide .shift h2,
+.slide .balance-grid h2,
+.slide .decision-grid h2 {
+  font-size: 26px;
+  line-height: 1.3;
+}
+
+.slide .panel li,
+.slide .balance-grid li,
+.slide .decision-grid li {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.slide .flow__step h2 {
+  font-size: 23px;
+}
+
+.slide .flow__step p {
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.slide .shift p:not(.eyebrow) {
+  font-size: 19px;
+  line-height: 1.5;
+}
+
+.slide .question-list p {
+  font-size: 23px;
+  line-height: 1.45;
+}
+
+/* ---- 표 — 영상은 멀리서 본다 --------------------------------------------- */
 .slide .compare-table th,
 .slide .compare-table td {
-  padding: 16px 22px;
-  font-size: 23px;
+  padding: 14px 20px;
+  font-size: 21px;
 }
 
 .slide .compare-table--dense th,
 .slide .compare-table--dense td {
-  padding: 12px 20px;
-  font-size: 21px;
+  padding: 10px 16px;
+  font-size: 19px;
 }
 
 /* 첫 칸이 항목 이름이다. 값 칸이 남은 폭을 다 먹으면 표가 한쪽으로 쏠린다. */
 .slide .compare-table tbody th {
-  width: 26%;
+  width: 24%;
 }
 
-/* ---- figure — 캡션 바를 비우지 않는다 ------------------------------------ */
+/* ---- 그림 --------------------------------------------------------------- */
 .deck-report-figure figcaption {
   align-items: center;
   justify-content: space-between;
+}
+
+/* ---- 근접 출처 ---------------------------------------------------------- */
+.slide .source-note {
+  margin-top: 14px;
+  font-size: 16px;
 }
