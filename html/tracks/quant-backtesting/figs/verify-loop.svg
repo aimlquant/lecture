@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 268" role="img" aria-labelledby="vl-title">
-  <title id="vl-title">전략을 말로 적고, 에이전트가 코드를 만들고, 하네스가 근거를 내놓고, 반증 테스트로 무너뜨려 보는 네 단계 순환</title>
+  <title id="vl-title">전략을 말로 적고, 에이전트가 코드를 만들고, 하네스가 근거를 내놓고, 반증 테스트로 흔들어 보는 네 단계 순환</title>
   <defs>
     <marker id="vl-arrow" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto">
       <path d="M0 0L10 4L0 8z" fill="#0f2c59"/>
@@ -27,7 +27,7 @@
   <text class="who" x="44" y="76" fill="#0f2c59">여러분</text>
   <text class="hd" x="44" y="102">무엇을 살지 적는다</text>
   <text class="sm" x="44" y="126">언제 사고 팔지, 비용은</text>
-  <text class="sm" x="44" y="144">얼마로 볼지 말로 먼저</text>
+  <text class="sm" x="44" y="144">얼마로 볼지 먼저 정합니다</text>
 
   <rect class="bot" x="264" y="46" width="204" height="110" rx="13"/>
   <text class="who" x="288" y="76" fill="#6b7482">에이전트</text>
@@ -43,7 +43,7 @@
 
   <rect class="warn" x="752" y="46" width="188" height="110" rx="13"/>
   <text class="who" x="776" y="76" fill="#9d4323">여러분</text>
-  <text class="hd" x="776" y="102" fill="#9d4323">무너뜨려 본다</text>
+  <text class="hd" x="776" y="102" fill="#9d4323">흔들어 본다</text>
   <text class="sm" x="776" y="126" fill="#9d4323">신호를 하루 늦추면</text>
   <text class="sm" x="776" y="144" fill="#9d4323">수익이 남아 있나?</text>
 
@@ -52,5 +52,5 @@
   <path class="arw" d="M712 101H748"/>
 
   <path class="back" d="M846 160V214H122V162"/>
-  <text class="lbl" x="484" y="234" text-anchor="middle">안 남으면 처음으로 — 이 되돌이가 강의의 뼈대입니다</text>
+  <text class="lbl" x="484" y="234" text-anchor="middle">안 남으면 처음으로 — 이 되풀이가 강의의 뼈대입니다</text>
 </svg>
