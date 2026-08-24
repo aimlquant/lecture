@@ -1,0 +1,59 @@
+/* 트랙 페이지 전용 — 단계 구획. site.css 의 토큰과 컴포넌트를 그대로 쓴다. */
+
+.stage {
+  margin: 28px 0 0;
+  padding: 22px clamp(18px, 3vw, 28px) 26px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.stage-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.stage-name {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.stage-count {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.stage-blurb {
+  margin: 14px 0 0;
+  color: var(--muted);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.stage .lessons { margin-top: 18px; }
+
+.stage .lesson-meta span {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* 이 페이지의 소개 카드는 넷이다. auto-fit 기본값은 넓은 화면에서 3+1 로 감겨
+   마지막 하나가 홀로 남는다. 2열로 고정해 2×2 로 떨어뜨린다. */
+.tiers {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+}
+
+@media (min-width: 720px) {
+  .tiers { grid-template-columns: repeat(2, 1fr); }
+}
