@@ -30,16 +30,16 @@
     <text class="eyebrow" x="216" y="118" fill="#0F2C59">교집합</text>
     <text class="title" x="216" y="169">기술적 분석 + 퀀트</text>
     <text class="body" x="216" y="217">수치로 정의한 이동평균 교차</text>
-    <text class="body" x="216" y="257">가격 규칙을 컴퓨터가 반복</text>
+    <text class="body" x="216" y="257">매매 조건을 컴퓨터가 판정</text>
     <text class="body" x="216" y="297">두 영역이 겹치는 경우</text>
   </g>
 
   <g>
-    <text class="eyebrow" x="666" y="118" fill="#0B7A6A">가격 밖의 퀀트</text>
+    <text class="eyebrow" x="666" y="118" fill="#0B7A6A">가격 외 데이터</text>
     <text class="title" x="666" y="169">퀀트 · 가격 외 입력</text>
     <text class="body" x="666" y="217">매출 성장률 · 부채비율</text>
     <text class="body" x="666" y="257">뉴스 분류 결과</text>
-    <text class="body" x="666" y="297">가격 밖의 자료도 활용</text>
+    <text class="body" x="666" y="297">가격 외 데이터도 활용</text>
   </g>
 
   <g>
@@ -62,5 +62,5 @@
   <text class="axis-label" x="630" y="730" text-anchor="middle">입력 범위: 가격·거래량 → 재무·뉴스 등</text>
 
   <path class="axis" d="M132 632V72"/>
-  <text class="axis-label" x="72" y="352" text-anchor="middle" transform="rotate(-90 72 352)">판단 방식: 사람의 해석 → 명시적 규칙</text>
+  <text class="axis-label" x="72" y="352" text-anchor="middle" transform="rotate(-90 72 352)">판단 방식: 주관적 해석 → 수치로 정의한 조건</text>
 </svg>

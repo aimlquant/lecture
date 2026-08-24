@@ -159,6 +159,39 @@ a {
   padding: 24px 0 18px;
 }
 
+.slide-body--with-inset {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  align-items: start;
+  gap: 24px;
+  padding-top: 22px;
+}
+
+.slide-body__main {
+  min-width: 0;
+}
+
+.deck-inset-figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+  margin: 0;
+  padding: 10px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(15, 44, 89, 0.11);
+}
+
+.deck-inset-figure img {
+  display: block;
+  width: 100%;
+  max-height: 210px;
+  object-fit: contain;
+}
+
 .slide-footer {
   display: flex;
   align-items: center;
@@ -519,7 +552,7 @@ a {
 
 .slide--closing {
   position: relative;
-  padding: 50px 84px 46px;
+  padding: 42px 72px 38px;
   background:
     radial-gradient(circle at 12% 80%, var(--primary-soft), transparent 34%),
     var(--bg);
@@ -528,21 +561,43 @@ a {
 .slide--closing .cover-brand {
   justify-content: flex-start;
   gap: 18px;
+  min-height: 38px;
+  margin-bottom: 0;
 }
 
 .closing-body {
   display: flex;
   flex: 1;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 34px;
 }
 
 .closing-body > h1 {
-  max-width: 930px;
-  margin: 14px 0 32px;
-  font-size: 52px;
+  max-width: 1040px;
+  margin: 10px 0 26px;
+  font-size: 50px;
   line-height: 1.15;
   letter-spacing: -0.045em;
+}
+
+.slide--closing .card-grid {
+  align-items: stretch;
+}
+
+.slide--closing .card {
+  min-height: 200px;
+  padding: 26px 28px;
+  border-top: 4px solid var(--primary);
+}
+
+.slide--closing .card h2 {
+  font-size: 24px;
+}
+
+.slide--closing .card p {
+  font-size: 19px;
+  line-height: 1.5;
 }
 
 .card {
