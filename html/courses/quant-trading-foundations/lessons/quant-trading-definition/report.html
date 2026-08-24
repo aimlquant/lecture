@@ -8,6 +8,7 @@
   <title>퀀트 트레이딩이란 무엇이고 기술적 분석과 무엇이 다른가 · 상세 리포트</title>
   <link rel="icon" href="../../../../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/report.css">
+  <link rel="stylesheet" href="assets/visuals.css">
 </head>
 <body>
   <a class="skip-link" href="#s0">리포트 본문으로 건너뛰기</a>
@@ -46,6 +47,25 @@
 옮기며, 그 규칙을 과거 금융 데이터에 적용해 어떤 결과가 났는지 검사한다.</p>
 <p>여기서 핵심어는 “컴퓨터”, “숫자” 또는 “자동 주문” 하나가 아니다. <strong>동일한 입력을 주면
 동일한 판단을 다시 만들 수 있는 명시적 규칙</strong>이 핵심이다.</p>
+<div class="visual-thesis" role="group" aria-label="퀀트 경계를 판단하는 세 질문">
+  <div class="visual-thesis__card">
+    <span class="visual-thesis__label">입력만 묻지 않는다</span>
+    <strong>무슨 자료를 보는가?</strong>
+    <p>가격도, 재무 수치도, 뉴스도 입력이 될 수 있다.</p>
+  </div>
+  <div class="visual-thesis__card">
+    <span class="visual-thesis__label">도구만 묻지 않는다</span>
+    <strong>컴퓨터를 썼는가?</strong>
+    <p>주문창을 클릭한 것만으로는 퀀트가 되지 않는다.</p>
+  </div>
+  <div class="visual-thesis__card visual-thesis__card--answer">
+    <span class="visual-thesis__label">경계를 가르는 질문</span>
+    <strong>판단 규칙이 완전한가?</strong>
+    <p>같은 입력이면 같은 매수·매도 판단을 다시 만들어야 한다.</p>
+  </div>
+</div>
+
+<figure class="report-figure" id="fig-1"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 1</span><span class="asset-caption__title">퀀트 트레이딩의 최소 구조. 정의를 입력·규칙·판단·과거 재실행의 네 단계로 재구성. 직접 작도, 2026-08-24.</span></figcaption><img alt="입력 데이터가 명시적 규칙과 거래 판단을 지나 과거 재실행으로 이어지는 네 단계" src="assets/figs/definition-pipeline.svg"></figure>
 <table class="cmp-table" id="table-1"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 1</span><span class="asset-caption__title">첫 강의에서 바로잡을 다섯 가지 경계. Chan, 2021, 1장 2.1~2.2를 바탕으로 정리.</span></div></caption>
 <thead>
 <tr>
@@ -124,6 +144,7 @@
 사람은 어떤 정보를 쓸지, 어떤 조건에서 행동할지, 어느 기간으로 점검할지를 정한다.
 컴퓨터는 그 결정을 <strong>명시된 그대로 반복</strong>한다. 따라서 퀀트 트레이딩은 인간의 판단이
 사라진 거래가 아니라, 인간의 판단을 규칙 설계 시점으로 옮긴 거래에 가깝다.</p>
+<figure class="report-figure" id="fig-2"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 2</span><span class="asset-caption__title">재량 판독과 명시적 규칙의 반복 가능성 차이. 같은 입력·다른 해석과 같은 입력· 같은 판단을 나란히 비교. 직접 작도, 2026-08-24.</span></figcaption><img alt="같은 차트를 사람이 다르게 판독하는 흐름과 같은 입력을 규칙이 같은 결정으로 만드는 흐름" src="assets/figs/repeatability-contrast.svg"></figure>
 <h2>자동 주문과 알고리즘 판단은 구분한다</h2>
 <p>규칙이 신호를 냈는데 사람이 주문 버튼을 누를 수도 있고, 주문 전송까지 프로그램이 맡을
 수도 있다. 자동화 수준은 다르지만, 이 차시의 정의를 가르는 질문은 “주문 버튼을 누가
@@ -139,6 +160,13 @@
 <p>기술적 분석은 주로 과거 가격과 거래량의 움직임에서 패턴이나 신호를 찾는다. 퀀트
 트레이딩은 <strong>입력 자료의 종류</strong>보다 <strong>판단 절차가 완전히 표현됐는지</strong>를 묻는다. 비교하는
 축이 다르므로 둘은 일부가 겹치지만 같은 집합은 아니다.</p>
+<div class="visual-reading-key" aria-label="경계 지도 읽는 순서">
+  <span>가로축 · 무엇을 입력하는가</span>
+  <span>세로축 · 규칙을 완전히 쓸 수 있는가</span>
+  <span>왼쪽 위 · 두 영역의 교집합</span>
+</div>
+
+<figure class="report-figure" id="fig-3"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 3</span><span class="asset-caption__title">기술적 분석과 퀀트 트레이딩의 이차원 경계 지도. 입력 종류와 규칙 표현 여부를 서로 다른 축으로 배치. Chan, 2021, 1장 2.1~2.2를 바탕으로 직접 작도, 2026-08-24.</span></figcaption><img alt="입력 종류와 규칙 코드화 여부로 나눈 기술적 분석과 퀀트의 사분면" src="assets/figs/technical-quant-matrix.svg"></figure>
 <table class="cmp-table" id="table-3"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 3</span><span class="asset-caption__title">입력의 종류와 규칙의 코드화 여부를 분리한 2×2 경계 지도. Chan, 2021, 1장 2.1~2.2의 예시를 재배치.</span></div></caption>
 <thead>
 <tr>
@@ -168,6 +196,7 @@
 <p>원문은 주관적이고 수량화하기 어려운 차트 기법의 예로 헤드 앤 숄더 패턴을 든다. 이름이
 붙은 패턴이라는 사실만으로는 컴퓨터가 찾을 수 없다. 적어도 봉우리의 개수, 봉우리 사이의
 최소 간격, 양쪽 어깨의 허용 높이 차이, 목선의 기울기와 이탈 조건을 숫자로 정해야 한다.</p>
+<figure class="report-figure" id="fig-4"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 4</span><span class="asset-caption__title">주관적 차트 패턴을 명시적 규칙으로 바꾸는 과정. ε·N·k는 실제 권장값이 아니라 반드시 정해야 할 허용치·간격·이탈 기준을 나타내는 자리표시자다. 직접 작도, 2026-08-24.</span></figcaption><img alt="헤드 앤 숄더 모양을 봉우리 구조 높이 허용치 시간 간격 행동 조건으로 바꾸는 과정" src="assets/figs/chart-to-rule.svg"></figure>
 <p>그 조건을 모두 정하면 기술적 분석이 퀀트 규칙으로 들어올 수 있다. 다만 <strong>코드화할 수
 있다</strong>는 말은 <strong>좋은 전략이다</strong>라는 말이 아니다. 정의가 명확해진 뒤에야 과거 데이터로
 검사할 수 있는 후보가 되었을 뿐이다.</p>
@@ -183,6 +212,7 @@
 <p>뉴스도 입력 후보가 된다. 문장을 컴퓨터가 처리할 수 있는 형태로 바꾸고, 그 결과를 매수·
 매도 규칙에 연결할 수 있기 때문이다. 원문의 표현을 요약하면, 컴퓨터가 이해할 비트와
 바이트로 정보를 바꿀 수 있다면 퀀트 트레이딩의 일부가 될 수 있다.</p>
+<figure class="report-figure" id="fig-5"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 5</span><span class="asset-caption__title">가격 밖으로 넓어지는 퀀트 입력의 범위. 세 입력 계열이 같은 명시적 규칙 관문을 거쳐 매수·매도·보유 판단으로 이어짐. Chan, 2021, 1장 2.2를 바탕으로 직접 작도, 2026-08-24.</span></figcaption><img alt="가격 거래량 재무 수치 뉴스 텍스트가 명시적 규칙을 지나 거래 판단이 되는 흐름" src="assets/figs/input-universe.svg"></figure>
 <table class="cmp-table" id="table-4"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 4</span><span class="asset-caption__title">같은 “분석”도 입력과 판정 규칙에 따라 달라지는 다섯 사례. 첫째·셋째·넷째는 설명용 예시이며 수익성을 주장하지 않는다.</span></div></caption>
 <thead>
 <tr>
@@ -246,6 +276,21 @@
 <p>수익 곡선은 전략의 정의서가 아니다. 어떤 입력을 어느 시점에 읽고 어떤 조건에서 무엇을
 샀는지 다시 만들 수 있어야 한다. 정의가 고정되지 않으면 결과가 좋아 보일 때까지 규칙을
 바꿨는지조차 구분하기 어렵다.</p>
+<div class="myth-grid" role="group" aria-label="퀀트 규칙을 흐리는 세 가지 오해와 교정">
+  <div class="myth-card">
+    <div class="myth-card__claim"><span>오해 1</span><strong>숫자를 썼으니 퀀트다</strong></div>
+    <div class="myth-card__repair"><span>빠진 것</span><strong>숫자에서 행동으로 가는 조건</strong></div>
+  </div>
+  <div class="myth-card">
+    <div class="myth-card__claim"><span>오해 2</span><strong>코드가 돌면 규칙이 명확하다</strong></div>
+    <div class="myth-card__repair"><span>빠진 것</span><strong>모호한 말과 구현값의 일치</strong></div>
+  </div>
+  <div class="myth-card">
+    <div class="myth-card__claim"><span>오해 3</span><strong>과거 수익이 좋으면 전략이다</strong></div>
+    <div class="myth-card__repair"><span>빠진 것</span><strong>다른 사람이 재현할 정의서</strong></div>
+  </div>
+</div>
+
 <table class="cmp-table" id="table-5"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 5</span><span class="asset-caption__title">퀀트 규칙을 판별할 때 피할 세 가지 지름길. AIML Quant 설명용 점검표.</span></div></caption>
 <thead>
 <tr>
@@ -286,6 +331,7 @@
 <li><strong>행동</strong> — 매수·매도·보유 중 무엇을, 언제 결정하는가.</li>
 <li><strong>검사</strong> — 같은 규칙을 어느 과거 구간에 다시 적용할 수 있는가.</li>
 </ol>
+<figure class="report-figure" id="fig-6"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 6</span><span class="asset-caption__title">투자 아이디어를 검사 가능한 퀀트 전략 후보로 바꾸는 네 관문. 어느 관문에서든 “아니오”면 부족한 정의를 채운 뒤 다시 시작한다. 직접 작도, 2026-08-24.</span></figcaption><img alt="입력 조건 행동 과거 재실행의 네 관문을 통과해 퀀트 전략 후보가 되는 결정 트리" src="assets/figs/candidate-gate.svg"></figure>
 <h2>마지막 판별표</h2>
 <table class="cmp-table" id="table-6"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 6</span><span class="asset-caption__title">투자 아이디어가 퀀트 규칙 후보인지 보는 최소 판별표. 이 표의 통과는 수익성 검증이 아니라 규칙의 명시성 검증이다.</span></div></caption>
 <thead>

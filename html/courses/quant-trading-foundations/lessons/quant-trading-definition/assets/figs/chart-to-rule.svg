@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">주관적 차트 패턴을 명시적 규칙으로 바꾸는 과정</title>
+  <desc id="desc">왼쪽의 헤드 앤 숄더 모양을 오른쪽의 봉우리 개수 높이 허용치 간격 목선 이탈 조건으로 변환</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M1 1l10 5-10 5z" fill="#0F2C59"/>
+    </marker>
+    <style>
+      text { font-family:'Noto Sans CJK KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif; fill:#0F172A; }
+      .panel { font-size:24px; font-weight:900; }
+      .peak { font-size:18px; font-weight:800; fill:#52606D; }
+      .rule-no { font-size:18px; font-weight:900; fill:#2563EB; }
+      .rule-title { font-size:24px; font-weight:850; }
+      .rule-detail { font-size:19px; font-weight:650; fill:#475569; }
+      .note { font-size:20px; font-weight:800; fill:#7C2D12; }
+    </style>
+  </defs>
+  <rect width="1200" height="700" rx="28" fill="#F8FAFC"/>
+
+  <rect x="35" y="55" width="500" height="540" rx="22" fill="#FFFFFF" stroke="#B8C5D6" stroke-width="3"/>
+  <text x="285" y="102" text-anchor="middle" class="panel">눈으로 보는 패턴</text>
+  <text x="285" y="134" text-anchor="middle" class="peak">“헤드 앤 숄더처럼 보인다”</text>
+  <path d="M95 510H485M95 510V175" fill="none" stroke="#94A3B8" stroke-width="3"/>
+  <line x1="115" y1="430" x2="470" y2="430" stroke="#B45309" stroke-width="4" stroke-dasharray="12 9"/>
+  <text x="456" y="419" text-anchor="end" class="peak" fill="#B45309">목선</text>
+  <polyline points="105,475 145,440 185,330 225,435 285,210 345,430 395,335 438,432 482,485" fill="none" stroke="#0F2C59" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="185" cy="330" r="10" fill="#2563EB"/>
+  <circle cx="285" cy="210" r="10" fill="#2563EB"/>
+  <circle cx="395" cy="335" r="10" fill="#2563EB"/>
+  <text x="185" y="300" text-anchor="middle" class="peak">왼쪽 어깨</text>
+  <text x="285" y="178" text-anchor="middle" class="peak">머리</text>
+  <text x="395" y="305" text-anchor="middle" class="peak">오른쪽 어깨</text>
+  <circle cx="482" cy="485" r="11" fill="#BE123C"/>
+  <text x="458" y="535" text-anchor="middle" class="peak" fill="#BE123C">이탈?</text>
+
+  <path d="M535 325H650" fill="none" stroke="#0F2C59" stroke-width="8" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <rect x="553" y="252" width="72" height="42" rx="21" fill="#E7EEF9"/>
+  <text x="589" y="280" text-anchor="middle" class="rule-no">명시</text>
+
+  <rect x="650" y="55" width="515" height="540" rx="22" fill="#FFFFFF" stroke="#7E9BC2" stroke-width="3"/>
+  <text x="908" y="102" text-anchor="middle" class="panel">컴퓨터가 읽는 조건</text>
+  <text x="908" y="134" text-anchor="middle" class="peak">아래 값을 모두 정해야 같은 패턴을 찾는다</text>
+
+  <g>
+    <rect x="690" y="170" width="435" height="82" rx="14" fill="#EEF3FA"/>
+    <circle cx="730" cy="211" r="22" fill="#2563EB"/>
+    <text x="730" y="218" text-anchor="middle" class="rule-no" fill="#FFFFFF">1</text>
+    <text x="775" y="202" class="rule-title">봉우리 구조</text>
+    <text x="775" y="233" class="rule-detail">봉우리 3개 · 머리가 가장 높음</text>
+  </g>
+  <g>
+    <rect x="690" y="268" width="435" height="82" rx="14" fill="#EEF3FA"/>
+    <circle cx="730" cy="309" r="22" fill="#2563EB"/>
+    <text x="730" y="316" text-anchor="middle" class="rule-no" fill="#FFFFFF">2</text>
+    <text x="775" y="300" class="rule-title">높이 허용치</text>
+    <text x="775" y="331" class="rule-detail">양쪽 어깨 차이 ≤ ε</text>
+  </g>
+  <g>
+    <rect x="690" y="366" width="435" height="82" rx="14" fill="#EEF3FA"/>
+    <circle cx="730" cy="407" r="22" fill="#2563EB"/>
+    <text x="730" y="414" text-anchor="middle" class="rule-no" fill="#FFFFFF">3</text>
+    <text x="775" y="398" class="rule-title">시간 간격</text>
+    <text x="775" y="429" class="rule-detail">봉우리 사이 최소 N개 관측값</text>
+  </g>
+  <g>
+    <rect x="690" y="464" width="435" height="82" rx="14" fill="#E4F6F0"/>
+    <circle cx="730" cy="505" r="22" fill="#0B7A6A"/>
+    <text x="730" y="512" text-anchor="middle" class="rule-no" fill="#FFFFFF">4</text>
+    <text x="775" y="496" class="rule-title">행동 조건</text>
+    <text x="775" y="527" class="rule-detail">종가가 목선을 k만큼 이탈하면 판단</text>
+  </g>
+
+  <rect x="215" y="625" width="770" height="48" rx="24" fill="#FFF0DF" stroke="#E8B47B" stroke-width="2"/>
+  <text x="600" y="656" text-anchor="middle" class="note">ε · N · k가 비어 있으면 패턴 이름은 있어도 퀀트 규칙은 아니다</text>
+</svg>
