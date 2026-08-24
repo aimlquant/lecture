@@ -143,7 +143,8 @@
   }
 
   function applyTheme(theme) {
-    document.documentElement.className = `theme-${theme}`;
+    document.documentElement.classList.toggle("theme-dark", theme === "dark");
+    document.documentElement.classList.toggle("theme-light", theme !== "dark");
     themeButton.textContent = theme === "dark" ? "☾" : "☀";
     themeButton.setAttribute("aria-pressed", String(theme === "dark"));
     themeButton.setAttribute("title", theme === "dark" ? "라이트 모드로 전환" : "나이트 모드로 전환");
@@ -167,8 +168,23 @@
   }
 
   function fitStage() {
-    const scale = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
+    const narrationPanel = document.getElementById("narrationPanel");
+    const narrationOpen = narrationPanel &&
+      document.body.classList.contains("narration-open");
+    const narrationSpace = narrationOpen && window.innerWidth >= 1100
+      ? narrationPanel.offsetWidth + 32
+      : 0;
+    const narrationHeight = narrationOpen && window.innerWidth < 1100
+      ? narrationPanel.offsetHeight + 16
+      : 0;
+    const availableWidth = Math.max(320, window.innerWidth - narrationSpace);
+    const availableHeight = Math.max(180, window.innerHeight - narrationHeight);
+    const scale = Math.min(availableWidth / 1280, availableHeight / 720);
     document.documentElement.style.setProperty("--deck-scale", String(scale));
+    document.documentElement.style.setProperty(
+      "--deck-panel-shift", `${narrationSpace / 2}px`);
+    document.documentElement.style.setProperty(
+      "--deck-panel-shift-y", `${narrationHeight / 2}px`);
   }
 
   function hideChrome() {

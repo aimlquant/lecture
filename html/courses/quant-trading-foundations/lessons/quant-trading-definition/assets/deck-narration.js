@@ -22,6 +22,13 @@
 
   var enabled = true;
   var steps = new WeakMap();
+  var narrationPanel = document.getElementById("narrationPanel");
+  var narrationToggle = document.getElementById("narrationToggle");
+  var narrationClose = document.getElementById("narrationClose");
+  var narrationCounter = document.getElementById("narrationCounter");
+  var narrationNotes = narrationPanel
+    ? Array.prototype.slice.call(narrationPanel.querySelectorAll("[data-narration-slide]"))
+    : [];
 
   function maxStep(slide) {
     var marked = slide.querySelectorAll("[data-reveal]");
@@ -42,6 +49,38 @@
       var shown = enabled ? value <= current : true;
       node.classList.toggle("is-shown", shown);
       node.classList.toggle("is-now", enabled && value === current);
+    }
+    if (slide.classList.contains("is-active")) paintNarration(slide);
+  }
+
+  function paintNarration(slide) {
+    if (!narrationPanel) return;
+    var slideId = slide ? slide.id : "";
+    var note = null;
+    for (var i = 0; i < narrationNotes.length; i += 1) {
+      var active = narrationNotes[i].getAttribute("data-narration-slide") === slideId;
+      narrationNotes[i].classList.toggle("is-active", active);
+      narrationNotes[i].setAttribute("aria-hidden", String(!active));
+      if (active) note = narrationNotes[i];
+    }
+    if (!note) return;
+
+    var index = Number(note.getAttribute("data-narration-index")) || 1;
+    if (narrationCounter) narrationCounter.textContent = index + " / " + narrationNotes.length;
+    var current = steps.get(slide) || 1;
+    var top = maxStep(slide);
+    var sentences = note.querySelectorAll("[data-narration-sentence]");
+    for (var j = 0; j < sentences.length; j += 1) {
+      var sentenceStep = Number(sentences[j].getAttribute("data-narration-sentence"));
+      var shown = top <= 1 || !enabled || sentenceStep <= current;
+      var now = top <= 1 ? sentenceStep === 1 : enabled && sentenceStep === current;
+      sentences[j].classList.toggle("is-shown", shown);
+      sentences[j].classList.toggle("is-current", now);
+    }
+    var body = narrationPanel.querySelector(".narration-panel__body");
+    if (body && document.body.classList.contains("narration-open")) {
+      var currentSentence = note.querySelector(".narration-sentence.is-current");
+      if (currentSentence) currentSentence.scrollIntoView({ block: "nearest" });
     }
   }
 
@@ -114,6 +153,58 @@
       toggle.textContent = enabled ? "드러내기 켬" : "드러내기 끔";
       slides.forEach(paint);
     });
+  }
+
+  function savedNarrationOpen() {
+    var requested = new URLSearchParams(window.location.search).get("narration");
+    if (requested === "1") return true;
+    if (requested === "0") return false;
+    try {
+      return window.localStorage.getItem("aimlquant-deck-narration") === "open";
+    } catch (_error) {
+      return false;
+    }
+  }
+
+  function setNarration(open, remember) {
+    if (!narrationPanel || !narrationToggle) return;
+    document.body.classList.toggle("narration-open", open);
+    narrationPanel.setAttribute("aria-hidden", String(!open));
+    narrationToggle.setAttribute("aria-expanded", String(open));
+    narrationToggle.setAttribute("aria-label", open ? "내레이션 닫기" : "내레이션 열기");
+    narrationToggle.setAttribute("title", open ? "내레이션 닫기 (N)" : "내레이션 열기 (N)");
+    if (remember !== false) {
+      try {
+        window.localStorage.setItem("aimlquant-deck-narration", open ? "open" : "closed");
+      } catch (_error) {
+        // 저장을 막는 환경에서도 현재 페이지의 기능은 그대로 쓴다.
+      }
+    }
+    paintNarration(activeSlide());
+    window.dispatchEvent(new Event("resize"));
+  }
+
+  if (narrationToggle && narrationPanel) {
+    narrationToggle.addEventListener("click", function () {
+      setNarration(!document.body.classList.contains("narration-open"));
+    });
+    if (narrationClose) {
+      narrationClose.addEventListener("click", function () {
+        setNarration(false);
+        narrationToggle.focus();
+      });
+    }
+    document.addEventListener("keydown", function (event) {
+      if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.altKey) return;
+      if (event.target.matches("input, textarea, button, a, select, [contenteditable='true']")) return;
+      if (event.key.toLowerCase() === "n") {
+        event.preventDefault();
+        setNarration(!document.body.classList.contains("narration-open"));
+      } else if (event.key === "Escape" && document.body.classList.contains("narration-open")) {
+        setNarration(false);
+      }
+    });
+    setNarration(savedNarrationOpen(), false);
   }
 
   document.documentElement.classList.add("stepping");
