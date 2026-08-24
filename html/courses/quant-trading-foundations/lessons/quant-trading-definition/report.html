@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="ko" class="theme-light" data-report-template="lecture-report-v1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="퀀트 트레이딩은 무엇인가 — 차트를 쓰느냐보다 판단을 재현할 수 있느냐가 경계다">
+  <meta name="robots" content="noindex, nofollow">
+  <title>퀀트 트레이딩은 무엇인가 · 상세 리포트</title>
+  <link rel="icon" href="../../../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/report.css">
+</head>
+<body>
+  <a class="skip-link" href="#s0">리포트 본문으로 건너뛰기</a>
+  <button id="tocToggle" class="report-nav-toggle" type="button" aria-label="목차 열기" aria-controls="tocDrawer" aria-expanded="false" title="목차"><span aria-hidden="true">☰</span></button>
+  <div class="report-settings" aria-label="설정">
+    <button id="settingsToggle" class="report-settings-toggle" type="button" aria-label="설정 열기" aria-controls="settingsPanel" aria-expanded="false" title="설정">⚙</button>
+    <div id="settingsPanel" class="report-settings-panel" aria-hidden="true">
+      <div class="report-settings-panel__group"><span class="report-settings-panel__label">화면</span><button id="themeToggle" type="button" onclick="cycleTheme()" aria-label="나이트 모드 전환">☀</button></div>
+      <div class="report-settings-panel__group"><span class="report-settings-panel__label">출력</span><button class="report-settings-action" type="button" onclick="window.print()">Print / PDF</button></div>
+      <div class="report-settings-panel__group"><span class="report-settings-panel__label">이동</span><nav class="report-quick-links" aria-label="차시 링크"><a href="./">차시 정보</a><a href="report.html" aria-current="page">상세 리포트</a><a href="slides.html">발표자료</a><a href="../../">코스 소개</a></nav></div>
+    </div>
+  </div>
+  <div id="tocBackdrop" class="report-toc-backdrop" hidden></div>
+  <nav id="tocDrawer" class="report-toc-drawer" aria-label="문서 목차" aria-hidden="true">
+    <div class="report-toc-drawer__head"><span>목차</span><button id="tocClose" type="button" aria-label="목차 닫기">×</button></div>
+    <ol id="tocDrawerList" class="report-toc-drawer__list"></ol>
+  </nav>
+
+  <main id="top">
+    <article class="report continuous-mode">
+      <div class="callout--hero"><span class="callout__kicker">초안</span><span class="callout__body">검토 중인 초안입니다. 내용이 바뀔 수 있습니다.</span></div>
+      <section class="report-cover">
+      <div class="report-cover__wordmark"><span class="report-cover__wordmark-name">AIML Quant</span><span class="report-cover__wordmark-sub">LECTURE</span></div>
+      <p class="report-cover__kicker">강의 상세 리포트</p>
+      <h1 class="report-cover__title">퀀트 트레이딩은 무엇인가</h1>
+      <p class="report-cover__subtitle">차트를 쓰느냐보다 판단을 재현할 수 있느냐가 경계다</p>
+      <p class="report-cover__meta">확인일 2026-08-24</p>
+      </section>
+
+    <section class="report-section s0 page-break" id="s0" data-tier="core">
+      <div class="report-section__kicker">핵심 본편 · core</div>
+      <h1>요약</h1>
+<h2>한 문장 결론</h2>
+<p>퀀트 트레이딩은 투자 아이디어를 <strong>컴퓨터가 반복할 수 있는 입력·규칙·행동</strong>으로 바꾸고,
+그 결과를 과거 데이터와 작은 대조 사례에서 검증하는 방식이다.</p>
+<h2>이 차시가 답하는 것</h2>
+<table class="cmp-table" id="table-1"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 1</span><span class="asset-caption__title">이름 대신 재현 가능성을 묻게 하는 네 가지 전환</span></div></caption>
+<thead>
+<tr>
+<th>질문</th>
+<th>답이 있는 곳</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>퀀트 트레이딩의 최소 정의는 무엇인가</td>
+<td>s1</td>
+</tr>
+<tr>
+<td>기술적 분석은 퀀트와 같은가, 다른가</td>
+<td>s2</td>
+</tr>
+<tr>
+<td>실제 문장을 보고 정량화됐는지 어떻게 판정하는가</td>
+<td>s3</td>
+</tr>
+<tr>
+<td>가격 말고 재무·뉴스도 입력이 될 수 있는가</td>
+<td>s4 (심화)</td>
+</tr>
+<tr>
+<td>코드가 있으면 자동으로 좋은 퀀트 전략이 되는가</td>
+<td>s5 (심화)</td>
+</tr>
+<tr>
+<td>이 강의에서 사용할 판정 질문은 무엇인가</td>
+<td>s6 (심화)</td>
+</tr>
+</tbody>
+</table>
+<h2>전체 논리</h2>
+<table class="cmp-table">
+<thead>
+<tr>
+<th>흔한 오해</th>
+<th>바꿔 물을 질문</th>
+<th>이 차시의 답</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>차트를 쓰면 기술적 분석이고, 숫자를 쓰면 퀀트다</td>
+<td>정보의 종류가 경계인가</td>
+<td>아니다</td>
+</tr>
+<tr>
+<td>컴퓨터가 주문하면 퀀트다</td>
+<td>자동 실행이 먼저인가</td>
+<td>아니다</td>
+</tr>
+<tr>
+<td>코드가 있으면 객관적이다</td>
+<td>같은 판단을 다시 만들 수 있는가</td>
+<td>재현 계약이 더 필요하다</td>
+</tr>
+<tr>
+<td>백테스트 수익이 나면 전략이 맞다</td>
+<td>무엇으로 반증했는가</td>
+<td>이 차시 뒤의 검증 과정이 필요하다</td>
+</tr>
+</tbody>
+</table>
+<h2>이 차시의 두 층</h2>
+<p><strong>핵심 본편(core)</strong> 은 정의와 경계를 다룬다. 기술적 분석과 겹치는 경우를 인정하면서도,
+"차트 모양이 좋아 보인다"와 "정해진 시점의 숫자로 같은 신호를 만든다"를 구분한다.</p>
+<p><strong>심화 부록(deep)</strong> 은 입력과 검증 계약을 더 엄밀하게 적는다. 가격·재무·뉴스가 같은
+파이프라인에 들어가려면 정보가 언제 알려졌는지, 결측치는 어떻게 다루는지, 규칙과 모델
+버전을 무엇으로 고정할지까지 필요하다.</p>
+<hr>
+    </section>
+    <section class="report-section s1 page-break" id="s1" data-tier="core">
+      <div class="report-section__kicker">핵심 본편 · core</div>
+      <h1>입력에서 행동까지 같은 사슬이어야 한다</h1>
+<h2>교재의 정의</h2>
+<p>Chan은 퀀트 트레이딩을 컴퓨터 알고리즘의 매수·매도 결정에 엄격히 근거한 증권 거래로
+소개한다. 알고리즘은 과거 금융 데이터로 시험한 전략을 코드로 표현한다. 여기에는 서로
+다른 두 일이 함께 들어 있다.</p>
+<p>첫째, <strong>판단을 규칙으로 표현한다.</strong> 사람의 머릿속에서만 통하는 직감이 아니라 컴퓨터가
+입력받고 계산할 수 있는 형태여야 한다.</p>
+<p>둘째, <strong>그 규칙을 과거에 되돌려 본다.</strong> 오늘의 결과 하나가 아니라 같은 절차를 여러 과거
+시점에 적용해 어떤 행동과 손익이 나왔는지 확인한다.</p>
+<h2>이 강의의 운영 정의</h2>
+<p>이 강의는 교재의 정의를 학습자가 감사하기 쉬운 다섯 칸으로 편다.</p>
+<figure class="report-figure" id="fig-1"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 1</span><span class="asset-caption__title">정보에서 검증 기록까지 끊기지 않는 의사결정 사슬</span></figcaption><img alt="정보가 입력과 규칙을 거쳐 행동이 되고 검증 기록으로 남는 다섯 칸 사슬" src="assets/figs/decision-chain.svg"></figure>
+<table class="cmp-table" id="table-2"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 2</span><span class="asset-caption__title">퀀트 판단을 이루는 다섯 칸</span></div></caption>
+<thead>
+<tr>
+<th>칸</th>
+<th>반드시 답할 것</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>정보</td>
+<td>무엇을 관찰하는가</td>
+<td>종가, 매출, 공시 문장</td>
+</tr>
+<tr>
+<td>입력</td>
+<td>언제 알 수 있고 어떤 값으로 바꾸는가</td>
+<td>장 마감 종가, 공시 다음 거래일 값</td>
+</tr>
+<tr>
+<td>규칙</td>
+<td>어떤 조건이 신호를 만드는가</td>
+<td>단기 평균이 장기 평균보다 큼</td>
+</tr>
+<tr>
+<td>행동</td>
+<td>언제 어떤 가격을 가정해 무엇을 하는가</td>
+<td>다음 거래일 시가에 매수</td>
+</tr>
+<tr>
+<td>검증 기록</td>
+<td>무엇을 다시 확인할 수 있는가</td>
+<td>거래별 시각·가격·비용·손익</td>
+</tr>
+</tbody>
+</table>
+<p>이 중 하나가 비면 컴퓨터 프로그램은 실행될 수 있어도 <strong>판단을 감사할 수 없다.</strong> 예를 들어
+"이동평균이 오르면 산다"는 규칙처럼 보이지만, 어느 길이의 평균인지, 어느 시점의 가격을
+쓰는지, 언제 체결했다고 보는지가 없다. 같은 문장을 받은 두 사람이 다른 결과를 내게 된다.</p>
+<div class="callout--insight"><span class="callout__kicker">읽기 포인트</span><div class="callout__body"><p>퀀트의 최소 단위는 코드 파일이 아니라 <strong>같은 입력에서 같은 행동을 다시 만드는 계약</strong>이다.</p></div></div>
+<h2>자동 주문은 정의의 끝부분이다</h2>
+<p>컴퓨터가 증권사에 주문을 보내는 것은 자동 실행이다. 퀀트 판단은 그보다 앞에서 시작한다.
+이 강의의 종착점은 스스로 백테스트하는 것이며 실계좌 주문 전송은 범위 밖이다. 주문을
+자동으로 보내지 않아도 입력·규칙·행동 가정·검증 기록이 고정되면 퀀트 연구가 성립한다.
+반대로 주문만 자동화하고 판단 규칙이 사람의 즉흥 선택에 달려 있으면 이 강의가 말하는
+재현 가능한 퀀트 연구는 성립하지 않는다.</p>
+<hr>
+    </section>
+    <section class="report-section s2 page-break" id="s2" data-tier="core">
+      <div class="report-section__kicker">핵심 본편 · core</div>
+      <h1>기술적 분석과의 경계는 차트가 아니다</h1>
+<h2>겹치는 부분이 있다</h2>
+<p>기술적 분석에 기반한 전략도 완전히 코드로 표현할 수 있다면 퀀트 시스템의 일부가 될 수
+있다. 가격과 거래량, 이동평균, 신고가처럼 차트에서 출발한 정보라는 이유만으로 퀀트에서
+빠지는 것은 아니다.</p>
+<p>그러나 모든 기술적 분석이 곧바로 퀀트가 되는 것도 아니다. Chan은 헤드 앤 숄더 패턴을
+찾는 일을 예로 든다. "그 모양처럼 보인다"는 설명만 있으면 사람마다 어깨의 위치, 허용
+오차, 거래 시점을 다르게 고를 수 있다. 그 상태는 아직 주관적이고 정량화하기 어렵다.</p>
+<h2>경계는 표현 가능성이다</h2>
+<figure class="report-figure" id="fig-2"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 2</span><span class="asset-caption__title">정보 종류가 아니라 재현 가능한 표현 여부로 나눈 경계</span></figcaption><img alt="기술적 분석 일부와 퀀트 트레이딩이 겹치지만 주관적 판단과 재현 가능한 규칙은 구분되는 지도" src="assets/figs/boundary-map.svg"></figure>
+<p>그림의 겹침은 중요한 오해를 막는다. "기술적 분석은 전부 비과학적이고 퀀트는 전부
+과학적이다"라는 이분법은 교재의 설명이 아니다. 똑같은 차트 아이디어도 다음 요소를 고정하면
+정량 규칙으로 옮길 수 있다.</p>
+<ul>
+<li>관찰할 가격과 거래량의 정확한 열</li>
+<li>패턴을 계산할 기간과 허용 오차</li>
+<li>신호를 확정하는 시점</li>
+<li>주문을 실행했다고 가정할 다음 시점과 가격</li>
+<li>실패로 판정할 대조군과 비용</li>
+</ul>
+<p>여기서 패턴 규칙이 <strong>좋은 전략인지</strong>는 별도 질문이다. 코드화할 수 있다는 것은 시험할 수
+있다는 뜻이지, 수익성이 있거나 편향이 없다는 뜻이 아니다.</p>
+<h2>같은 아이디어의 세 상태</h2>
+<table class="cmp-table" id="table-3"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 3</span><span class="asset-caption__title">감상에서 감사 가능한 연구로 이동하는 세부 단계</span></div></caption>
+<thead>
+<tr>
+<th>문장</th>
+<th>현재 상태</th>
+<th>다음에 명시할 것</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>차트가 강해 보이면 산다</td>
+<td>사람의 감상</td>
+<td>강함을 계산하는 값과 문턱</td>
+</tr>
+<tr>
+<td>단기 평균이 장기 평균을 넘으면 산다</td>
+<td>부분 명세</td>
+<td>평균 길이·신호 시각·체결 시각</td>
+</tr>
+<tr>
+<td>장 마감에 20일 평균이 60일 평균을 위로 넘으면 다음 거래일 시가에 산다</td>
+<td>실행 가능한 규칙</td>
+<td>비용·결측치·청산·검증 구간</td>
+</tr>
+<tr>
+<td>같은 규칙을 작은 표와 과거 구간에서 대조하고 거래별 감사표를 남긴다</td>
+<td>감사 가능한 퀀트 연구</td>
+<td>표본 밖 검증과 반증 테스트</td>
+</tr>
+</tbody>
+</table>
+<hr>
+    </section>
+    <section class="report-section s3 page-break" id="s3" data-tier="core">
+      <div class="report-section__kicker">핵심 본편 · core</div>
+      <h1>문장을 여섯 질문으로 바꿔 본다</h1>
+<h2>판정 연습</h2>
+<p>아래 문장을 읽고 "퀀트다 / 아니다"를 즉시 고르는 대신 <strong>어느 칸까지 명시됐는지</strong> 찾는다.</p>
+<table class="cmp-table" id="table-4"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 4</span><span class="asset-caption__title">투자 문장에서 비어 있는 계약 찾기</span></div></caption>
+<thead>
+<tr>
+<th>투자 문장</th>
+<th>이미 있는 것</th>
+<th>비어 있는 것</th>
+<th>현재 판정</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>실적이 좋은 회사를 산다</td>
+<td>재무 정보의 방향</td>
+<td>실적 지표·공개 시각·비교 집단</td>
+<td>아이디어</td>
+</tr>
+<tr>
+<td>매출 증가율 상위 종목을 산다</td>
+<td>지표와 순위</td>
+<td>계산 기간·공개 지연·매수 시각</td>
+<td>부분 명세</td>
+</tr>
+<tr>
+<td>나쁜 뉴스가 나오면 판다</td>
+<td>뉴스와 행동</td>
+<td>나쁨의 판정기·버전·문턱·시각</td>
+<td>아이디어</td>
+</tr>
+<tr>
+<td>어제까지 알려진 값으로 신호를 만들고 오늘 시가에 거래했다고 기록한다</td>
+<td>정보·신호·체결 시각</td>
+<td>비용·청산·대조군</td>
+<td>실행 가능한 뼈대</td>
+</tr>
+</tbody>
+</table>
+<h2>여섯 질문</h2>
+<ol>
+<li><strong>무엇을 보나</strong> — 가격, 재무, 뉴스 중 어떤 필드인가.</li>
+<li><strong>언제 알았나</strong> — 그 값은 신호 시점에 실제로 공개돼 있었나.</li>
+<li><strong>어떻게 숫자로 바꾸나</strong> — 계산식, 모델, 버전과 문턱은 무엇인가.</li>
+<li><strong>언제 행동하나</strong> — 신호와 체결 사이의 시간차는 얼마인가.</li>
+<li><strong>무엇을 비용으로 빼나</strong> — 수수료, 세금, 스프레드, 슬리피지를 어떻게 근사하나.</li>
+<li><strong>무엇이면 틀렸다고 하나</strong> — 작은 손계산, 기준선, 미래 절단, 표본 밖 결과 중 무엇을 보나.</li>
+</ol>
+<p>이 질문을 모두 완벽하게 답해야 아이디어를 말할 자격이 생기는 것은 아니다. 처음에는 빈칸이
+있는 것이 정상이다. 중요한 것은 빈칸을 숨긴 채 "알고리즘"이라고 부르지 않는 것이다.</p>
+<div class="callout--insight"><span class="callout__kicker">읽기 포인트</span><div class="callout__body"><p>이 차시의 워크시트는 전략을 발명하는 종이가 아니라 <strong>빠진 계약을 표시하는 종이</strong>다.</p></div></div>
+<hr>
+    </section>
+    <section class="report-section s4 page-break" id="s4" data-tier="deep">
+      <div class="report-section__kicker">심화 부록 · deep</div>
+      <h1>가격·재무·뉴스는 같은 입구로 들어온다</h1>
+<h2>컴퓨터가 이해할 수 있는 형태</h2>
+<p>Chan의 정의는 퀀트 트레이딩을 기술적 분석보다 넓게 잡는다. 매출, 현금흐름, 부채비율 같은
+기초 자료도 숫자이므로 입력이 될 수 있다. 뉴스도 문장을 처리하는 절차가 있다면 입력으로
+바꿀 수 있다. 핵심은 정보의 출처가 아니라 컴퓨터가 같은 방식으로 해석할 수 있는 표현이다.</p>
+<figure class="report-figure" id="fig-3"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 3</span><span class="asset-caption__title">서로 다른 정보를 같은 신호 표로 바꾸는 세 입력 경로</span></figcaption><img alt="가격·재무·뉴스가 각자의 공개 시각과 변환 규칙을 거쳐 같은 신호 표로 합쳐지는 세 입력 경로" src="assets/figs/input-lanes.svg"></figure>
+<h2>같은 숫자라도 시각이 다르다</h2>
+<p>가격은 거래 시각마다 생기지만 재무 수치는 공시 뒤에 알려지고, 뉴스는 기사 게시 시각 뒤에
+알 수 있다. 최종 표에 숫자만 남기면 이 차이가 사라진다. 그래서 값과 함께 <strong>그 값을 알 수
+있었던 시각</strong>을 보존해야 한다.</p>
+<table class="cmp-table" id="table-5"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 5</span><span class="asset-caption__title">정보 세 종류를 입력으로 바꿀 때 잃지 말아야 할 조건</span></div></caption>
+<thead>
+<tr>
+<th>정보</th>
+<th>원래 모양</th>
+<th>컴퓨터 입력</th>
+<th>반드시 붙일 조건</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>가격·거래량</td>
+<td>시계열 숫자</td>
+<td>수익률·평균·순위</td>
+<td>거래소 시각·수정 방식·결측치</td>
+</tr>
+<tr>
+<td>재무 정보</td>
+<td>공시 표</td>
+<td>비율·성장률·동종 비교</td>
+<td>공시 시각·정정·사용 가능일</td>
+</tr>
+<tr>
+<td>뉴스</td>
+<td>문장</td>
+<td>분류·점수·사건 표식</td>
+<td>게시 시각·모델과 버전·문턱</td>
+</tr>
+</tbody>
+</table>
+<p>뉴스를 숫자로 만들었다고 해서 자동으로 객관적이 되는 것은 아니다. 분류 모델이 바뀌면
+과거 점수도 달라질 수 있다. 어떤 모델과 버전, 어떤 지시문과 문턱을 썼는지 남겨야 같은
+결과를 다시 만들 수 있다. 재무 정보도 정정된 최신 값만 과거 전체에 덮으면 당시에는 몰랐던
+정보가 과거 신호에 들어갈 수 있다.</p>
+<h2>컴퓨터와 사람의 역할</h2>
+<p>컴퓨터의 강점은 같은 규칙을 많은 대상과 시점에 반복하는 것이다. 사람의 역할은 그 규칙이
+무엇을 빠뜨렸는지, 데이터가 당시 이용 가능했는지, 결과를 반증할 대조군이 충분한지 묻는
+것이다. 사람의 해석을 없애는 것이 아니라 <strong>해석이 개입한 자리를 기록한다.</strong></p>
+<hr>
+    </section>
+    <section class="report-section s5 page-break" id="s5" data-tier="deep">
+      <div class="report-section__kicker">심화 부록 · deep</div>
+      <h1>코드는 검증의 시작이지 결론이 아니다</h1>
+<h2>실행 가능성과 유효성은 다르다</h2>
+<p>코드가 오류 없이 실행되고 과거 수익이 양수여도 전략이 유효하다고 결론낼 수 없다. 미래
+값을 실수로 섞었을 수 있고, 여러 규칙을 시험한 뒤 가장 좋은 것만 골랐을 수 있으며, 비용을
+빼면 결과가 사라질 수 있다. 이 문제들은 뒤의 차시에서 각각 다룬다.</p>
+<p>이 차시에서 먼저 구분할 것은 세 층이다.</p>
+<table class="cmp-table" id="table-6"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 6</span><span class="asset-caption__title">코드 실행·규칙 재현·검증 통과를 섞지 않는 세 층</span></div></caption>
+<thead>
+<tr>
+<th>층</th>
+<th>통과했다는 뜻</th>
+<th>아직 증명하지 못한 것</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>코드 실행</td>
+<td>프로그램이 결과를 냈다</td>
+<td>계산이 의도와 같은가</td>
+</tr>
+<tr>
+<td>규칙 재현</td>
+<td>같은 입력에서 같은 행동이 나온다</td>
+<td>미래 정보와 선택 편향이 없는가</td>
+</tr>
+<tr>
+<td>검증 통과</td>
+<td>정한 대조와 표본 밖 절차를 통과했다</td>
+<td>앞으로도 수익이 난다는 보장</td>
+</tr>
+</tbody>
+</table>
+<h2>AIML Quant 보충 — 에이전트가 코드를 써도 책임은 이동하지 않는다</h2>
+<p>코딩 에이전트는 문장을 코드로 바꾸고 테스트를 실행할 수 있다. 그러나 "실적이 좋다"의
+정의, 신호 시점에 알 수 있던 값, 체결 가격과 비용, 반증 대조군은 사용자가 정해야 한다.
+에이전트의 설명은 증거가 아니라 <strong>어떤 테스트를 더 할지 제안하는 입력</strong>이다.</p>
+<p>이 때문에 강의의 목표는 코드를 읽어 모든 줄을 직접 감사하는 것이 아니다. 제약된 하네스가
+거래별 감사표, 미래 절단 결과, 대조군, 시도 횟수, 홀드아웃 결과를 반드시 내게 하고 그
+증거를 검토하는 것이다.</p>
+<h2>첫 차시의 한계</h2>
+<ul>
+<li>이 차시는 좋은 전략을 고르는 법을 가르치지 않는다.</li>
+<li>기술적 분석·기초 분석·뉴스 중 어느 입력이 더 우수하다고 말하지 않는다.</li>
+<li>컴퓨터가 반복할 수 있다는 사실은 경제적 이유나 수익성을 보장하지 않는다.</li>
+<li>백테스트를 완주하는 것과 실계좌 주문을 보내는 것은 다른 범위다.</li>
+</ul>
+<hr>
+    </section>
+    <section class="report-section s6 page-break" id="s6" data-tier="deep">
+      <div class="report-section__kicker">심화 부록 · deep</div>
+      <h1>이름보다 빠진 계약을 찾는다</h1>
+<h2>가져갈 판정표</h2>
+<table class="cmp-table" id="table-7"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 7</span><span class="asset-caption__title">투자 아이디어를 감사 가능한 퀀트 연구로 바꾸는 판정표</span></div></caption>
+<thead>
+<tr>
+<th>확인</th>
+<th>예라고 답하려면</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>입력이 고정됐나</td>
+<td>열·단위·기간·결측치 처리가 적혀 있다</td>
+</tr>
+<tr>
+<td>정보 시각이 고정됐나</td>
+<td>신호 전에 실제로 알 수 있던 값만 쓴다</td>
+</tr>
+<tr>
+<td>규칙이 고정됐나</td>
+<td>계산식·모델·버전·문턱이 적혀 있다</td>
+</tr>
+<tr>
+<td>행동이 고정됐나</td>
+<td>신호·주문·체결·청산 시각과 가격 가정이 적혀 있다</td>
+</tr>
+<tr>
+<td>비용이 고정됐나</td>
+<td>어떤 비용을 어떤 단위로 뺐는지 적혀 있다</td>
+</tr>
+<tr>
+<td>반증 경로가 있나</td>
+<td>손계산·기준선·미래 절단·홀드아웃 중 적용할 관문이 적혀 있다</td>
+</tr>
+</tbody>
+</table>
+<h2>세 문장 정리</h2>
+<p>퀀트 트레이딩은 차트를 쓰지 않는 거래가 아니라 <strong>판단을 재현 가능한 규칙으로 바꾼 거래</strong>다.
+기술적 분석도 완전히 명시하면 퀀트와 겹치고, 재무와 뉴스도 시각과 변환 규칙을 남기면 입력이
+될 수 있다. 코드가 생긴 뒤부터는 수익을 믿는 것이 아니라 어떤 정보와 선택이 숨어들었는지
+검증해야 한다.</p>
+<p>다음 차시는 누가 퀀트 트레이더가 될 수 있는지, 고급 학위보다 단순한 규칙과 감정·자본의
+조건이 왜 중요한지를 다룬다.</p>
+<hr>
+    </section>
+    <section class="report-appendix page-break" id="appendix-glossary">
+      <div class="report-section__kicker">부록 A</div>
+      <h1>용어</h1>
+<table class="cmp-table">
+<thead>
+<tr>
+<th>용어</th>
+<th>이 리포트에서의 뜻</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>알고리즘</td>
+<td>입력에 적용할 순서와 조건을 명시한 절차</td>
+</tr>
+<tr>
+<td>정량화</td>
+<td>사람의 표현을 계산 가능한 값·범주·문턱으로 바꾸는 일</td>
+</tr>
+<tr>
+<td>신호</td>
+<td>규칙이 특정 시점에 내놓은 매수·매도·보유 판단</td>
+</tr>
+<tr>
+<td>백테스트</td>
+<td>고정한 규칙을 과거 데이터에 적용해 행동과 결과를 다시 계산하는 일</td>
+</tr>
+<tr>
+<td>감사표</td>
+<td>각 거래의 정보·신호·체결 시각, 가격, 비용, 손익을 한 행에 남긴 표</td>
+</tr>
+<tr>
+<td>반증</td>
+<td>전략이 맞다는 사례를 더 찾는 대신 틀릴 수 있는 조건을 시험하는 일</td>
+</tr>
+</tbody>
+</table>
+    </section>
+    <section class="report-appendix page-break" id="appendix-sources">
+      <div class="report-section__kicker">부록 B</div>
+      <h1>근거와 재구성 범위</h1>
+<table class="cmp-table" id="table-8"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 8</span><span class="asset-caption__title">교재 주장과 AIML Quant 보충의 경계</span></div></caption>
+<thead>
+<tr>
+<th>리포트 절</th>
+<th>교재 근거</th>
+<th>재구성 범위</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>s1</td>
+<td>Ernest P. Chan, <em>Quantitative Trading</em>, 2판, 1장 도입부의 정의</td>
+<td>교재 정의를 다섯 칸 감사 사슬로 펼침</td>
+</tr>
+<tr>
+<td>s2</td>
+<td>같은 장의 기술적 분석 비교와 헤드 앤 숄더 예</td>
+<td>현대 도구의 우열이 아니라 표현 가능성으로 경계를 설명</td>
+</tr>
+<tr>
+<td>s4</td>
+<td>같은 장의 가격·기초 자료·뉴스 입력 설명</td>
+<td>정보 시각·모델 버전·정정값 경계를 보충</td>
+</tr>
+<tr>
+<td>s3·s5·s6</td>
+<td>AIML Quant 표준 하네스와 이 강의의 범위</td>
+<td>판정 연습·검증 층·에이전트 운용 규칙을 추가</td>
+</tr>
+</tbody>
+</table>
+<p>그림 세 장은 교재 그림을 복제한 것이 아니라 위 절의 논리를 관계도로 새로 그린 것이다.
+교재의 문장을 길게 옮기지 않고 정의·예시·경계를 한국어 수업 흐름에 맞게 재구성했다.</p>
+    </section>
+    </article>
+  </main>
+  <script src="assets/report.js"></script>
+</body>
+</html>

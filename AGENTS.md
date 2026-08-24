@@ -55,17 +55,26 @@ html/
         ├── index.html                  # 차시 페이지. 영상 임베드와 자료 링크
         ├── report.html                 # 상세 리포트. 학습자가 다시 읽는 텍스트 교재
         ├── slides.html                 # 교안. core 본편 뒤 deep 부록
+        ├── notebook.html + notebook.ipynb
+        │   또는 worksheet.html + worksheet.md
         └── assets/                     # 이 차시에 귀속된 CSS·JS·figs
 ```
 
-**세 파일이 한 벌이다.** `report.html` 은 슬라이드를 만드는 중간 산출물이 아니라 학습자가
-다시 읽는 공개 산출물이다 (2026-08-22 결정, `seminar` 와 같은 모양). 하나라도 빠지면
-게시하지 않는다 — `lecture-materials` 의 `validate.py` 가 게이트로 강제한다. 코스에는
-`index.html` 개요 페이지가 있어야 한다.
+**공통 세 파일과 종류별 두 파일, 모두 다섯 파일이 한 벌이다.** 공통 파일은
+`index.html`·`report.html`·`slides.html` 이다. 차시 정본의 `kind` 가 `notebook` 이면
+`notebook.html`·`notebook.ipynb`, `worksheet` 이면 `worksheet.html`·`worksheet.md` 를
+더 낸다. `report.html` 은 슬라이드를 만드는 중간 산출물이 아니라 학습자가 다시 읽는
+공개 산출물이다. 렌더본과 다운로드 원본 가운데 하나라도 빠지면 게시하지 않는다 —
+`lecture-materials` 의 `validate.py` 가 게이트로 강제한다. 코스에는 `index.html` 개요
+페이지가 있어야 한다.
 
 `course_id` 와 `lesson_id` 는 곧 공개 URL 경로다. **한 번 발행하면 바꾸지 않는다.**
 차시 번호와 표시 제목은 `lesson_id` 와 분리된 별도 필드이므로, 순서를 바꿔도 URL 은
 그대로 유지된다.
+
+공개 상태는 `review` 와 `published` 를 구분한다. `review` 는 피드백을 받기 위한 직접 URL
+공개이며 모든 HTML 에 `noindex, nofollow` 를 넣고 홈에는 노출하지 않는다. 음성·영상·청취
+검증과 내용 승인이 끝난 뒤에만 `published` 로 전환한다.
 
 ## Base path
 
