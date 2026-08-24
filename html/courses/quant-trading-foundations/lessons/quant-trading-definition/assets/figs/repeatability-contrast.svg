@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
-  <title id="title">재량 판독과 명시적 규칙의 반복 가능성 비교</title>
+  <title id="title">사람의 주관적 판단과 명시적 규칙의 반복성 비교</title>
   <desc id="desc">왼쪽에서는 같은 차트를 두 분석자가 서로 다르게 판단하고, 오른쪽에서는 같은 입력과 고정 규칙이 두 번 모두 같은 매수 판단을 만든다.</desc>
   <defs>
     <marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
@@ -24,8 +24,8 @@
 
   <g>
     <rect class="panel" x="24" y="24" width="552" height="572" rx="12" fill="#FFF1F4" stroke="#BE123C"/>
-    <text class="title" x="300" y="77" text-anchor="middle">사람의 재량 판독</text>
-    <text class="body" x="300" y="113" text-anchor="middle">같은 차트 · 해석 기준은 머릿속</text>
+    <text class="title" x="300" y="77" text-anchor="middle">사람의 주관적 판단</text>
+    <text class="body" x="300" y="113" text-anchor="middle">같은 차트 · 기준은 사람마다 다름</text>
 
     <rect class="node" x="175" y="148" width="250" height="96" rx="12"/>
     <text class="node-body" x="300" y="181" text-anchor="middle">동일한 가격 차트</text>
@@ -44,13 +44,13 @@
     <text class="node-body" x="432" y="427" text-anchor="middle">하락 지속</text>
 
     <rect x="132" y="500" width="336" height="60" rx="30" fill="#FFFFFF" stroke="#BE123C" stroke-width="1.5"/>
-    <text class="result" x="300" y="540" text-anchor="middle" fill="#BE123C">판단이 사람에 따라 달라짐</text>
+    <text class="result" x="300" y="540" text-anchor="middle" fill="#BE123C">같은 차트도 판단이 달라짐</text>
   </g>
 
   <g>
     <rect class="panel" x="624" y="24" width="552" height="572" rx="12" fill="#E4F6F0" stroke="#0B7A6A"/>
     <text class="title" x="900" y="77" text-anchor="middle">명시적 퀀트 규칙</text>
-    <text class="body" x="900" y="113" text-anchor="middle">같은 입력 · 계산 기준은 규칙 안</text>
+    <text class="body" x="900" y="113" text-anchor="middle">같은 입력 · 판단 기준을 규칙에 명시</text>
 
     <rect class="node" x="672" y="160" width="180" height="92" rx="12"/>
     <text class="node-body" x="762" y="194" text-anchor="middle">동일한 입력</text>

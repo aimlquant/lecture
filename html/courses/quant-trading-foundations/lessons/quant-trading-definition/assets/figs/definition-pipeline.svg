@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
   <title id="title">퀀트 트레이딩의 네 단계</title>
-  <desc id="desc">입력 자료, 명시적 규칙, 거래 판단, 과거 재실행이 차례로 이어지고 재실행 결과가 다시 입력과 규칙 설계로 돌아간다.</desc>
+  <desc id="desc">입력 자료, 명시적 규칙, 거래 판단, 과거 데이터 검증이 차례로 이어지고 검증 결과가 다시 입력과 규칙 설계로 돌아간다.</desc>
   <defs>
     <marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
       <path d="M0 0L18 5L0 10Z" fill="context-stroke"/>
@@ -24,7 +24,7 @@
     <text class="eyebrow" x="44" y="99">01 · INPUT</text>
     <text class="title" x="44" y="145">입력 자료</text>
     <text class="body" x="44" y="190">가격 · 재무 · 뉴스</text>
-    <text class="body" x="44" y="228">시점이 붙은 데이터</text>
+    <text class="body" x="44" y="228">기준 시점까지 기록</text>
   </g>
 
   <path class="flow" d="M256 164H328"/>
@@ -35,7 +35,7 @@
     <text class="eyebrow" x="352" y="99">02 · RULE</text>
     <text class="title" x="352" y="145">명시적 규칙</text>
     <text class="body" x="352" y="190">계산 · 순서 · 임계값</text>
-    <text class="body" x="352" y="228">해석할 빈칸 없음</text>
+    <text class="body" x="352" y="228">해석의 여지 없음</text>
   </g>
 
   <path class="flow" d="M564 164H636"/>
@@ -46,7 +46,7 @@
     <text class="eyebrow" x="660" y="99">03 · DECISION</text>
     <text class="title" x="660" y="145">거래 판단</text>
     <text class="body" x="660" y="190">매수 · 매도 · 보유</text>
-    <text class="body" x="660" y="228">행동까지 출력</text>
+    <text class="body" x="660" y="228">매매 행동을 결정</text>
   </g>
 
   <path class="flow" d="M872 164H944"/>
@@ -55,10 +55,10 @@
     <rect class="card" x="944" y="54" width="236" height="220" rx="12"/>
     <rect x="944" y="54" width="236" height="8" rx="4" fill="#B45309"/>
     <text class="eyebrow" x="968" y="99">04 · REPLAY</text>
-    <text class="title" x="968" y="145">과거 재실행</text>
+    <text class="title" x="968" y="145">과거 검증</text>
     <text class="body-small" x="968" y="184">같은 입력</text>
     <text class="body-small" x="968" y="217">같은 판단</text>
-    <text class="body-small" x="968" y="250">성과는 별도 검증</text>
+    <text class="body-small" x="968" y="250">성과는 따로 확인</text>
   </g>
 
   <path class="loop" d="M1062 274V326H138V274"/>

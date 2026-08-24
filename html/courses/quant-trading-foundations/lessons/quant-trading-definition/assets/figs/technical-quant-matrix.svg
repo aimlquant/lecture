@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
-  <title id="title">기술적 분석과 퀀트 트레이딩의 이차원 경계 지도</title>
-  <desc id="desc">가로축은 가격과 거래량 중심 입력에서 재무와 뉴스 입력으로 이동하고, 세로축은 사람의 해석이 남는 규칙에서 완전히 코드화된 규칙으로 이동한다.</desc>
+  <title id="title">기술적 분석과 퀀트 트레이딩의 관계 지도</title>
+  <desc id="desc">가로축은 입력 자료가 가격과 거래량에서 재무와 뉴스로 넓어지는 방향이고, 세로축은 사람의 해석이 남는 판단에서 명시적 규칙으로 바뀌는 방향이다.</desc>
   <defs>
     <marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
       <path d="M0 0L18 5L0 10Z" fill="context-stroke"/>
@@ -31,22 +31,22 @@
     <text class="title" x="216" y="169">기술적 분석 + 퀀트</text>
     <text class="body" x="216" y="217">수치로 정의한 이동평균 교차</text>
     <text class="body" x="216" y="257">가격 규칙을 컴퓨터가 반복</text>
-    <text class="body" x="216" y="297">두 영역이 겹치는 자리</text>
+    <text class="body" x="216" y="297">두 영역이 겹치는 경우</text>
   </g>
 
   <g>
-    <text class="eyebrow" x="666" y="118" fill="#0B7A6A">퀀트의 확장</text>
-    <text class="title" x="666" y="169">퀀트 · 비기술적 입력</text>
+    <text class="eyebrow" x="666" y="118" fill="#0B7A6A">가격 밖의 퀀트</text>
+    <text class="title" x="666" y="169">퀀트 · 가격 외 입력</text>
     <text class="body" x="666" y="217">매출 성장률 · 부채비율</text>
     <text class="body" x="666" y="257">뉴스 분류 결과</text>
-    <text class="body" x="666" y="297">입력은 넓고 규칙은 명시적</text>
+    <text class="body" x="666" y="297">가격 밖의 자료도 활용</text>
   </g>
 
   <g>
-    <text class="eyebrow" x="216" y="398" fill="#BE123C">아직 비퀀트</text>
+    <text class="eyebrow" x="216" y="398" fill="#BE123C">아직 퀀트는 아님</text>
     <text class="title" x="216" y="449">재량적 기술적 분석</text>
     <text class="body" x="216" y="497">눈으로 찾는 헤드 앤 숄더</text>
-    <text class="body" x="216" y="537">분석자마다 다른 모양 판독</text>
+    <text class="body" x="216" y="537">분석자마다 패턴 판단이 다름</text>
     <text class="body" x="216" y="577">명시적 조건이 필요</text>
   </g>
 
@@ -54,13 +54,13 @@
     <text class="eyebrow" x="666" y="398" fill="#52606D">재량 판단</text>
     <text class="title" x="666" y="449">둘 다 아님</text>
     <text class="body" x="666" y="497">“경영진 인상이 좋아 보인다”</text>
-    <text class="body" x="666" y="537">데이터와 규칙 모두 미정</text>
-    <text class="body" x="666" y="577">사람의 최종 해석에 의존</text>
+    <text class="body" x="666" y="537">자료와 규칙이 모두 없음</text>
+    <text class="body" x="666" y="577">사람의 인상에 의존</text>
   </g>
 
   <path class="axis" d="M180 682H1080"/>
-  <text class="axis-label" x="630" y="730" text-anchor="middle">입력: 가격·거래량 중심 → 재무·뉴스 등</text>
+  <text class="axis-label" x="630" y="730" text-anchor="middle">입력 범위: 가격·거래량 → 재무·뉴스 등</text>
 
   <path class="axis" d="M132 632V72"/>
-  <text class="axis-label" x="72" y="352" text-anchor="middle" transform="rotate(-90 72 352)">규칙: 사람 해석 남음 → 완전 코드화</text>
+  <text class="axis-label" x="72" y="352" text-anchor="middle" transform="rotate(-90 72 352)">판단 방식: 사람의 해석 → 명시적 규칙</text>
 </svg>

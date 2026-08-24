@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
-  <title id="title">가격 밖으로 넓어지는 퀀트 입력</title>
+  <title id="title">퀀트에 쓰이는 다양한 자료</title>
   <desc id="desc">가격과 거래량, 재무 수치, 뉴스 텍스트가 같은 명시적 규칙 관문을 지나 매수, 매도, 보유 판단으로 이어진다.</desc>
   <defs>
     <marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
@@ -35,8 +35,8 @@
     <rect x="40" y="442" width="280" height="150" rx="12" fill="#FFF0DF" stroke="#C7D2E1" stroke-width="1.5"/>
     <text class="eyebrow" x="64" y="480">TEXT</text>
     <text class="title" x="64" y="522">뉴스 텍스트</text>
-    <text class="body" x="64" y="554">분류 · 사건</text>
-    <text class="body" x="64" y="582">문서 신호</text>
+    <text class="body" x="64" y="554">분류 · 사건 정보</text>
+    <text class="body" x="64" y="582">문서에서 뽑은 신호</text>
   </g>
 
   <path class="flow" d="M320 103H392A12 12 0 0 1 404 115V228A12 12 0 0 0 416 240H460"/>
@@ -48,8 +48,8 @@
     <rect x="492" y="202" width="172" height="38" rx="19" fill="#E7EEF9"/>
     <text class="eyebrow" x="578" y="228" text-anchor="middle" fill="#0F2C59">EXPLICIT RULE</text>
     <text class="title" x="610" y="288" text-anchor="middle">명시적 규칙</text>
-    <text class="body" x="610" y="338" text-anchor="middle">어떤 입력이든 같은 질문</text>
-    <text class="body" x="610" y="378" text-anchor="middle">“조건과 행동이 고정됐는가?”</text>
+    <text class="body" x="610" y="338" text-anchor="middle">자료가 달라도 질문은 같다</text>
+    <text class="body" x="610" y="378" text-anchor="middle">“조건과 행동이 명확한가?”</text>
   </g>
 
   <path class="flow" d="M760 310H880"/>
