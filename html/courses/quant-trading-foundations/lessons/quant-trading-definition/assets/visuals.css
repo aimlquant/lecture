@@ -10,7 +10,7 @@
   min-width: 0;
   padding: 16px;
   border: 1px solid var(--border);
-  border-top: 4px solid var(--brand-primary);
+  border-top: 3px solid var(--brand-primary);
   border-radius: 10px;
   background: var(--surface);
   box-shadow: 0 5px 18px rgba(15, 44, 89, 0.06);
@@ -26,14 +26,14 @@
   margin-bottom: 8px;
   color: var(--text-secondary);
   font-size: 8.5pt;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.08em;
 }
 
 .visual-thesis__card strong {
   display: block;
   color: var(--text);
-  font-size: 13pt;
+  font-size: 12.5pt;
   line-height: 1.3;
 }
 
@@ -71,13 +71,13 @@
   margin-bottom: 6px;
   color: var(--text-secondary);
   font-size: 8pt;
-  font-weight: 850;
+  font-weight: 700;
   letter-spacing: 0.08em;
 }
 
 .myth-card__claim strong {
   color: var(--negative);
-  font-size: 11.5pt;
+  font-size: 11pt;
   line-height: 1.35;
 }
 
@@ -99,7 +99,7 @@
   gap: 8px;
   margin: 12px 0 18px;
   padding: 12px 14px;
-  border-left: 4px solid var(--brand-primary);
+  border-left: 3px solid var(--brand-primary);
   background: var(--brand-soft);
 }
 
@@ -110,11 +110,49 @@
   background: var(--surface);
   color: var(--brand-primary);
   font-size: 9pt;
-  font-weight: 750;
+  font-weight: 700;
 }
 
 .report-figure--wide img {
   aspect-ratio: auto;
+}
+
+/* 이 차시의 독서 리듬: 대제목과 소제목을 같은 크기로 소리치지 않는다. */
+.continuous-mode .report-cover__title {
+  max-width: 700px;
+  font-size: clamp(34px, 4.2vw, 42px);
+  line-height: 1.12;
+}
+
+.continuous-mode .report-section h1,
+.continuous-mode .report-appendix h1 {
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--brand-primary);
+  font-size: 32px;
+  line-height: 1.18;
+  margin-bottom: 20px;
+}
+
+.continuous-mode .report-section h2 {
+  padding-bottom: 0;
+  border-bottom: 0;
+  font-size: 23px;
+  line-height: 1.3;
+  margin-top: 48px;
+  margin-bottom: 14px;
+}
+
+.continuous-mode .report-section h3 {
+  font-size: 18px;
+  line-height: 1.35;
+  margin-top: 34px;
+}
+
+.continuous-mode .report-section .report-figure > img,
+.continuous-mode .report-section .report-figure > svg {
+  border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+  border-radius: 12px;
+  box-shadow: none;
 }
 
 @media (max-width: 680px) {
@@ -146,7 +184,7 @@
     background: var(--brand-soft);
     color: var(--brand-primary);
     font-size: 8pt;
-    font-weight: 750;
+    font-weight: 700;
   }
 
   .report-figure > .asset-caption {
@@ -165,6 +203,24 @@
     margin-left: 0;
     margin-right: 0;
   }
+
+  .continuous-mode .report-cover__title {
+    font-size: 32px;
+  }
+
+  .continuous-mode .report-section h1,
+  .continuous-mode .report-appendix h1 {
+    font-size: 27px;
+  }
+
+  .continuous-mode .report-section h2 {
+    font-size: 21px;
+    margin-top: 38px;
+  }
+
+  .continuous-mode .report-section h3 {
+    font-size: 18px;
+  }
 }
 
 @media print {
@@ -179,5 +235,30 @@
   .visual-thesis__card,
   .myth-card {
     box-shadow: none;
+  }
+
+  .continuous-mode .report-cover__title {
+    font-size: 32pt;
+    line-height: 1.1;
+  }
+
+  .continuous-mode .report-section h1,
+  .continuous-mode .report-appendix h1 {
+    padding-bottom: 7pt;
+    border-bottom-width: 1.5px;
+    font-size: 17pt;
+    line-height: 1.18;
+  }
+
+  .continuous-mode .report-section h2 {
+    border-bottom: 0;
+    font-size: 13pt;
+    line-height: 1.28;
+    margin-top: 28pt;
+  }
+
+  .continuous-mode .report-section h3 {
+    font-size: 11pt;
+    line-height: 1.3;
   }
 }

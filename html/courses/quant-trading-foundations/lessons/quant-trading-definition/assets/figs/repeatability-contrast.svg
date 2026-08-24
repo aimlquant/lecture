@@ -1,68 +1,80 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
   <title id="title">재량 판독과 명시적 규칙의 반복 가능성 비교</title>
-  <desc id="desc">같은 차트를 두 사람이 다르게 판단하는 왼쪽 흐름과 같은 입력을 같은 규칙이 같은 결정으로 만드는 오른쪽 흐름</desc>
+  <desc id="desc">왼쪽에서는 같은 차트를 두 분석자가 서로 다르게 판단하고, 오른쪽에서는 같은 입력과 고정 규칙이 두 번 모두 같은 매수 판단을 만든다.</desc>
   <defs>
-    <marker id="arrow-red" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
-      <path d="M1 1l10 5-10 5z" fill="#7F1D3F"/>
-    </marker>
-    <marker id="arrow-green" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
-      <path d="M1 1l10 5-10 5z" fill="#0B6B5D"/>
-    </marker>
-    <marker id="arrow-navy" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
-      <path d="M1 1l10 5-10 5z" fill="#0F2C59"/>
+    <marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
+      <path d="M0 0L18 5L0 10Z" fill="context-stroke"/>
     </marker>
     <style>
-      text { font-family:'Noto Sans CJK KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif; fill:#0F172A; }
-      .head { font-size:30px; font-weight:900; }
-      .small { font-size:19px; font-weight:750; fill:#52606D; }
-      .label { font-size:23px; font-weight:850; }
-      .result { font-size:25px; font-weight:900; }
+      text { font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif; fill:#0F172A; }
+      .title { font-size:34px; font-weight:700; }
+      .body { font-size:26px; font-weight:400; fill:#52606D; }
+      .node-title { font-size:28px; font-weight:700; }
+      .node-body { font-size:24px; font-weight:400; fill:#52606D; }
+      .result { font-size:26px; font-weight:700; }
+      .panel { stroke-width:1.5; }
+      .node { fill:#FFFFFF; stroke:#C7D2E1; stroke-width:1.5; }
+      .rose-flow { fill:none; stroke:#BE123C; stroke-width:3; stroke-linecap:round; stroke-linejoin:round; marker-end:url(#arrow); }
+      .rose-trunk { fill:none; stroke:#BE123C; stroke-width:3; stroke-linecap:round; }
+      .teal-flow { fill:none; stroke:#0B7A6A; stroke-width:3; stroke-linecap:round; stroke-linejoin:round; marker-end:url(#arrow); }
+      .teal-trunk { fill:none; stroke:#0B7A6A; stroke-width:3; stroke-linecap:round; }
     </style>
   </defs>
-  <rect width="1200" height="640" rx="28" fill="#F8FAFC"/>
+  <rect width="1200" height="620" fill="#FFFFFF"/>
 
-  <rect x="35" y="35" width="545" height="570" rx="24" fill="#FFF7F7" stroke="#F0B8C7" stroke-width="3"/>
-  <text x="308" y="88" text-anchor="middle" class="head" fill="#9F1239">사람의 재량 판독</text>
-  <text x="308" y="122" text-anchor="middle" class="small">같은 차트 · 해석 기준은 머릿속</text>
+  <g>
+    <rect class="panel" x="24" y="24" width="552" height="572" rx="12" fill="#FFF1F4" stroke="#BE123C"/>
+    <text class="title" x="300" y="77" text-anchor="middle">사람의 재량 판독</text>
+    <text class="body" x="300" y="113" text-anchor="middle">같은 차트 · 해석 기준은 머릿속</text>
 
-  <rect x="185" y="160" width="245" height="92" rx="16" fill="#FFFFFF" stroke="#D7A6B4" stroke-width="3"/>
-  <text x="308" y="196" text-anchor="middle" class="small">동일한 가격 차트</text>
-  <polyline points="215,228 250,215 282,224 318,184 354,222 390,208" fill="none" stroke="#BE123C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect class="node" x="175" y="148" width="250" height="96" rx="12"/>
+    <text class="node-body" x="300" y="181" text-anchor="middle">동일한 가격 차트</text>
+    <polyline points="210,226 246,210 278,219 314,184 350,219 390,205" fill="none" stroke="#BE123C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <path d="M250 252V300H155V346" fill="none" stroke="#7F1D3F" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow-red)"/>
-  <path d="M366 252V300H460V346" fill="none" stroke="#7F1D3F" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow-red)"/>
+    <path class="rose-trunk" d="M300 244V304"/>
+    <path class="rose-flow" d="M300 304H168V356"/>
+    <path class="rose-flow" d="M300 304H432V356"/>
 
-  <rect x="70" y="346" width="170" height="82" rx="14" fill="#FFFFFF" stroke="#D7A6B4" stroke-width="3"/>
-  <text x="155" y="380" text-anchor="middle" class="label">분석자 A</text>
-  <text x="155" y="408" text-anchor="middle" class="small">“상승 전환”</text>
-  <rect x="375" y="346" width="170" height="82" rx="14" fill="#FFFFFF" stroke="#D7A6B4" stroke-width="3"/>
-  <text x="460" y="380" text-anchor="middle" class="label">분석자 B</text>
-  <text x="460" y="408" text-anchor="middle" class="small">“하락 지속”</text>
+    <rect class="node" x="86" y="356" width="164" height="92" rx="12"/>
+    <text class="node-title" x="168" y="394" text-anchor="middle">분석자 A</text>
+    <text class="node-body" x="168" y="427" text-anchor="middle">상승 전환</text>
 
-  <rect x="130" y="486" width="355" height="72" rx="36" fill="#FFE4EC" stroke="#BE123C" stroke-width="3"/>
-  <text x="308" y="531" text-anchor="middle" class="result" fill="#9F1239">판단이 사람에 따라 달라짐</text>
+    <rect class="node" x="350" y="356" width="164" height="92" rx="12"/>
+    <text class="node-title" x="432" y="394" text-anchor="middle">분석자 B</text>
+    <text class="node-body" x="432" y="427" text-anchor="middle">하락 지속</text>
 
-  <rect x="620" y="35" width="545" height="570" rx="24" fill="#F2FBF8" stroke="#A8DACD" stroke-width="3"/>
-  <text x="893" y="88" text-anchor="middle" class="head" fill="#0B6B5D">명시적 퀀트 규칙</text>
-  <text x="893" y="122" text-anchor="middle" class="small">같은 입력 · 계산 기준은 규칙 안</text>
+    <rect x="132" y="500" width="336" height="60" rx="30" fill="#FFFFFF" stroke="#BE123C" stroke-width="1.5"/>
+    <text class="result" x="300" y="540" text-anchor="middle" fill="#BE123C">판단이 사람에 따라 달라짐</text>
+  </g>
 
-  <rect x="700" y="160" width="180" height="92" rx="16" fill="#FFFFFF" stroke="#9ACABD" stroke-width="3"/>
-  <text x="790" y="196" text-anchor="middle" class="small">동일한 입력</text>
-  <text x="790" y="226" text-anchor="middle" class="label">가격 배열 X</text>
-  <path d="M880 206H930" fill="none" stroke="#0F2C59" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow-navy)"/>
-  <rect x="930" y="160" width="175" height="92" rx="16" fill="#E7EEF9" stroke="#7894BC" stroke-width="3"/>
-  <text x="1018" y="196" text-anchor="middle" class="small">고정된 규칙</text>
-  <text x="1018" y="226" text-anchor="middle" class="label">f(X)</text>
+  <g>
+    <rect class="panel" x="624" y="24" width="552" height="572" rx="12" fill="#E4F6F0" stroke="#0B7A6A"/>
+    <text class="title" x="900" y="77" text-anchor="middle">명시적 퀀트 규칙</text>
+    <text class="body" x="900" y="113" text-anchor="middle">같은 입력 · 계산 기준은 규칙 안</text>
 
-  <path d="M790 252V300H758V346" fill="none" stroke="#0B6B5D" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow-green)"/>
-  <path d="M1018 252V300H1028V346" fill="none" stroke="#0B6B5D" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow-green)"/>
-  <rect x="680" y="346" width="155" height="82" rx="14" fill="#FFFFFF" stroke="#9ACABD" stroke-width="3"/>
-  <text x="758" y="380" text-anchor="middle" class="label">실행 1</text>
-  <text x="758" y="408" text-anchor="middle" class="small">매수</text>
-  <rect x="950" y="346" width="155" height="82" rx="14" fill="#FFFFFF" stroke="#9ACABD" stroke-width="3"/>
-  <text x="1028" y="380" text-anchor="middle" class="label">실행 2</text>
-  <text x="1028" y="408" text-anchor="middle" class="small">매수</text>
+    <rect class="node" x="672" y="160" width="180" height="92" rx="12"/>
+    <text class="node-body" x="762" y="194" text-anchor="middle">동일한 입력</text>
+    <text class="node-title" x="762" y="229" text-anchor="middle">가격 배열 X</text>
 
-  <rect x="715" y="486" width="355" height="72" rx="36" fill="#DDF5EE" stroke="#0B7A6A" stroke-width="3"/>
-  <text x="893" y="531" text-anchor="middle" class="result" fill="#0B6B5D">같은 입력이면 같은 판단</text>
+    <path class="teal-flow" d="M852 206H948"/>
+
+    <rect class="node" x="948" y="160" width="180" height="92" rx="12" fill="#E7EEF9"/>
+    <text class="node-body" x="1038" y="194" text-anchor="middle">고정된 규칙</text>
+    <text class="node-title" x="1038" y="229" text-anchor="middle">f(X)</text>
+
+    <path class="teal-trunk" d="M1038 252V304"/>
+    <path class="teal-flow" d="M1038 304H762V356"/>
+    <path class="teal-flow" d="M1038 304V356"/>
+
+    <rect class="node" x="680" y="356" width="164" height="92" rx="12"/>
+    <text class="node-title" x="762" y="394" text-anchor="middle">실행 1</text>
+    <text class="node-body" x="762" y="427" text-anchor="middle">매수</text>
+
+    <rect class="node" x="956" y="356" width="164" height="92" rx="12"/>
+    <text class="node-title" x="1038" y="394" text-anchor="middle">실행 2</text>
+    <text class="node-body" x="1038" y="427" text-anchor="middle">매수</text>
+
+    <rect x="732" y="500" width="336" height="60" rx="30" fill="#FFFFFF" stroke="#0B7A6A" stroke-width="1.5"/>
+    <text class="result" x="900" y="540" text-anchor="middle" fill="#0B7A6A">같은 입력이면 같은 판단</text>
+  </g>
 </svg>

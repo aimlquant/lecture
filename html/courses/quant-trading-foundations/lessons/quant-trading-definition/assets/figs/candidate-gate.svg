@@ -1,77 +1,88 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 860" role="img" aria-labelledby="title desc">
-  <title id="title">투자 아이디어가 퀀트 전략 후보가 되는 판별 관문</title>
-  <desc id="desc">아이디어가 입력, 계산 가능한 조건, 행동, 과거 재실행 네 관문을 모두 통과해야 검사 가능한 전략 후보가 되는 결정 트리</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 936" role="img" aria-labelledby="title desc">
+  <title id="title">투자 아이디어를 검사 가능한 퀀트 전략 후보로 바꾸는 네 관문</title>
+  <desc id="desc">입력, 규칙, 행동, 과거 재실행 관문을 모두 통과하면 검사 가능한 퀀트 전략 후보가 되고, 각 관문에서 실패하면 부족한 정의를 보완한다.</desc>
   <defs>
-    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
-      <path d="M1 1l10 5-10 5z" fill="#0F2C59"/>
-    </marker>
-    <marker id="arrow-red" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
-      <path d="M1 1l10 5-10 5z" fill="#BE123C"/>
-    </marker>
-    <marker id="arrow-green" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
-      <path d="M1 1l10 5-10 5z" fill="#0B7A6A"/>
+    <marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
+      <path d="M0 0L18 5L0 10Z" fill="context-stroke"/>
     </marker>
     <style>
-      text { font-family:'Noto Sans CJK KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif; fill:#0F172A; }
-      .step { font-size:18px; font-weight:850; letter-spacing:1px; fill:#52606D; }
-      .question { font-size:25px; font-weight:900; }
-      .branch { font-size:18px; font-weight:900; }
-      .fail { font-size:20px; font-weight:850; fill:#9F1239; }
-      .pass { font-size:27px; font-weight:900; fill:#0B6B5D; }
-      .sub { font-size:19px; font-weight:650; fill:#475569; }
+      text { font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif; fill:#0F172A; }
+      .eyebrow { font-size:20px; font-weight:700; letter-spacing:1.2px; fill:#52606D; }
+      .question { font-size:26px; font-weight:700; }
+      .branch { font-size:22px; font-weight:700; paint-order:stroke fill; stroke:#FFFFFF; stroke-width:5px; stroke-linejoin:round; }
+      .fail-title { font-size:26px; font-weight:700; fill:#BE123C; }
+      .fail-body { font-size:22px; font-weight:400; fill:#52606D; }
+      .hero { font-size:34px; font-weight:700; fill:#0B7A6A; }
+      .gate { fill:#FFFFFF; stroke:#C7D2E1; stroke-width:1.5; }
+      .flow { fill:none; stroke:#0F2C59; stroke-width:3; stroke-linecap:round; marker-end:url(#arrow); }
+      .fail-flow { fill:none; stroke:#BE123C; stroke-width:3; stroke-linecap:round; marker-end:url(#arrow); }
+      .pass-flow { fill:none; stroke:#0B7A6A; stroke-width:3; stroke-linecap:round; marker-end:url(#arrow); }
     </style>
   </defs>
-  <rect width="1200" height="860" rx="28" fill="#F8FAFC"/>
+  <rect width="1200" height="936" fill="#FFFFFF"/>
 
-  <rect x="390" y="35" width="420" height="82" rx="41" fill="#E7EEF9" stroke="#6D88AE" stroke-width="3"/>
-  <text x="600" y="69" text-anchor="middle" class="step">START</text>
-  <text x="600" y="98" text-anchor="middle" class="question">투자 아이디어 한 문장</text>
+  <rect x="84" y="24" width="576" height="72" rx="36" fill="#E7EEF9" stroke="#C7D2E1" stroke-width="1.5"/>
+  <text class="eyebrow" x="372" y="51" text-anchor="middle">START</text>
+  <text class="question" x="372" y="82" text-anchor="middle">투자 아이디어 한 문장</text>
 
-  <path d="M600 117V165" stroke="#0F2C59" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow)"/>
-  <rect x="360" y="165" width="480" height="95" rx="18" fill="#FFFFFF" stroke="#7894BC" stroke-width="3"/>
-  <text x="600" y="198" text-anchor="middle" class="step">GATE 1 · INPUT</text>
-  <text x="600" y="235" text-anchor="middle" class="question">입력 자료와 시점을 적을 수 있나?</text>
-  <path d="M840 213H925" stroke="#BE123C" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow-red)"/>
-  <text x="875" y="199" text-anchor="middle" class="branch" fill="#BE123C">아니오</text>
-  <rect x="925" y="172" width="240" height="82" rx="16" fill="#FFF1F4" stroke="#D4778E" stroke-width="3"/>
-  <text x="1045" y="205" text-anchor="middle" class="fail">사람의 인상</text>
-  <text x="1045" y="235" text-anchor="middle" class="sub">데이터부터 정의</text>
+  <path class="flow" d="M372 96V168"/>
+  <text class="branch" x="392" y="139" fill="#0F2C59">예</text>
 
-  <path d="M600 260V315" stroke="#0F2C59" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow)"/>
-  <text x="626" y="288" class="branch" fill="#0B7A6A">예</text>
-  <rect x="360" y="315" width="480" height="95" rx="18" fill="#FFFFFF" stroke="#7894BC" stroke-width="3"/>
-  <text x="600" y="348" text-anchor="middle" class="step">GATE 2 · RULE</text>
-  <text x="600" y="385" text-anchor="middle" class="question">조건을 계산식과 임계값으로 쓸 수 있나?</text>
-  <path d="M840 363H925" stroke="#BE123C" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow-red)"/>
-  <text x="875" y="349" text-anchor="middle" class="branch" fill="#BE123C">아니오</text>
-  <rect x="925" y="322" width="240" height="82" rx="16" fill="#FFF1F4" stroke="#D4778E" stroke-width="3"/>
-  <text x="1045" y="355" text-anchor="middle" class="fail">모호한 규칙</text>
-  <text x="1045" y="385" text-anchor="middle" class="sub">빈 단어를 수치화</text>
+  <g>
+    <rect class="gate" x="84" y="168" width="576" height="96" rx="12"/>
+    <text class="eyebrow" x="372" y="199" text-anchor="middle">GATE 1 · INPUT</text>
+    <text class="question" x="372" y="237" text-anchor="middle">입력 자료와 시점을 적을 수 있나?</text>
+    <path class="fail-flow" d="M660 216H804"/>
+    <text class="branch" x="732" y="201" text-anchor="middle" fill="#BE123C">아니오</text>
+    <rect x="804" y="174" width="312" height="84" rx="12" fill="#FFF1F4" stroke="#BE123C" stroke-width="1.5"/>
+    <text class="fail-title" x="960" y="209" text-anchor="middle">사람의 인상</text>
+    <text class="fail-body" x="960" y="240" text-anchor="middle">데이터와 시점부터 정의</text>
+  </g>
 
-  <path d="M600 410V465" stroke="#0F2C59" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow)"/>
-  <text x="626" y="438" class="branch" fill="#0B7A6A">예</text>
-  <rect x="360" y="465" width="480" height="95" rx="18" fill="#FFFFFF" stroke="#7894BC" stroke-width="3"/>
-  <text x="600" y="498" text-anchor="middle" class="step">GATE 3 · ACTION</text>
-  <text x="600" y="535" text-anchor="middle" class="question">조건별 매수·매도·보유가 정해졌나?</text>
-  <path d="M840 513H925" stroke="#BE123C" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow-red)"/>
-  <text x="875" y="499" text-anchor="middle" class="branch" fill="#BE123C">아니오</text>
-  <rect x="925" y="472" width="240" height="82" rx="16" fill="#FFF1F4" stroke="#D4778E" stroke-width="3"/>
-  <text x="1045" y="505" text-anchor="middle" class="fail">분석에서 멈춤</text>
-  <text x="1045" y="535" text-anchor="middle" class="sub">행동 규칙을 연결</text>
+  <path class="flow" d="M372 264V336"/>
+  <text class="branch" x="392" y="307" fill="#0F2C59">예</text>
 
-  <path d="M600 560V615" stroke="#0F2C59" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow)"/>
-  <text x="626" y="588" class="branch" fill="#0B7A6A">예</text>
-  <rect x="360" y="615" width="480" height="95" rx="18" fill="#FFFFFF" stroke="#7894BC" stroke-width="3"/>
-  <text x="600" y="648" text-anchor="middle" class="step">GATE 4 · REPLAY</text>
-  <text x="600" y="685" text-anchor="middle" class="question">과거 시점의 데이터로 다시 실행할 수 있나?</text>
-  <path d="M840 663H925" stroke="#BE123C" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow-red)"/>
-  <text x="875" y="649" text-anchor="middle" class="branch" fill="#BE123C">아니오</text>
-  <rect x="925" y="622" width="240" height="82" rx="16" fill="#FFF1F4" stroke="#D4778E" stroke-width="3"/>
-  <text x="1045" y="655" text-anchor="middle" class="fail">검사 불가능</text>
-  <text x="1045" y="685" text-anchor="middle" class="sub">시점·기록을 복원</text>
+  <g>
+    <rect class="gate" x="84" y="336" width="576" height="96" rx="12"/>
+    <text class="eyebrow" x="372" y="367" text-anchor="middle">GATE 2 · RULE</text>
+    <text class="question" x="372" y="405" text-anchor="middle">조건을 계산식·임계값으로 쓸 수 있나?</text>
+    <path class="fail-flow" d="M660 384H804"/>
+    <text class="branch" x="732" y="369" text-anchor="middle" fill="#BE123C">아니오</text>
+    <rect x="804" y="342" width="312" height="84" rx="12" fill="#FFF1F4" stroke="#BE123C" stroke-width="1.5"/>
+    <text class="fail-title" x="960" y="377" text-anchor="middle">모호한 규칙</text>
+    <text class="fail-body" x="960" y="408" text-anchor="middle">빈 단어를 수치화</text>
+  </g>
 
-  <path d="M600 710V763" stroke="#0B7A6A" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow-green)"/>
-  <text x="626" y="739" class="branch" fill="#0B7A6A">예</text>
-  <rect x="330" y="763" width="540" height="72" rx="36" fill="#DDF5EE" stroke="#0B7A6A" stroke-width="4"/>
-  <text x="600" y="806" text-anchor="middle" class="pass">검사 가능한 퀀트 전략 후보</text>
+  <path class="flow" d="M372 432V504"/>
+  <text class="branch" x="392" y="475" fill="#0F2C59">예</text>
+
+  <g>
+    <rect class="gate" x="84" y="504" width="576" height="96" rx="12"/>
+    <text class="eyebrow" x="372" y="535" text-anchor="middle">GATE 3 · ACTION</text>
+    <text class="question" x="372" y="573" text-anchor="middle">조건별 매수·매도·보유가 정해졌나?</text>
+    <path class="fail-flow" d="M660 552H804"/>
+    <text class="branch" x="732" y="537" text-anchor="middle" fill="#BE123C">아니오</text>
+    <rect x="804" y="510" width="312" height="84" rx="12" fill="#FFF1F4" stroke="#BE123C" stroke-width="1.5"/>
+    <text class="fail-title" x="960" y="545" text-anchor="middle">분석에서 멈춤</text>
+    <text class="fail-body" x="960" y="576" text-anchor="middle">행동 규칙을 연결</text>
+  </g>
+
+  <path class="flow" d="M372 600V672"/>
+  <text class="branch" x="392" y="643" fill="#0F2C59">예</text>
+
+  <g>
+    <rect class="gate" x="84" y="672" width="576" height="96" rx="12"/>
+    <text class="eyebrow" x="372" y="703" text-anchor="middle">GATE 4 · REPLAY</text>
+    <text class="question" x="372" y="741" text-anchor="middle">과거 데이터로 같은 판단을 재실행할 수 있나?</text>
+    <path class="fail-flow" d="M660 720H804"/>
+    <text class="branch" x="732" y="705" text-anchor="middle" fill="#BE123C">아니오</text>
+    <rect x="804" y="678" width="312" height="84" rx="12" fill="#FFF1F4" stroke="#BE123C" stroke-width="1.5"/>
+    <text class="fail-title" x="960" y="713" text-anchor="middle">검사 불가능</text>
+    <text class="fail-body" x="960" y="744" text-anchor="middle">시점과 기록을 복원</text>
+  </g>
+
+  <path class="pass-flow" d="M372 768V840"/>
+  <text class="branch" x="392" y="811" fill="#0B7A6A">예</text>
+  <rect x="84" y="840" width="576" height="72" rx="36" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="1.5"/>
+  <text class="hero" x="372" y="887" text-anchor="middle">검사 가능한 퀀트 전략 후보</text>
 </svg>

@@ -1,58 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" role="img" aria-labelledby="title desc">
-  <title id="title">퀀트 규칙으로 들어올 수 있는 세 종류의 입력</title>
-  <desc id="desc">가격 거래량, 재무 수치, 뉴스 텍스트가 각각 데이터가 되어 명시적 규칙에 들어가고 매수 매도 보유 판단으로 나오는 흐름</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">가격 밖으로 넓어지는 퀀트 입력</title>
+  <desc id="desc">가격과 거래량, 재무 수치, 뉴스 텍스트가 같은 명시적 규칙 관문을 지나 매수, 매도, 보유 판단으로 이어진다.</desc>
   <defs>
-    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
-      <path d="M1 1l10 5-10 5z" fill="#0F2C59"/>
+    <marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
+      <path d="M0 0L18 5L0 10Z" fill="context-stroke"/>
     </marker>
     <style>
-      text { font-family:'Noto Sans CJK KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif; fill:#0F172A; }
-      .kind { font-size:19px; font-weight:850; letter-spacing:1px; fill:#52606D; }
-      .main { font-size:28px; font-weight:900; }
-      .detail { font-size:20px; font-weight:650; fill:#475569; }
-      .pill { font-size:22px; font-weight:900; }
+      text { font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif; fill:#0F172A; }
+      .eyebrow { font-size:20px; font-weight:700; letter-spacing:1.2px; fill:#52606D; }
+      .title { font-size:34px; font-weight:700; }
+      .body { font-size:24px; font-weight:400; fill:#52606D; }
+      .decision { font-size:26px; font-weight:700; }
+      .card { fill:#FFFFFF; stroke:#C7D2E1; stroke-width:1.5; }
+      .flow { fill:none; stroke:#0F2C59; stroke-width:3; stroke-linecap:round; stroke-linejoin:round; marker-end:url(#arrow); }
     </style>
   </defs>
-  <rect width="1200" height="660" rx="28" fill="#F8FAFC"/>
+  <rect width="1200" height="620" fill="#FFFFFF"/>
 
   <g>
-    <rect x="35" y="55" width="300" height="150" rx="18" fill="#E7EEF9" stroke="#8AA3C7" stroke-width="3"/>
-    <text x="65" y="92" class="kind">MARKET</text>
-    <text x="185" y="138" text-anchor="middle" class="main">가격 · 거래량</text>
-    <text x="185" y="175" text-anchor="middle" class="detail">종가 · 수익률 · 거래대금</text>
+    <rect x="40" y="28" width="280" height="150" rx="12" fill="#E7EEF9" stroke="#C7D2E1" stroke-width="1.5"/>
+    <text class="eyebrow" x="64" y="66">MARKET</text>
+    <text class="title" x="64" y="108">가격 · 거래량</text>
+    <text class="body" x="64" y="140">종가 · 수익률</text>
+    <text class="body" x="64" y="168">거래대금</text>
   </g>
   <g>
-    <rect x="35" y="255" width="300" height="150" rx="18" fill="#E4F6F0" stroke="#7CB7A8" stroke-width="3"/>
-    <text x="65" y="292" class="kind">FUNDAMENTAL</text>
-    <text x="185" y="338" text-anchor="middle" class="main">재무 수치</text>
-    <text x="185" y="375" text-anchor="middle" class="detail">매출 · 현금흐름 · 부채비율</text>
+    <rect x="40" y="235" width="280" height="150" rx="12" fill="#E4F6F0" stroke="#C7D2E1" stroke-width="1.5"/>
+    <text class="eyebrow" x="64" y="273">FUNDAMENTAL</text>
+    <text class="title" x="64" y="315">재무 수치</text>
+    <text class="body" x="64" y="347">매출 · 현금흐름</text>
+    <text class="body" x="64" y="375">부채비율</text>
   </g>
   <g>
-    <rect x="35" y="455" width="300" height="150" rx="18" fill="#FFF0DF" stroke="#D7A36B" stroke-width="3"/>
-    <text x="65" y="492" class="kind">TEXT</text>
-    <text x="185" y="538" text-anchor="middle" class="main">뉴스 텍스트</text>
-    <text x="185" y="575" text-anchor="middle" class="detail">분류 · 사건 · 문서 신호</text>
+    <rect x="40" y="442" width="280" height="150" rx="12" fill="#FFF0DF" stroke="#C7D2E1" stroke-width="1.5"/>
+    <text class="eyebrow" x="64" y="480">TEXT</text>
+    <text class="title" x="64" y="522">뉴스 텍스트</text>
+    <text class="body" x="64" y="554">분류 · 사건</text>
+    <text class="body" x="64" y="582">문서 신호</text>
   </g>
 
-  <path d="M335 130H400V260H450" fill="none" stroke="#0F2C59" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
-  <path d="M335 330H450" fill="none" stroke="#0F2C59" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"/>
-  <path d="M335 530H400V400H450" fill="none" stroke="#0F2C59" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+  <path class="flow" d="M320 103H392A12 12 0 0 1 404 115V228A12 12 0 0 0 416 240H460"/>
+  <path class="flow" d="M320 310H460"/>
+  <path class="flow" d="M320 517H392A12 12 0 0 0 404 505V392A12 12 0 0 1 416 380H460"/>
 
-  <rect x="450" y="205" width="330" height="250" rx="22" fill="#FFFFFF" stroke="#4B6F9F" stroke-width="4"/>
-  <rect x="500" y="238" width="230" height="42" rx="21" fill="#0F2C59"/>
-  <text x="615" y="267" text-anchor="middle" class="kind" fill="#FFFFFF">EXPLICIT RULE</text>
-  <text x="615" y="329" text-anchor="middle" class="main">명시적 규칙</text>
-  <text x="615" y="374" text-anchor="middle" class="detail">어떤 입력이든 같은 질문</text>
-  <text x="615" y="412" text-anchor="middle" class="detail">“조건과 행동이 고정됐는가?”</text>
+  <g>
+    <rect class="card" x="460" y="170" width="300" height="280" rx="12"/>
+    <rect x="492" y="202" width="172" height="38" rx="19" fill="#E7EEF9"/>
+    <text class="eyebrow" x="578" y="228" text-anchor="middle" fill="#0F2C59">EXPLICIT RULE</text>
+    <text class="title" x="610" y="288" text-anchor="middle">명시적 규칙</text>
+    <text class="body" x="610" y="338" text-anchor="middle">어떤 입력이든 같은 질문</text>
+    <text class="body" x="610" y="378" text-anchor="middle">“조건과 행동이 고정됐는가?”</text>
+  </g>
 
-  <path d="M780 330H870" fill="none" stroke="#0F2C59" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path class="flow" d="M760 310H880"/>
 
-  <rect x="870" y="205" width="295" height="250" rx="22" fill="#FFFFFF" stroke="#4D9A88" stroke-width="4"/>
-  <text x="1018" y="259" text-anchor="middle" class="kind">TRADE DECISION</text>
-  <rect x="915" y="290" width="205" height="46" rx="23" fill="#DDF5EE"/>
-  <text x="1018" y="321" text-anchor="middle" class="pill" fill="#0B6B5D">매수</text>
-  <rect x="915" y="350" width="205" height="46" rx="23" fill="#FFE4EC"/>
-  <text x="1018" y="381" text-anchor="middle" class="pill" fill="#9F1239">매도</text>
-  <rect x="915" y="410" width="205" height="46" rx="23" fill="#EEF2F7"/>
-  <text x="1018" y="441" text-anchor="middle" class="pill" fill="#475569">보유</text>
+  <g>
+    <rect class="card" x="880" y="170" width="280" height="280" rx="12"/>
+    <text class="eyebrow" x="1020" y="216" text-anchor="middle">TRADE DECISION</text>
+    <rect x="916" y="240" width="208" height="48" rx="24" fill="#E4F6F0"/>
+    <text class="decision" x="1020" y="273" text-anchor="middle" fill="#0B7A6A">매수</text>
+    <rect x="916" y="310" width="208" height="48" rx="24" fill="#FFF1F4"/>
+    <text class="decision" x="1020" y="343" text-anchor="middle" fill="#BE123C">매도</text>
+    <rect x="916" y="380" width="208" height="48" rx="24" fill="#E7EEF9"/>
+    <text class="decision" x="1020" y="413" text-anchor="middle" fill="#0F2C59">보유</text>
+  </g>
 </svg>

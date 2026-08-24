@@ -1,54 +1,66 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
   <title id="title">기술적 분석과 퀀트 트레이딩의 이차원 경계 지도</title>
-  <desc id="desc">가로축은 입력 종류, 세로축은 규칙의 코드화 정도이며 네 사분면에 기술적 분석과 퀀트의 겹침을 배치</desc>
+  <desc id="desc">가로축은 가격과 거래량 중심 입력에서 재무와 뉴스 입력으로 이동하고, 세로축은 사람의 해석이 남는 규칙에서 완전히 코드화된 규칙으로 이동한다.</desc>
   <defs>
+    <marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
+      <path d="M0 0L18 5L0 10Z" fill="context-stroke"/>
+    </marker>
+    <clipPath id="grid-clip"><rect x="180" y="72" width="900" height="560" rx="12"/></clipPath>
     <style>
-      text { font-family:'Noto Sans CJK KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif; fill:#0F172A; }
-      .axis { font-size:22px; font-weight:850; fill:#334155; }
-      .cell-title { font-size:28px; font-weight:900; }
-      .cell-body { font-size:21px; font-weight:650; fill:#475569; }
-      .badge { font-size:18px; font-weight:850; letter-spacing:1px; }
+      text { font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif; fill:#0F172A; }
+      .eyebrow { font-size:20px; font-weight:700; letter-spacing:1.2px; }
+      .title { font-size:34px; font-weight:700; }
+      .body { font-size:26px; font-weight:400; fill:#52606D; }
+      .axis-label { font-size:24px; font-weight:700; fill:#0F2C59; }
+      .axis { fill:none; stroke:#0F2C59; stroke-width:3; stroke-linecap:round; marker-end:url(#arrow); }
     </style>
   </defs>
-  <rect width="1200" height="780" rx="28" fill="#F8FAFC"/>
+  <rect width="1200" height="760" fill="#FFFFFF"/>
 
-  <text x="390" y="72" text-anchor="middle" class="axis">가격 · 거래량 중심 입력</text>
-  <text x="890" y="72" text-anchor="middle" class="axis">재무 · 뉴스 등 다른 입력</text>
-  <text x="54" y="260" text-anchor="middle" class="axis" transform="rotate(-90 54 260)">규칙이 완전히 코드화됨</text>
-  <text x="54" y="600" text-anchor="middle" class="axis" transform="rotate(-90 54 600)">사람의 해석이 남음</text>
+  <g clip-path="url(#grid-clip)">
+    <rect x="180" y="72" width="450" height="280" fill="#E7EEF9"/>
+    <rect x="630" y="72" width="450" height="280" fill="#E4F6F0"/>
+    <rect x="180" y="352" width="450" height="280" fill="#FFF1F4"/>
+    <rect x="630" y="352" width="450" height="280" fill="#FFFFFF"/>
+  </g>
+  <rect x="180" y="72" width="900" height="560" rx="12" fill="none" stroke="#C7D2E1" stroke-width="1.5"/>
+  <path d="M630 72V632M180 352H1080" fill="none" stroke="#C7D2E1" stroke-width="1.5"/>
 
-  <rect x="110" y="105" width="500" height="285" rx="20" fill="#E7EEF9" stroke="#4B6F9F" stroke-width="3"/>
-  <rect x="132" y="128" width="218" height="40" rx="20" fill="#0F2C59"/>
-  <text x="241" y="155" text-anchor="middle" class="badge" fill="#FFFFFF">교집합</text>
-  <text x="360" y="224" text-anchor="middle" class="cell-title">기술적 분석 + 퀀트</text>
-  <text x="360" y="274" text-anchor="middle" class="cell-body">수치로 정의한 이동평균 교차</text>
-  <text x="360" y="314" text-anchor="middle" class="cell-body">가격 규칙을 컴퓨터가 반복</text>
-  <text x="360" y="354" text-anchor="middle" class="cell-body">두 영역이 겹치는 자리</text>
+  <g>
+    <text class="eyebrow" x="216" y="118" fill="#0F2C59">교집합</text>
+    <text class="title" x="216" y="169">기술적 분석 + 퀀트</text>
+    <text class="body" x="216" y="217">수치로 정의한 이동평균 교차</text>
+    <text class="body" x="216" y="257">가격 규칙을 컴퓨터가 반복</text>
+    <text class="body" x="216" y="297">두 영역이 겹치는 자리</text>
+  </g>
 
-  <rect x="630" y="105" width="500" height="285" rx="20" fill="#E4F6F0" stroke="#3A8C7B" stroke-width="3"/>
-  <rect x="652" y="128" width="218" height="40" rx="20" fill="#0B7A6A"/>
-  <text x="761" y="155" text-anchor="middle" class="badge" fill="#FFFFFF">퀀트의 확장</text>
-  <text x="880" y="224" text-anchor="middle" class="cell-title">퀀트 · 비기술적 입력</text>
-  <text x="880" y="274" text-anchor="middle" class="cell-body">매출 성장률 · 부채비율</text>
-  <text x="880" y="314" text-anchor="middle" class="cell-body">뉴스 분류 결과</text>
-  <text x="880" y="354" text-anchor="middle" class="cell-body">입력은 넓고 규칙은 명시적</text>
+  <g>
+    <text class="eyebrow" x="666" y="118" fill="#0B7A6A">퀀트의 확장</text>
+    <text class="title" x="666" y="169">퀀트 · 비기술적 입력</text>
+    <text class="body" x="666" y="217">매출 성장률 · 부채비율</text>
+    <text class="body" x="666" y="257">뉴스 분류 결과</text>
+    <text class="body" x="666" y="297">입력은 넓고 규칙은 명시적</text>
+  </g>
 
-  <rect x="110" y="410" width="500" height="285" rx="20" fill="#FFF1F4" stroke="#D4778E" stroke-width="3"/>
-  <rect x="132" y="433" width="218" height="40" rx="20" fill="#BE123C"/>
-  <text x="241" y="460" text-anchor="middle" class="badge" fill="#FFFFFF">아직 비퀀트</text>
-  <text x="360" y="529" text-anchor="middle" class="cell-title">재량적 기술적 분석</text>
-  <text x="360" y="579" text-anchor="middle" class="cell-body">눈으로 찾는 헤드 앤 숄더</text>
-  <text x="360" y="619" text-anchor="middle" class="cell-body">분석자마다 다른 모양 판독</text>
-  <text x="360" y="659" text-anchor="middle" class="cell-body">명시적 조건이 필요</text>
+  <g>
+    <text class="eyebrow" x="216" y="398" fill="#BE123C">아직 비퀀트</text>
+    <text class="title" x="216" y="449">재량적 기술적 분석</text>
+    <text class="body" x="216" y="497">눈으로 찾는 헤드 앤 숄더</text>
+    <text class="body" x="216" y="537">분석자마다 다른 모양 판독</text>
+    <text class="body" x="216" y="577">명시적 조건이 필요</text>
+  </g>
 
-  <rect x="630" y="410" width="500" height="285" rx="20" fill="#F1F5F9" stroke="#A8B3C2" stroke-width="3"/>
-  <rect x="652" y="433" width="218" height="40" rx="20" fill="#64748B"/>
-  <text x="761" y="460" text-anchor="middle" class="badge" fill="#FFFFFF">재량 판단</text>
-  <text x="880" y="529" text-anchor="middle" class="cell-title">둘 다 아님</text>
-  <text x="880" y="579" text-anchor="middle" class="cell-body">“경영진 인상이 좋아 보인다”</text>
-  <text x="880" y="619" text-anchor="middle" class="cell-body">데이터와 규칙 모두 미정</text>
-  <text x="880" y="659" text-anchor="middle" class="cell-body">사람의 최종 해석에 의존</text>
+  <g>
+    <text class="eyebrow" x="666" y="398" fill="#52606D">재량 판단</text>
+    <text class="title" x="666" y="449">둘 다 아님</text>
+    <text class="body" x="666" y="497">“경영진 인상이 좋아 보인다”</text>
+    <text class="body" x="666" y="537">데이터와 규칙 모두 미정</text>
+    <text class="body" x="666" y="577">사람의 최종 해석에 의존</text>
+  </g>
 
-  <path d="M110 730H1130" stroke="#0F2C59" stroke-width="4" stroke-linecap="round"/>
-  <text x="620" y="760" text-anchor="middle" class="axis">입력 종류와 규칙 표현 여부는 서로 다른 축이다</text>
+  <path class="axis" d="M180 682H1080"/>
+  <text class="axis-label" x="630" y="730" text-anchor="middle">입력: 가격·거래량 중심 → 재무·뉴스 등</text>
+
+  <path class="axis" d="M132 632V72"/>
+  <text class="axis-label" x="72" y="352" text-anchor="middle" transform="rotate(-90 72 352)">규칙: 사람 해석 남음 → 완전 코드화</text>
 </svg>

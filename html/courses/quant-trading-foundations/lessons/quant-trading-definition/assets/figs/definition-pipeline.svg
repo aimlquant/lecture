@@ -1,68 +1,65 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
-  <title id="title">퀀트 트레이딩을 이루는 네 단계</title>
-  <desc id="desc">입력 데이터가 명시적 규칙을 지나 매수 매도 보유 결정이 되고 과거 데이터로 다시 실행되는 흐름</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">퀀트 트레이딩의 네 단계</title>
+  <desc id="desc">입력 자료, 명시적 규칙, 거래 판단, 과거 재실행이 차례로 이어지고 재실행 결과가 다시 입력과 규칙 설계로 돌아간다.</desc>
   <defs>
-    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
-      <path d="M1 1l10 5-10 5z" fill="#0F2C59"/>
-    </marker>
-    <marker id="arrow-orange" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
-      <path d="M1 1l10 5-10 5z" fill="#B45309"/>
+    <marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
+      <path d="M0 0L18 5L0 10Z" fill="context-stroke"/>
     </marker>
     <style>
-      text { font-family: 'Noto Sans CJK KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif; fill:#0F172A; }
-      .step { font-size:20px; font-weight:800; letter-spacing:1.5px; fill:#52606D; }
-      .main { font-size:31px; font-weight:900; }
-      .detail { font-size:22px; font-weight:600; fill:#475569; }
-      .chip { font-size:20px; font-weight:800; fill:#0F2C59; }
+      text { font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif; fill:#0F172A; }
+      .eyebrow { font-size:20px; font-weight:700; letter-spacing:1.2px; fill:#52606D; }
+      .title { font-size:34px; font-weight:700; }
+      .body { font-size:26px; font-weight:400; fill:#52606D; }
+      .body-small { font-size:24px; font-weight:400; fill:#52606D; }
+      .card { fill:#FFFFFF; stroke:#C7D2E1; stroke-width:1.5; }
+      .flow { fill:none; stroke:#0F2C59; stroke-width:3; stroke-linecap:round; stroke-linejoin:round; marker-end:url(#arrow); }
+      .loop { fill:none; stroke:#B45309; stroke-width:2; stroke-dasharray:9 8; stroke-linecap:round; stroke-linejoin:round; marker-end:url(#arrow); }
     </style>
   </defs>
-  <rect width="1200" height="560" rx="28" fill="#F8FAFC"/>
-
-  <rect x="365" y="52" width="470" height="54" rx="27" fill="#E7EEF9" stroke="#B8C8E2" stroke-width="2"/>
-  <text x="600" y="86" text-anchor="middle" class="chip">사람이 설계하고 · 컴퓨터가 같은 절차를 반복한다</text>
+  <rect width="1200" height="360" fill="#FFFFFF"/>
 
   <g>
-    <rect x="30" y="165" width="255" height="250" rx="18" fill="#FFFFFF" stroke="#A8BAD5" stroke-width="3"/>
-    <rect x="30" y="165" width="255" height="14" rx="7" fill="#2563EB"/>
-    <text x="158" y="218" text-anchor="middle" class="step">01 · INPUT</text>
-    <text x="158" y="270" text-anchor="middle" class="main">입력 데이터</text>
-    <text x="158" y="320" text-anchor="middle" class="detail">가격 · 재무 · 뉴스</text>
-    <text x="158" y="358" text-anchor="middle" class="detail">시점이 붙은 값</text>
+    <rect class="card" x="20" y="54" width="236" height="220" rx="12"/>
+    <rect x="20" y="54" width="236" height="8" rx="4" fill="#0F2C59"/>
+    <text class="eyebrow" x="44" y="99">01 · INPUT</text>
+    <text class="title" x="44" y="145">입력 자료</text>
+    <text class="body" x="44" y="190">가격 · 재무 · 뉴스</text>
+    <text class="body" x="44" y="228">시점이 붙은 데이터</text>
   </g>
 
-  <path d="M285 290H330" fill="none" stroke="#0F2C59" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path class="flow" d="M256 164H328"/>
 
   <g>
-    <rect x="330" y="165" width="255" height="250" rx="18" fill="#FFFFFF" stroke="#A8BAD5" stroke-width="3"/>
-    <rect x="330" y="165" width="255" height="14" rx="7" fill="#0F2C59"/>
-    <text x="458" y="218" text-anchor="middle" class="step">02 · RULE</text>
-    <text x="458" y="270" text-anchor="middle" class="main">명시적 규칙</text>
-    <text x="458" y="320" text-anchor="middle" class="detail">계산 · 순서 · 임계값</text>
-    <text x="458" y="358" text-anchor="middle" class="detail">해석할 빈칸 없음</text>
+    <rect class="card" x="328" y="54" width="236" height="220" rx="12"/>
+    <rect x="328" y="54" width="236" height="8" rx="4" fill="#0F2C59"/>
+    <text class="eyebrow" x="352" y="99">02 · RULE</text>
+    <text class="title" x="352" y="145">명시적 규칙</text>
+    <text class="body" x="352" y="190">계산 · 순서 · 임계값</text>
+    <text class="body" x="352" y="228">해석할 빈칸 없음</text>
   </g>
 
-  <path d="M585 290H630" fill="none" stroke="#0F2C59" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path class="flow" d="M564 164H636"/>
 
   <g>
-    <rect x="630" y="165" width="255" height="250" rx="18" fill="#FFFFFF" stroke="#A8BAD5" stroke-width="3"/>
-    <rect x="630" y="165" width="255" height="14" rx="7" fill="#0B7A6A"/>
-    <text x="758" y="218" text-anchor="middle" class="step">03 · DECISION</text>
-    <text x="758" y="270" text-anchor="middle" class="main">거래 판단</text>
-    <text x="758" y="320" text-anchor="middle" class="detail">매수 · 매도 · 보유</text>
-    <text x="758" y="358" text-anchor="middle" class="detail">행동까지 출력</text>
+    <rect class="card" x="636" y="54" width="236" height="220" rx="12"/>
+    <rect x="636" y="54" width="236" height="8" rx="4" fill="#0F2C59"/>
+    <text class="eyebrow" x="660" y="99">03 · DECISION</text>
+    <text class="title" x="660" y="145">거래 판단</text>
+    <text class="body" x="660" y="190">매수 · 매도 · 보유</text>
+    <text class="body" x="660" y="228">행동까지 출력</text>
   </g>
 
-  <path d="M885 290H930" fill="none" stroke="#0F2C59" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path class="flow" d="M872 164H944"/>
 
   <g>
-    <rect x="930" y="165" width="240" height="250" rx="18" fill="#FFFFFF" stroke="#A8BAD5" stroke-width="3"/>
-    <rect x="930" y="165" width="240" height="14" rx="7" fill="#B45309"/>
-    <text x="1050" y="218" text-anchor="middle" class="step">04 · REPLAY</text>
-    <text x="1050" y="270" text-anchor="middle" class="main">과거 재실행</text>
-    <text x="1050" y="320" text-anchor="middle" class="detail">같은 입력 → 같은 판단</text>
-    <text x="1050" y="358" text-anchor="middle" class="detail">수익성은 별도 검증</text>
+    <rect class="card" x="944" y="54" width="236" height="220" rx="12"/>
+    <rect x="944" y="54" width="236" height="8" rx="4" fill="#B45309"/>
+    <text class="eyebrow" x="968" y="99">04 · REPLAY</text>
+    <text class="title" x="968" y="145">과거 재실행</text>
+    <text class="body-small" x="968" y="184">같은 입력</text>
+    <text class="body-small" x="968" y="217">같은 판단</text>
+    <text class="body-small" x="968" y="250">성과는 별도 검증</text>
   </g>
 
-  <path d="M1050 415V482H158V415" fill="none" stroke="#B45309" stroke-width="4" stroke-dasharray="11 10" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
-  <text x="600" y="523" text-anchor="middle" class="chip" fill="#B45309">새 기간·새 데이터에서도 같은 정의를 다시 적용</text>
+  <path class="loop" d="M1062 274V326H138V274"/>
 </svg>
