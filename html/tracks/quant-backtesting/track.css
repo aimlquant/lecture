@@ -57,3 +57,91 @@
 @media (min-width: 720px) {
   .tiers { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ── 훅 ── */
+.hook {
+  margin: 22px 0 0;
+  font-size: clamp(1.5rem, 3.6vw, 2.1rem);
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: -0.03em;
+  color: var(--primary);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.lead strong { color: var(--text); }
+
+/* ── 지표 행 ── */
+.stats {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stats li {
+  padding: 16px 18px;
+  background: var(--primary);
+  border-radius: 4px;
+  color: #fff;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.7rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.stat-label {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.82rem;
+  color: rgb(255 255 255 / 78%);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* ── 도해 ── */
+.figure {
+  margin: 30px 0 0;
+  padding: 20px clamp(14px, 2.4vw, 24px) 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.figure figcaption {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 0.88rem;
+  color: var(--muted);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* ── 단계 아이콘 ── */
+.stage-head { align-items: center; }
+
+.stage-icon {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  margin-right: 12px;
+}
+
+.stage-title-wrap { display: flex; align-items: center; min-width: 0; }
+
+.figure picture { display: block; }
+.figure picture img { display: block; width: 100%; height: auto; }

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 486" role="img" aria-labelledby="vln-title">
+  <title id="vln-title">전략을 말로 적고, 에이전트가 코드로 옮기고, 하네스가 근거를 내놓고, 반증 테스트로 무너뜨려 보는 네 단계 순환</title>
+  <defs>
+    <marker id="vln-a" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto"><path d="M0 0L10 4L0 8z" fill="#0f2c59"/></marker>
+    <marker id="vln-b" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto"><path d="M0 0L10 4L0 8z" fill="#b4552a"/></marker>
+    <style>
+      .bg{fill:#fafaf9}.you{fill:#e8eef8;stroke:#0f2c59;stroke-width:2}.bot{fill:#fff;stroke:#c3cbd8;stroke-width:2}.warn{fill:#fff4e8;stroke:#b4552a;stroke-width:2}
+      .who{font:700 11px Inter,"Noto Sans KR",sans-serif;letter-spacing:.06em}
+      .hd{font:800 16px Inter,"Noto Sans KR",sans-serif;fill:#101114}
+      .sm{font:500 12px Inter,"Noto Sans KR",sans-serif;fill:#6b7482}
+      .arw{stroke:#0f2c59;stroke-width:2.5;fill:none;marker-end:url(#vln-a)}
+      .back{stroke:#b4552a;stroke-width:2.5;fill:none;stroke-dasharray:7 5;marker-end:url(#vln-b)}
+      .lbl{font:700 12px Inter,"Noto Sans KR",sans-serif;fill:#b4552a;paint-order:stroke fill;stroke:#fafaf9;stroke-width:4px;stroke-linejoin:round}
+    </style>
+  </defs>
+  <rect class="bg" width="360" height="486"/>
+  <rect class="you" x="62" y="12" width="286" height="86" rx="13"/>
+  <text class="who" x="84" y="38" fill="#0f2c59">여러분</text>
+  <text class="hd" x="84" y="62">무엇을 살지 적는다</text>
+  <text class="sm" x="84" y="84">언제 사고 팔지, 비용은 얼마로</text>
+
+  <rect class="bot" x="62" y="126" width="286" height="86" rx="13"/>
+  <text class="who" x="84" y="152" fill="#6b7482">에이전트</text>
+  <text class="hd" x="84" y="176">코드로 옮긴다</text>
+  <text class="sm" x="84" y="198">파이썬 문법을 몰라도 됩니다</text>
+
+  <rect class="bot" x="62" y="240" width="286" height="86" rx="13"/>
+  <text class="who" x="84" y="266" fill="#6b7482">하네스</text>
+  <text class="hd" x="84" y="290">근거를 내놓는다</text>
+  <text class="sm" x="84" y="312">언제 알았고 언제 샀는지 표로</text>
+
+  <rect class="warn" x="62" y="354" width="286" height="86" rx="13"/>
+  <text class="who" x="84" y="380" fill="#9d4323">여러분</text>
+  <text class="hd" x="84" y="404" fill="#9d4323">무너뜨려 본다</text>
+  <text class="sm" x="84" y="426" fill="#9d4323">신호를 하루 늦추면 남아 있나?</text>
+
+  <path class="arw" d="M205 98V122"/>
+  <path class="arw" d="M205 212V236"/>
+  <path class="arw" d="M205 326V350"/>
+  <path class="back" d="M58 397H26V55H58"/>
+  <text class="lbl" x="205" y="468" text-anchor="middle">안 남으면 처음으로</text>
+</svg>

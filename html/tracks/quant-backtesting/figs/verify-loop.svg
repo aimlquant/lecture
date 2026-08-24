@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 268" role="img" aria-labelledby="vl-title">
+  <title id="vl-title">전략을 말로 적고, 에이전트가 코드를 만들고, 하네스가 근거를 내놓고, 반증 테스트로 무너뜨려 보는 네 단계 순환</title>
+  <defs>
+    <marker id="vl-arrow" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto">
+      <path d="M0 0L10 4L0 8z" fill="#0f2c59"/>
+    </marker>
+    <marker id="vl-back" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto">
+      <path d="M0 0L10 4L0 8z" fill="#b4552a"/>
+    </marker>
+    <style>
+      .bg   { fill:#fafaf9 }
+      .you  { fill:#e8eef8; stroke:#0f2c59; stroke-width:2 }
+      .bot  { fill:#ffffff; stroke:#c3cbd8; stroke-width:2 }
+      .warn { fill:#fff4e8; stroke:#b4552a; stroke-width:2 }
+      .who  { font:700 11px Inter,"Noto Sans KR",sans-serif; letter-spacing:.06em }
+      .hd   { font:800 17px Inter,"Noto Sans KR",sans-serif; fill:#101114 }
+      .sm   { font:500 12.5px Inter,"Noto Sans KR",sans-serif; fill:#6b7482 }
+      .arw  { stroke:#0f2c59; stroke-width:2.5; fill:none; marker-end:url(#vl-arrow) }
+      .back { stroke:#b4552a; stroke-width:2.5; fill:none; stroke-dasharray:7 5; marker-end:url(#vl-back) }
+      .lbl  { font:700 12px Inter,"Noto Sans KR",sans-serif; fill:#b4552a;
+              paint-order:stroke fill; stroke:#fafaf9; stroke-width:4px; stroke-linejoin:round }
+    </style>
+  </defs>
+  <rect class="bg" width="960" height="268"/>
+
+  <rect class="you" x="20" y="46" width="204" height="110" rx="13"/>
+  <text class="who" x="44" y="76" fill="#0f2c59">여러분</text>
+  <text class="hd" x="44" y="102">무엇을 살지 적는다</text>
+  <text class="sm" x="44" y="126">언제 사고 팔지, 비용은</text>
+  <text class="sm" x="44" y="144">얼마로 볼지 말로 먼저</text>
+
+  <rect class="bot" x="264" y="46" width="204" height="110" rx="13"/>
+  <text class="who" x="288" y="76" fill="#6b7482">에이전트</text>
+  <text class="hd" x="288" y="102">코드로 옮긴다</text>
+  <text class="sm" x="288" y="126">파이썬 문법을 몰라도</text>
+  <text class="sm" x="288" y="144">됩니다. 초안은 맡깁니다</text>
+
+  <rect class="bot" x="508" y="46" width="204" height="110" rx="13"/>
+  <text class="who" x="532" y="76" fill="#6b7482">하네스</text>
+  <text class="hd" x="532" y="102">근거를 내놓는다</text>
+  <text class="sm" x="532" y="126">언제 알았고 언제 샀는지</text>
+  <text class="sm" x="532" y="144">거래마다 표로 남깁니다</text>
+
+  <rect class="warn" x="752" y="46" width="188" height="110" rx="13"/>
+  <text class="who" x="776" y="76" fill="#9d4323">여러분</text>
+  <text class="hd" x="776" y="102" fill="#9d4323">무너뜨려 본다</text>
+  <text class="sm" x="776" y="126" fill="#9d4323">신호를 하루 늦추면</text>
+  <text class="sm" x="776" y="144" fill="#9d4323">수익이 남아 있나?</text>
+
+  <path class="arw" d="M224 101H260"/>
+  <path class="arw" d="M468 101H504"/>
+  <path class="arw" d="M712 101H748"/>
+
+  <path class="back" d="M846 160V214H122V162"/>
+  <text class="lbl" x="484" y="234" text-anchor="middle">안 남으면 처음으로 — 이 되돌이가 강의의 뼈대입니다</text>
+</svg>
