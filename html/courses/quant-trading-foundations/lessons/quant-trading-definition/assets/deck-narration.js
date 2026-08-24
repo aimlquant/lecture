@@ -26,6 +26,8 @@
   var narrationToggle = document.getElementById("narrationToggle");
   var narrationClose = document.getElementById("narrationClose");
   var narrationCounter = document.getElementById("narrationCounter");
+  var deckSettingsPanel = document.getElementById("settingsPanel");
+  var deckSettingsToggle = document.getElementById("settingsToggle");
   var narrationNotes = narrationPanel
     ? Array.prototype.slice.call(narrationPanel.querySelectorAll("[data-narration-slide]"))
     : [];
@@ -168,11 +170,18 @@
 
   function setNarration(open, remember) {
     if (!narrationPanel || !narrationToggle) return;
+    if (open && deckSettingsPanel && deckSettingsToggle) {
+      deckSettingsPanel.classList.remove("is-open");
+      deckSettingsPanel.setAttribute("aria-hidden", "true");
+      deckSettingsToggle.setAttribute("aria-expanded", "false");
+    }
     document.body.classList.toggle("narration-open", open);
     narrationPanel.setAttribute("aria-hidden", String(!open));
     narrationToggle.setAttribute("aria-expanded", String(open));
+    narrationToggle.setAttribute("aria-pressed", String(open));
     narrationToggle.setAttribute("aria-label", open ? "내레이션 닫기" : "내레이션 열기");
     narrationToggle.setAttribute("title", open ? "내레이션 닫기 (N)" : "내레이션 열기 (N)");
+    narrationToggle.textContent = open ? "켬" : "끔";
     if (remember !== false) {
       try {
         window.localStorage.setItem("aimlquant-deck-narration", open ? "open" : "closed");
@@ -191,7 +200,7 @@
     if (narrationClose) {
       narrationClose.addEventListener("click", function () {
         setNarration(false);
-        narrationToggle.focus();
+        if (deckSettingsToggle) deckSettingsToggle.focus();
       });
     }
     document.addEventListener("keydown", function (event) {
