@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="ko" class="theme-light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ernest P. Chan(어니스트 챈)의 Quantitative Trading·Algorithmic Trading·Machine Trading 을 종합해 한국 시장과 에이전트 기반 검증 실습으로 재구성한 퀀트 트레이딩 강의. 주식·ETF 투자 경험은 있지만 코딩은 처음인 분을 위한 17개 과정, 영상 74편.">
+  <title>코딩 에이전트로 배우는 퀀트 트레이딩 · AI·ML·Quant</title>
+  <link rel="canonical" href="https://aimlquant.github.io/lecture/quant-backtesting/">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <link rel="stylesheet" href="track.css">
+</head>
+<body>
+  <main class="shell">
+    <div class="brand">
+      <span class="brand-name">AIML Quant</span>
+      <span class="brand-sub">LECTURE</span>
+    </div>
+    <a class="back" href="../">← 강의 홈</a>
+
+    <p class="eyebrow">OVERVIEW</p>
+    <h1>코딩 에이전트로 배우는 퀀트 트레이딩</h1>
+    <p class="lead">
+      주식·ETF는 해 봤지만 코드는 처음인 분을 위한 강의입니다. 평균회귀·모멘텀부터
+      팩터·머신러닝·포트폴리오까지 17개 과정 74편.
+      <strong>코드 초안은 에이전트가 만들고, 여러분은 그 결과를 믿을 근거가 있는지 따집니다.</strong>
+    </p>
+
+    <ul class="stats">
+      <li><span class="stat-value">17</span><span class="stat-label">과정</span></li>
+      <li><span class="stat-value">74</span><span class="stat-label">영상 · 편당 15분 이내</span></li>
+      <li><span class="stat-value">무료</span><span class="stat-label">유료 데이터 사용 안 함</span></li>
+      <li><span class="stat-value">한국</span><span class="stat-label">시장을 중심으로</span></li>
+    </ul>
+
+    <figure class="figure">
+      <picture>
+        <source media="(max-width: 760px)" srcset="figs/verify-loop-narrow.svg">
+        <img src="figs/verify-loop.svg" alt="전략을 말로 적고, 에이전트가 코드로 옮기고, 하네스가 근거를 내놓고, 반증 테스트로 흔들어 보는 네 단계 순환">
+      </picture>
+      <figcaption>
+        모든 실습이 이 순환을 돕니다. 코드를 짜는 일은 맡기고, 결과를 따지는 일은
+        직접 합니다.
+      </figcaption>
+    </figure>
+
+    <ul class="tiers">
+      <li class="tier">
+        <p class="tier-name">파이썬 문법은 안 가르칩니다</p>
+        <p>대신 노트북을 실행하고 그 결과를 읽는 법부터 시작합니다. 코드를 쓰는 대신 시키고, 나온 것을 따져 묻습니다.</p>
+      </li>
+      <li class="tier">
+        <p class="tier-name">끝나면 스스로 백테스트합니다</p>
+        <p>미래 데이터가 섞였는지, 비용이 빠졌는지, 잘 나올 때까지 조건을 바꿨는지 직접 점검합니다. 실계좌 운용과 주문 전송은 다루지 않습니다.</p>
+      </li>
+      <li class="tier">
+        <p class="tier-name">유료 데이터를 쓰지 않습니다</p>
+        <p>웹에서 무료로 받는 것만 씁니다. 유료 데이터가 꼭 필요한 주제는 실습 범위를 줄이거나 개념으로만 다룹니다.</p>
+      </li>
+      <li class="tier">
+        <p class="tier-name">한국 시장을 중심으로 배웁니다</p>
+        <p>주식·ETF·선물 실습에 한국 시장 자료를 쓰고, DART 재무제표와 KRX 시가총액·수익률로 교육용 팩터를 직접 구성합니다. 교재의 미국 사례는 개념의 출처로만 인용합니다.</p>
+      </li>
+    </ul>
+
+    <div class="notice">
+      <p>
+        <strong>전체 과정 개요를 공개했습니다.</strong> 17개 과정과 74편 영상의 순서·책 근거·
+        보강 범위를 과정별 페이지에서 확인할 수 있습니다. 상세 리포트·슬라이드·실습 자료는
+        각 영상을 실제로 제작할 때 영상 카드에 하나씩 연결합니다.
+      </p>
+    </div>
+
+    <h2>배우는 순서</h2>
+    <p class="course-label"><span>초급은 순서대로 듣고, 그다음부터는 관심 있는 주제를 골라 듣습니다</span></p>
+
+    <figure class="figure">
+      <picture>
+        <source media="(max-width: 760px)" srcset="figs/learning-path-narrow.svg">
+        <img src="figs/learning-path.svg" alt="초급 여섯 과정을 순서대로 마친 뒤 다섯 갈래로 나뉘고, 팩터와 리스크가 포트폴리오로 모이는 학습 경로">
+      </picture>
+      <figcaption>
+        초급 여섯 과정만 순서가 정해져 있습니다. 그 뒤로는 다섯 갈래 가운데 관심 있는 것을
+        고르면 되고, 팩터와 리스크를 마친 뒤에야 포트폴리오로 묶는 마지막 과정이 열립니다.
+      </figcaption>
+    </figure>
+
+    <section class="stage">
+      <div class="stage-head">
+        <div class="stage-title-wrap"><svg class="stage-icon" viewBox="0 0 34 34" aria-hidden="true"><rect x="1.5" y="1.5" width="31" height="31" rx="9" fill="#e8eef8"/><path d="M9 22.5h16" stroke="#0f2c59" stroke-width="2.4" stroke-linecap="round"/><circle cx="11.5" cy="15" r="2.6" fill="#0f2c59"/><circle cx="17" cy="15" r="2.6" fill="#0f2c59" fill-opacity=".55"/><circle cx="22.5" cy="15" r="2.6" fill="#0f2c59" fill-opacity=".25"/></svg><p class="stage-name">초급 · 첫 백테스트부터 검증까지</p></div>
+        <p class="stage-count">과정 6개 · 영상 30편</p>
+      </div>
+      <p class="stage-blurb">단순한 투자 규칙을 처음부터 끝까지 백테스트하고, 결과가 믿을 만한지 점검한 뒤 두 종목을 함께 거래하는 전략으로 확장합니다. 여기까지는 순서대로 듣습니다.</p>
+      <ul class="lessons">
+        <li class="lesson" id="course-quant-trading-foundations">
+          <div class="lesson-head">
+            <span class="badge">과정 개요 공개</span>
+            <span class="lesson-index">과정 1</span>
+          </div>
+          <h3>퀀트 트레이딩의 정체</h3>
+          <p>퀀트 트레이딩이 무엇이고 누가 할 수 있는지 짚은 뒤, 책이 &quot;도구를 고르라&quot; 고 말하는 자리에 코딩 에이전트를 놓습니다. 코드를 한 줄도 쓰지 않고 KODEX 200 가격을 받아 그리는 것으로 첫 결과를 얻습니다.</p>
+          <div class="lesson-meta">
+            <span>영상 4편</span>
+            <span>선행 강의: 없음</span>
+          </div>
+          <div class="actions"><a class="button" href="01-quant-trading-foundations/">과정 개요 보기</a></div>
+        </li>
+        <li class="lesson" id="course-quant-notebook-and-data">
+          <div class="lesson-head">
+            <span class="badge">과정 개요 공개</span>
+            <span class="lesson-index">과정 2</span>
+          </div>
+          <h3>노트북과 데이터 문해력</h3>
+          <p>파이썬 문법 대신 노트북 운용과 표 읽기를 익힙니다. 셀 실행 순서, 인덱스와 시각, 결측치, 수정주가와 생존편향까지. 마지막에는 개인·외국인·기관이 무엇을 샀는지 — 무료로 공개되는 수급 데이터를 다룹니다. 공매도 잔고는 T+2 이후 공개되므로 같은 날 신호에 넣으면 룩어헤드입니다.</p>
+          <div class="lesson-meta">
+            <span>영상 5편</span>
+            <span>선행 강의: 퀀트 트레이딩의 정체</span>
+          </div>
+          <div class="actions"><a class="button" href="02-quant-notebook-and-data/">과정 개요 보기</a></div>
+        </li>
+        <li class="lesson" id="course-quant-performance-measurement">
+          <div class="lesson-head">
+            <span class="badge">과정 개요 공개</span>
+            <span class="lesson-index">과정 3</span>
+          </div>
+          <h3>성과를 재는 법</h3>
+          <p>로그수익률, 샤프지수, MDD 와 Calmar 를 계산하고 각각이 언제 거짓말하는지 확인합니다. 증권거래세와 수수료, 슬리피지가 성과를 얼마나 깎는지도 함께 봅니다.</p>
+          <div class="lesson-meta">
+            <span>영상 4편</span>
+            <span>선행 강의: 노트북과 데이터 문해력</span>
+          </div>
+          <div class="actions"><a class="button" href="03-quant-performance-measurement/">과정 개요 보기</a></div>
+        </li>
+        <li class="lesson" id="course-quant-first-backtest">
+          <div class="lesson-head">
+            <span class="badge">과정 개요 공개</span>
+            <span class="lesson-index">과정 4</span>
+          </div>
+          <h3>첫 백테스트 — 규칙 하나로 끝까지</h3>
+          <p>KODEX 200 에 이동평균 규칙 하나를 걸어 명세부터 백테스트까지 끝까지 돌립니다. 신호 시각과 체결 시각을 감사표로 남기고, 열 줄짜리 데이터로 손계산과 대조합니다.</p>
+          <div class="lesson-meta">
+            <span>영상 5편</span>
+            <span>선행 강의: 성과를 재는 법</span>
+          </div>
+          <div class="actions"><a class="button" href="04-quant-first-backtest/">과정 개요 보기</a></div>
+        </li>
+        <li class="lesson" id="course-quant-backtest-validation">
+          <div class="lesson-head">
+            <span class="badge">과정 개요 공개</span>
+            <span class="lesson-index">과정 5</span>
+          </div>
+          <h3>백테스트를 의심하기</h3>
+          <p>앞에서 만든 KODEX 200 전략을 그대로 감사합니다. 룩어헤드를 미래 구간 절단으로 잡고, 시도 횟수를 원장에 남기고, 워크포워드와 홀드아웃으로 나누고, 반증 테스트를 자동으로 돌립니다.</p>
+          <div class="lesson-meta">
+            <span>영상 6편</span>
+            <span>선행 강의: 첫 백테스트 — 규칙 하나로 끝까지</span>
+          </div>
+          <div class="actions"><a class="button" href="05-quant-backtest-validation/">과정 개요 보기</a></div>
+        </li>
+        <li class="lesson" id="course-quant-pairs-backtest">
+          <div class="lesson-head">
+            <span class="badge">과정 개요 공개</span>
+            <span class="lesson-index">과정 6</span>
+          </div>
+          <h3>페어 트레이딩 — 초급 종합 과제</h3>
+          <p>회귀와 헤지비율을 읽는 것부터 시작해 공적분 페어를 찾고 볼린저 규칙으로 백테스트합니다. 같은 지수를 추종하는 ETF 두 종목으로 절차를 익히고, 보통주·우선주 페어로는 법적 공매도 가능성과 실제 대주 가능 수량이 다르다는 것을 확인합니다.</p>
+          <div class="lesson-meta">
+            <span>영상 6편</span>
+            <span>선행 강의: 백테스트를 의심하기</span>
+          </div>
+          <div class="actions"><a class="button" href="06-quant-pairs-backtest/">과정 개요 보기</a></div>
+        </li>
+      </ul>
+    </section>
+    <section class="stage">
+      <div class="stage-head">
+        <div class="stage-title-wrap"><svg class="stage-icon" viewBox="0 0 34 34" aria-hidden="true"><rect x="1.5" y="1.5" width="31" height="31" rx="9" fill="#e8eef8"/><path d="M9 24l5-7 4.5 4L25 10" stroke="#0f2c59" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p class="stage-name">중급 · 전략의 유형과 수익의 원인</p></div>
+        <p class="stage-count">과정 5개 · 영상 20편</p>
+      </div>
+      <p class="stage-blurb">가격이 되돌아오는 흐름과 추세를 이용하는 전략을 배우고, 전략의 수익이 시장 전체의 움직임이나 이미 알려진 요인으로 설명되는지 확인합니다.</p>
+      <ul class="lessons">
+        <li class="lesson" id="course-quant-mean-reversion">
+          <div class="lesson-head">
+            <span class="badge">과정 개요 공개</span>
+            <span class="lesson-index">과정 7</span>
+          </div>
+          <h3>평균회귀 제대로</h3>
+          <p>KODEX 200·TIGER 200 스프레드로 반감기를 재고, 스프레드를 만드는 세 가지 방법을 나란히 비교합니다. 볼린저 파라미터와 분할진입 논쟁을 다룬 뒤 섹터 ETF 쌍과 보통주·우선주로 탐색 범위를 넓힙니다.</p>
+          <div class="lesson-meta">
+            <span>영상 4편</span>
+            <span>선행 강의: 페어 트레이딩 — 초급 종합 과제</span>
+          </div>
+          <div class="actions"><a class="button" href="07-quant-mean-reversion/">과정 개요 보기</a></div>
+        </li>
+        <li class="lesson" id="course-quant-momentum">
+          <div class="lesson-head">
+            <span class="badge">과정 개요 공개</span>
+            <span class="lesson-index">과정 8</span>
+          </div>
+          <h3>모멘텀 제대로</h3>
+          <p>모멘텀이 왜 생기는지부터 시계열·횡단면 모멘텀, 코스피200 선물의 롤리턴까지 다룹니다. 개인·외국인·기관 수급을 팩터로 쓰는 법도 함께 봅니다.</p>
+          <div class="lesson-meta">
+            <span>영상 4편</span>
+            <span>선행 강의: 페어 트레이딩 — 초급 종합 과제</span>
+          </div>
+          <div class="actions"><a class="button" href="08-quant-momentum/">과정 개요 보기</a></div>
+        </li>
+        <li class="lesson" id="course-quant-factor-models">
+          <div class="lesson-head">
+            <span class="badge">과정 개요 공개</span>
+            <span class="lesson-index">과정 9</span>
+          </div>
+          <h3>팩터 모델</h3>
+          <p>내 전략의 수익이 이미 알려진 팩터로 설명되는지 판정합니다. 한국에는 받아 쓸 팩터 파일이 없어 DART 재무제표와 pykrx 시가총액으로 직접 만듭니다 — 팩터가 무엇으로 이뤄지는지 알게 됩니다.</p>
+          <div class="lesson-meta">
+            <span>영상 4편</span>
+            <span>선행 강의: 페어 트레이딩 — 초급 종합 과제</span>
+          </div>
+          <div class="actions"><a class="button" href="09-quant-factor-models/">과정 개요 보기</a></div>
+        </li>
+        <li class="lesson" id="course-quant-risk-management">
+          <div class="lesson-head">
+            <span class="badge">과정 개요 공개</span>
+            <span class="lesson-index">과정 10</span>
+          </div>
+          <h3>리스크와 자금관리</h3>
+          <p>코스피200 수익률로 켈리 최적 레버리지를 계산하고, 왜 실무가 그보다 낮게 쓰는지 봅니다. CPPI·스톱로스와 함께 레버리지 ETF 의 변동성 끌림을 확인하고, 한국의 신용·반대매매 구조도 다룹니다.</p>
+          <div class="lesson-meta">
+            <span>영상 4편</span>
+            <span>선행 강의: 페어 트레이딩 — 초급 종합 과제</span>
+          </div>
+          <div class="actions"><a class="button" href="10-quant-risk-management/">과정 개요 보기</a></div>
+        </li>
+        <li class="lesson" id="course-quant-asset-class-strategies">
+          <div class="lesson-head">
+            <span class="badge">과정 개요 공개</span>
+            <span class="lesson-index">과정 11</span>
+          </div>
+          <h3>시장별 특성 — 주식·ETF·선물</h3>
+          <p>주식 페어의 난제와 ETF 확장, 레버리지·인버스 ETF 의 LP 호가와 괴리율, 지수 차익거래와 시가 갭을 다룹니다. 선물은 코스피200·미국달러·금으로 롤리턴과 캘린더 스프레드를 봅니다.</p>
+          <div class="lesson-meta">
+            <span>영상 4편</span>
+            <span>선행 강의: 평균회귀 제대로 · 모멘텀 제대로</span>
+          </div>
+          <div class="actions"><a class="button" href="11-quant-asset-class-strategies/">과정 개요 보기</a></div>
+        </li>
+      </ul>
+    </section>
+    <section class="stage">
+      <div class="stage-head">
+        <div class="stage-title-wrap"><svg class="stage-icon" viewBox="0 0 34 34" aria-hidden="true"><rect x="1.5" y="1.5" width="31" height="31" rx="9" fill="#e4efe8"/><circle cx="17" cy="17" r="7.5" stroke="#2c6e4a" stroke-width="2.4" fill="none"/><circle cx="17" cy="17" r="2.4" fill="#2c6e4a"/></svg><p class="stage-name">고급 · 모델과 시장, 포트폴리오</p></div>
+        <p class="stage-count">과정 5개 · 영상 21편</p>
+      </div>
+      <p class="stage-blurb">통계·머신러닝 모델을 전략에 적용하고, 변동성과 주문·체결 구조를 살펴본 뒤 검증을 통과한 전략을 하나의 포트폴리오로 묶습니다.</p>
+      <ul class="lessons">
+        <li class="lesson" id="course-quant-time-series-models">
+          <div class="lesson-head">
+            <span class="badge">과정 개요 공개</span>
+            <span class="lesson-index">과정 12</span>
+          </div>
+          <h3>시계열 모델</h3>
+          <p>코스피200 일간 수익률에 AR·ARMA 를 붙여 예측 가능성을 보고, KODEX 200·TIGER 200·코스피200 선물 세 계열로 VAR·VEC 와 Johansen 을 다룹니다. 칼만 필터로 ETF 쌍의 헤지비율을 움직이고, 국내 거래소 BTC·KRW 로 같은 모델을 돌려 봅니다.</p>
+          <div class="lesson-meta">
+            <span>영상 5편</span>
+            <span>선행 강의: 평균회귀 제대로</span>
+          </div>
+          <div class="actions"><a class="button" href="12-quant-time-series-models/">과정 개요 보기</a></div>
+        </li>
+        <li class="lesson" id="course-quant-machine-learning">
+          <div class="lesson-head">
+            <span class="badge">과정 개요 공개</span>
+            <span class="lesson-index">과정 13</span>
+          </div>
+          <h3>머신러닝을 트레이딩에</h3>
+          <p>코스피200 방향 예측으로 ML 이 금융에서 잘 실패하는 이유부터 확인합니다. 가격과 투자자별 수급을 특징으로 트리 계열을 훑고, HMM 으로 코스피의 급락·회복 국면을 잡습니다.</p>
+          <div class="lesson-meta">
+            <span>영상 4편</span>
+            <span>선행 강의: 팩터 모델</span>
+          </div>
+          <div class="actions"><a class="button" href="13-quant-machine-learning/">과정 개요 보기</a></div>
+        </li>
+        <li class="lesson" id="course-quant-volatility">
+          <div class="lesson-head">
+            <span class="badge">과정 개요 공개</span>
+            <span class="lesson-index">과정 14</span>
+          </div>
+          <h3>변동성</h3>
+          <p>변동성이 왜 군집하고 평균회귀하는지 GARCH 로 봅니다. V-KOSPI200 이 지수일 뿐이라는 점과 코스피200 옵션의 내재변동성·만기 구조를 짚고, 실제로 거래하려면 무엇이 걸리는지 확인합니다.</p>
+          <div class="lesson-meta">
+            <span>영상 4편</span>
+            <span>선행 강의: 리스크와 자금관리</span>
+          </div>
+          <div class="actions"><a class="button" href="14-quant-volatility/">과정 개요 보기</a></div>
+        </li>
+        <li class="lesson" id="course-quant-market-microstructure">
+          <div class="lesson-head">
+            <span class="badge">과정 개요 공개</span>
+            <span class="lesson-index">과정 15</span>
+          </div>
+          <h3>시장 미시구조</h3>
+          <p>호가창 불균형과 주문흐름을 읽습니다. 무료 주식 틱이 없어 암호화폐를 교보재로 쓰되, 마지막에 한국 주식시장의 동시호가·가격제한폭·VI 와 무엇이 다른지 대조합니다.</p>
+          <div class="lesson-meta">
+            <span>영상 4편</span>
+            <span>선행 강의: 페어 트레이딩 — 초급 종합 과제</span>
+          </div>
+          <div class="actions"><a class="button" href="15-quant-market-microstructure/">과정 개요 보기</a></div>
+        </li>
+        <li class="lesson" id="course-quant-strategy-portfolios">
+          <div class="lesson-head">
+            <span class="badge">과정 개요 공개</span>
+            <span class="lesson-index">과정 16</span>
+          </div>
+          <h3>포트폴리오로 묶기</h3>
+          <p>앞서 검증을 통과한 한국 전략들의 상관을 보고 자본을 배분합니다. 국면이 바뀌었을 때 한국 표본에서 전략이 언제 깨졌는지 확인하고 은퇴 판단을 다룹니다.</p>
+          <div class="lesson-meta">
+            <span>영상 4편</span>
+            <span>선행 강의: 팩터 모델 · 리스크와 자금관리</span>
+          </div>
+          <div class="actions"><a class="button" href="16-quant-strategy-portfolios/">과정 개요 보기</a></div>
+        </li>
+      </ul>
+    </section>
+    <section class="stage">
+      <div class="stage-head">
+        <div class="stage-title-wrap"><svg class="stage-icon" viewBox="0 0 34 34" aria-hidden="true"><rect x="1.5" y="1.5" width="31" height="31" rx="9" fill="#fff4e8"/><path d="M11 17.5l4.2 4.2L23 12.5" stroke="#b4552a" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p class="stage-name">마무리 · 다음 단계 안내</p></div>
+        <p class="stage-count">과정 1개 · 영상 3편</p>
+      </div>
+      <p class="stage-blurb">실전 운용에 필요한 페이퍼 트레이딩, 실행 시스템, 사업·규제의 경계를 살펴봅니다. 계산이 없는 단계이므로 실행 노트북 대신 체크리스트와 사례 워크시트를 제공합니다.</p>
+      <ul class="lessons">
+        <li class="lesson" id="course-quant-beyond-backtesting">
+          <div class="lesson-head">
+            <span class="badge">과정 개요 공개</span>
+            <span class="lesson-index">과정 17</span>
+          </div>
+          <h3>여기서 실전으로 — 무엇이 더 필요한가</h3>
+          <p>백테스트와 실전의 간극, 실행 시스템과 거래비용을 개념으로 훑고, 남의 돈을 굴리려면 자본시장법상 무엇이 필요한지 짚습니다. 계산이 없으므로 노트북 대신 체크리스트와 워크시트를 남깁니다.</p>
+          <div class="lesson-meta">
+            <span>영상 3편</span>
+            <span>선행 강의: 페어 트레이딩 — 초급 종합 과제</span>
+          </div>
+          <div class="actions"><a class="button" href="17-quant-beyond-backtesting/">과정 개요 보기</a></div>
+        </li>
+      </ul>
+    </section>
+
+    <div class="notice">
+      <p>
+        <strong>교재는 미국 책, 실습은 한국 시장입니다.</strong> Ernest P. Chan 의 세 책
+        (<em>Quantitative Trading</em> 2021, <em>Algorithmic Trading</em> 2013,
+        <em>Machine Trading</em> 2017)에서 개념만 가져오고, 종목과 자료는 한국 것을 씁니다.
+        완성된 팩터 파일을 받아 쓰는 대신 DART 재무제표로 직접 만들고, 국내에서 돌려 볼 수
+        없는 통화·해외 상품선물은 뺐습니다. <strong>목차도 따르지 않습니다</strong> —
+        세 책이 같은 주제를 반복하므로 주제별로 다시 묶었습니다.
+      </p>
+    </div>
+
+    <div class="footer-links">
+      <a href="../">강의 홈</a>
+      <a href="https://aimlquant.github.io/study/">스터디</a>
+      <a href="https://aimlquant.github.io/briefing/">주간 AI 브리핑</a>
+      <a href="https://www.youtube.com/@aimlquant" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+    </div>
+  </main>
+</body>
+</html>

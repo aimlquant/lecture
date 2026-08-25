@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko" class="theme-light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="변동성이 왜 군집하고 평균회귀하는지 GARCH 로 봅니다. V-KOSPI200 이 지수일 뿐이라는 점과 코스피200 옵션의 내재변동성·만기 구조를 짚고, 실제로 거래하려면 무엇이 걸리는지 확인합니다.">
+  <title>변동성 · 코딩 에이전트로 배우는 퀀트 트레이딩 · AI·ML·Quant</title>
+  <link rel="canonical" href="https://aimlquant.github.io/lecture/quant-backtesting/14-quant-volatility/">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/course-roadmap.css">
+</head>
+<body>
+  <main class="shell">
+    <div class="brand">
+      <span class="brand-name">AIML Quant</span>
+      <span class="brand-sub">LECTURE</span>
+    </div>
+    <a class="back" href="../">← 강의 소개</a>
+
+    <p class="eyebrow">COURSE 14 / 17</p>
+    <h1>변동성</h1>
+    <p class="lead">변동성이 왜 군집하고 평균회귀하는지 GARCH 로 봅니다. V-KOSPI200 이 지수일 뿐이라는 점과 코스피200 옵션의 내재변동성·만기 구조를 짚고, 실제로 거래하려면 무엇이 걸리는지 확인합니다.</p>
+    <p class="harness-note">이 과정의 실습 노트북도 과정 04 <a href="../04-quant-first-backtest/">첫 백테스트 — 규칙 하나로 끝까지</a> 에서 만든 <strong>표준 백테스트 하네스</strong> 를 그대로 씁니다. 거래별 감사표, 미래 구간을 잘라 보는 룩어헤드 검사, 반증 테스트가 같은 자리에 따라옵니다.</p>
+
+    <ul class="course-stats">
+      <li><strong>4</strong><span>예정 영상</span></li>
+      <li><strong>15분</strong><span>영상당 최대 길이</span></li>
+      <li><strong>리스크와 자금관리</strong><span>선행 과정</span></li>
+    </ul>
+
+    <div class="notice course-notice">
+      <p><strong>과정 구성 로드맵입니다.</strong> 아래 카드는 이 과정에 포함될 영상의 순서와
+      범위를 보여 줍니다. 상세 리포트·슬라이드·실습 자료는 영상을 실제로 제작할 때
+      <strong>영상별로 각각</strong> 연결합니다.</p>
+    </div>
+
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">VIDEO ROADMAP</p>
+        <h2>영상 구성</h2>
+      </div>
+      <p>총 4편</p>
+    </div>
+    <ol class="video-list">
+
+        <li class="video-card" id="video-1">
+          <div class="video-head">
+            <span class="badge badge--soon">제작 예정</span>
+            <span class="video-index">영상 1</span>
+          </div>
+          <h2>변동성은 왜 군집하고 평균회귀하나 — GARCH</h2>
+          <dl class="video-meta">
+            <div><dt>책 근거</dt><dd>3권 5장 (변동성 예측)</dd></div>
+            <div><dt>보강</dt><dd>—</dd></div>
+          </dl>
+        </li>
+        <li class="video-card" id="video-2">
+          <div class="video-head">
+            <span class="badge badge--soon">제작 예정</span>
+            <span class="video-index">영상 2</span>
+          </div>
+          <h2>V-KOSPI200 은 지수다 — 무엇을 재고 무엇을 재지 않나</h2>
+          <dl class="video-meta">
+            <div><dt>책 근거</dt><dd>3권 5장</dd></div>
+            <div><dt>보강</dt><dd>한국 변동성지수</dd></div>
+          </dl>
+        </li>
+        <li class="video-card" id="video-3">
+          <div class="video-head">
+            <span class="badge badge--soon">제작 예정</span>
+            <span class="video-index">영상 3</span>
+          </div>
+          <h2>코스피200 옵션의 내재변동성과 만기 구조</h2>
+          <dl class="video-meta">
+            <div><dt>책 근거</dt><dd>3권 5장</dd></div>
+            <div><dt>보강</dt><dd>한국 옵션시장</dd></div>
+          </dl>
+        </li>
+        <li class="video-card" id="video-4">
+          <div class="video-head">
+            <span class="badge badge--soon">제작 예정</span>
+            <span class="video-index">영상 4</span>
+          </div>
+          <h2>변동성을 실제로 거래하려면 — 상품과 유동성의 현실</h2>
+          <dl class="video-meta">
+            <div><dt>책 근거</dt><dd>3권 5장 (숏 VX)</dd></div>
+            <div><dt>보강</dt><dd>전부</dd></div>
+          </dl>
+        </li>
+    </ol>
+
+    <nav class="course-nav" aria-label="과정 이동">
+      <a class="button button--secondary" href="../13-quant-machine-learning/">← 과정 13</a>
+      <a class="button" href="../">강의 소개</a>
+      <a class="button button--secondary" href="../15-quant-market-microstructure/">과정 15 →</a>
+    </nav>
+  </main>
+</body>
+</html>

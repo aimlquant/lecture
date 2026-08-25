@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="슬라이드와 내레이션 맞추기 실습 워크시트">
+  <title>슬라이드와 내레이션 워크시트 · AIML Quant</title>
+  <link rel="canonical" href="https://aimlquant.github.io/lecture/ai-content/01-ai-content-pipeline/02-narration-deck-sync/worksheet.html">
+  <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body>
+  <main class="shell">
+    <div class="brand"><span class="brand-name">AIML Quant</span><span class="brand-sub">WORKSHEET</span></div>
+    <a class="back" href="./">← 차시 소개</a>
+    <p class="eyebrow">실습 워크시트 · 차시 2</p>
+    <h1>슬라이드와 내레이션 맞추기</h1>
+    <p class="lead">슬라이드 한 장, 내레이션 한 문단, 오디오 한 조각을 같은 ID로 묶고
+    화면 드러내기 경계를 검증합니다.</p>
+    <div class="actions">
+      <a class="button" href="worksheet.md" download>원본 내려받기</a>
+      <a class="button button--secondary" href="report.html">상세 리포트</a>
+      <a class="button button--secondary" href="slides.html">발표자료</a>
+    </div>
+
+    <h2>1. 정본 연결</h2>
+    <ul class="tiers">
+      <li class="tier"><p class="tier-name">근거</p><p>모든 주장·수치·사례가 리포트의 절을
+      가리키는지 확인합니다.</p></li>
+      <li class="tier"><p class="tier-name">ID</p><p>아웃라인과 대본의 ID 집합과 순서가
+      정확히 같은지 대조합니다.</p></li>
+      <li class="tier"><p class="tier-name">생성 단위</p><p>한 장 = 한 문단 = 한 오디오인지
+      확인합니다.</p></li>
+    </ul>
+
+    <h2>2. 문장과 화면 상태</h2>
+    <div class="notice"><p><strong>필요한 문장 수 = 도입 문장 수 + 화면 항목 수</strong>입니다.
+    도입 동안은 어떤 항목도 밝아지지 않아야 합니다.</p></div>
+    <ul class="tiers">
+      <li class="tier"><p class="tier-name">아직 말하지 않은 항목</p><p>자리를 차지한 채
+      흐리게 보입니다.</p></li>
+      <li class="tier"><p class="tier-name">지금 말하는 항목</p><p>현재 상태에서 가장 밝습니다.</p></li>
+      <li class="tier"><p class="tier-name">이미 말한 항목</p><p>지나온 맥락으로 밝게 남습니다.</p></li>
+    </ul>
+
+    <h2>3. 실측 시간 정렬</h2>
+    <p class="lead">문장별로 다시 합성하지 않고 문단 오디오에서 시작 시각을 얻습니다.
+    시작 시각은 단조 증가하고 모두 오디오 길이 안에 있어야 합니다.</p>
+
+    <h2>4. 최종 크기 렌더 감사</h2>
+    <ul class="tiers">
+      <li class="tier"><p class="tier-name">1280×720</p><p>발표자료의 모든 화면 상태에서
+      글자·격자·드러내기를 봅니다.</p></li>
+      <li class="tier"><p class="tier-name">1920×1080</p><p>영상 프레임의 가독성과 화살표·라벨
+      충돌을 봅니다.</p></li>
+      <li class="tier"><p class="tier-name">최종 영상</p><p>각 경계 직후 프레임이 기대 상태와
+      같은지 대조합니다.</p></li>
+    </ul>
+
+    <div class="footer-links">
+      <a href="./">차시 소개</a><a href="../">코스 소개</a>
+      <a href="../../../">강의 홈</a><a href="https://aimlquant.github.io/">AIML Quant</a>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ko" class="theme-light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="회귀와 헤지비율을 읽는 것부터 시작해 공적분 페어를 찾고 볼린저 규칙으로 백테스트합니다. 같은 지수를 추종하는 ETF 두 종목으로 절차를 익히고, 보통주·우선주 페어로는 법적 공매도 가능성과 실제 대주 가능 수량이 다르다는 것을 확인합니다.">
+  <title>페어 트레이딩 — 초급 종합 과제 · 코딩 에이전트로 배우는 퀀트 트레이딩 · AI·ML·Quant</title>
+  <link rel="canonical" href="https://aimlquant.github.io/lecture/quant-backtesting/06-quant-pairs-backtest/">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/course-roadmap.css">
+</head>
+<body>
+  <main class="shell">
+    <div class="brand">
+      <span class="brand-name">AIML Quant</span>
+      <span class="brand-sub">LECTURE</span>
+    </div>
+    <a class="back" href="../">← 강의 소개</a>
+
+    <p class="eyebrow">COURSE 06 / 17</p>
+    <h1>페어 트레이딩 — 초급 종합 과제</h1>
+    <p class="lead">회귀와 헤지비율을 읽는 것부터 시작해 공적분 페어를 찾고 볼린저 규칙으로 백테스트합니다. 같은 지수를 추종하는 ETF 두 종목으로 절차를 익히고, 보통주·우선주 페어로는 법적 공매도 가능성과 실제 대주 가능 수량이 다르다는 것을 확인합니다.</p>
+    <p class="harness-note">이 과정의 실습 노트북도 과정 04 <a href="../04-quant-first-backtest/">첫 백테스트 — 규칙 하나로 끝까지</a> 에서 만든 <strong>표준 백테스트 하네스</strong> 를 그대로 씁니다. 거래별 감사표, 미래 구간을 잘라 보는 룩어헤드 검사, 반증 테스트가 같은 자리에 따라옵니다.</p>
+
+    <ul class="course-stats">
+      <li><strong>6</strong><span>예정 영상</span></li>
+      <li><strong>15분</strong><span>영상당 최대 길이</span></li>
+      <li><strong>백테스트를 의심하기</strong><span>선행 과정</span></li>
+    </ul>
+
+    <div class="notice course-notice">
+      <p><strong>과정 구성 로드맵입니다.</strong> 아래 카드는 이 과정에 포함될 영상의 순서와
+      범위를 보여 줍니다. 상세 리포트·슬라이드·실습 자료는 영상을 실제로 제작할 때
+      <strong>영상별로 각각</strong> 연결합니다.</p>
+    </div>
+
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">VIDEO ROADMAP</p>
+        <h2>영상 구성</h2>
+      </div>
+      <p>총 6편</p>
+    </div>
+    <ol class="video-list">
+
+        <li class="video-card" id="video-1">
+          <div class="video-head">
+            <span class="badge badge--soon">제작 예정</span>
+            <span class="video-index">영상 1</span>
+          </div>
+          <h2>회귀와 헤지비율 — 계수·잔차를 읽는다</h2>
+          <dl class="video-meta">
+            <div><dt>책 근거</dt><dd>3권 2장</dd></div>
+            <div><dt>보강</dt><dd>통계 다리</dd></div>
+          </dl>
+        </li>
+        <li class="video-card" id="video-2">
+          <div class="video-head">
+            <span class="badge badge--soon">제작 예정</span>
+            <span class="video-index">영상 2</span>
+          </div>
+          <h2>평균회귀와 모멘텀 — 왜 페어로 확장하나</h2>
+          <dl class="video-meta">
+            <div><dt>책 근거</dt><dd>1권 7장 2.1</dd></div>
+            <div><dt>보강</dt><dd>—</dd></div>
+          </dl>
+        </li>
+        <li class="video-card" id="video-3">
+          <div class="video-head">
+            <span class="badge badge--soon">제작 예정</span>
+            <span class="video-index">영상 3</span>
+          </div>
+          <h2>정상성이란 무엇인가 — 눈으로 보고 ADF 로 검정한다</h2>
+          <dl class="video-meta">
+            <div><dt>책 근거</dt><dd>2권 2장 1, 1권 7장 3.1</dd></div>
+            <div><dt>보강</dt><dd>—</dd></div>
+          </dl>
+        </li>
+        <li class="video-card" id="video-4">
+          <div class="video-head">
+            <span class="badge badge--soon">제작 예정</span>
+            <span class="video-index">영상 4</span>
+          </div>
+          <h2>공적분으로 페어를 찾는다 — 탐색 universe 와 시도 원장을 먼저 고정한다</h2>
+          <dl class="video-meta">
+            <div><dt>책 근거</dt><dd>1권 7장 3.1, 2권 2장 3.1</dd></div>
+            <div><dt>보강</dt><dd>스누핑 방지</dd></div>
+          </dl>
+        </li>
+        <li class="video-card" id="video-5">
+          <div class="video-head">
+            <span class="badge badge--soon">제작 예정</span>
+            <span class="video-index">영상 5</span>
+          </div>
+          <h2>볼린저 규칙을 만들고 하네스에 태운다 — 삼성전자·삼성전자우</h2>
+          <dl class="video-meta">
+            <div><dt>책 근거</dt><dd>1권 3장, 2권 3장 2</dd></div>
+            <div><dt>보강</dt><dd>한국 페어</dd></div>
+          </dl>
+        </li>
+        <li class="video-card" id="video-6">
+          <div class="video-head">
+            <span class="badge badge--soon">제작 예정</span>
+            <span class="video-index">영상 6</span>
+          </div>
+          <h2>숏 다리를 실제로 세울 수 있나 — 대주 가능 수량·대주료·만기·리콜</h2>
+          <dl class="video-meta">
+            <div><dt>책 근거</dt><dd>—</dd></div>
+            <div><dt>보강</dt><dd>전부</dd></div>
+          </dl>
+        </li>
+    </ol>
+
+    <nav class="course-nav" aria-label="과정 이동">
+      <a class="button button--secondary" href="../05-quant-backtest-validation/">← 과정 5</a>
+      <a class="button" href="../">강의 소개</a>
+      <a class="button button--secondary" href="../07-quant-mean-reversion/">과정 7 →</a>
+    </nav>
+  </main>
+</body>
+</html>

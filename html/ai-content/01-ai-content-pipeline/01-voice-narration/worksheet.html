@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="내 목소리로 내레이션 만들기 실습 워크시트">
+  <title>내레이션 만들기 워크시트 · AIML Quant</title>
+  <link rel="canonical" href="https://aimlquant.github.io/lecture/ai-content/01-ai-content-pipeline/01-voice-narration/worksheet.html">
+  <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body>
+  <main class="shell">
+    <div class="brand"><span class="brand-name">AIML Quant</span><span class="brand-sub">WORKSHEET</span></div>
+    <a class="back" href="./">← 차시 소개</a>
+    <p class="eyebrow">실습 워크시트 · 차시 1</p>
+    <h1>내 목소리로 내레이션 만들기</h1>
+    <p class="lead">참조 음성과 내레이션 문단을 준비하고, 생성 결과를 청취와 전사 대조로
+    검증합니다. 빈칸을 직접 기록하려면 원본을 내려받으세요.</p>
+    <div class="actions">
+      <a class="button" href="worksheet.md" download>원본 내려받기</a>
+      <a class="button button--secondary" href="report.html">상세 리포트</a>
+      <a class="button button--secondary" href="slides.html">발표자료</a>
+    </div>
+
+    <h2>1. 참조 음성 준비</h2>
+    <ul class="tiers">
+      <li class="tier"><p class="tier-name">길이와 형식</p><p>25~29초, WAV, 단일 채널,
+      24kHz 이상인지 확인합니다.</p></li>
+      <li class="tier"><p class="tier-name">녹음 환경</p><p>마이크 거리는 약 15~20cm입니다.
+      에어컨·선풍기·키보드·배경음악이 없어야 합니다.</p></li>
+      <li class="tier"><p class="tier-name">청취 관문</p><p>클리핑·헛기침·말 더듬음을 처음부터
+      끝까지 듣습니다. 음량을 올려도 다이내믹스를 압축하지 않습니다.</p></li>
+    </ul>
+
+    <h2>2. 문단 생성</h2>
+    <div class="notice"><p><strong>문장별 파일로 쪼개지 않습니다.</strong> 한 슬라이드의
+    내레이션 한 문단을 한 번에 생성하고, 숫자·날짜·단위의 기대 발음을 먼저 적습니다.</p></div>
+
+    <h2>3. 서로 다른 세 관문</h2>
+    <ul class="tiers">
+      <li class="tier"><p class="tier-name">길이 비율</p><p>뒤가 잘린 조기 종료를 잡습니다.</p></li>
+      <li class="tier"><p class="tier-name">전체 유사도</p><p>문장 전체가 무너진 결과를 잡습니다.</p></li>
+      <li class="tier"><p class="tier-name">숫자 누락</p><p>수사 한 단어만 틀린 결과를 따로 잡습니다.</p></li>
+    </ul>
+
+    <h2>4. 통과본 원장</h2>
+    <p class="lead">엔진·모델·버전, 입력 문단과 참조 음성의 해시, 생성 시각, 오디오 길이와
+    해시, 최종 청취자, 남은 한계를 함께 남깁니다.</p>
+
+    <div class="footer-links">
+      <a href="./">차시 소개</a><a href="../">코스 소개</a>
+      <a href="../../../">강의 홈</a><a href="https://aimlquant.github.io/">AIML Quant</a>
+    </div>
+  </main>
+</body>
+</html>

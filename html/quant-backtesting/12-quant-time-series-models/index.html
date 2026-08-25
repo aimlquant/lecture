@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko" class="theme-light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="코스피200 일간 수익률에 AR·ARMA 를 붙여 예측 가능성을 보고, KODEX 200·TIGER 200·코스피200 선물 세 계열로 VAR·VEC 와 Johansen 을 다룹니다. 칼만 필터로 ETF 쌍의 헤지비율을 움직이고, 국내 거래소 BTC·KRW 로 같은 모델을 돌려 봅니다.">
+  <title>시계열 모델 · 코딩 에이전트로 배우는 퀀트 트레이딩 · AI·ML·Quant</title>
+  <link rel="canonical" href="https://aimlquant.github.io/lecture/quant-backtesting/12-quant-time-series-models/">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/course-roadmap.css">
+</head>
+<body>
+  <main class="shell">
+    <div class="brand">
+      <span class="brand-name">AIML Quant</span>
+      <span class="brand-sub">LECTURE</span>
+    </div>
+    <a class="back" href="../">← 강의 소개</a>
+
+    <p class="eyebrow">COURSE 12 / 17</p>
+    <h1>시계열 모델</h1>
+    <p class="lead">코스피200 일간 수익률에 AR·ARMA 를 붙여 예측 가능성을 보고, KODEX 200·TIGER 200·코스피200 선물 세 계열로 VAR·VEC 와 Johansen 을 다룹니다. 칼만 필터로 ETF 쌍의 헤지비율을 움직이고, 국내 거래소 BTC·KRW 로 같은 모델을 돌려 봅니다.</p>
+    <p class="harness-note">이 과정의 실습 노트북도 과정 04 <a href="../04-quant-first-backtest/">첫 백테스트 — 규칙 하나로 끝까지</a> 에서 만든 <strong>표준 백테스트 하네스</strong> 를 그대로 씁니다. 거래별 감사표, 미래 구간을 잘라 보는 룩어헤드 검사, 반증 테스트가 같은 자리에 따라옵니다.</p>
+
+    <ul class="course-stats">
+      <li><strong>5</strong><span>예정 영상</span></li>
+      <li><strong>15분</strong><span>영상당 최대 길이</span></li>
+      <li><strong>평균회귀 제대로</strong><span>선행 과정</span></li>
+    </ul>
+
+    <div class="notice course-notice">
+      <p><strong>과정 구성 로드맵입니다.</strong> 아래 카드는 이 과정에 포함될 영상의 순서와
+      범위를 보여 줍니다. 상세 리포트·슬라이드·실습 자료는 영상을 실제로 제작할 때
+      <strong>영상별로 각각</strong> 연결합니다.</p>
+    </div>
+
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">VIDEO ROADMAP</p>
+        <h2>영상 구성</h2>
+      </div>
+      <p>총 5편</p>
+    </div>
+    <ol class="video-list">
+
+        <li class="video-card" id="video-1">
+          <div class="video-head">
+            <span class="badge badge--soon">제작 예정</span>
+            <span class="video-index">영상 1</span>
+          </div>
+          <h2>AR·ARMA — 코스피200 일간 수익률은 예측되나</h2>
+          <dl class="video-meta">
+            <div><dt>책 근거</dt><dd>3권 3장</dd></div>
+            <div><dt>보강</dt><dd>한국 지수</dd></div>
+          </dl>
+        </li>
+        <li class="video-card" id="video-2">
+          <div class="video-head">
+            <span class="badge badge--soon">제작 예정</span>
+            <span class="video-index">영상 2</span>
+          </div>
+          <h2>VAR·VEC 와 Johansen — KODEX 200·TIGER 200·코스피200 선물 세 계열</h2>
+          <dl class="video-meta">
+            <div><dt>책 근거</dt><dd>3권 3장, 2권 2장 3.1</dd></div>
+            <div><dt>보강</dt><dd>한국 3종</dd></div>
+          </dl>
+        </li>
+        <li class="video-card" id="video-3">
+          <div class="video-head">
+            <span class="badge badge--soon">제작 예정</span>
+            <span class="video-index">영상 3</span>
+          </div>
+          <h2>상태공간 모델과 칼만 필터 — ETF 쌍의 헤지비율을 움직인다</h2>
+          <dl class="video-meta">
+            <div><dt>책 근거</dt><dd>3권 3장, 2권 3장 4</dd></div>
+            <div><dt>보강</dt><dd>—</dd></div>
+          </dl>
+        </li>
+        <li class="video-card" id="video-4">
+          <div class="video-head">
+            <span class="badge badge--soon">제작 예정</span>
+            <span class="video-index">영상 4</span>
+          </div>
+          <h2>시계열 모델을 하네스에 붙일 때의 함정</h2>
+          <dl class="video-meta">
+            <div><dt>책 근거</dt><dd>3권 7장 (AR(16)·ARMA(3,7))</dd></div>
+            <div><dt>보강</dt><dd>검증 절차</dd></div>
+          </dl>
+        </li>
+        <li class="video-card" id="video-5">
+          <div class="video-head">
+            <span class="badge badge--soon">제작 예정</span>
+            <span class="video-index">영상 5</span>
+          </div>
+          <h2>국내 거래소 BTC·KRW 로 같은 모델을 돌려 본다</h2>
+          <dl class="video-meta">
+            <div><dt>책 근거</dt><dd>3권 7장</dd></div>
+            <div><dt>보강</dt><dd>고정 캡처</dd></div>
+          </dl>
+        </li>
+    </ol>
+
+    <nav class="course-nav" aria-label="과정 이동">
+      <a class="button button--secondary" href="../11-quant-asset-class-strategies/">← 과정 11</a>
+      <a class="button" href="../">강의 소개</a>
+      <a class="button button--secondary" href="../13-quant-machine-learning/">과정 13 →</a>
+    </nav>
+  </main>
+</body>
+</html>
