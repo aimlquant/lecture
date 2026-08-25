@@ -142,6 +142,19 @@
   border-top: 1px solid var(--border);
 }
 
+/* 강의 소개가 약속한 검증이 이 과정에도 이어진다는 한 줄. 히어로에 있으므로 아래
+   notice 박스처럼 무겁게 두지 않는다 — 세로선 하나로만 구분한다. */
+.harness-note {
+  margin: 16px 0 0;
+  padding-left: 14px;
+  border-left: 3px solid var(--border);
+  max-width: 60ch;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.harness-note a { color: var(--primary); font-weight: 650; }
+
 @media (max-width: 680px) {
   .course-stats,
   .video-list { grid-template-columns: 1fr; }
