@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
   <title id="title">확인 가능한 작업 요청의 다섯 요소</title>
-  <desc id="desc">목적, 문맥, 제약, 산출물, 확인 방법의 다섯 카드가 하나의 작업 계획으로 모이는 구조다.</desc>
+  <desc id="desc">목적, 문맥, 제약, 결과물, 확인 방법의 다섯 카드가 빠진 조건이 없는 작업 계획으로 모이는 구조다.</desc>
   <defs>
     <marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
       <path d="M0 0L18 5L0 10Z" fill="context-stroke"/>
@@ -26,19 +26,19 @@
   <rect class="card2" x="935" y="100" width="180" height="245" rx="13"/>
 
   <text class="num" x="60" y="138">01</text><text class="label" x="125" y="190" text-anchor="middle">목적</text>
-  <text class="small" x="125" y="236" text-anchor="middle"><tspan x="125">무엇을</tspan><tspan x="125" dy="32">확인할까</tspan></text>
+  <text class="small" x="125" y="236" text-anchor="middle"><tspan x="125">무엇을</tspan><tspan x="125" dy="32">만들까</tspan></text>
   <text class="num" x="285" y="138">02</text><text class="label" x="350" y="190" text-anchor="middle">문맥</text>
   <text class="small" x="350" y="236" text-anchor="middle"><tspan x="350">어느 폴더와</tspan><tspan x="350" dy="32">파일을 볼까</tspan></text>
   <text class="num" x="510" y="138">03</text><text class="label" x="575" y="190" text-anchor="middle">제약</text>
-  <text class="small" x="575" y="236" text-anchor="middle"><tspan x="575">무엇을</tspan><tspan x="575" dy="32">바꾸지 말까</tspan></text>
-  <text class="num" x="735" y="138">04</text><text class="label" x="800" y="190" text-anchor="middle">산출물</text>
+  <text class="small" x="575" y="236" text-anchor="middle"><tspan x="575">하지 말아야</tspan><tspan x="575" dy="32">할 일은</tspan></text>
+  <text class="num" x="735" y="138">04</text><text class="label" x="800" y="190" text-anchor="middle">결과물</text>
   <text class="small" x="800" y="236" text-anchor="middle"><tspan x="800">어떤 파일을</tspan><tspan x="800" dy="32">남길까</tspan></text>
   <text class="num" x="960" y="138">05</text><text class="label" x="1025" y="190" text-anchor="middle">확인</text>
-  <text class="small" x="1025" y="236" text-anchor="middle"><tspan x="1025">어떻게</tspan><tspan x="1025" dy="32">완료를 볼까</tspan></text>
+  <text class="small" x="1025" y="236" text-anchor="middle"><tspan x="1025">무엇을 보면</tspan><tspan x="1025" dy="32">끝일까</tspan></text>
 
   <path class="bus" d="M125 345V430M350 345V430M575 345V430M800 345V430M1025 345V430M125 430H1025"/>
   <path class="line" d="M575 430V505"/>
   <rect class="plan" x="285" y="505" width="580" height="120" rx="15"/>
-  <text class="label" x="575" y="555" text-anchor="middle">검토할 수 있는 작업 계획</text>
+  <text class="label" x="575" y="555" text-anchor="middle">빠진 조건이 없는 작업 계획</text>
   <text class="small" x="575" y="595" text-anchor="middle">할 일 · 만들 파일 · 실행 방법 · 완료 조건</text>
 </svg>

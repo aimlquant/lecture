@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
-  <title id="title">완료 보고를 검증하는 증거의 다섯 층</title>
-  <desc id="desc">아래의 완료 요약에서 위의 요구 조건 대조로 올라갈수록 사람이 직접 확인하는 증거가 강해지는 다섯 층 구조다.</desc>
+  <title id="title">완료 여부를 확인하는 다섯 단계</title>
+  <desc id="desc">아래의 완료 요약부터 위의 요구 조건 대조까지 차례로 살펴보며 에이전트의 보고와 실제 결과가 맞는지 확인하는 구조다.</desc>
   <defs>
     <marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
       <path d="M0 0L18 5L0 10Z" fill="context-stroke"/>
@@ -18,7 +18,7 @@
   </defs>
   <rect width="1200" height="720" fill="#FFFFFF"/>
   <path class="axis" d="M105 630V80"/>
-  <text class="small" x="70" y="355" text-anchor="middle" transform="rotate(-90 70 355)">직접 확인하는 증거가 강해진다</text>
+  <text class="small" x="70" y="355" text-anchor="middle" transform="rotate(-90 70 355)">직접 확인할수록 확실해진다</text>
 
   <rect class="strong" x="180" y="65" width="940" height="92" rx="12"/>
   <rect class="strong" x="180" y="180" width="940" height="92" rx="12"/>
@@ -26,9 +26,9 @@
   <rect class="mid" x="180" y="410" width="940" height="92" rx="12"/>
   <rect class="weak" x="180" y="525" width="940" height="92" rx="12"/>
 
-  <text class="num" x="215" y="102">05</text><text class="label" x="300" y="118">요구 조건 대조</text><text class="small" x="660" y="118">종목 · 기간 · 파일 · 화면 결과가 처음 요청과 같은가</text>
-  <text class="num" x="215" y="217">04</text><text class="label" x="300" y="233">화면 결과</text><text class="small" x="660" y="233">표 · 그래프 · 오류를 사람이 직접 보았는가</text>
+  <text class="num" x="215" y="102">05</text><text class="label" x="300" y="118">요구 조건 대조</text><text class="small" x="660" y="118">종목 · 기간 · 파일 · 화면 표시가 처음 요청과 같은가</text>
+  <text class="num" x="215" y="217">04</text><text class="label" x="300" y="233">화면에 나온 결과</text><text class="small" x="660" y="233">표 · 그래프 · 오류를 사람이 직접 보았는가</text>
   <text class="num" x="215" y="332">03</text><text class="label" x="300" y="348">실행 기록</text><text class="small" x="660" y="348">말한 명령과 검사를 실제로 실행했는가</text>
-  <text class="num" x="215" y="447">02</text><text class="label" x="300" y="463">파일·변경 내역</text><text class="small" x="660" y="463">실제 파일과 바뀐 줄이 요청 범위 안에 있는가</text>
+  <text class="num" x="215" y="447">02</text><text class="label" x="300" y="463">파일·바뀐 내용</text><text class="small" x="660" y="463">실제 파일과 바뀐 줄이 요청 범위 안에 있는가</text>
   <text class="num" x="215" y="562">01</text><text class="label" x="300" y="578">완료 요약</text><text class="small" x="660" y="578">무엇을 했다고 보고했는가</text>
 </svg>

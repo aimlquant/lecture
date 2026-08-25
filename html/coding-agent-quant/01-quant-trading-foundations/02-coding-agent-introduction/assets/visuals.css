@@ -203,4 +203,10 @@
     font-size: 11pt;
     line-height: 1.3;
   }
+
+  /* s6의 마지막 안전 원칙만 한 쪽에 고립되지 않도록 부록을 바로 이어서 인쇄한다. */
+  .continuous-mode .report-appendix {
+    break-before: auto !important;
+    page-break-before: auto !important;
+  }
 }

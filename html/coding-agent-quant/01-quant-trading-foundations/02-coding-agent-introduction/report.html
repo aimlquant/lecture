@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="코딩 에이전트란 무엇이고 퀀트 작업에서 무엇을 할 수 있는가 — 답을 듣는 데서 그치지 않고 파일과 실행 결과를 함께 확인한다">
+  <meta name="description" content="코딩 에이전트란 무엇이고 퀀트 작업에서 무엇을 할 수 있는가 — 코딩 에이전트의 작업 방식부터 사람이 직접 확인할 일까지">
   <meta name="robots" content="noindex, nofollow">
   <title>코딩 에이전트란 무엇이고 퀀트 작업에서 무엇을 할 수 있는가 · 상세 리포트</title>
   <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
@@ -34,66 +34,54 @@
       <div class="report-cover__wordmark"><span class="report-cover__wordmark-name">AIML Quant</span><span class="report-cover__wordmark-sub">LECTURE</span></div>
       <p class="report-cover__kicker">강의 상세 리포트</p>
       <h1 class="report-cover__title">코딩 에이전트란 무엇이고 퀀트 작업에서 무엇을 할 수 있는가</h1>
-      <p class="report-cover__subtitle">답을 듣는 데서 그치지 않고 파일과 실행 결과를 함께 확인한다</p>
+      <p class="report-cover__subtitle">코딩 에이전트의 작업 방식부터 사람이 직접 확인할 일까지</p>
       <p class="report-cover__meta">확인일 2026-08-25</p>
       </section>
 
     <section class="report-section s0 page-break" id="s0" data-tier="core">
       <div class="report-section__kicker">핵심 본편 · core</div>
-      <h1>코딩 에이전트는 말만 하는 AI가 아니라 작업을 이어 가는 AI다</h1>
-<h2>모델에 문맥과 도구와 반복 작업이 더해진다</h2>
-<p>이 리포트에서 <strong>코딩 에이전트(coding agent)</strong> 는 사용자의 요청을 읽고 답변만 만드는 데서
-멈추지 않고, 허용된 작업 공간에서 파일과 개발 도구를 사용해 결과물을 만드는 AI를 뜻한다.
-초보자에게는 <strong>AI 모델 + 작업 문맥 + 도구 + 확인 반복</strong>이라는 네 부분으로 이해하는 것이
-가장 쉽다.</p>
-<p>OpenAI의 Codex IDE 공식 문서는 에이전트가 편집기에 열린 파일과 선택한 코드를 문맥으로
-사용하고, 파일을 설명하거나 고치며, 변경 내용을 같은 화면에서 검토할 수 있다고 설명한다.
-더 긴 작업은 별도 환경에 맡긴 뒤 결과를 다시 검토할 수도 있다
+      <h1>코딩 에이전트는 파일을 살피고 도구를 써서 결과를 만든다</h1>
+<h2>확인하고 실행하고 다시 확인하는 일을 되풀이한다</h2>
+<p>이 리포트에서 <strong>코딩 에이전트(coding agent)</strong> 는 사용자의 요청을 바탕으로 관련 파일을
+찾고, 필요한 도구를 골라 실행하며, 그 결과를 보고 다음 작업을 정하는 AI를 뜻한다. 일반
+대화형 AI가 설명이나 예시 코드를 건네는 데 그칠 수 있다면, 코딩 에이전트는 허용된 작업
+폴더 안에서 실제 파일을 만들거나 고치고 명령을 실행할 수 있다.</p>
+<p>OpenAI의 Codex IDE 공식 문서에 따르면 에이전트는 편집기에 열린 파일과 선택한 코드를
+참고해 파일을 설명하거나 고칠 수 있다. 바뀐 내용은 같은 편집기에서 확인할 수 있고, 시간이
+더 걸리는 작업은 별도 환경에 맡긴 뒤 결과만 가져와 검토할 수도 있다
 (<a href="https://developers.openai.com/codex/ide">Codex IDE 확장 기능 공식 문서</a>).</p>
-<div class="visual-card-grid" role="group" aria-label="대답과 작업과 확인의 차이">
-  <div class="visual-card">
-    <span class="visual-card__label">대답</span>
-    <strong>방법을 설명한다</strong>
-    <p>어떤 코드가 필요할지 글로 알려 줄 수 있다.</p>
-  </div>
-  <div class="visual-card">
-    <span class="visual-card__label">작업</span>
-    <strong>파일과 명령을 다룬다</strong>
-    <p>허용된 폴더에서 파일을 만들고 실행을 시도한다.</p>
-  </div>
-  <div class="visual-card visual-card--answer">
-    <span class="visual-card__label">사람의 확인</span>
-    <strong>요청과 결과를 대조한다</strong>
-    <p>파일, 변경 내용, 실행 결과를 직접 살펴본다.</p>
-  </div>
-</div>
-
-<p>에이전트라는 이름은 “항상 스스로 완벽하게 끝낸다”는 뜻이 아니다. 작업을 여러 단계로
-이어 갈 수 있다는 뜻에 가깝다. 계획이 틀릴 수도 있고, 보지 못한 파일이 있을 수도 있으며,
-명령이 실패할 수도 있다. 그래서 코딩 에이전트의 장점은 사람의 확인이 사라지는 데 있지
-않고, <strong>확인할 수 있는 파일과 실행 흔적을 남기며 반복 작업을 돕는 데</strong> 있다.</p>
-<h2>이번 리포트에서 다루는 범위</h2>
-<p>이번 영상은 코딩 에이전트의 뜻, 작업 흐름, 사람과 에이전트의 역할, 결과 확인 방법만
-다룬다. VS Code와 Codex 확장 기능을 실제로 설치하는 일은 영상 3에서 진행한다. KODEX
-200 가격을 내려받아 CSV와 노트북을 만드는 일은 영상 4에서 직접 실행한다. Python 문법,
-데이터 품질 판단, 매매 규칙, 백테스트도 이번 영상의 범위가 아니다.</p>
+<p>이런 작업 순환을 이해하는 데 <strong>ReAct(Reason + Act)</strong> 라는 연구 틀이 도움이 된다. ReAct는
+언어 모델이 다음에 할 일을 판단해 외부 환경에서 실행하고, 실행 결과를 관찰한 뒤 다음
+판단에 반영하는 과정을 설명한다
+(<a href="https://arxiv.org/abs/2210.03629">ReAct 논문</a>). 여기서는 ReAct를 Codex의 내부 구조라고
+단정하지 않는다. 파일과 명령을 사용하는 에이전트가 어떻게 여러 단계를 이어 가는지
+이해하기 위한 일반적인 설명 틀로만 사용한다.</p>
+<figure class="report-figure" id="fig-1"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 1</span><span class="asset-caption__title">코딩 에이전트의 기본 작업 순환. ReAct의 판단·행동·관찰 구조를 파일과 명령을 사용하는 작업에 맞게 풀어 그렸다. Codex의 실제 내부 설계도가 아니라 학습을 위한 개념도다.</span></figcaption><img alt="사람의 요청에서 시작해 현재 상태를 확인하고 다음 작업을 정한 뒤 파일이나 명령 도구를 사용하고 결과를 다시 확인하는 순환과 사람이 결과를 검토하는 흐름" src="assets/figs/agent-work-loop.svg"></figure>
+<p>그림에서 <strong>현재 상태</strong>는 사용자의 요청, 열린 파일, 기존 코드, 앞서 실행한 명령의 결과처럼
+에이전트가 지금 참고할 수 있는 정보다. 에이전트는 이 정보를 보고 다음 작업을 정한 뒤 파일
+도구나 명령 도구를 사용한다. 실행 결과나 오류가 돌아오면 다시 상태를 살피고, 일이 끝날
+때까지 이 과정을 반복한다. 마지막에는 사람이 바뀐 파일과 실행 결과를 확인한다.</p>
+<p>에이전트라는 이름이 “혼자서 언제나 완벽하게 끝낸다”는 뜻은 아니다. 잘못된 계획을 세우거나
+관련 파일을 놓칠 수 있고, 명령이 실패할 수도 있다. 코딩 에이전트의 장점은 사람의 확인을
+없애는 데 있지 않다. <strong>확인할 수 있는 파일과 실행 기록을 남기면서 반복 작업을 줄여 주는
+데</strong> 있다.</p>
 <hr>
     </section>
     <section class="report-section s1 page-break" id="s1" data-tier="core">
       <div class="report-section__kicker">핵심 본편 · core</div>
-      <h1>대화형 응답과 에이전트 작업은 남는 결과가 다르다</h1>
-<h2>같은 AI라도 요청 방식과 작업면에 따라 다르게 일한다</h2>
+      <h1>대화형 AI와 코딩 에이전트는 남기는 결과가 다르다</h1>
+<h2>같은 AI라도 연결된 도구에 따라 할 수 있는 일이 달라진다</h2>
 <p>“챗봇”과 “코딩 에이전트”를 서로 완전히 다른 제품으로 외우면 오히려 헷갈린다. 같은 AI
 서비스도 대화창에서는 설명을 주고받는 데 집중할 수 있고, 코드 편집기와 작업 폴더에
 연결되면 파일을 고치고 명령을 실행하는 에이전트처럼 일할 수 있다. 중요한 차이는 제품
 이름이 아니라 <strong>무엇을 보고, 무엇을 바꾸며, 무엇을 결과로 남기는가</strong>다.</p>
-<figure class="report-figure" id="fig-1"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 1</span><span class="asset-caption__title">대화형 응답과 에이전트 작업에서 남는 결과의 차이. Codex IDE와 prompting 공식 문서의 기능 구분을 초보자용 두 흐름으로 재구성.</span></figcaption><img alt="대화형 응답은 설명을 남기고 에이전트 작업은 설명과 파일 변경과 실행 결과를 함께 남기는 두 흐름" src="assets/figs/chat-agent-contrast.svg"></figure>
+<figure class="report-figure" id="fig-2"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 2</span><span class="asset-caption__title">대화형 응답과 에이전트 작업에서 남는 결과의 차이. Codex IDE와 prompting 공식 문서의 기능 구분을 초보자용 두 흐름으로 재구성.</span></figcaption><img alt="대화형 AI는 설명을 남기고 코딩 에이전트는 실제 파일과 실행 결과를 함께 남기는 두 흐름" src="assets/figs/chat-agent-contrast.svg"></figure>
 <p>대화형 응답만 받을 때는 사용자가 코드를 복사하고, 파일 위치를 고르고, 실행하고, 오류를
 다시 전달해야 한다. 에이전트 작업에서는 AI가 허용된 폴더를 살펴보고 파일을 고친 다음,
 명령을 실행해 오류를 읽고 수정할 수 있다. OpenAI는 Codex를 작은 요청에 실시간으로
 협업하는 방식과 더 긴 작업을 맡아 수행하는 방식에 모두 쓰는 코딩 에이전트로 설명한다
 (<a href="https://openai.com/index/introducing-upgrades-to-codex/">Introducing upgrades to Codex</a>).</p>
-<table class="cmp-table" id="table-1"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 1</span><span class="asset-caption__title">제품 이름이 아니라 작업 문맥·행동·결과물로 구분한 두 사용 방식.</span></div></caption>
+<table class="cmp-table" id="table-1"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 1</span><span class="asset-caption__title">제품 이름이 아니라 참고 정보·행동·남는 결과로 구분한 두 사용 방식.</span></div></caption>
 <thead>
 <tr>
 <th>구분</th>
@@ -115,7 +103,7 @@
 <tr>
 <td>남는 결과</td>
 <td>대화 내용</td>
-<td>대화 내용, 실제 파일, 변경 내역, 실행 기록</td>
+<td>대화 내용, 실제 파일, 바뀐 내용, 실행 기록</td>
 </tr>
 <tr>
 <td>사람이 할 일</td>
@@ -124,33 +112,31 @@
 </tr>
 </tbody>
 </table>
-<p>이 표는 대화형 AI가 파일을 절대 다루지 못한다거나 코딩 에이전트가 늘 명령을 실행한다는
-제품 분류표가 아니다. 한 작업 안에서도 먼저 설명을 듣고, 계획을 고친 뒤, 파일 변경을
-허용할 수 있다. 사람은 작업의 위험과 준비 상태에 따라 어느 단계까지 맡길지 정한다.</p>
+<p>이 표는 제품을 딱 잘라 나누려는 분류표가 아니다. 대화형 AI도 연결된 도구에 따라 파일을
+다룰 수 있고, 코딩 에이전트도 모든 요청에서 명령을 실행하는 것은 아니다. 한 작업 안에서도
+먼저 설명을 듣고 계획을 고친 뒤 파일 변경을 허용할 수 있다. 사람은 작업의 위험과 준비
+상태에 따라 어느 단계까지 맡길지 정한다.</p>
 <hr>
     </section>
     <section class="report-section s2 page-break" id="s2" data-tier="core">
       <div class="report-section__kicker">핵심 본편 · core</div>
-      <h1>에이전트는 작업 폴더를 보고 고치고 실행하며 반복한다</h1>
-<h2>작업 문맥은 에이전트가 현재 볼 수 있는 재료다</h2>
+      <h1>에이전트는 작업 폴더를 살피고 필요한 도구를 사용한다</h1>
+<h2>작업 문맥은 에이전트가 이번 일에 참고할 정보다</h2>
 <p><strong>문맥(context)</strong> 은 에이전트가 이번 작업을 이해할 때 참고하는 정보다. 사용자의 요청,
-현재 연 파일, 선택한 코드, 폴더 안의 안내 문서와 기존 파일이 여기에 들어갈 수 있다.
-Codex IDE 확장 기능은 열린 파일과 선택 영역을 대화에 붙일 수 있고, 같은 화면에서 변경
-요약과 차이를 검토하게 한다
+현재 열어 둔 파일, 선택한 코드, 폴더 안의 안내 문서와 기존 파일이 여기에 들어갈 수 있다.
+Codex IDE 확장 기능에서는 열린 파일과 선택 영역을 대화에 넣고, 바뀐 내용을 같은 화면에서
+확인할 수 있다
 (<a href="https://developers.openai.com/codex/ide">Codex IDE 확장 기능 공식 문서</a>).</p>
-<figure class="report-figure" id="fig-2"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 2</span><span class="asset-caption__title">코딩 에이전트의 작업면: 요청과 문맥을 읽고 파일·명령 도구를 사용해 검토 가능한 결과를 만든다. Codex IDE 공식 문서의 기능을 관계도로 재구성.</span></figcaption><img alt="사람의 작업 요청과 프로젝트 문맥이 에이전트로 들어가고 에이전트가 파일 도구와 명령 실행 도구를 사용해 검토 가능한 결과를 만드는 구조" src="assets/figs/agent-workbench.svg"></figure>
+<figure class="report-figure" id="fig-3"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 3</span><span class="asset-caption__title">코딩 에이전트가 일할 때 참고하는 정보와 사용하는 도구. Codex IDE 공식 문서의 기능을 초보자가 이해하기 쉬운 관계도로 재구성.</span></figcaption><img alt="사람의 작업 요청과 프로젝트 문맥이 에이전트로 들어가고 에이전트가 파일 도구와 명령 도구를 사용해 사람이 확인할 결과를 만드는 구조" src="assets/figs/agent-workbench.svg"></figure>
 <p>문맥은 많기만 하면 좋은 것이 아니다. 다른 종목의 오래된 노트북, 관계없는 데이터 파일,
 서로 충돌하는 지시가 함께 들어가면 엉뚱한 기준을 따를 수 있다. 초보자는 “내 컴퓨터 전체를
 AI가 다 안다”고 생각하기 쉽지만, 실제로는 <strong>현재 열어 준 프로젝트와 전달한 정보 안에서
 판단한다</strong>고 이해해야 한다.</p>
-<h2>한 번의 대답보다 반복 고리가 중요하다</h2>
-<p>코딩 에이전트는 보통 요청을 읽고 바로 최종 파일 하나를 내놓지 않는다. 관련 파일을 찾고,
-계획을 세우고, 파일을 고치고, 명령을 실행한 뒤, 실패하면 원인을 읽고 다시 수정한다.
-OpenAI의 prompting 공식 문서도 버그 수정 예시에서 재현 절차와 제약을 먼저 주고, 수정 뒤
-같은 절차와 관련 검사를 다시 실행하도록 권한다
+<p>에이전트는 관련 파일을 찾고 계획을 세운 뒤 파일을 고치고 명령을 실행한다. 실패하면 오류를
+읽고 다시 수정한다. OpenAI의 prompting 공식 문서도 버그를 고칠 때 재현 방법과 제약을
+알려 주고, 수정한 뒤에는 같은 절차와 관련 검사를 다시 실행하라고 권한다
 (<a href="https://developers.openai.com/codex/prompting">Prompting Codex</a>).</p>
-<figure class="report-figure" id="fig-3"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 3</span><span class="asset-caption__title">코딩 에이전트의 기본 반복: 이해 → 확인 → 변경 → 실행 → 보고. 마지막 판단은 사람의 검토에서 이루어진다.</span></figcaption><img alt="요청 이해 파일 확인 변경 실행 결과 확인이 순환하고 사람의 검토에서 다음 요청이나 수락으로 갈라지는 흐름" src="assets/figs/agent-work-loop.svg"></figure>
-<p>이 고리에서 <strong>명령(command)</strong> 은 컴퓨터에 시키는 구체적인 실행 지시다. 예를 들어 Python
+<p>여기서 <strong>명령(command)</strong> 은 컴퓨터에 시키는 구체적인 실행 지시다. 예를 들어 Python
 파일을 실행하거나 테스트를 돌리고 폴더 안의 파일 목록을 확인하는 일이 명령이다. 명령이
 성공했다는 사실은 해당 명령이 오류 없이 끝났다는 뜻일 뿐, 투자 목적이 옳거나 데이터가
 정확하다는 뜻은 아니다.</p>
@@ -158,7 +144,7 @@ OpenAI의 prompting 공식 문서도 버그 수정 예시에서 재현 절차와
 <thead>
 <tr>
 <th>에이전트의 행동</th>
-<th>화면이나 파일에 남아야 할 흔적</th>
+<th>화면이나 파일에 남아야 할 기록</th>
 <th>사람이 확인할 질문</th>
 </tr>
 </thead>
@@ -180,12 +166,12 @@ OpenAI의 prompting 공식 문서도 버그 수정 예시에서 재현 절차와
 </tr>
 <tr>
 <td>오류를 수정한다</td>
-<td>실패 원인과 수정 내역</td>
-<td>증상을 숨기지 않고 원인을 고쳤는가</td>
+<td>실패 원인과 고친 내용</td>
+<td>겉으로 드러난 오류만 덮지 않고 원인을 고쳤는가</td>
 </tr>
 <tr>
 <td>완료를 보고한다</td>
-<td>산출물·검사·남은 한계 요약</td>
+<td>만든 파일·검사 결과·남은 문제 요약</td>
 <td>보고와 실제 결과가 일치하는가</td>
 </tr>
 </tbody>
@@ -196,19 +182,19 @@ OpenAI의 prompting 공식 문서도 버그 수정 예시에서 재현 절차와
       <div class="report-section__kicker">핵심 본편 · core</div>
       <h1>좋은 작업 요청은 목적과 범위와 확인 방법을 함께 말한다</h1>
 <h2>Python 문법 대신 원하는 결과를 구체적으로 말한다</h2>
-<p>코딩을 모른다고 해서 아무 말이나 짧게 던져도 된다는 뜻은 아니다. Python 문법은 몰라도
+<p>코딩을 모른다고 해서 요청을 막연하게 해도 되는 것은 아니다. Python 문법은 몰라도
 <strong>무엇을, 어디에서, 어떤 파일로 만들고, 어떻게 확인할지</strong>는 투자자가 정할 수 있다.
 OpenAI의 Codex prompting 문서는 유용한 요청에 원하는 동작, 관련 코드나 재현 절차,
 지켜야 할 제약, 변경을 확인하는 방법이 들어간다고 설명한다
 (<a href="https://developers.openai.com/codex/prompting">Prompting Codex</a>).</p>
-<figure class="report-figure" id="fig-4"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 4</span><span class="asset-caption__title">초보자가 작업 요청에 넣을 다섯 요소. 공식 prompting 지침을 퀀트 실습용 질문으로 재구성.</span></figcaption><img alt="작업 요청을 목적 문맥 제약 산출물 확인 방법의 다섯 칸으로 나누고 에이전트의 작업 계획으로 연결하는 구조" src="assets/figs/request-contract.svg"></figure>
+<figure class="report-figure" id="fig-4"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 4</span><span class="asset-caption__title">초보자가 작업 요청에 넣을 다섯 요소. OpenAI의 프롬프트 작성 지침을 퀀트 실습용 질문으로 재구성.</span></figcaption><img alt="작업 요청을 목적 문맥 제약 결과물 확인 방법의 다섯 칸으로 나누고 에이전트의 작업 계획으로 연결하는 구조" src="assets/figs/request-contract.svg"></figure>
 <p>다음 예시는 영상 4에서 사용할 KODEX 200 작업을 <strong>설계만</strong> 해 보는 것이다. 아직 패키지를
 설치하거나 가격을 내려받지 않는다.</p>
 <table class="cmp-table" id="table-3"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 3</span><span class="asset-caption__title">짧지만 모호한 요청을 확인 가능한 작업 요청으로 바꾸는 세 가지 예.</span></div></caption>
 <thead>
 <tr>
-<th>빠진 요청</th>
-<th>왜 모호한가</th>
+<th>모호한 요청</th>
+<th>무엇이 빠졌는가</th>
 <th>고쳐서 말할 내용</th>
 </tr>
 </thead>
@@ -220,7 +206,7 @@ OpenAI의 Codex prompting 문서는 유용한 요청에 원하는 동작, 관련
 </tr>
 <tr>
 <td>“알아서 좋은 방식으로 해 줘”</td>
-<td>에이전트가 데이터 경로와 파일 구조를 임의로 고른다</td>
+<td>에이전트가 데이터 경로와 파일 구조를 스스로 정하게 된다</td>
 <td>현재 작업 폴더만 쓰고 계획을 먼저 설명하라고 한다</td>
 </tr>
 <tr>
@@ -230,10 +216,10 @@ OpenAI의 Codex prompting 문서는 유용한 요청에 원하는 동작, 관련
 </tr>
 </tbody>
 </table>
-<p>한 번에 완벽한 요청을 쓸 필요는 없다. 먼저 계획만 부탁하고, 빠진 항목을 확인한 다음,
-파일 변경을 허용해도 된다. 중요한 것은 에이전트가 임의로 채운 결정을 사용자의 결정으로
+<p>한 번에 완벽한 요청을 쓸 필요는 없다. 먼저 계획만 부탁하고 빠진 항목을 확인한 다음 파일
+변경을 허용해도 된다. 중요한 것은 에이전트가 대신 정한 조건을 내가 정한 조건으로
 착각하지 않는 것이다.</p>
-<div class="callout--insight"><span class="callout__kicker">읽기 포인트</span><div class="callout__body"><p><strong>영상 4에서 사용할 작업 요청의 뼈대</strong>: 현재 강의 폴더 안에서만 작업한다. KODEX 200
+<div class="callout--insight"><span class="callout__kicker">읽기 포인트</span><div class="callout__body"><p><strong>영상 4에서는 이렇게 요청한다</strong>: 현재 강의 폴더 안에서만 작업한다. KODEX 200
 <code>069500</code>의 정해진 기간 가격을 로컬 CSV에 저장하고, 노트북이 그 CSV를 다시 읽어 표와
 종가 그래프를 표시하게 한다. 먼저 계획과 필요한 파일을 설명하고, 끝나면 만든 파일·실행
 방법·확인 결과·남은 한계를 보고한다.</p></div></div>
@@ -243,16 +229,16 @@ OpenAI의 Codex prompting 문서는 유용한 요청에 원하는 동작, 관련
     </section>
     <section class="report-section s4 page-break" id="s4" data-tier="deep">
       <div class="report-section__kicker">심화 부록 · deep</div>
-      <h1>사람은 방향을 정하고 에이전트는 실행 가능한 일을 맡는다</h1>
-<h2>일을 나누면 책임도 선명해진다</h2>
-<p>코딩 에이전트를 잘 쓴다는 것은 모든 일을 맡긴다는 뜻이 아니다. 사람은 투자 대상과 목적,
+      <h1>사람은 방향을 정하고 에이전트는 정해진 일을 수행한다</h1>
+<h2>일을 나누면 누가 무엇을 책임질지 분명해진다</h2>
+<p>코딩 에이전트를 잘 쓴다고 해서 모든 일을 맡길 필요는 없다. 사람은 투자 대상과 목적,
 허용 범위, 완료 조건을 정한다. 에이전트는 그 범위 안에서 파일을 살피고 코드를 만들고
-실행한다. 마지막에는 사람이 변경 내용과 실행 결과를 보고 받아들일지, 고칠지, 되돌릴지
-정한다.</p>
-<figure class="report-figure" id="fig-5"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 5</span><span class="asset-caption__title">사람과 코딩 에이전트의 책임을 나눈 작업선. OpenAI의 검토 권고와 AIML Quant의 초보자용 역할 구분을 결합해 재구성.</span></figcaption><img alt="사람이 목적과 경계를 정하고 에이전트가 파일 확인 변경 실행 보고를 수행한 뒤 사람이 검토 수락 수정 되돌리기를 선택하는 두 작업선" src="assets/figs/responsibility-swimlane.svg"></figure>
-<p>OpenAI도 에이전트가 만든 변경을 적용하거나 배포하기 전에 사람이 검토할 것을 권하며,
-Codex의 로그와 테스트 결과를 그 검토를 돕는 근거로 설명한다. 코드 리뷰 기능 역시 사람의
-리뷰를 없애는 대체물이 아니라 추가 검토자로 쓰라고 밝힌다
+실행한다. 마지막에는 사람이 바뀐 내용과 실행 결과를 보고 받아들일지, 더 고치게 할지,
+되돌릴지 정한다.</p>
+<figure class="report-figure" id="fig-5"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 5</span><span class="asset-caption__title">사람과 코딩 에이전트가 일을 나누는 흐름. OpenAI의 검토 권고와 AIML Quant의 초보자용 역할 구분을 결합해 재구성.</span></figcaption><img alt="사람이 목적과 범위를 정하면 코딩 에이전트가 계획 파일 작업 명령 실행 결과 정리를 맡고 사람이 마지막으로 검토하고 결정하는 흐름" src="assets/figs/responsibility-swimlane.svg"></figure>
+<p>OpenAI도 에이전트가 바꾼 내용을 적용하거나 배포하기 전에 사람이 검토하라고 권한다.
+Codex가 남긴 작업 기록과 테스트 결과는 이때 참고할 근거가 된다. 코드 리뷰 기능 역시
+사람의 검토를 대신하는 기능이 아니라 검토를 돕는 보조 수단으로 쓰라고 밝힌다
 (<a href="https://openai.com/index/introducing-upgrades-to-codex/">Introducing upgrades to Codex</a>).</p>
 <table class="cmp-table" id="table-4"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 4</span><span class="asset-caption__title">사람과 에이전트가 맡을 일을 목표·범위·구현·검증·최종 결정으로 나눈 표. 이 역할 구분은 AIML Quant의 학습용 기준이다.</span></div></caption>
 <thead>
@@ -266,7 +252,7 @@ Codex의 로그와 테스트 결과를 그 검토를 돕는 근거로 설명한�
 <tr>
 <td>목표</td>
 <td>어떤 종목·기간·결과물이 필요한지 정한다</td>
-<td>목표를 실행 단계로 나누어 제안한다</td>
+<td>목표를 실행할 단계로 나누어 제안한다</td>
 </tr>
 <tr>
 <td>범위</td>
@@ -290,21 +276,21 @@ Codex의 로그와 테스트 결과를 그 검토를 돕는 근거로 설명한�
 </tr>
 </tbody>
 </table>
-<p>퀀트 작업에서는 이 구분이 특히 중요하다. 에이전트가 종가 그래프를 정확히 그렸더라도
-그 그래프가 매수 근거가 되는지는 결정할 수 없다. 데이터가 미래 정보를 섞었는지, 전략
-규칙이 투자 아이디어를 제대로 표현했는지, 손실 위험을 감수할 수 있는지는 별도의 금융
-판단이다.</p>
+<p>퀀트 작업에서는 이 구분이 특히 중요하다. 에이전트가 종가 그래프를 정확히 그렸더라도 그
+그래프만으로 매수할지 결정해서는 안 된다. 데이터에 미래 정보가 섞였는지, 전략 규칙이
+투자 아이디어를 제대로 나타내는지, 손실 위험을 감수할 수 있는지는 사람이 따로 판단해야
+한다.</p>
 <hr>
     </section>
     <section class="report-section s5 page-break" id="s5" data-tier="deep">
       <div class="report-section__kicker">심화 부록 · deep</div>
-      <h1>완료 보고는 출발점이고 실제 파일과 실행 결과가 증거다</h1>
+      <h1>완료 보고만 믿지 말고 파일과 실행 결과를 확인한다</h1>
 <h2>“완료했습니다”라는 문장을 그대로 믿지 않는다</h2>
-<p>에이전트의 마지막 답변은 작업 결과를 찾기 쉽게 요약한 <strong>보고</strong>다. 그 문장 자체가 성공의
-증거는 아니다. 파일이 실제로 생겼는지, 변경한 줄이 요청과 맞는지, 명령을 실행했는지,
+<p>에이전트의 마지막 답변은 작업 결과를 찾기 쉽게 요약한 <strong>보고</strong>다. 그 문장만으로는 작업이
+끝났다고 볼 수 없다. 파일이 실제로 생겼는지, 바뀐 내용이 요청과 맞는지, 명령을 실행했는지,
 표와 그래프가 나타나는지 차례로 확인해야 한다.</p>
-<figure class="report-figure" id="fig-6"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 6</span><span class="asset-caption__title">완료 보고를 확인 가능한 증거로 바꾸는 다섯 층. Codex 공식 문서의 변경 검토·명령 기록·테스트 결과 권고를 초보자용 순서로 재구성.</span></figcaption><img alt="에이전트의 완료 요약에서 실제 파일 변경 내역 실행 기록 화면 결과 요구 조건 대조로 점점 강한 증거를 확인하는 다섯 층" src="assets/figs/evidence-ladder.svg"></figure>
-<p>OpenAI의 IDE 문서는 변경 요약과 실제 수정된 줄을 함께 보고, 원하는 변경만 남기며,
+<figure class="report-figure" id="fig-6"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 6</span><span class="asset-caption__title">완료 여부를 확인하는 다섯 단계. Codex 공식 문서의 변경 검토·명령 기록·테스트 결과 권고를 초보자용 순서로 재구성.</span></figcaption><img alt="에이전트의 완료 요약부터 실제 파일과 바뀐 내용 실행 기록 화면에 나온 결과 요구 조건 대조까지 차례로 확인하는 다섯 단계" src="assets/figs/evidence-ladder.svg"></figure>
+<p>OpenAI의 IDE 문서는 변경 요약과 실제로 바뀐 줄을 함께 확인하고, 원하는 변경만 남긴 뒤,
 필요하면 같은 대화에서 다시 요청하라고 안내한다. 첫 작업 전후에 Git 체크포인트를 만들어
 되돌릴 수 있게 하라는 권고도 포함한다
 (<a href="https://developers.openai.com/codex/ide">Codex IDE 확장 기능 공식 문서</a>). Git은 파일의
@@ -315,32 +301,32 @@ Codex의 로그와 테스트 결과를 그 검토를 돕는 근거로 설명한�
 <li><strong>파일</strong> — 요청한 이름과 위치에 실제 파일이 있는가.</li>
 <li><strong>변경 내용</strong> — 새로 들어간 내용이 요청한 범위를 벗어나지 않았는가.</li>
 <li><strong>실행 기록</strong> — 에이전트가 말한 명령을 실제로 실행했는가.</li>
-<li><strong>화면 결과</strong> — 표, 그래프, 오류 메시지를 내가 직접 볼 수 있는가.</li>
+<li><strong>화면에 나온 결과</strong> — 표, 그래프, 오류 메시지를 내가 직접 볼 수 있는가.</li>
 <li><strong>요구 조건</strong> — 종목, 기간, 파일 형식, 표시 내용이 처음 요청과 같은가.</li>
 </ol>
 <p>테스트가 통과해도 모든 요구가 맞는 것은 아니고, 화면이 그럴듯해도 데이터가 맞는 것은
 아니다. 각 증거는 서로 다른 질문에 답한다. 영상 4에서는 노트북을 처음부터 다시 실행해
-파일과 화면 결과가 우연한 실행 순서에 기대지 않는지도 확인한다.</p>
+앞서 실행한 셀이나 임시 상태가 없어도 같은 결과가 나오는지 확인한다.</p>
 <hr>
     </section>
     <section class="report-section s6 page-break" id="s6" data-tier="deep">
       <div class="report-section__kicker">심화 부록 · deep</div>
-      <h1>권한은 작업에 필요한 만큼만 열어 준다</h1>
+      <h1>에이전트에게는 필요한 권한만 준다</h1>
 <h2>에이전트가 할 수 있는 일과 해도 되는 일은 다르다</h2>
-<p>코딩 에이전트는 명령을 실행할 수 있으므로 편리하지만, 그만큼 작업 경계를 먼저 정해야
+<p>코딩 에이전트는 명령을 실행할 수 있으므로 편리하지만, 그만큼 허용 범위를 먼저 정해야
 한다. Codex의 공식 prompting 문서는 로컬 명령이 파일과 네트워크 접근을 제한하는
-샌드박스 안에서 실행되고, 그 경계를 넘어야 할 때는 사용자의 승인 정책을 따른다고 설명한다
+샌드박스 안에서 실행되고, 제한 범위를 넘어야 할 때는 사용자의 승인 정책을 따른다고 설명한다
 (<a href="https://developers.openai.com/codex/prompting">Prompting Codex</a>). OpenAI의 실제 운영
-사례도 낮은 위험의 일상 작업은 정해진 경계 안에서 처리하고, 위험이 커지는 행동은 사람의
+사례도 위험이 낮은 일상 작업은 정해진 범위 안에서 처리하고, 위험이 커지는 행동은 사람의
 검토에서 멈추게 하는 원칙을 설명한다
 (<a href="https://openai.com/index/running-codex-safely/">Running Codex safely at OpenAI</a>).</p>
-<figure class="report-figure" id="fig-7"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 7</span><span class="asset-caption__title">초보자 실습의 권한 경계: 강의 폴더 안의 필요한 작업과 추가 확인이 필요한 작업을 나눈다. 제품의 세부 설정값이 아니라 이번 강의의 안전 원칙을 보여 준다.</span></figcaption><img alt="강의 전용 작업 폴더 안의 읽기 쓰기 실행은 정해진 범위에서 이루어지고 폴더 밖 접근 네트워크 비밀값 주문 전송은 사람의 확인에서 멈추는 경계" src="assets/figs/permission-boundary.svg"></figure>
+<figure class="report-figure" id="fig-7"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 7</span><span class="asset-caption__title">초보자 실습에서 어디까지 맡길지 정하는 기준. 강의 폴더 안의 필요한 작업과 추가 확인이 필요한 작업을 나눈다. 제품의 세부 설정값이 아니라 이번 강의의 안전 원칙을 보여 준다.</span></figcaption><img alt="강의 전용 작업 폴더 안의 읽기 쓰기 실행은 정해진 범위에서 이루어지고 폴더 밖 접근 네트워크 비밀값 주문 전송은 사람의 확인에서 멈추는 경계" src="assets/figs/permission-boundary.svg"></figure>
 <p>이 과정의 첫 실습에서는 강의 전용 폴더 안에서만 파일을 만들고 고친다. 비밀번호, API 키,
 증권사 인증 정보는 프롬프트나 노트북에 넣지 않는다. 에이전트에게 실제 주문 전송을 맡기지
 않고, 삭제처럼 되돌리기 어려운 작업도 하지 않는다. 인터넷에서 데이터를 받아야 하는 영상
-4에서는 어떤 사이트와 패키지를 쓰는지 계획을 먼저 보고 승인한다.</p>
-<div class="callout--insight"><span class="callout__kicker">읽기 포인트</span><div class="callout__body"><p><strong>안전 원칙</strong>: 편리함은 권한을 넓게 주는 데서 나오지 않는다. 작업 폴더, 필요한 파일,
-필요한 명령을 좁혀 주면 결과를 확인하고 되돌리기도 쉬워진다.</p></div></div>
+4에서는 어떤 사이트와 패키지를 쓸지 계획부터 확인한 다음 사용을 허용한다.</p>
+<div class="callout--insight"><span class="callout__kicker">읽기 포인트</span><div class="callout__body"><p><strong>안전 원칙</strong>: 처음부터 넓은 권한을 줄 필요는 없다. 작업 폴더, 필요한 파일, 필요한
+명령을 좁혀 주면 결과를 확인하고 되돌리기도 쉬워진다.</p></div></div>
 <hr>
     </section>
     <section class="report-appendix page-break" id="appendix-sources">
@@ -361,7 +347,7 @@ Codex의 로그와 테스트 결과를 그 검토를 돕는 근거로 설명한�
 </tr>
 <tr>
 <td>코딩 에이전트</td>
-<td>모델이 작업 문맥과 도구를 사용해 파일 변경·명령 실행·확인을 여러 단계로 이어 가는 작업 방식</td>
+<td>요청과 현재 상태를 바탕으로 도구를 사용하고 그 결과를 확인하며 여러 단계의 작업을 이어 가는 AI</td>
 </tr>
 <tr>
 <td>작업 문맥</td>
@@ -369,7 +355,7 @@ Codex의 로그와 테스트 결과를 그 검토를 돕는 근거로 설명한�
 </tr>
 <tr>
 <td>작업 폴더</td>
-<td>이번 과제의 파일을 모아 두고 에이전트에게 작업 범위로 열어 준 폴더</td>
+<td>이번 과제의 파일을 모아 두고 에이전트의 작업 범위로 지정한 폴더</td>
 </tr>
 <tr>
 <td>명령</td>
@@ -385,14 +371,20 @@ Codex의 로그와 테스트 결과를 그 검토를 돕는 근거로 설명한�
 </tr>
 <tr>
 <td>승인</td>
-<td>정해진 경계를 넘는 행동을 계속할지 사람이 확인하고 허용하는 절차</td>
+<td>정해진 범위를 넘는 작업을 계속할지 사람이 확인하고 허용하는 절차</td>
+</tr>
+<tr>
+<td>ReAct</td>
+<td>다음에 할 일을 판단하고 실행한 뒤 그 결과를 확인하는 과정을 되풀이하는 에이전트 연구 틀. 이 리포트에서는 일반적인 작업 순환을 설명하는 데만 사용</td>
 </tr>
 </tbody>
 </table>
 <h2>이 리포트의 정의와 한계</h2>
-<p>“AI 모델 + 문맥 + 도구 + 확인 반복”은 여러 제품에 적용되는 국제 표준 정의가 아니라,
-Codex의 공식 기능을 초보자가 이해하도록 AIML Quant가 정리한 <strong>학습용 구조</strong>다. 제품의
-기능과 화면은 바뀔 수 있으므로 영상 3을 촬영할 때 설치 방법과 권한 화면을 다시 확인한다.</p>
+<p>요청과 현재 상태를 살피고, 도구를 사용하고, 결과를 다시 확인하는 흐름은 여러 제품에
+공통으로 적용되는 표준 정의가 아니다. Codex의 공식 기능과 ReAct 연구를 초보자가 이해하기
+쉽도록 AIML Quant가 정리한 <strong>학습용 구조</strong>다. 특히 ReAct는 Codex의 내부 구현을 설명하는
+자료가 아니다. 제품의 기능과 화면은 바뀔 수 있으므로 영상 3을 촬영할 때 설치 방법과 권한
+화면을 다시 확인한다.</p>
 <p>OpenAI가 공개한 내부 개발 사례는 사람이 목표와 검증 기준을 정하고 에이전트가 구현을
 수행하는 작업 방식을 보여 준다. 다만 그것은 특정 조직과 개발 환경의 사례이지, 모든
 초보자나 모든 투자 작업에서 같은 생산성이나 품질이 나온다는 증거는 아니다
@@ -408,7 +400,7 @@ Codex의 공식 기능을 초보자가 이해하도록 AIML Quant가 정리한 <
 <tbody>
 <tr>
 <td>OpenAI, <a href="https://developers.openai.com/codex/ide">Codex IDE 확장 기능 공식 문서</a></td>
-<td>열린 파일·선택 영역을 문맥으로 사용하고, 설명·수정·변경 검토·긴 작업 위임을 한 편집기 흐름에서 할 수 있다는 점</td>
+<td>열린 파일·선택 영역을 참고하고, 설명·수정·변경 검토·긴 작업 위임을 편집기 안에서 이어서 할 수 있다는 점</td>
 </tr>
 <tr>
 <td>OpenAI, <a href="https://developers.openai.com/codex/prompting">Prompting Codex</a></td>
@@ -424,11 +416,15 @@ Codex의 공식 기능을 초보자가 이해하도록 AIML Quant가 정리한 <
 </tr>
 <tr>
 <td>OpenAI, <a href="https://openai.com/index/running-codex-safely/">Running Codex safely at OpenAI</a></td>
-<td>작업 경계, 사람의 승인, 기록을 함께 사용해 낮은 위험의 행동과 추가 검토가 필요한 행동을 나눈 운영 원칙</td>
+<td>허용 범위, 사람의 승인, 기록을 함께 사용해 위험이 낮은 행동과 추가 검토가 필요한 행동을 나눈 운영 원칙</td>
 </tr>
 <tr>
 <td>OpenAI, <a href="https://openai.com/index/harness-engineering/">Harness engineering</a></td>
 <td>사람이 목표·완료 조건·검증을 맡고 에이전트가 구현을 맡는 역할 분담의 실제 조직 사례와 그 사례의 범위</td>
+</tr>
+<tr>
+<td>Yao 외, <a href="https://arxiv.org/abs/2210.03629">ReAct: Synergizing Reasoning and Acting in Language Models</a></td>
+<td>언어 모델이 판단과 행동을 번갈아 수행하고, 행동으로 얻은 관찰을 다음 판단에 반영하는 일반적인 에이전트 연구 틀</td>
 </tr>
 </tbody>
 </table>

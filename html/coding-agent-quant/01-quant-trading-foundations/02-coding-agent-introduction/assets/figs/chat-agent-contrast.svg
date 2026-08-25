@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" role="img" aria-labelledby="title desc">
-  <title id="title">대화형 응답과 에이전트 작업의 결과 비교</title>
-  <desc id="desc">왼쪽은 질문이 설명으로 끝나는 흐름이고 오른쪽은 작업 요청이 파일 수정과 명령 실행을 거쳐 검토할 결과를 남기는 흐름이다.</desc>
+  <title id="title">대화형 AI와 코딩 에이전트가 남기는 결과 비교</title>
+  <desc id="desc">왼쪽은 질문에 대한 설명으로 끝나는 흐름이다. 오른쪽은 작업 요청이 파일 수정과 명령 실행을 거쳐 사람이 확인할 결과로 이어지는 흐름이다.</desc>
   <defs>
     <marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
       <path d="M0 0L18 5L0 10Z" fill="context-stroke"/>
@@ -22,7 +22,7 @@
   <rect class="panel" x="640" y="40" width="510" height="570" rx="14"/>
 
   <text class="head" x="85" y="94">대화형 응답</text>
-  <text class="head" x="675" y="94">에이전트 작업</text>
+  <text class="head" x="675" y="94">코딩 에이전트</text>
 
   <rect class="box" x="100" y="145" width="410" height="95" rx="12"/>
   <text class="label" x="305" y="187" text-anchor="middle">질문</text>
@@ -30,13 +30,13 @@
   <path class="line" d="M305 240V345"/>
   <rect class="box" x="100" y="345" width="410" height="135" rx="12"/>
   <text class="label" x="305" y="397" text-anchor="middle">설명과 예시 코드</text>
-  <text class="small" x="305" y="435" text-anchor="middle">옮기기·저장·실행은 사용자의 몫</text>
+  <text class="small" x="305" y="435" text-anchor="middle">옮기기·저장·실행은 사람이 직접</text>
 
   <rect class="box" x="690" y="125" width="410" height="90" rx="12"/>
   <text class="label" x="895" y="164" text-anchor="middle">작업 요청</text>
-  <text class="small" x="895" y="197" text-anchor="middle">목적·범위·산출물·확인 방법</text>
+  <text class="small" x="895" y="197" text-anchor="middle">목적 · 범위 · 결과물 · 확인 방법</text>
   <path class="branch" d="M895 215V250H790V285"/>
-  <path class="branch" d="M895 215V250H1000V285"/>
+  <path class="branch" d="M895 215V250H1010V285"/>
   <rect class="action" x="685" y="285" width="210" height="105" rx="12"/>
   <rect class="action" x="905" y="285" width="210" height="105" rx="12"/>
   <text class="label" x="790" y="330" text-anchor="middle">파일</text>
@@ -46,6 +46,6 @@
   <path class="branch" d="M790 390V435H895V475"/>
   <path class="branch" d="M1010 390V435H895V475"/>
   <rect class="action" x="690" y="475" width="410" height="95" rx="12"/>
-  <text class="label" x="895" y="516" text-anchor="middle">검토할 결과</text>
+  <text class="label" x="895" y="516" text-anchor="middle">사람이 확인할 결과</text>
   <text class="small" x="895" y="550" text-anchor="middle">실제 파일·변경 내역·실행 기록</text>
 </svg>
