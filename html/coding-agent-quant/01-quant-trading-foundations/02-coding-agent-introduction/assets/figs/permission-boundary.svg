@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">강의 실습의 작업 권한 경계</title>
+  <desc id="desc">왼쪽은 강의 전용 폴더 안에서 필요한 읽기 수정 실행이고 오른쪽은 폴더 밖 접근, 네트워크, 비밀값과 실제 주문처럼 추가 확인 또는 금지가 필요한 행동이다.</desc>
+  <style>
+    text{font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif;fill:#0F172A;font-weight:400}
+    .safe-panel{fill:#E4F6F0;stroke:#0B7A6A;stroke-width:3}
+    .review-panel{fill:#FFF0DF;stroke:#B45309;stroke-width:3}
+    .stop-panel{fill:#FFF1F4;stroke:#BE123C;stroke-width:3}
+    .safe-box{fill:#FFFFFF;stroke:#0B7A6A;stroke-width:2}
+    .review-box{fill:#FFFFFF;stroke:#B45309;stroke-width:2}
+    .stop-box{fill:#FFFFFF;stroke:#BE123C;stroke-width:2}
+    .head{font-size:29px;font-weight:700}
+    .label{font-size:25px;font-weight:700}
+    .small{font-size:21px;fill:#52606D}
+    .boundary{stroke:#0F2C59;stroke-width:2;stroke-dasharray:10 10}
+  </style>
+  <rect width="1200" height="700" fill="#FFFFFF"/>
+
+  <rect class="safe-panel" x="45" y="70" width="500" height="560" rx="16"/>
+  <text class="head" x="85" y="120" fill="#0B7A6A">정해진 작업 범위</text>
+  <text class="small" x="85" y="155">강의 전용 폴더 안에서 필요한 일</text>
+  <rect class="safe-box" x="95" y="205" width="400" height="95" rx="12"/>
+  <text class="label" x="295" y="260" text-anchor="middle">관련 파일 읽기</text>
+  <rect class="safe-box" x="95" y="335" width="400" height="95" rx="12"/>
+  <text class="label" x="295" y="390" text-anchor="middle">파일 만들기·수정</text>
+  <rect class="safe-box" x="95" y="465" width="400" height="95" rx="12"/>
+  <text class="label" x="295" y="520" text-anchor="middle">필요한 명령 실행</text>
+
+  <line class="boundary" x1="600" y1="70" x2="600" y2="630"/>
+  <rect x="550" y="288" width="100" height="124" rx="50" fill="#FFFFFF" stroke="#0F2C59" stroke-width="3"/>
+  <text class="label" x="600" y="336" text-anchor="middle" fill="#0F2C59">사람</text>
+  <text class="small" x="600" y="374" text-anchor="middle">확인</text>
+
+  <rect class="review-panel" x="655" y="70" width="500" height="340" rx="16"/>
+  <text class="head" x="695" y="120" fill="#B45309">추가 확인이 필요한 일</text>
+  <rect class="review-box" x="705" y="175" width="400" height="80" rx="12"/>
+  <text class="label" x="905" y="224" text-anchor="middle">강의 폴더 밖 접근</text>
+  <rect class="review-box" x="705" y="285" width="400" height="80" rx="12"/>
+  <text class="label" x="905" y="334" text-anchor="middle">인터넷·새 패키지 사용</text>
+
+  <rect class="stop-panel" x="655" y="440" width="500" height="190" rx="16"/>
+  <text class="head" x="695" y="490" fill="#BE123C">첫 실습에서 하지 않는 일</text>
+  <rect class="stop-box" x="705" y="525" width="400" height="70" rx="12"/>
+  <text class="label" x="905" y="569" text-anchor="middle">비밀값 입력 · 실제 주문 · 파괴적 삭제</text>
+</svg>
