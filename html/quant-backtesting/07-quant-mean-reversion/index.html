@@ -1,100 +1,13 @@
 <!doctype html>
-<html lang="ko" class="theme-light">
+<html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="KODEX 200·TIGER 200 스프레드로 반감기를 재고, 스프레드를 만드는 세 가지 방법을 나란히 비교합니다. 볼린저 파라미터와 분할진입 논쟁을 다룬 뒤 섹터 ETF 쌍과 보통주·우선주로 탐색 범위를 넓힙니다.">
-  <title>평균회귀 제대로 · 코딩 에이전트로 배우는 퀀트 트레이딩 · AI·ML·Quant</title>
-  <link rel="canonical" href="https://aimlquant.github.io/lecture/quant-backtesting/07-quant-mean-reversion/">
-  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../../assets/site.css">
-  <link rel="stylesheet" href="../../assets/course-roadmap.css">
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="refresh" content="0; url=/lecture/coding-agent-quant/07-quant-mean-reversion/">
+<link rel="canonical" href="/lecture/coding-agent-quant/07-quant-mean-reversion/">
+<title>옮겨졌습니다</title>
 </head>
 <body>
-  <main class="shell">
-    <div class="brand">
-      <span class="brand-name">AIML Quant</span>
-      <span class="brand-sub">LECTURE</span>
-    </div>
-    <a class="back" href="../">← 강의 소개</a>
-
-    <p class="eyebrow">COURSE 07 / 17</p>
-    <h1>평균회귀 제대로</h1>
-    <p class="lead">KODEX 200·TIGER 200 스프레드로 반감기를 재고, 스프레드를 만드는 세 가지 방법을 나란히 비교합니다. 볼린저 파라미터와 분할진입 논쟁을 다룬 뒤 섹터 ETF 쌍과 보통주·우선주로 탐색 범위를 넓힙니다.</p>
-    <p class="harness-note">이 과정의 실습 노트북도 과정 04 <a href="../04-quant-first-backtest/">첫 백테스트 — 규칙 하나로 끝까지</a> 에서 만든 <strong>표준 백테스트 하네스</strong> 를 그대로 씁니다. 거래별 감사표, 미래 구간을 잘라 보는 룩어헤드 검사, 반증 테스트가 같은 자리에 따라옵니다.</p>
-
-    <ul class="course-stats">
-      <li><strong>4</strong><span>예정 영상</span></li>
-      <li><strong>15분</strong><span>영상당 최대 길이</span></li>
-      <li><strong>페어 트레이딩 — 초급 종합 과제</strong><span>선행 과정</span></li>
-    </ul>
-
-    <div class="notice course-notice">
-      <p><strong>과정 구성 로드맵입니다.</strong> 아래 카드는 이 과정에 포함될 영상의 순서와
-      범위를 보여 줍니다. 상세 리포트·슬라이드·실습 자료는 영상을 실제로 제작할 때
-      <strong>영상별로 각각</strong> 연결합니다.</p>
-    </div>
-
-    <div class="section-head">
-      <div>
-        <p class="eyebrow">VIDEO ROADMAP</p>
-        <h2>영상 구성</h2>
-      </div>
-      <p>총 4편</p>
-    </div>
-    <ol class="video-list">
-
-        <li class="video-card" id="video-1">
-          <div class="video-head">
-            <span class="badge badge--soon">제작 예정</span>
-            <span class="video-index">영상 1</span>
-          </div>
-          <h2>반감기 — 얼마나 오래 들고 있어야 하나. KODEX 200·TIGER 200 스프레드로</h2>
-          <dl class="video-meta">
-            <div><dt>책 근거</dt><dd>2권 2장 2, 1권 7장 3.1</dd></div>
-            <div><dt>보강</dt><dd>한국 ETF</dd></div>
-          </dl>
-        </li>
-        <li class="video-card" id="video-2">
-          <div class="video-head">
-            <span class="badge badge--soon">제작 예정</span>
-            <span class="video-index">영상 2</span>
-          </div>
-          <h2>스프레드를 만드는 세 가지 — 같은 ETF 쌍에 가격차·로그차·비율을 나란히</h2>
-          <dl class="video-meta">
-            <div><dt>책 근거</dt><dd>2권 3장 1.1~1.3</dd></div>
-            <div><dt>보강</dt><dd>—</dd></div>
-          </dl>
-        </li>
-        <li class="video-card" id="video-3">
-          <div class="video-head">
-            <span class="badge badge--soon">제작 예정</span>
-            <span class="video-index">영상 3</span>
-          </div>
-          <h2>볼린저 파라미터와 분할진입 논쟁</h2>
-          <dl class="video-meta">
-            <div><dt>책 근거</dt><dd>2권 3장 2~3</dd></div>
-            <div><dt>보강</dt><dd>—</dd></div>
-          </dl>
-        </li>
-        <li class="video-card" id="video-4">
-          <div class="video-head">
-            <span class="badge badge--soon">제작 예정</span>
-            <span class="video-index">영상 4</span>
-          </div>
-          <h2>탐색 범위를 넓힌다 — 섹터 ETF 쌍과 보통주·우선주</h2>
-          <dl class="video-meta">
-            <div><dt>책 근거</dt><dd>2권 4장 1</dd></div>
-            <div><dt>보강</dt><dd>한국 종목</dd></div>
-          </dl>
-        </li>
-    </ol>
-
-    <nav class="course-nav" aria-label="과정 이동">
-      <a class="button button--secondary" href="../06-quant-pairs-backtest/">← 과정 6</a>
-      <a class="button" href="../">강의 소개</a>
-      <a class="button button--secondary" href="../08-quant-momentum/">과정 8 →</a>
-    </nav>
-  </main>
+<p>이 자료는 <a href="/lecture/coding-agent-quant/07-quant-mean-reversion/">/lecture/coding-agent-quant/07-quant-mean-reversion/</a> 로 옮겼습니다.</p>
 </body>
 </html>

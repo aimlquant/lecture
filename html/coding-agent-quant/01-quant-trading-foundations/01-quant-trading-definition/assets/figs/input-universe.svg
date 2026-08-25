@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">퀀트에 쓰이는 다양한 자료</title>
+  <desc id="desc">가격과 거래량, 재무 수치, 뉴스 텍스트가 같은 명시적 규칙 관문을 지나 매수, 매도, 보유 판단으로 이어진다.</desc>
+  <defs>
+    <marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
+      <path d="M0 0L18 5L0 10Z" fill="context-stroke"/>
+    </marker>
+    <style>
+      text { font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif; fill:#0F172A; }
+      .eyebrow { font-size:20px; font-weight:700; letter-spacing:1.2px; fill:#52606D; }
+      .title { font-size:34px; font-weight:700; }
+      .body { font-size:24px; font-weight:400; fill:#52606D; }
+      .decision { font-size:26px; font-weight:700; }
+      .card { fill:#FFFFFF; stroke:#C7D2E1; stroke-width:1.5; }
+      .flow { fill:none; stroke:#0F2C59; stroke-width:3; stroke-linecap:round; stroke-linejoin:round; marker-end:url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1200" height="620" fill="#FFFFFF"/>
+
+  <g>
+    <rect x="40" y="28" width="280" height="150" rx="12" fill="#E7EEF9" stroke="#C7D2E1" stroke-width="1.5"/>
+    <text class="eyebrow" x="64" y="66">MARKET</text>
+    <text class="title" x="64" y="108">가격 · 거래량</text>
+    <text class="body" x="64" y="140">종가 · 수익률</text>
+    <text class="body" x="64" y="168">거래대금</text>
+  </g>
+  <g>
+    <rect x="40" y="235" width="280" height="150" rx="12" fill="#E4F6F0" stroke="#C7D2E1" stroke-width="1.5"/>
+    <text class="eyebrow" x="64" y="273">FUNDAMENTAL</text>
+    <text class="title" x="64" y="315">재무 수치</text>
+    <text class="body" x="64" y="347">매출 · 현금흐름</text>
+    <text class="body" x="64" y="375">부채비율</text>
+  </g>
+  <g>
+    <rect x="40" y="442" width="280" height="150" rx="12" fill="#FFF0DF" stroke="#C7D2E1" stroke-width="1.5"/>
+    <text class="eyebrow" x="64" y="480">TEXT</text>
+    <text class="title" x="64" y="522">뉴스 텍스트</text>
+    <text class="body" x="64" y="554">분류 · 사건 정보</text>
+    <text class="body" x="64" y="582">문서에서 뽑은 신호</text>
+  </g>
+
+  <path class="flow" d="M320 103H392A12 12 0 0 1 404 115V228A12 12 0 0 0 416 240H460"/>
+  <path class="flow" d="M320 310H460"/>
+  <path class="flow" d="M320 517H392A12 12 0 0 0 404 505V392A12 12 0 0 1 416 380H460"/>
+
+  <g>
+    <rect class="card" x="460" y="170" width="300" height="280" rx="12"/>
+    <rect x="492" y="202" width="172" height="38" rx="19" fill="#E7EEF9"/>
+    <text class="eyebrow" x="578" y="228" text-anchor="middle" fill="#0F2C59">EXPLICIT RULE</text>
+    <text class="title" x="610" y="288" text-anchor="middle">명시적 규칙</text>
+    <text class="body" x="610" y="338" text-anchor="middle">자료가 달라도 질문은 같다</text>
+    <text class="body" x="610" y="378" text-anchor="middle">“조건과 행동이 명확한가?”</text>
+  </g>
+
+  <path class="flow" d="M760 310H880"/>
+
+  <g>
+    <rect class="card" x="880" y="170" width="280" height="280" rx="12"/>
+    <text class="eyebrow" x="1020" y="216" text-anchor="middle">TRADE DECISION</text>
+    <rect x="916" y="240" width="208" height="48" rx="24" fill="#E4F6F0"/>
+    <text class="decision" x="1020" y="273" text-anchor="middle" fill="#0B7A6A">매수</text>
+    <rect x="916" y="310" width="208" height="48" rx="24" fill="#FFF1F4"/>
+    <text class="decision" x="1020" y="343" text-anchor="middle" fill="#BE123C">매도</text>
+    <rect x="916" y="380" width="208" height="48" rx="24" fill="#E7EEF9"/>
+    <text class="decision" x="1020" y="413" text-anchor="middle" fill="#0F2C59">보유</text>
+  </g>
+</svg>

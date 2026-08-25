@@ -1,0 +1,264 @@
+/* 과정 1 · 영상 1 전용 시각 설명. 공용 report.css 위에 최소한으로 덧댄다. */
+.visual-thesis {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 18px 0 22px;
+}
+
+.visual-thesis__card {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--brand-primary);
+  border-radius: 10px;
+  background: var(--surface);
+  box-shadow: 0 5px 18px rgba(15, 44, 89, 0.06);
+}
+
+.visual-thesis__card--answer {
+  border-top-color: var(--positive);
+  background: color-mix(in srgb, var(--positive) 7%, var(--surface));
+}
+
+.visual-thesis__label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.visual-thesis__card strong {
+  display: block;
+  color: var(--text);
+  font-size: 12.5pt;
+  line-height: 1.3;
+}
+
+.visual-thesis__card p {
+  margin-top: 8px;
+  color: var(--text-secondary);
+  font-size: 9.5pt;
+  line-height: 1.5;
+}
+
+.myth-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 18px 0 22px;
+}
+
+.myth-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+}
+
+.myth-card__claim {
+  min-height: 84px;
+  padding: 14px 16px;
+  background: color-mix(in srgb, var(--negative) 8%, var(--surface));
+}
+
+.myth-card__claim span,
+.myth-card__repair span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--text-secondary);
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.myth-card__claim strong {
+  color: var(--negative);
+  font-size: 11pt;
+  line-height: 1.35;
+}
+
+.myth-card__repair {
+  min-height: 116px;
+  padding: 14px 16px;
+  border-top: 1px solid var(--border);
+}
+
+.myth-card__repair strong {
+  color: var(--brand-primary);
+  font-size: 10.5pt;
+  line-height: 1.4;
+}
+
+.visual-reading-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 18px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--brand-primary);
+  background: var(--brand-soft);
+}
+
+.visual-reading-key span {
+  padding: 5px 9px;
+  border: 1px solid color-mix(in srgb, var(--brand-primary) 22%, transparent);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--brand-primary);
+  font-size: 9pt;
+  font-weight: 700;
+}
+
+.report-figure--wide img {
+  aspect-ratio: auto;
+}
+
+/* 이 차시의 독서 리듬: 대제목과 소제목을 같은 크기로 소리치지 않는다. */
+.continuous-mode .report-cover__title {
+  max-width: 700px;
+  font-size: clamp(34px, 4.2vw, 42px);
+  line-height: 1.12;
+}
+
+.continuous-mode .report-section h1,
+.continuous-mode .report-appendix h1 {
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--brand-primary);
+  font-size: 32px;
+  line-height: 1.18;
+  margin-bottom: 20px;
+}
+
+.continuous-mode .report-section h2 {
+  padding-bottom: 0;
+  border-bottom: 0;
+  font-size: 23px;
+  line-height: 1.3;
+  margin-top: 48px;
+  margin-bottom: 14px;
+}
+
+.continuous-mode .report-section h3 {
+  font-size: 18px;
+  line-height: 1.35;
+  margin-top: 34px;
+}
+
+.continuous-mode .report-section .report-figure > img,
+.continuous-mode .report-section .report-figure > svg {
+  border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+@media (max-width: 680px) {
+  .visual-thesis,
+  .myth-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .myth-card__claim,
+  .myth-card__repair {
+    min-height: 0;
+  }
+
+  /* 복합 도해를 휴대전화 폭에 억지로 축소하지 않는다. */
+  .report-figure {
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-color: var(--brand-primary) var(--brand-soft);
+    scrollbar-width: thin;
+  }
+
+  .report-figure > .asset-caption::after {
+    content: "\2194  그림을 좌우로 밀어 자세히 보기";
+    display: inline-block;
+    margin-top: 6px;
+    padding: 4px 8px;
+    border: 1px solid color-mix(in srgb, var(--brand-primary) 22%, transparent);
+    border-radius: 999px;
+    background: var(--brand-soft);
+    color: var(--brand-primary);
+    font-size: 8pt;
+    font-weight: 700;
+  }
+
+  .report-figure > .asset-caption {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    background: var(--surface);
+  }
+
+  .continuous-mode .report-section .report-figure > img,
+  .continuous-mode .report-section .report-figure > svg {
+    width: 620px;
+    min-width: 620px;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .continuous-mode .report-cover__title {
+    font-size: 32px;
+  }
+
+  .continuous-mode .report-section h1,
+  .continuous-mode .report-appendix h1 {
+    font-size: 27px;
+  }
+
+  .continuous-mode .report-section h2 {
+    font-size: 21px;
+    margin-top: 38px;
+  }
+
+  .continuous-mode .report-section h3 {
+    font-size: 18px;
+  }
+}
+
+@media print {
+  .visual-thesis,
+  .myth-grid,
+  .visual-reading-key,
+  .report-figure {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .visual-thesis__card,
+  .myth-card {
+    box-shadow: none;
+  }
+
+  .continuous-mode .report-cover__title {
+    font-size: 32pt;
+    line-height: 1.1;
+  }
+
+  .continuous-mode .report-section h1,
+  .continuous-mode .report-appendix h1 {
+    padding-bottom: 7pt;
+    border-bottom-width: 1.5px;
+    font-size: 17pt;
+    line-height: 1.18;
+  }
+
+  .continuous-mode .report-section h2 {
+    border-bottom: 0;
+    font-size: 13pt;
+    line-height: 1.28;
+    margin-top: 28pt;
+  }
+
+  .continuous-mode .report-section h3 {
+    font-size: 11pt;
+    line-height: 1.3;
+  }
+}

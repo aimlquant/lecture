@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 706" role="img" aria-labelledby="lpn-title">
+  <title id="lpn-title">초급 여섯 과정을 순서대로 마친 뒤 다섯 갈래로 나뉘고, 팩터와 리스크가 포트폴리오로 모이는 학습 경로</title>
+  <defs>
+    <marker id="lpn-a" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto"><path d="M0 0L10 4L0 8z" fill="#0f2c59"/></marker>
+    <marker id="lpn-b" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto"><path d="M0 0L10 4L0 8z" fill="#8a94a6"/></marker>
+    <style>
+      .bg{fill:#fafaf9}.base{fill:#0f2c59}.pick{fill:#fff;stroke:#0f2c59;stroke-width:2}.goal{fill:#e4efe8;stroke:#2c6e4a;stroke-width:2}
+      .dot{fill:#fff;fill-opacity:.22}.num{font:700 12px Inter,"Noto Sans KR",sans-serif;fill:#fff}
+      .kw{font:700 12px Inter,"Noto Sans KR",sans-serif;fill:#fff}
+      .kd{font:700 12px Inter,"Noto Sans KR",sans-serif;fill:#0f2c59}
+      .hw{font:800 19px Inter,"Noto Sans KR",sans-serif;fill:#fff}
+      .hd{font:800 15px Inter,"Noto Sans KR",sans-serif;fill:#101114}
+      .hg{font:800 16px Inter,"Noto Sans KR",sans-serif;fill:#1f5c3d}
+      .sm{font:500 11.5px Inter,"Noto Sans KR",sans-serif;fill:#6b7482}
+      .arw{stroke:#0f2c59;stroke-width:2.5;fill:none;marker-end:url(#lpn-a)}
+      .arws{stroke:#8a94a6;stroke-width:2;fill:none;marker-end:url(#lpn-b)}
+    </style>
+  </defs>
+  <rect class="bg" width="360" height="706"/>
+
+  <rect class="base" x="12" y="12" width="336" height="128" rx="14"/>
+  <text class="kw" x="34" y="42">STEP 1</text>
+  <text class="hw" x="34" y="70">초급 6과정 · 순서대로</text>
+  <circle class="dot" cx="48" cy="106" r="14"/><text class="num" x="48" y="111" text-anchor="middle">1</text>
+  <circle class="dot" cx="82" cy="106" r="14"/><text class="num" x="82" y="111" text-anchor="middle">2</text>
+  <circle class="dot" cx="116" cy="106" r="14"/><text class="num" x="116" y="111" text-anchor="middle">3</text>
+  <circle class="dot" cx="150" cy="106" r="14"/><text class="num" x="150" y="111" text-anchor="middle">4</text>
+  <circle class="dot" cx="184" cy="106" r="14"/><text class="num" x="184" y="111" text-anchor="middle">5</text>
+  <circle class="dot" cx="218" cy="106" r="14"/><text class="num" x="218" y="111" text-anchor="middle">6</text>
+  <text class="kw" x="242" y="111" fill="#aebbd2">첫 백테스트까지</text>
+
+  <text class="kd" x="12" y="172">STEP 2 · 관심 있는 것부터 골라 듣습니다</text>
+  <path class="arw" d="M180 140V152"/>
+
+  <rect class="pick" x="12" y="186" width="336" height="54" rx="12"/>
+  <text class="hd" x="34" y="210">평균회귀</text><text class="sm" x="34" y="228">→ 시계열 모델로 이어집니다</text>
+  <rect class="pick" x="12" y="252" width="336" height="54" rx="12"/>
+  <text class="hd" x="34" y="276">모멘텀</text><text class="sm" x="34" y="294">→ 시장별 특성으로 이어집니다</text>
+  <rect class="pick" x="12" y="318" width="336" height="54" rx="12"/>
+  <text class="hd" x="34" y="342">팩터 모델</text><text class="sm" x="34" y="360">→ 머신러닝으로 이어집니다</text>
+  <rect class="pick" x="12" y="384" width="336" height="54" rx="12"/>
+  <text class="hd" x="34" y="408">리스크 관리</text><text class="sm" x="34" y="426">→ 변동성으로 이어집니다</text>
+  <rect class="pick" x="12" y="450" width="336" height="54" rx="12"/>
+  <text class="hd" x="34" y="474">시장 미시구조</text><text class="sm" x="34" y="492">호가창과 주문흐름</text>
+
+  <text class="kd" x="12" y="552">STEP 3 · 마지막에 하나로</text>
+  <path class="arws" d="M180 504V532"/>
+
+  <rect class="goal" x="12" y="570" width="336" height="82" rx="14"/>
+  <text class="hg" x="34" y="606">포트폴리오로 묶기</text>
+  <text class="sm" x="34" y="630" fill="#2c6e4a">팩터와 리스크를 마친 뒤에 열립니다</text>
+  <text class="sm" x="12" y="684">검증을 통과한 전략 둘 이상이 있어야 합니다</text>
+</svg>
