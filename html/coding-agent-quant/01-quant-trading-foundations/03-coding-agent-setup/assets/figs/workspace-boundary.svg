@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">강의 작업 폴더가 정하는 실습 범위</title>
+  <desc id="desc">course-01-practice 안에는 가상 환경과 확인용 노트북이 있고, 개인 폴더와 다른 프로젝트와 인증 정보는 범위 밖에 있다.</desc>
+  <defs>
+    <style>
+      text { font-family: "Noto Sans CJK KR","Noto Sans KR",sans-serif; }
+      .label { font-size: 22px; font-weight: 700; letter-spacing: .06em; fill: #0F2C59; }
+      .name { font-size: 30px; font-weight: 700; fill: #0F172A; }
+      .item { font-size: 24px; font-weight: 700; fill: #0F172A; }
+      .note { font-size: 21px; font-weight: 400; fill: #52606D; }
+    </style>
+  </defs>
+  <rect width="1200" height="520" fill="#FFFFFF"/>
+  <rect x="55" y="55" width="785" height="410" rx="14" fill="#E7EEF9" stroke="#0F2C59" stroke-width="3"/>
+  <text class="label" x="90" y="105">VS CODE에서 연 폴더</text>
+  <text class="name" x="90" y="155">course-01-practice</text>
+  <rect x="90" y="205" width="335" height="170" rx="12" fill="#FFFFFF" stroke="#C7D2E1" stroke-width="2"/>
+  <text class="item" x="120" y="260">.venv/</text>
+  <text class="note" x="120" y="310">이 프로젝트에서 쓸</text>
+  <text class="note" x="120" y="342">Python 환경</text>
+  <rect x="475" y="205" width="330" height="170" rx="12" fill="#FFFFFF" stroke="#C7D2E1" stroke-width="2"/>
+  <text class="item" x="505" y="260">notebooks/</text>
+  <text class="note" x="505" y="310">environment-check</text>
+  <text class="note" x="505" y="342">.ipynb</text>
+  <rect x="875" y="55" width="270" height="410" rx="14" fill="#FFF0DF" stroke="#B45309" stroke-width="2"/>
+  <text class="label" x="910" y="105" fill="#B45309">이번 실습의 범위 밖</text>
+  <text class="item" x="910" y="185">개인 폴더</text>
+  <line x1="910" y1="210" x2="1110" y2="210" stroke="#C7D2E1" stroke-width="2"/>
+  <text class="item" x="910" y="275">다른 프로젝트</text>
+  <line x1="910" y1="300" x2="1110" y2="300" stroke="#C7D2E1" stroke-width="2"/>
+  <text class="item" x="910" y="365">인증 정보</text>
+  <text class="note" x="910" y="410">프롬프트와 화면에</text>
+  <text class="note" x="910" y="442">노출하지 않는다</text>
+</svg>

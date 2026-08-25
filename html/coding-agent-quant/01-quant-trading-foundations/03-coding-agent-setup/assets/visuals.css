@@ -1,0 +1,272 @@
+/*
+ * AIML Quant 상세 리포트의 차시별 CSS 출발점.
+ * 이 파일은 정보 위계와 모바일 탐색만 제공한다. 차시의 논리를 보여 주는 컴포넌트는
+ * 복사한 assets/visuals.css에 의미가 드러나는 이름으로 추가한다.
+ */
+
+.visual-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 18px 0 22px;
+}
+
+.visual-card {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--brand-primary);
+  border-radius: 10px;
+  background: var(--surface);
+  box-shadow: 0 5px 18px rgba(15, 44, 89, 0.06);
+}
+
+.visual-card--answer {
+  border-top-color: var(--positive);
+  background: color-mix(in srgb, var(--positive) 7%, var(--surface));
+}
+
+.visual-card__label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.visual-card strong {
+  display: block;
+  color: var(--text);
+  font-size: 12.5pt;
+  line-height: 1.3;
+}
+
+.visual-card p {
+  margin-top: 8px;
+  color: var(--text-secondary);
+  font-size: 9.5pt;
+  line-height: 1.5;
+}
+
+.visual-reading-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 18px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--brand-primary);
+  background: var(--brand-soft);
+}
+
+.visual-reading-key span {
+  padding: 5px 9px;
+  border: 1px solid color-mix(in srgb, var(--brand-primary) 22%, transparent);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--brand-primary);
+  font-size: 9pt;
+  font-weight: 700;
+}
+
+.continuous-mode .report-cover__title {
+  max-width: 700px;
+  font-size: clamp(34px, 4.2vw, 42px);
+  line-height: 1.12;
+}
+
+.continuous-mode .report-section h1,
+.continuous-mode .report-appendix h1 {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--brand-primary);
+  font-size: 32px;
+  line-height: 1.18;
+}
+
+.continuous-mode .report-section h2 {
+  margin-top: 48px;
+  margin-bottom: 14px;
+  padding-bottom: 0;
+  border-bottom: 0;
+  font-size: 23px;
+  line-height: 1.3;
+}
+
+.continuous-mode .report-section h3 {
+  margin-top: 34px;
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.continuous-mode .report-section .report-figure > img,
+.continuous-mode .report-section .report-figure > svg {
+  border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+@media (max-width: 680px) {
+  .visual-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .report-figure {
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-color: var(--brand-primary) var(--brand-soft);
+    scrollbar-width: thin;
+  }
+
+  .report-figure > .asset-caption {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    background: var(--surface);
+  }
+
+  .report-figure > .asset-caption::after {
+    content: "\2194  그림을 좌우로 밀어 자세히 보기";
+    display: inline-block;
+    margin-top: 6px;
+    padding: 4px 8px;
+    border: 1px solid color-mix(in srgb, var(--brand-primary) 22%, transparent);
+    border-radius: 999px;
+    background: var(--brand-soft);
+    color: var(--brand-primary);
+    font-size: 8pt;
+    font-weight: 700;
+  }
+
+  .continuous-mode .report-section .report-figure > img,
+  .continuous-mode .report-section .report-figure > svg {
+    width: 620px;
+    min-width: 620px;
+    max-width: none;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .continuous-mode .report-cover__title {
+    font-size: 32px;
+  }
+
+  .continuous-mode .report-section h1,
+  .continuous-mode .report-appendix h1 {
+    font-size: 27px;
+  }
+
+  .continuous-mode .report-section h2 {
+    margin-top: 38px;
+    font-size: 21px;
+  }
+
+  .continuous-mode .report-section h3 {
+    font-size: 18px;
+  }
+}
+
+@media print {
+  .visual-card-grid,
+  .visual-reading-key,
+  .report-figure {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .visual-card {
+    box-shadow: none;
+  }
+
+  .continuous-mode .report-cover__title {
+    font-size: 32pt;
+    line-height: 1.1;
+  }
+
+  .continuous-mode .report-section h1,
+  .continuous-mode .report-appendix h1 {
+    padding-bottom: 7pt;
+    border-bottom-width: 1.5px;
+    font-size: 17pt;
+    line-height: 1.18;
+  }
+
+  .continuous-mode .report-section h2 {
+    margin-top: 28pt;
+    border-bottom: 0;
+    font-size: 13pt;
+    line-height: 1.28;
+  }
+
+  .continuous-mode .report-section h3 {
+    font-size: 11pt;
+    line-height: 1.3;
+  }
+}
+
+.environment-snapshot .visual-card strong {
+  font-size: 11.5pt;
+}
+
+.environment-snapshot code,
+.setup-checklist code {
+  font-size: .92em;
+}
+
+.setup-checklist {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 20px 0 24px;
+}
+
+.setup-checklist article {
+  position: relative;
+  min-width: 0;
+  padding: 16px 16px 16px 58px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+}
+
+.setup-checklist article > span {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--brand-soft);
+  color: var(--brand-primary);
+  font-size: 8.5pt;
+  font-weight: 700;
+}
+
+.setup-checklist strong {
+  display: block;
+  color: var(--text);
+  font-size: 11pt;
+}
+
+.setup-checklist p {
+  margin: 5px 0 0;
+  color: var(--text-secondary);
+  font-size: 9.5pt;
+  line-height: 1.5;
+}
+
+@media (max-width: 680px) {
+  .setup-checklist {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .setup-checklist {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}

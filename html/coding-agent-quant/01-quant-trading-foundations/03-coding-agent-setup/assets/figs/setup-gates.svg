@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">실습 환경을 완성하는 네 단계</title>
+  <desc id="desc">작업 폴더, Codex, Python, 노트북 실행 확인이 왼쪽에서 오른쪽으로 이어진다.</desc>
+  <defs>
+    <marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
+      <path d="M0 0L18 5L0 10Z" fill="#0F2C59"/>
+    </marker>
+    <style>
+      text { font-family: "Noto Sans CJK KR","Noto Sans KR",sans-serif; }
+      .step { font-size: 20px; font-weight: 700; letter-spacing: .08em; fill: #0F2C59; }
+      .name { font-size: 31px; font-weight: 700; fill: #0F172A; }
+      .state { font-size: 22px; font-weight: 400; fill: #52606D; }
+      .card { fill: #FFFFFF; stroke: #C7D2E1; stroke-width: 2; }
+      .ready { fill: #E4F6F0; stroke: #0B7A6A; stroke-width: 2; }
+    </style>
+  </defs>
+  <rect width="1200" height="420" fill="#FFFFFF"/>
+  <path d="M285 205H334" fill="none" stroke="#0F2C59" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M575 205H624" fill="none" stroke="#0F2C59" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M865 205H914" fill="none" stroke="#0F2C59" stroke-width="3" marker-end="url(#arrow)"/>
+  <g>
+    <rect class="card" x="45" y="80" width="240" height="250" rx="12"/>
+    <text class="step" x="75" y="125">01</text>
+    <text class="name" x="75" y="182">작업 폴더</text>
+    <text class="state" x="75" y="240">폴더명이 탐색기에</text>
+    <text class="state" x="75" y="274">보인다</text>
+  </g>
+  <g>
+    <rect class="card" x="335" y="80" width="240" height="250" rx="12"/>
+    <text class="step" x="365" y="125">02</text>
+    <text class="name" x="365" y="182">Codex</text>
+    <text class="state" x="365" y="240">새 Agent 입력창이</text>
+    <text class="state" x="365" y="274">열린다</text>
+  </g>
+  <g>
+    <rect class="card" x="625" y="80" width="240" height="250" rx="12"/>
+    <text class="step" x="655" y="125">03</text>
+    <text class="name" x="655" y="182">Python</text>
+    <text class="state" x="655" y="240">작업 폴더의 .venv를</text>
+    <text class="state" x="655" y="274">선택한다</text>
+  </g>
+  <g>
+    <rect class="ready" x="915" y="80" width="240" height="250" rx="12"/>
+    <text class="step" x="945" y="125" fill="#0B7A6A">04</text>
+    <text class="name" x="945" y="182">노트북</text>
+    <text class="state" x="945" y="240">커널명과 셀 출력이</text>
+    <text class="state" x="945" y="274">함께 보인다</text>
+  </g>
+</svg>
