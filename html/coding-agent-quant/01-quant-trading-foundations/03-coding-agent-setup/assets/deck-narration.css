@@ -1,0 +1,430 @@
+/* =========================================================================
+ * 내레이션 덱 — `deck.css` 위에 얹는 규칙
+ *
+ * 발표용 덱의 밀도는 사람이 말하는 것을 전제로 한다. 내레이션 영상에서는 그 문장을
+ * 오디오가 말하므로 화면의 글이 내레이션과 경쟁한다.
+ *
+ * 처음에는 그 경쟁을 화면을 비워서 피했다. 결과는 본문이 얇은 슬라이드 66% 였다.
+ * 지금은 **시간 정렬** 로 푼다 — 내용을 다 올려 두고 내레이션이 그 항목에 닿을 때
+ * 밝힌다. 아직 말하지 않은 항목은 흐리게 둔다. 숨기지 않는 이유는 둘이다.
+ *   1. 숨기면 레이아웃이 움직여 시선이 튄다
+ *   2. 숨기면 화면이 비어 보이는 문제가 되돌아온다
+ *
+ * `stepping` 클래스가 없으면 전부 밝은 상태다. 자바스크립트가 없거나 죽어도 내용이
+ * 사라지지 않는다. 영상 프레임은 생성기가 상태 클래스를 직접 박아 굽는다.
+ *
+ * `deck.css` 를 수정하지 않는다. 공용 템플릿은 발표용 덱이 함께 쓴다.
+ * ========================================================================= */
+
+/* 한글은 어절 경계에서만 끊는다. 좁은 카드에서 단어가 쪼개지는 것을 막는다. */
+.slide h1,
+.slide h2,
+.slide p,
+.slide li,
+.slide th,
+.slide td {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* ---- 드러내기 ------------------------------------------------------------ */
+.stepping .slide [data-reveal] {
+  opacity: 0.26;
+  transition: opacity 0.28s ease, box-shadow 0.28s ease, background 0.28s ease;
+}
+
+.stepping .slide [data-reveal].is-shown {
+  opacity: 1;
+}
+
+/* 방금 말한 항목을 한 번 더 표시한다. 색을 바꾸지 않고 테두리만 준다 —
+   색까지 바꾸면 슬라이드마다 강조색이 달라져 산만해진다. */
+.stepping .slide .card.is-now,
+.stepping .slide .kpi.is-now,
+.stepping .slide .panel.is-now,
+.stepping .slide .flow__step.is-now,
+.stepping .slide .balance-grid article.is-now,
+.stepping .slide .decision-grid article.is-now,
+.stepping .slide .shift article.is-now,
+.stepping .slide .question-list article.is-now {
+  box-shadow: 0 0 0 3px var(--primary), var(--shadow);
+}
+
+.stepping .slide tbody tr.is-now {
+  background: var(--primary-soft);
+}
+
+.stepping .slide .lead.is-now {
+  color: var(--primary);
+}
+
+/* ---- 제목과 리드 --------------------------------------------------------- */
+.slide > h1 {
+  margin-bottom: 6px;
+}
+
+.slide .lead {
+  font-size: 25px;
+  line-height: 1.45;
+  color: var(--muted);
+  max-width: 1080px;
+}
+
+/* ---- lead 레이아웃 — 한 줄 앵커 ------------------------------------------
+ * 발표용 `.panel` 은 반쪽 열을 채우는 컴포넌트라 한 구절만 넣으면 빈 상자가 된다. */
+.narration-anchor {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 0;
+  gap: 16px;
+}
+
+.narration-anchor p {
+  margin: 0;
+  max-width: 1080px;
+  font-size: 46px;
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--primary);
+}
+
+.narration-anchor p ~ p {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* ---- 카드와 수치 — 영상에서 읽히는 크기 ---------------------------------- */
+.slide .card h2 {
+  margin: 0 0 8px;
+  font-size: 26px;
+  line-height: 1.3;
+}
+
+.slide .card p {
+  font-size: 19px;
+  line-height: 1.5;
+}
+
+.slide .kpi > strong {
+  margin-bottom: 10px;
+  font-size: 50px;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.slide .kpi h2 {
+  margin: 0 0 6px;
+  font-size: 22px;
+}
+
+.slide .kpi p {
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+/* ---- 패널·흐름·전환·저울·판단 -------------------------------------------- */
+.slide .panel h2,
+.slide .shift h2,
+.slide .balance-grid h2,
+.slide .decision-grid h2 {
+  font-size: 26px;
+  line-height: 1.3;
+}
+
+.slide .panel li,
+.slide .balance-grid li,
+.slide .decision-grid li {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.slide .flow__step h2 {
+  font-size: 23px;
+}
+
+.slide .flow__step p {
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.slide .shift p:not(.eyebrow) {
+  font-size: 19px;
+  line-height: 1.5;
+}
+
+.slide .question-list p {
+  font-size: 23px;
+  line-height: 1.45;
+}
+
+/* ---- 표 — 영상은 멀리서 본다 --------------------------------------------- */
+.slide .compare-table th,
+.slide .compare-table td {
+  padding: 14px 20px;
+  font-size: 21px;
+}
+
+.slide .compare-table--dense th,
+.slide .compare-table--dense td {
+  padding: 10px 16px;
+  font-size: 19px;
+}
+
+/* 첫 칸이 항목 이름이다. 값 칸이 남은 폭을 다 먹으면 표가 한쪽으로 쏠린다. */
+.slide .compare-table tbody th {
+  width: 24%;
+}
+
+/* ---- 그림 --------------------------------------------------------------- */
+.deck-report-figure figcaption {
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ---- 근접 출처 ---------------------------------------------------------- */
+.slide .source-note {
+  margin-top: 14px;
+  font-size: 16px;
+}
+
+/* ---- 선택형 내레이션 패널 -----------------------------------------------
+ * 기본은 닫힘이다. 넓은 화면에서 열면 슬라이드를 왼쪽 가용 영역에 다시 맞춰 본문을
+ * 가리지 않고, 좁은 화면에서는 닫을 수 있는 하단 시트로 겹쳐 보여 준다. */
+.stage {
+  left: calc(50% - var(--deck-panel-shift, 0px));
+  top: calc(50% - var(--deck-panel-shift-y, 0px));
+  transition: left 0.22s ease, top 0.22s ease, transform 0.22s ease;
+}
+
+.narration-panel button:focus-visible {
+  outline: 3px solid #8ab4f8;
+  outline-offset: 3px;
+}
+
+.narration-panel {
+  position: fixed;
+  z-index: 70;
+  top: 16px;
+  right: 16px;
+  bottom: 16px;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  width: 400px;
+  overflow: hidden;
+  color: var(--text);
+  background: color-mix(in srgb, var(--surface) 96%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 24px 80px rgba(8, 16, 29, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(calc(100% + 32px));
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+  backdrop-filter: blur(16px);
+}
+
+body.narration-open .narration-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.narration-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 76px;
+  padding: 16px 18px 14px 22px;
+  border-bottom: 1px solid var(--border);
+}
+
+.narration-panel__header > div {
+  display: grid;
+  gap: 5px;
+}
+
+.narration-panel__eyebrow {
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.narration-panel__header strong {
+  color: var(--muted);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.narration-panel__header button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  color: var(--text);
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  font-size: 27px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.narration-panel__body {
+  min-height: 0;
+  padding: 22px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.narration-note {
+  display: none;
+}
+
+.narration-note.is-active {
+  display: block;
+}
+
+.narration-note h2 {
+  margin: 0 0 18px;
+  color: var(--text);
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+}
+
+.narration-note > p {
+  display: grid;
+  gap: 9px;
+  margin: 0;
+}
+
+.narration-sentence {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+  padding: 11px 12px 11px 10px;
+  color: var(--muted);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 16px;
+  line-height: 1.65;
+  opacity: 0.48;
+  transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.narration-sentence b {
+  padding-top: 3px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.narration-sentence.is-shown {
+  color: var(--text);
+  opacity: 0.82;
+}
+
+.narration-sentence.is-current {
+  color: var(--text);
+  background: var(--primary-soft);
+  border-color: color-mix(in srgb, var(--primary) 35%, var(--border));
+  opacity: 1;
+}
+
+.narration-sentence.is-current b {
+  color: var(--primary);
+}
+
+.narration-panel__footer {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 7px 9px;
+  padding: 13px 22px 15px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+}
+
+.narration-panel__footer kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  min-height: 24px;
+  padding: 0 6px;
+  color: var(--text);
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  font: 700 11px/1 var(--font-sans-ko);
+}
+
+.narration-panel__footer span {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 1099px) {
+  .narration-panel {
+    top: auto;
+    right: 8px;
+    bottom: 8px;
+    left: 8px;
+    width: auto;
+    max-height: min(520px, 58dvh);
+    border-radius: 14px;
+    transform: translateY(calc(100% + 16px));
+  }
+
+  body.narration-open .narration-panel {
+    transform: translateY(0);
+  }
+
+  .narration-panel__body {
+    padding: 17px 18px;
+  }
+
+  .narration-note h2 {
+    margin-bottom: 12px;
+    font-size: 19px;
+  }
+
+  .narration-sentence {
+    padding: 9px 10px 9px 8px;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+}
+
+/* PDF와 인쇄물에는 시간축이 없다. 아직 말하지 않은 항목도 같은 농도로 보여야
+   한 페이지가 완결된 발표 자료가 된다. */
+@media print {
+  .stepping .slide [data-reveal] {
+    opacity: 1 !important;
+  }
+
+  .narration-panel {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stage,
+  .narration-panel,
+  .narration-sentence {
+    transition-duration: 0.01ms !important;
+  }
+}
