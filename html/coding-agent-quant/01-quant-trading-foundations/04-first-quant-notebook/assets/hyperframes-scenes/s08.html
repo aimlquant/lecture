@@ -6,9 +6,9 @@
     @font-face { font-family:"Noto Sans KR"; src:url("assets/fonts/NotoSansCJK-Regular-subset.ttf") format("truetype"); font-style:normal; font-weight:400; }
     @font-face { font-family:"Noto Sans KR"; src:url("assets/fonts/NotoSansCJK-Bold-subset.ttf") format("truetype"); font-style:normal; font-weight:700; }
   </style>
-  <div id="root" data-composition-id="slide-s08" data-duration="9.600" data-width="1920" data-height="1080">
+  <div id="root" data-composition-id="slide-s08" data-duration="23.680" data-width="1920" data-height="1080">
     <div id="scene-s08" class="hf-scene"><div class="hf-grid" data-layout-ignore></div><div class="hf-orb" style="right:-170px;bottom:-230px" data-layout-ignore></div><div class="hf-topbar"><span class="hf-kicker">퀀트 트레이딩과 코딩 에이전트 입문</span><span class="hf-scene-no">08 / 21</span></div><header class="hf-header"><h1 class="hf-title">CSV를 열어 날짜와 가격이 저장됐는지 본다</h1><p class="hf-subtitle">실제 데모에서 data/kodex200_price.csv를 연 화면입니다.</p></header><section class="hf-stage"><div class="demo-layout"><div class="demo-media"><img src="assets/ui/csv-check-motion.webp" alt="" aria-hidden="true"><span class="demo-badge">ACTUAL DEMO</span></div><div class="demo-notes" style="--note-count:3"><article class="demo-note hf-card"><span>파일 위치</span><strong>data/kodex200_price.csv</strong><p>왼쪽 탐색기에서 경로를 확인</p></article><article class="demo-note hf-card"><span>머리글</span><strong>Date와 가격 열</strong><p>Open·High·Low·Close·Volume·Change</p></article><article class="demo-note hf-card"><span>날짜와 값</span><strong>실제 행이 저장됨</strong><p>2024-01-02부터 2024-03-29</p></article></div></div></section></div>
-    <script>(function(){var root=document.getElementById("scene-s08"),q=function(s){return root.querySelector(s);},qa=function(s){return root.querySelectorAll(s);},duration=9.600,tl=gsap.timeline({paused:true});tl.fromTo(q(".hf-grid"),{x:-18,y:-12},{x:24,y:14,duration:duration,ease:"none"},0);tl.fromTo(q(".hf-orb"),{scale:.94,opacity:.28},{scale:1.05,opacity:.66,duration:duration,ease:"sine.inOut"},0);tl.fromTo(q(".hf-header"),{opacity:0,y:26},{opacity:1,y:0,duration:.55,ease:"power3.out"},.12);tl.fromTo(q(".demo-media"),{opacity:0,x:-30,scale:.99},{opacity:1,x:0,scale:1,duration:.58,ease:"power3.out"},.28);tl.fromTo(q(".demo-badge"),{opacity:0,y:12},{opacity:1,y:0,duration:.4,ease:"power3.out"},.62);Array.prototype.forEach.call(qa(".demo-note"),function(card,i){tl.fromTo(card,{opacity:0,x:28},{opacity:1,x:0,duration:.44,ease:"power3.out"},.8+i*.46);});window.__timelines=window.__timelines||{};window.__timelines["slide-s08"]=tl;})();</script>
+    <script>(function(){var root=document.getElementById("scene-s08"),q=function(s){return root.querySelector(s);},qa=function(s){return root.querySelectorAll(s);},duration=23.680,tl=gsap.timeline({paused:true});tl.fromTo(q(".hf-grid"),{x:-18,y:-12},{x:24,y:14,duration:duration,ease:"none"},0);tl.fromTo(q(".hf-orb"),{scale:.94,opacity:.28},{scale:1.05,opacity:.66,duration:duration,ease:"sine.inOut"},0);tl.fromTo(q(".hf-header"),{opacity:0,y:26},{opacity:1,y:0,duration:.55,ease:"power3.out"},.12);tl.fromTo(q(".demo-media"),{opacity:0,x:-30,scale:.99},{opacity:1,x:0,scale:1,duration:.58,ease:"power3.out"},.28);tl.fromTo(q(".demo-badge"),{opacity:0,y:12},{opacity:1,y:0,duration:.4,ease:"power3.out"},.62);var noteAt=[0.32, 5.11, 11.31];Array.prototype.forEach.call(qa(".demo-note"),function(card,i){tl.fromTo(card,{opacity:0,x:28},{opacity:1,x:0,duration:.44,ease:"power3.out"},noteAt[i]);});window.__timelines=window.__timelines||{};window.__timelines["slide-s08"]=tl;})();</script>
   </div>
 <style id="presentation-mode">
 html, body { width:1280px !important; height:720px !important; margin:0; overflow:hidden; background:#fafaf9; }
@@ -19,7 +19,7 @@ video, audio { display:none !important; }
 (function() {
   "use strict";
   var slideId = "s08";
-  var times = [9.4];
+  var times = [5.89,12.09,18.73,23.56];
   var requested = Number(new URLSearchParams(window.location.search).get("step")) || 1;
   function clamp(step) { return Math.max(1, Math.min(times.length, Number(step) || 1)); }
   function apply(step) {

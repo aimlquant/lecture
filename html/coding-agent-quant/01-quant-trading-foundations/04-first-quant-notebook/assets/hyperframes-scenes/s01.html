@@ -6,9 +6,9 @@
     @font-face { font-family:"Noto Sans KR"; src:url("assets/fonts/NotoSansCJK-Regular-subset.ttf") format("truetype"); font-style:normal; font-weight:400; }
     @font-face { font-family:"Noto Sans KR"; src:url("assets/fonts/NotoSansCJK-Bold-subset.ttf") format("truetype"); font-style:normal; font-weight:700; }
   </style>
-  <div id="root" data-composition-id="slide-s01" data-duration="8.000" data-width="1920" data-height="1080">
+  <div id="root" data-composition-id="slide-s01" data-duration="15.360" data-width="1920" data-height="1080">
     <div id="scene-s01" class="hf-scene"><div class="hf-grid" data-layout-ignore></div><div class="hf-orb" style="right:-170px;bottom:-230px" data-layout-ignore></div><div class="hf-topbar"><span class="hf-kicker">퀀트 트레이딩과 코딩 에이전트 입문</span><span class="hf-scene-no">01 / 21</span></div><div class="cover-lockup"><p class="cover-course">과정 1 · 영상 4</p><h1 class="cover-title">코딩 에이전트로 KODEX 200 가격을<br>불러와 노트북에 표시한다</h1><span class="cover-rule"></span><div class="cover-bottom"><span class="hf-chip">첫 실습</span>데이터를 파일로 저장하고, 새 커널에서 처음부터 실행해 결과를 확인하는 첫 실습</div></div></div>
-    <script>(function(){var root=document.getElementById("scene-s01"),q=function(s){return root.querySelector(s);},qa=function(s){return root.querySelectorAll(s);},duration=8.000,tl=gsap.timeline({paused:true});tl.fromTo(q(".hf-grid"),{x:-18,y:-12},{x:24,y:14,duration:duration,ease:"none"},0);tl.fromTo(q(".hf-orb"),{scale:.94,opacity:.28},{scale:1.05,opacity:.66,duration:duration,ease:"sine.inOut"},0);tl.fromTo(q(".cover-course"),{opacity:0,y:22},{opacity:1,y:0,duration:.5,ease:"power3.out"},.18);tl.fromTo(q(".cover-title"),{opacity:0,y:46},{opacity:1,y:0,duration:.72,ease:"power4.out"},.42);tl.fromTo(q(".cover-rule"),{scaleX:0},{scaleX:1,duration:.72,ease:"power2.out"},.82);tl.fromTo(q(".cover-bottom"),{opacity:0,y:20},{opacity:1,y:0,duration:.52,ease:"power3.out"},1.14);window.__timelines=window.__timelines||{};window.__timelines["slide-s01"]=tl;})();</script>
+    <script>(function(){var root=document.getElementById("scene-s01"),q=function(s){return root.querySelector(s);},qa=function(s){return root.querySelectorAll(s);},duration=15.360,tl=gsap.timeline({paused:true});tl.fromTo(q(".hf-grid"),{x:-18,y:-12},{x:24,y:14,duration:duration,ease:"none"},0);tl.fromTo(q(".hf-orb"),{scale:.94,opacity:.28},{scale:1.05,opacity:.66,duration:duration,ease:"sine.inOut"},0);tl.fromTo(q(".cover-course"),{opacity:0,y:22},{opacity:1,y:0,duration:.5,ease:"power3.out"},.18);tl.fromTo(q(".cover-title"),{opacity:0,y:46},{opacity:1,y:0,duration:.72,ease:"power4.out"},.42);tl.fromTo(q(".cover-rule"),{scaleX:0},{scaleX:1,duration:.72,ease:"power2.out"},.82);tl.fromTo(q(".cover-bottom"),{opacity:0,y:20},{opacity:1,y:0,duration:.52,ease:"power3.out"},1.14);window.__timelines=window.__timelines||{};window.__timelines["slide-s01"]=tl;})();</script>
   </div>
 <style id="presentation-mode">
 html, body { width:1280px !important; height:720px !important; margin:0; overflow:hidden; background:#fafaf9; }
@@ -19,7 +19,7 @@ video, audio { display:none !important; }
 (function() {
   "use strict";
   var slideId = "s01";
-  var times = [7.8];
+  var times = [2.06,4.62,15.24];
   var requested = Number(new URLSearchParams(window.location.search).get("step")) || 1;
   function clamp(step) { return Math.max(1, Math.min(times.length, Number(step) || 1)); }
   function apply(step) {

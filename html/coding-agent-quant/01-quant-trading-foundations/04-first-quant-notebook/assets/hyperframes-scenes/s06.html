@@ -6,7 +6,7 @@
     @font-face { font-family:"Noto Sans KR"; src:url("assets/fonts/NotoSansCJK-Regular-subset.ttf") format("truetype"); font-style:normal; font-weight:400; }
     @font-face { font-family:"Noto Sans KR"; src:url("assets/fonts/NotoSansCJK-Bold-subset.ttf") format("truetype"); font-style:normal; font-weight:700; }
   </style>
-  <div id="root" data-composition-id="slide-s06" data-duration="9.600" data-width="1920" data-height="1080">
+  <div id="root" data-composition-id="slide-s06" data-duration="17.600" data-width="1920" data-height="1080">
     <div id="scene-s06" class="hf-scene"><div class="hf-grid" data-layout-ignore></div><div class="hf-orb" style="right:-170px;bottom:-230px" data-layout-ignore></div><div class="hf-topbar"><span class="hf-kicker">퀀트 트레이딩과 코딩 에이전트 입문</span><span class="hf-scene-no">06 / 21</span></div><header class="hf-header"><h1 class="hf-title">CSV에 저장한 가격을 노트북에서 표와 그래프로 확인한다</h1><p class="hf-subtitle">가격은 CSV에 보관하고, 노트북은 그 파일을 다시 읽어 결과를 표시합니다.</p></header><section class="hf-stage"><div class="figure-shell"><svg class="report-vector" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
   <title id="title">가격 공급자에서 CSV, 노트북, 표와 그래프로 이어지는 파일 흐름</title>
   <desc id="desc">CSV가 없을 때만 NAVER 경로에서 가격을 받고, 로컬 CSV에 저장한 뒤 Jupyter 노트북이 파일을 읽고 검사해 가격표와 Close 선 그래프를 만든다. 다음 실행부터는 네트워크 대신 같은 CSV를 읽는다.</desc>
@@ -18,20 +18,20 @@
       <path d="M0 0L18 5L0 10Z" fill="#0F2C59"/>
     </marker>
     <marker id="arrow-ok" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
-      <path d="M0 0L18 5L0 10Z" fill="#0B7A6A"/>
+      <path d="M0 0L18 5L0 10Z" fill="#0B7969"/>
     </marker>
     <style>
       text{font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif;fill:#0F172A}
       .meta{font-size:16px;font-weight:700;letter-spacing:1.2px;fill:#52606D}
-      .step{font-size:17px;font-weight:700;fill:#0B7A6A}
+      .step{font-size:17px;font-weight:700;fill:#0B7969}
       .main{font-size:27px;font-weight:700}
       .sub{font-size:17px;font-weight:400;fill:#52606D}
       .chip{font-size:15px;font-weight:700}
       .arrow{fill:none;stroke:#0F2C59;stroke-width:3;marker-end:url(#arrow)}
-      .arrow-ok{fill:none;stroke:#0B7A6A;stroke-width:3;marker-end:url(#arrow-ok)}
+      .arrow-ok{fill:none;stroke:#0B7969;stroke-width:3;marker-end:url(#arrow-ok)}
       .icon{fill:none;stroke:#0F2C59;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
       .icon-warn{fill:none;stroke:#B45309;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
-      .icon-ok{fill:none;stroke:#0B7A6A;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+      .icon-ok{fill:none;stroke:#0B7969;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
     </style>
   </defs>
   <rect width="1200" height="500" fill="#FFFFFF"/>
@@ -94,28 +94,28 @@
   </g>
 
   <g id="notebook-output" filter="url(#shadow)">
-    <rect x="905" y="125" width="260" height="335" rx="20" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
-    <rect x="929" y="153" width="72" height="72" rx="18" fill="#FFFFFF" stroke="#0B7A6A"/>
+    <rect x="905" y="125" width="260" height="335" rx="20" fill="#E4F6F0" stroke="#0B7969" stroke-width="2"/>
+    <rect x="929" y="153" width="72" height="72" rx="18" fill="#FFFFFF" stroke="#0B7969"/>
     <g class="icon-ok" transform="translate(942 166)">
       <path d="M2 43V3M2 43H47"/><path d="M9 34L20 25L30 29L43 11"/>
-      <circle cx="9" cy="34" r="3" fill="#0B7A6A" stroke="none"/><circle cx="43" cy="11" r="3" fill="#0B7A6A" stroke="none"/>
+      <circle cx="9" cy="34" r="3" fill="#0B7969" stroke="none"/><circle cx="43" cy="11" r="3" fill="#0B7969" stroke="none"/>
     </g>
     <text class="step" x="1020" y="177">04</text>
     <text class="meta" x="1020" y="204">노트북 출력</text>
     <text class="main" x="929" y="274">가격표</text>
     <text class="main" x="929" y="311">Close 선 그래프</text>
     <text class="sub" x="929" y="352">첫날 · 마지막 날</text>
-    <rect x="929" y="398" width="132" height="32" rx="16" fill="#FFFFFF" stroke="#0B7A6A"/>
-    <text class="chip" x="995" y="420" text-anchor="middle" fill="#0B7A6A">직접 확인</text>
+    <rect x="929" y="398" width="132" height="32" rx="16" fill="#FFFFFF" stroke="#0B7969"/>
+    <text class="chip" x="995" y="420" text-anchor="middle" fill="#0B7969">직접 확인</text>
   </g>
 
   <g id="local-rerun" aria-label="다음 실행에서는 CSV에서 노트북으로 바로 이어지는 흐름">
     <path class="arrow-ok" d="M450 460V510H740V460"/>
-    <text class="meta" x="595" y="540" text-anchor="middle" fill="#0B7A6A">다음 실행 · 저장된 CSV를 바로 읽는다</text>
+    <text class="meta" x="595" y="540" text-anchor="middle" fill="#0B7969">다음 실행 · 저장된 CSV를 바로 읽는다</text>
   </g>
   </g>
 </svg></div></section></div>
-    <script>(function(){var root=document.getElementById("scene-s06"),q=function(s){return root.querySelector(s);},qa=function(s){return root.querySelectorAll(s);},duration=9.600,tl=gsap.timeline({paused:true});tl.fromTo(q(".hf-grid"),{x:-18,y:-12},{x:24,y:14,duration:duration,ease:"none"},0);tl.fromTo(q(".hf-orb"),{scale:.94,opacity:.28},{scale:1.05,opacity:.66,duration:duration,ease:"sine.inOut"},0);tl.fromTo(q(".hf-header"),{opacity:0,y:26},{opacity:1,y:0,duration:.55,ease:"power3.out"},.12);tl.fromTo(q(".figure-shell"),{opacity:0,y:20,scale:.992},{opacity:1,y:0,scale:1,duration:.52,ease:"power3.out"},.26);var groups=["#source-provider", "#local-csv", "#jupyter-notebook", "#notebook-output", "#local-rerun", "#main-connectors"];groups.forEach(function(sel,i){var node=q(sel);if(!node)return;tl.fromTo(node,{opacity:0,y:18,transformOrigin:"50% 50%"},{opacity:1,y:0,duration:.46,ease:"power3.out"},.78+i*.48);});window.__timelines=window.__timelines||{};window.__timelines["slide-s06"]=tl;})();</script>
+    <script>(function(){var root=document.getElementById("scene-s06"),q=function(s){return root.querySelector(s);},qa=function(s){return root.querySelectorAll(s);},duration=17.600,tl=gsap.timeline({paused:true});tl.fromTo(q(".hf-grid"),{x:-18,y:-12},{x:24,y:14,duration:duration,ease:"none"},0);tl.fromTo(q(".hf-orb"),{scale:.94,opacity:.28},{scale:1.05,opacity:.66,duration:duration,ease:"sine.inOut"},0);tl.fromTo(q(".hf-header"),{opacity:0,y:26},{opacity:1,y:0,duration:.55,ease:"power3.out"},.12);tl.fromTo(q(".figure-shell"),{opacity:0,y:20,scale:.992},{opacity:1,y:0,scale:1,duration:.52,ease:"power3.out"},.26);var groups=["#source-provider", "#local-csv", "#jupyter-notebook", "#notebook-output", "#local-rerun", "#main-connectors"],groupAt=[0.32, 2.74, 7.39, 7.99, 8.59, 9.19];groups.forEach(function(sel,i){var node=q(sel);if(!node)return;tl.fromTo(node,{opacity:0,y:18,transformOrigin:"50% 50%"},{opacity:1,y:0,duration:.46,ease:"power3.out"},groupAt[i]);});window.__timelines=window.__timelines||{};window.__timelines["slide-s06"]=tl;})();</script>
   </div>
 <style id="presentation-mode">
 html, body { width:1280px !important; height:720px !important; margin:0; overflow:hidden; background:#fafaf9; }
@@ -126,7 +126,7 @@ video, audio { display:none !important; }
 (function() {
   "use strict";
   var slideId = "s06";
-  var times = [9.4];
+  var times = [3.52,8.17,17.48];
   var requested = Number(new URLSearchParams(window.location.search).get("step")) || 1;
   function clamp(step) { return Math.max(1, Math.min(times.length, Number(step) || 1)); }
   function apply(step) {

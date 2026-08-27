@@ -6,7 +6,7 @@
     @font-face { font-family:"Noto Sans KR"; src:url("assets/fonts/NotoSansCJK-Regular-subset.ttf") format("truetype"); font-style:normal; font-weight:400; }
     @font-face { font-family:"Noto Sans KR"; src:url("assets/fonts/NotoSansCJK-Bold-subset.ttf") format("truetype"); font-style:normal; font-weight:700; }
   </style>
-  <div id="root" data-composition-id="slide-s19" data-duration="9.600" data-width="1920" data-height="1080">
+  <div id="root" data-composition-id="slide-s19" data-duration="15.680" data-width="1920" data-height="1080">
     <div id="scene-s19" class="hf-scene"><div class="hf-grid" data-layout-ignore></div><div class="hf-orb" style="right:-170px;bottom:-230px" data-layout-ignore></div><div class="hf-topbar"><span class="hf-kicker">퀀트 트레이딩과 코딩 에이전트 입문</span><span class="hf-scene-no">19 / 21</span></div><header class="hf-header"><h1 class="hf-title">그래프가 나왔어도 아직 백테스트는 아니다</h1><p class="hf-subtitle">이번 실습은 데이터 수집·저장·표시에서 멈춥니다.</p></header><section class="hf-stage"><div class="figure-shell"><svg class="report-vector" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 510" role="img" aria-labelledby="title desc">
   <title id="title">데이터를 표시한 현재 단계와 백테스트에 아직 필요한 단계</title>
   <desc id="desc">데이터 수집과 표 및 그래프 표시는 완료됐지만, 매매 규칙 앞의 정지 지점 뒤로 거래 기록, 비용 반영, 성과와 위험 평가가 남아 있어 현재 결과는 백테스트가 아니다.</desc>
@@ -124,7 +124,7 @@
   </g>
 
 </svg></div></section></div>
-    <script>(function(){var root=document.getElementById("scene-s19"),q=function(s){return root.querySelector(s);},qa=function(s){return root.querySelectorAll(s);},duration=9.600,tl=gsap.timeline({paused:true});tl.fromTo(q(".hf-grid"),{x:-18,y:-12},{x:24,y:14,duration:duration,ease:"none"},0);tl.fromTo(q(".hf-orb"),{scale:.94,opacity:.28},{scale:1.05,opacity:.66,duration:duration,ease:"sine.inOut"},0);tl.fromTo(q(".hf-header"),{opacity:0,y:26},{opacity:1,y:0,duration:.55,ease:"power3.out"},.12);tl.fromTo(q(".figure-shell"),{opacity:0,y:20,scale:.992},{opacity:1,y:0,scale:1,duration:.52,ease:"power3.out"},.26);var groups=["#phase-labels", "#stage-01-data", "#stage-02-display", "#scope-stop", "#stage-03-rule", "#stage-04-trades", "#stage-05-costs", "#stage-06-evaluation", "#stage-connectors"];groups.forEach(function(sel,i){var node=q(sel);if(!node)return;tl.fromTo(node,{opacity:0,y:18,transformOrigin:"50% 50%"},{opacity:1,y:0,duration:.46,ease:"power3.out"},.78+i*.48);});window.__timelines=window.__timelines||{};window.__timelines["slide-s19"]=tl;})();</script>
+    <script>(function(){var root=document.getElementById("scene-s19"),q=function(s){return root.querySelector(s);},qa=function(s){return root.querySelectorAll(s);},duration=15.680,tl=gsap.timeline({paused:true});tl.fromTo(q(".hf-grid"),{x:-18,y:-12},{x:24,y:14,duration:duration,ease:"none"},0);tl.fromTo(q(".hf-orb"),{scale:.94,opacity:.28},{scale:1.05,opacity:.66,duration:duration,ease:"sine.inOut"},0);tl.fromTo(q(".hf-header"),{opacity:0,y:26},{opacity:1,y:0,duration:.55,ease:"power3.out"},.12);tl.fromTo(q(".figure-shell"),{opacity:0,y:20,scale:.992},{opacity:1,y:0,scale:1,duration:.52,ease:"power3.out"},.26);var groups=["#phase-labels", "#stage-01-data", "#stage-02-display", "#scope-stop", "#stage-03-rule", "#stage-04-trades", "#stage-05-costs", "#stage-06-evaluation", "#stage-connectors"],groupAt=[0.32, 0.92, 1.52, 4.28, 4.98, 5.68, 6.38, 7.08, 10.09];groups.forEach(function(sel,i){var node=q(sel);if(!node)return;tl.fromTo(node,{opacity:0,y:18,transformOrigin:"50% 50%"},{opacity:1,y:0,duration:.46,ease:"power3.out"},groupAt[i]);});window.__timelines=window.__timelines||{};window.__timelines["slide-s19"]=tl;})();</script>
   </div>
 <style id="presentation-mode">
 html, body { width:1280px !important; height:720px !important; margin:0; overflow:hidden; background:#fafaf9; }
@@ -135,7 +135,7 @@ video, audio { display:none !important; }
 (function() {
   "use strict";
   var slideId = "s19";
-  var times = [9.4];
+  var times = [5.06,10.87,15.56];
   var requested = Number(new URLSearchParams(window.location.search).get("step")) || 1;
   function clamp(step) { return Math.max(1, Math.min(times.length, Number(step) || 1)); }
   function apply(step) {

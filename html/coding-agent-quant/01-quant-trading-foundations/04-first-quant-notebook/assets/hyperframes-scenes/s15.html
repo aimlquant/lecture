@@ -6,7 +6,7 @@
     @font-face { font-family:"Noto Sans KR"; src:url("assets/fonts/NotoSansCJK-Regular-subset.ttf") format("truetype"); font-style:normal; font-weight:400; }
     @font-face { font-family:"Noto Sans KR"; src:url("assets/fonts/NotoSansCJK-Bold-subset.ttf") format("truetype"); font-style:normal; font-weight:700; }
   </style>
-  <div id="root" data-composition-id="slide-s15" data-duration="9.600" data-width="1920" data-height="1080">
+  <div id="root" data-composition-id="slide-s15" data-duration="20.640" data-width="1920" data-height="1080">
     <div id="scene-s15" class="hf-scene"><div class="hf-grid" data-layout-ignore></div><div class="hf-orb" style="right:-170px;bottom:-230px" data-layout-ignore></div><div class="hf-topbar"><span class="hf-kicker">퀀트 트레이딩과 코딩 에이전트 입문</span><span class="hf-scene-no">15 / 21</span></div><header class="hf-header"><h1 class="hf-title">새 커널에서 실행하면 앞서 실행한 셀에 기대는 문제를 찾을 수 있다</h1><p class="hf-subtitle">일부 셀만 실행했을 때와 첫 셀부터 끝까지 실행했을 때를 구분합니다.</p></header><section class="hf-stage"><div class="figure-shell"><svg class="report-vector" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" role="img" aria-labelledby="title desc">
   <title id="title">기존 커널의 부분 실행과 새 커널의 전체 실행 비교</title>
   <desc id="desc">위쪽 경로는 기존 메모리가 남은 커널에서 일부 셀만 실행해 표가 보이더라도 처음부터 실행되는지 알 수 없는 경우다. 아래쪽 경로는 새 커널에서 Run All을 눌러 저장된 노트북과 CSV만으로 같은 표와 그래프를 다시 만드는 경우다.</desc>
@@ -110,7 +110,7 @@
   </g>
   </g>
 </svg></div></section></div>
-    <script>(function(){var root=document.getElementById("scene-s15"),q=function(s){return root.querySelector(s);},qa=function(s){return root.querySelectorAll(s);},duration=9.600,tl=gsap.timeline({paused:true});tl.fromTo(q(".hf-grid"),{x:-18,y:-12},{x:24,y:14,duration:duration,ease:"none"},0);tl.fromTo(q(".hf-orb"),{scale:.94,opacity:.28},{scale:1.05,opacity:.66,duration:duration,ease:"sine.inOut"},0);tl.fromTo(q(".hf-header"),{opacity:0,y:26},{opacity:1,y:0,duration:.55,ease:"power3.out"},.12);tl.fromTo(q(".figure-shell"),{opacity:0,y:20,scale:.992},{opacity:1,y:0,scale:1,duration:.52,ease:"power3.out"},.26);var groups=["#lane-backgrounds", "#old-kernel", "#partial-run", "#apparent-success", "#uncertain-result", "#fresh-kernel", "#run-all", "#saved-inputs", "#reproduced-output", "#comparison-rule", "#lane-connectors"];groups.forEach(function(sel,i){var node=q(sel);if(!node)return;tl.fromTo(node,{opacity:0,y:18,transformOrigin:"50% 50%"},{opacity:1,y:0,duration:.46,ease:"power3.out"},.78+i*.48);});window.__timelines=window.__timelines||{};window.__timelines["slide-s15"]=tl;})();</script>
+    <script>(function(){var root=document.getElementById("scene-s15"),q=function(s){return root.querySelector(s);},qa=function(s){return root.querySelectorAll(s);},duration=20.640,tl=gsap.timeline({paused:true});tl.fromTo(q(".hf-grid"),{x:-18,y:-12},{x:24,y:14,duration:duration,ease:"none"},0);tl.fromTo(q(".hf-orb"),{scale:.94,opacity:.28},{scale:1.05,opacity:.66,duration:duration,ease:"sine.inOut"},0);tl.fromTo(q(".hf-header"),{opacity:0,y:26},{opacity:1,y:0,duration:.55,ease:"power3.out"},.12);tl.fromTo(q(".figure-shell"),{opacity:0,y:20,scale:.992},{opacity:1,y:0,scale:1,duration:.52,ease:"power3.out"},.26);var groups=["#lane-backgrounds", "#old-kernel", "#partial-run", "#apparent-success", "#uncertain-result", "#fresh-kernel", "#run-all", "#saved-inputs", "#reproduced-output", "#comparison-rule", "#lane-connectors"],groupAt=[0.32, 0.92, 4.36, 5.06, 5.76, 11.64, 12.24, 12.84, 13.44, 14.04, 14.64];groups.forEach(function(sel,i){var node=q(sel);if(!node)return;tl.fromTo(node,{opacity:0,y:18,transformOrigin:"50% 50%"},{opacity:1,y:0,duration:.46,ease:"power3.out"},groupAt[i]);});window.__timelines=window.__timelines||{};window.__timelines["slide-s15"]=tl;})();</script>
   </div>
 <style id="presentation-mode">
 html, body { width:1280px !important; height:720px !important; margin:0; overflow:hidden; background:#fafaf9; }
@@ -121,7 +121,7 @@ video, audio { display:none !important; }
 (function() {
   "use strict";
   var slideId = "s15";
-  var times = [9.4];
+  var times = [5.14,12.42,20.52];
   var requested = Number(new URLSearchParams(window.location.search).get("step")) || 1;
   function clamp(step) { return Math.max(1, Math.min(times.length, Number(step) || 1)); }
   function apply(step) {

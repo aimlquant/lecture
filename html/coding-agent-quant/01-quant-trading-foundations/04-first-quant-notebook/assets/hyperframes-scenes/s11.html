@@ -6,9 +6,9 @@
     @font-face { font-family:"Noto Sans KR"; src:url("assets/fonts/NotoSansCJK-Regular-subset.ttf") format("truetype"); font-style:normal; font-weight:400; }
     @font-face { font-family:"Noto Sans KR"; src:url("assets/fonts/NotoSansCJK-Bold-subset.ttf") format("truetype"); font-style:normal; font-weight:700; }
   </style>
-  <div id="root" data-composition-id="slide-s11" data-duration="18.100" data-width="1920" data-height="1080">
+  <div id="root" data-composition-id="slide-s11" data-duration="20.480" data-width="1920" data-height="1080">
     <div id="scene-s11" class="hf-scene"><div class="hf-grid" data-layout-ignore></div><div class="hf-orb" style="right:-170px;bottom:-230px" data-layout-ignore></div><div class="hf-topbar"><span class="hf-kicker">퀀트 트레이딩과 코딩 에이전트 입문</span><span class="hf-scene-no">11 / 21</span></div><header class="hf-header"><h1 class="hf-title">실행 결과는 코드 바로 아래에서 확인한다</h1><p class="hf-subtitle">표의 처음과 마지막 행, 같은 CSV로 그린 종가 그래프를 함께 봅니다.</p></header><section class="hf-stage"><div class="demo-layout"><div class="demo-media"><img src="assets/ui/notebook-output-motion.webp" alt="" aria-hidden="true"><span class="demo-badge">ACTUAL DEMO</span></div><div class="demo-notes" style="--note-count:3"><article class="demo-note hf-card"><span>표</span><strong>처음·마지막 다섯 행</strong><p>정확한 날짜와 값을 읽기 쉬움</p></article><article class="demo-note hf-card"><span>그래프</span><strong>종가 선 그래프</strong><p>날짜 순서와 흐름을 빠르게 확인</p></article><article class="demo-note hf-card"><span>입력 파일</span><strong>같은 로컬 CSV</strong><p>화면 값과 파일 값을 맞춰 봄</p></article></div></div></section></div>
-    <script>(function(){var root=document.getElementById("scene-s11"),q=function(s){return root.querySelector(s);},qa=function(s){return root.querySelectorAll(s);},duration=18.100,tl=gsap.timeline({paused:true});tl.fromTo(q(".hf-grid"),{x:-18,y:-12},{x:24,y:14,duration:duration,ease:"none"},0);tl.fromTo(q(".hf-orb"),{scale:.94,opacity:.28},{scale:1.05,opacity:.66,duration:duration,ease:"sine.inOut"},0);tl.fromTo(q(".hf-header"),{opacity:0,y:26},{opacity:1,y:0,duration:.55,ease:"power3.out"},.12);tl.fromTo(q(".demo-media"),{opacity:0,x:-30,scale:.99},{opacity:1,x:0,scale:1,duration:.58,ease:"power3.out"},.28);tl.fromTo(q(".demo-badge"),{opacity:0,y:12},{opacity:1,y:0,duration:.4,ease:"power3.out"},.62);Array.prototype.forEach.call(qa(".demo-note"),function(card,i){tl.fromTo(card,{opacity:0,x:28},{opacity:1,x:0,duration:.44,ease:"power3.out"},.8+i*.46);});window.__timelines=window.__timelines||{};window.__timelines["slide-s11"]=tl;})();</script>
+    <script>(function(){var root=document.getElementById("scene-s11"),q=function(s){return root.querySelector(s);},qa=function(s){return root.querySelectorAll(s);},duration=20.480,tl=gsap.timeline({paused:true});tl.fromTo(q(".hf-grid"),{x:-18,y:-12},{x:24,y:14,duration:duration,ease:"none"},0);tl.fromTo(q(".hf-orb"),{scale:.94,opacity:.28},{scale:1.05,opacity:.66,duration:duration,ease:"sine.inOut"},0);tl.fromTo(q(".hf-header"),{opacity:0,y:26},{opacity:1,y:0,duration:.55,ease:"power3.out"},.12);tl.fromTo(q(".demo-media"),{opacity:0,x:-30,scale:.99},{opacity:1,x:0,scale:1,duration:.58,ease:"power3.out"},.28);tl.fromTo(q(".demo-badge"),{opacity:0,y:12},{opacity:1,y:0,duration:.4,ease:"power3.out"},.62);var noteAt=[4.53, 9.87, 16.05];Array.prototype.forEach.call(qa(".demo-note"),function(card,i){tl.fromTo(card,{opacity:0,x:28},{opacity:1,x:0,duration:.44,ease:"power3.out"},noteAt[i]);});window.__timelines=window.__timelines||{};window.__timelines["slide-s11"]=tl;})();</script>
   </div>
 <style id="presentation-mode">
 html, body { width:1280px !important; height:720px !important; margin:0; overflow:hidden; background:#fafaf9; }
@@ -19,7 +19,7 @@ video, audio { display:none !important; }
 (function() {
   "use strict";
   var slideId = "s11";
-  var times = [17.9];
+  var times = [5.31,10.65,16.83,20.36];
   var requested = Number(new URLSearchParams(window.location.search).get("step")) || 1;
   function clamp(step) { return Math.max(1, Math.min(times.length, Number(step) || 1)); }
   function apply(step) {
