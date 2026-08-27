@@ -224,6 +224,13 @@
 }
 
 @media print {
+  /* s2의 마지막 도형이 쪽 끝에 맞닿을 때 Chrome이 s3 강제 쪽 나눔 앞에 빈 페이지를
+     하나 더 만드는 것을 막는다. 자연 쪽 나눔은 그대로 유지한다. */
+  .continuous-mode .report-section.s3 {
+    break-before: auto !important;
+    page-break-before: auto !important;
+  }
+
   .visual-thesis,
   .myth-grid,
   .visual-reading-key,

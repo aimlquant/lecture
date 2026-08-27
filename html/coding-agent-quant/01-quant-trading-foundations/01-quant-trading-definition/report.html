@@ -101,10 +101,6 @@
 </tr>
 </tbody>
 </table>
-<h2>이번 리포트의 범위</h2>
-<p>이 리포트는 과정 1의 첫 번째 영상만 다룬다. “누가 퀀트 트레이더가 될 수 있는가”, “어떤
-도구를 고를 것인가”, “첫 가격 데이터를 어떻게 받을 것인가”는 같은 과정의 뒤 영상으로
-넘긴다. 여기서는 퀀트의 뜻과 다른 개념과의 차이만 분명하게 짚는다.</p>
 <hr>
     </section>
     <section class="report-section s1 page-break" id="s1" data-tier="core">
@@ -238,7 +234,7 @@ Mamaysky와 Wang은 차트 모양이 관찰자의 눈에 달려 있다는 주관
 텍스트를 측정 가능한 변수로 바꾸고 가설을 검사할 수 있다는 실증 사례다
 (<a href="https://doi.org/10.1111/j.1540-6261.2007.01232.x">Tetlock, 2007</a>). 뉴스 문장을 수치나
 분류값으로 바꾸고 그 결과를 매매 규칙에 연결할 수 있다면 뉴스도 퀀트에 활용할 수 있다.</p>
-<figure class="report-figure" id="fig-5"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 5</span><span class="asset-caption__title">가격·재무·텍스트 입력이 같은 명시적 규칙을 거쳐 거래 판단으로 이어지는 구조. Chan (2021), Fama &amp; French (1993), Tetlock (2007)을 바탕으로 재구성.</span></figcaption><img alt="가격 거래량 재무 수치 뉴스 텍스트가 명시적 규칙을 지나 거래 판단이 되는 흐름" src="assets/figs/input-universe.svg"></figure>
+<figure class="report-figure" id="fig-5"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 5</span><span class="asset-caption__title">가격·재무·텍스트 입력이 같은 명시적 규칙을 거쳐 거래 판단으로 이어지는 구조. Chan (2021), Fama &amp; French (1993), Tetlock (2007)을 바탕으로 재구성.</span></figcaption><img alt="가격 거래량 재무 수치 뉴스 텍스트가 합류점에 모인 뒤 명시적 규칙을 지나 거래 판단이 되는 흐름" src="assets/figs/input-universe.svg"></figure>
 <table class="cmp-table" id="table-4"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 4</span><span class="asset-caption__title">같은 “분석”도 입력과 판단 규칙에 따라 달라지는 다섯 사례. 첫째·셋째·넷째는 설명용 예시이며 수익성을 주장하지 않는다.</span></div></caption>
 <thead>
 <tr>
@@ -361,7 +357,7 @@ Mamaysky와 Wang은 차트 모양이 관찰자의 눈에 달려 있다는 주관
 <li><strong>행동</strong> — 매수·매도·보유 중 무엇을, 언제 결정하는가.</li>
 <li><strong>검증</strong> — 같은 판단 기준을 어느 과거 기간에 다시 적용할 것인가.</li>
 </ol>
-<figure class="report-figure" id="fig-6"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 6</span><span class="asset-caption__title">입력·규칙·행동·과거 검증을 확인하는 네 관문. 앞선 학술·규제 자료를 AIML Quant의 초보자용 네 가지 질문으로 정리.</span></figcaption><img alt="입력 조건 행동 과거 검증의 네 관문을 통과해 퀀트 전략 후보가 되는 결정 트리" src="assets/figs/candidate-gate.svg"></figure>
+<figure class="report-figure" id="fig-6"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 6</span><span class="asset-caption__title">입력·판단 기준·행동·과거 검증이 모두 이어져야 전략 후보가 되는 구조. 앞선 학술·규제 자료를 AIML Quant의 초보자용 네 가지 질문으로 정리.</span></figcaption><img alt="입력 판단 기준 행동 과거 검증의 네 관문이 공통 브래킷으로 모여 퀀트 전략 후보가 되는 구조" src="assets/figs/candidate-gate.svg"></figure>
 <h2>최종 점검표</h2>
 <table class="cmp-table" id="table-6"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 6</span><span class="asset-caption__title">투자 아이디어가 검증 가능한 전략 후보인지 확인하는 최종 점검표. 이 표를 통과했다고 해서 수익성이 검증된 것은 아니며, 판단 기준을 명확하게 정의했다는 뜻일 뿐이다.</span></div></caption>
 <thead>
@@ -402,8 +398,9 @@ Mamaysky와 Wang은 차트 모양이 관찰자의 눈에 달려 있다는 주관
 <p>이 점검표를 통과하면 아이디어는 비로소 <strong>검증 가능한 전략 후보</strong>가 된다. 아직 좋은 전략도,
 실전 가능한 전략도 아니다. 이후 과정에서 데이터 편향, 거래비용, 위험, 성과의 안정성을
 별도로 검증해야 한다.</p>
-<div class="callout--insight"><span class="callout__kicker">읽기 포인트</span><div class="callout__body"><p><strong>이번 차시의 목표</strong>: 첫 강의의 목적은 수익 전략을 고르는 것이 아니다. “무엇을 퀀트라고
-부를 수 있는가”를 같은 기준으로 판별하는 데까지다.</p></div></div>
+<div class="callout--insight"><span class="callout__kicker">읽기 포인트</span><div class="callout__body"><p><strong>이번 차시를 마치며</strong>: 퀀트 전략은 같은 입력에서 같은 판단이 나오도록 매매 기준을
+컴퓨터가 판정할 수 있게 정의한다. 기술적 분석도 진입과 청산 조건을 수치로 구체화하면
+퀀트 전략이 될 수 있다. 다만 명확한 판단 기준만으로 수익성이 증명되지는 않는다.</p></div></div>
 <hr>
     </section>
     <section class="report-appendix page-break" id="appendix-sources">

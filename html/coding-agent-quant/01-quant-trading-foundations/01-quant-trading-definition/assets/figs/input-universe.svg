@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
-  <title id="title">퀀트에 쓰이는 다양한 자료</title>
-  <desc id="desc">가격과 거래량, 재무 수치, 뉴스 텍스트가 같은 명시적 규칙 관문을 지나 매수, 매도, 보유 판단으로 이어진다.</desc>
+  <title id="title">서로 다른 입력이 하나의 판단 구조로 모이는 과정</title>
+  <desc id="desc">가격과 거래량, 재무 수치, 뉴스 텍스트가 하나의 합류점에 모인 뒤 명시적 규칙을 거쳐 매수, 매도, 보유 판단으로 이어진다.</desc>
   <defs>
     <marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
-      <path d="M0 0L18 5L0 10Z" fill="context-stroke"/>
+      <path d="M0 0L18 5L0 10Z" fill="#0F2C59"/>
     </marker>
     <style>
       text { font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif; fill:#0F172A; }
@@ -12,7 +12,8 @@
       .body { font-size:24px; font-weight:400; fill:#52606D; }
       .decision { font-size:26px; font-weight:700; }
       .card { fill:#FFFFFF; stroke:#C7D2E1; stroke-width:1.5; }
-      .flow { fill:none; stroke:#0F2C59; stroke-width:3; stroke-linecap:round; stroke-linejoin:round; marker-end:url(#arrow); }
+      .branch { fill:none; stroke:#0F2C59; stroke-width:4; stroke-linecap:round; stroke-linejoin:round; }
+      .flow { fill:none; stroke:#0F2C59; stroke-width:4; stroke-linecap:round; stroke-linejoin:round; marker-end:url(#arrow); }
     </style>
   </defs>
   <rect width="1200" height="620" fill="#FFFFFF"/>
@@ -39,9 +40,11 @@
     <text class="body" x="64" y="582">문서에서 뽑은 신호</text>
   </g>
 
-  <path class="flow" d="M320 103H392A12 12 0 0 1 404 115V228A12 12 0 0 0 416 240H460"/>
-  <path class="flow" d="M320 310H460"/>
-  <path class="flow" d="M320 517H392A12 12 0 0 0 404 505V392A12 12 0 0 1 416 380H460"/>
+  <path class="branch" d="M320 103C370 103 375 253 420 310"/>
+  <path class="branch" d="M320 310H420"/>
+  <path class="branch" d="M320 517C370 517 375 367 420 310"/>
+  <circle cx="420" cy="310" r="7" fill="#0F2C59"/>
+  <path class="flow" d="M420 310H460"/>
 
   <g>
     <rect class="card" x="460" y="170" width="300" height="280" rx="12"/>
