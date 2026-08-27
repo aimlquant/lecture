@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">데이터 표시와 백테스트 사이에 남아 있는 단계</title>
+  <desc id="desc">데이터 수집과 표 및 그래프 표시 두 단계는 완료됐고, 매매 규칙, 거래 기록, 비용 반영, 성과와 위험 평가 네 단계는 비어 있다.</desc>
+  <defs>
+    <marker id="arrow-ok" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
+      <path d="M0 0L18 5L0 10Z" fill="#0B7A6A"/>
+    </marker>
+    <marker id="arrow-stop" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
+      <path d="M0 0L18 5L0 10Z" fill="#BE123C"/>
+    </marker>
+    <marker id="arrow-wait" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
+      <path d="M0 0L18 5L0 10Z" fill="#52606D"/>
+    </marker>
+    <style>
+      text{font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif;fill:#0F172A}
+      .num{font-size:18px;font-weight:700}
+      .main{font-size:25px;font-weight:700}
+      .sub{font-size:17px;font-weight:400;fill:#52606D}
+      .status{font-size:20px;font-weight:700}
+      .ok{fill:none;stroke:#0B7A6A;stroke-width:3;marker-end:url(#arrow-ok)}
+      .stop{fill:none;stroke:#BE123C;stroke-width:3;stroke-dasharray:8 7;marker-end:url(#arrow-stop)}
+      .wait{fill:none;stroke:#52606D;stroke-width:2;stroke-dasharray:7 7;marker-end:url(#arrow-wait)}
+    </style>
+  </defs>
+  <rect width="1200" height="650" fill="#FFFFFF"/>
+
+  <rect x="20" y="180" width="160" height="260" rx="14" fill="#E7EEF9" stroke="#0F2C59" stroke-width="2"/>
+  <text class="num" x="44" y="220" fill="#0F2C59">01</text>
+  <text class="main" x="44" y="270">데이터</text>
+  <text class="main" x="44" y="305">수집</text>
+  <text class="sub" x="44" y="356">가격 CSV</text>
+  <text class="status" x="100" y="410" text-anchor="middle" fill="#0B7A6A">완료</text>
+
+  <rect x="220" y="180" width="160" height="260" rx="14" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
+  <text class="num" x="244" y="220" fill="#0B7A6A">02</text>
+  <text class="main" x="244" y="270">표·그래프</text>
+  <text class="main" x="244" y="305">표시</text>
+  <text class="sub" x="244" y="356">Close 선</text>
+  <text class="status" x="300" y="410" text-anchor="middle" fill="#0B7A6A">완료</text>
+
+  <rect x="420" y="180" width="160" height="260" rx="14" fill="#FFF1F4" stroke="#BE123C" stroke-width="2"/>
+  <text class="num" x="444" y="220" fill="#BE123C">03</text>
+  <text class="main" x="444" y="270">매매</text>
+  <text class="main" x="444" y="305">규칙</text>
+  <text class="sub" x="444" y="356">진입·청산</text>
+  <text class="status" x="500" y="410" text-anchor="middle" fill="#BE123C">없음</text>
+
+  <rect x="620" y="180" width="160" height="260" rx="14" fill="#FFFFFF" stroke="#52606D" stroke-width="2"/>
+  <text class="num" x="644" y="220" fill="#52606D">04</text>
+  <text class="main" x="644" y="270">거래</text>
+  <text class="main" x="644" y="305">기록</text>
+  <text class="sub" x="644" y="356">포지션·체결</text>
+  <text class="status" x="700" y="410" text-anchor="middle" fill="#52606D">없음</text>
+
+  <rect x="820" y="180" width="160" height="260" rx="14" fill="#FFFFFF" stroke="#52606D" stroke-width="2"/>
+  <text class="num" x="844" y="220" fill="#52606D">05</text>
+  <text class="main" x="844" y="270">비용</text>
+  <text class="main" x="844" y="305">반영</text>
+  <text class="sub" x="844" y="356">수수료·슬리피지</text>
+  <text class="status" x="900" y="410" text-anchor="middle" fill="#52606D">없음</text>
+
+  <rect x="1020" y="180" width="160" height="260" rx="14" fill="#FFFFFF" stroke="#52606D" stroke-width="2"/>
+  <text class="num" x="1044" y="220" fill="#52606D">06</text>
+  <text class="main" x="1044" y="270">성과·위험</text>
+  <text class="main" x="1044" y="305">평가</text>
+  <text class="sub" x="1044" y="356">수익률·낙폭</text>
+  <text class="status" x="1100" y="410" text-anchor="middle" fill="#52606D">없음</text>
+
+  <path class="ok" d="M180 310H220"/>
+  <path class="stop" d="M380 310H420"/>
+  <path class="wait" d="M580 310H620"/>
+  <path class="wait" d="M780 310H820"/>
+  <path class="wait" d="M980 310H1020"/>
+
+  <rect x="250" y="500" width="700" height="92" rx="14" fill="#FFF1F4" stroke="#BE123C" stroke-width="2"/>
+  <text class="status" x="600" y="540" text-anchor="middle" fill="#BE123C">현재 결과: 데이터 파일과 확인 그래프</text>
+  <text class="sub" x="600" y="570" text-anchor="middle">규칙·거래·비용·평가가 없으므로 백테스트 결과가 아니다</text>
+</svg>

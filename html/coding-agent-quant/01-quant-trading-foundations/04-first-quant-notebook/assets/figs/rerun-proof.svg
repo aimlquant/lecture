@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">기존 커널의 부분 실행과 새 커널 전체 실행 비교</title>
+  <desc id="desc">위쪽은 기존 메모리가 남은 커널에서 일부 셀만 실행해 우연히 출력이 나오는 경우이고, 아래쪽은 빈 메모리의 새 커널이 모든 셀과 로컬 CSV를 사용해 표와 그래프를 다시 만드는 경우다.</desc>
+  <defs>
+    <marker id="arrow-warn" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
+      <path d="M0 0L18 5L0 10Z" fill="#B45309"/>
+    </marker>
+    <marker id="arrow-ok" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
+      <path d="M0 0L18 5L0 10Z" fill="#0B7A6A"/>
+    </marker>
+    <style>
+      text{font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif;fill:#0F172A}
+      .lane{font-size:25px;font-weight:700}
+      .kicker{font-size:18px;font-weight:700}
+      .main{font-size:27px;font-weight:700}
+      .sub{font-size:18px;font-weight:400;fill:#52606D}
+      .warn{fill:none;stroke:#B45309;stroke-width:3;marker-end:url(#arrow-warn)}
+      .ok{fill:none;stroke:#0B7A6A;stroke-width:3;marker-end:url(#arrow-ok)}
+    </style>
+  </defs>
+  <rect width="1200" height="700" fill="#FFFFFF"/>
+
+  <rect x="35" y="85" width="190" height="210" rx="14" fill="#FFF0DF" stroke="#B45309" stroke-width="2"/>
+  <text class="lane" x="130" y="142" text-anchor="middle" fill="#B45309">기존 커널</text>
+  <text class="sub" x="130" y="190" text-anchor="middle">앞 셀의 변수가</text>
+  <text class="sub" x="130" y="220" text-anchor="middle">메모리에 남음</text>
+  <rect x="65" y="248" width="130" height="30" rx="15" fill="#FFFFFF" stroke="#B45309"/>
+  <text class="kicker" x="130" y="270" text-anchor="middle" fill="#B45309">숨은 상태</text>
+
+  <rect x="275" y="85" width="230" height="210" rx="14" fill="#FFFFFF" stroke="#B45309" stroke-width="2"/>
+  <text class="kicker" x="301" y="127" fill="#B45309">부분 실행</text>
+  <text class="main" x="301" y="177">선택한 셀만</text>
+  <text class="main" x="301" y="215">다시 실행</text>
+  <text class="sub" x="301" y="258">앞 순서 누락 가능</text>
+
+  <rect x="570" y="85" width="240" height="210" rx="14" fill="#FFF1F4" stroke="#BE123C" stroke-width="2"/>
+  <text class="kicker" x="596" y="127" fill="#BE123C">겉보기 성공</text>
+  <text class="main" x="596" y="177">표가 보인다</text>
+  <text class="sub" x="596" y="225">새로 열면 실패할 수 있음</text>
+  <text class="sub" x="596" y="258">파일만으로 재현 불확실</text>
+
+  <rect x="875" y="85" width="285" height="210" rx="14" fill="#FFF1F4" stroke="#BE123C" stroke-width="2"/>
+  <text class="kicker" x="901" y="127" fill="#BE123C">판정</text>
+  <text class="main" x="901" y="177">완료 증거가</text>
+  <text class="main" x="901" y="215">부족하다</text>
+  <text class="sub" x="901" y="258">Restart + Run All 필요</text>
+
+  <path class="warn" d="M225 190H275"/>
+  <path class="warn" d="M505 190H570"/>
+  <path class="warn" d="M810 190H875"/>
+
+  <rect x="35" y="395" width="190" height="210" rx="14" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
+  <text class="lane" x="130" y="452" text-anchor="middle" fill="#0B7A6A">새 커널</text>
+  <text class="sub" x="130" y="500" text-anchor="middle">이전 변수를</text>
+  <text class="sub" x="130" y="530" text-anchor="middle">모두 지움</text>
+  <rect x="65" y="558" width="130" height="30" rx="15" fill="#FFFFFF" stroke="#0B7A6A"/>
+  <text class="kicker" x="130" y="580" text-anchor="middle" fill="#0B7A6A">빈 메모리</text>
+
+  <rect x="275" y="395" width="230" height="210" rx="14" fill="#FFFFFF" stroke="#0B7A6A" stroke-width="2"/>
+  <text class="kicker" x="301" y="437" fill="#0B7A6A">전체 실행</text>
+  <text class="main" x="301" y="487">Run All</text>
+  <text class="sub" x="301" y="535">첫 셀부터 마지막 셀</text>
+  <text class="sub" x="301" y="568">정해진 순서로 실행</text>
+
+  <rect x="570" y="395" width="240" height="210" rx="14" fill="#E7EEF9" stroke="#0F2C59" stroke-width="2"/>
+  <text class="kicker" x="596" y="437">고정 입력</text>
+  <text class="main" x="596" y="487">노트북 + CSV</text>
+  <text class="sub" x="596" y="535">코드와 로컬 파일만 사용</text>
+  <text class="sub" x="596" y="568">날짜·필수 열 검사</text>
+
+  <rect x="875" y="395" width="285" height="210" rx="14" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
+  <text class="kicker" x="901" y="437" fill="#0B7A6A">재현된 증거</text>
+  <text class="main" x="901" y="487">같은 표</text>
+  <text class="main" x="901" y="525">같은 선 그래프</text>
+  <text class="sub" x="901" y="568">오류 없이 끝까지 실행</text>
+
+  <path class="ok" d="M225 500H275"/>
+  <path class="ok" d="M505 500H570"/>
+  <path class="ok" d="M810 500H875"/>
+</svg>
