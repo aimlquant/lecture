@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">입력에서 과거 검증까지 이어지는 네 단계</title>
+  <desc id="desc">최종 영상 s05의 완성 화면을 바탕으로 입력, 명시적 규칙, 거래 판단, 과거 검증이 차례로 이어지는 구조를 리포트용 정적 벡터로 옮겼다.</desc>
+  <metadata>HyperFrames s05 · final-video SHA256 1e445c52604ecfe73ebe61401c7a0a5376183baac02d47a111815bfa80d70c17</metadata>
+  <defs>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="145%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#091F40" flood-opacity="0.10"/>
+    </filter>
+    <style>
+      text { font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif; }
+      .card { fill:#FFFFFF; stroke:#C7D2E1; stroke-width:2; filter:url(#shadow); }
+      .step { fill:#0B7A6A; font-size:19px; font-weight:700; letter-spacing:1px; }
+      .name { fill:#0F2C59; font-size:31px; font-weight:700; }
+      .body { fill:#52606D; font-size:20px; font-weight:400; }
+      .shaft { fill:none; stroke:#0F2C59; stroke-width:6; stroke-linecap:round; }
+      .head { fill:#0F2C59; }
+    </style>
+  </defs>
+  <rect width="1200" height="360" fill="#FFFFFF"/>
+  <g>
+    <rect class="card" x="24" y="54" width="252" height="252" rx="22"/>
+    <rect x="24" y="54" width="252" height="8" rx="4" fill="#0F2C59"/>
+    <text class="step" x="52" y="103">STEP 01</text>
+    <text class="name" x="52" y="159">입력</text>
+    <text class="body" x="52" y="211"><tspan x="52">어떤 자료를</tspan><tspan x="52" dy="31">언제 읽는가</tspan></text>
+  </g>
+  <path class="shaft" d="M276 180H300"/>
+  <path class="head" d="M316 180L296 168V192Z"/>
+  <g>
+    <rect class="card" x="316" y="54" width="252" height="252" rx="22"/>
+    <rect x="316" y="54" width="252" height="8" rx="4" fill="#0F2C59"/>
+    <text class="step" x="344" y="103">STEP 02</text>
+    <text class="name" x="344" y="159">명시적 규칙</text>
+    <text class="body" x="344" y="211"><tspan x="344">계산식·조건·순서를</tspan><tspan x="344" dy="31">미리 고정</tspan></text>
+  </g>
+  <path class="shaft" d="M568 180H592"/>
+  <path class="head" d="M608 180L588 168V192Z"/>
+  <g>
+    <rect class="card" x="608" y="54" width="252" height="252" rx="22"/>
+    <rect x="608" y="54" width="252" height="8" rx="4" fill="#0F2C59"/>
+    <text class="step" x="636" y="103">STEP 03</text>
+    <text class="name" x="636" y="159">거래 판단</text>
+    <text class="body" x="636" y="211"><tspan x="636">매수·매도·보유를</tspan><tspan x="636" dy="31">규칙으로 결정</tspan></text>
+  </g>
+  <path class="shaft" d="M860 180H884"/>
+  <path class="head" d="M900 180L880 168V192Z"/>
+  <g>
+    <rect x="900" y="54" width="252" height="252" rx="22" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="900" y="54" width="252" height="8" rx="4" fill="#0B7A6A"/>
+    <text class="step" x="928" y="103">STEP 04</text>
+    <text class="name" x="928" y="159">과거 검증</text>
+    <text class="body" x="928" y="211"><tspan x="928">당시 자료로</tspan><tspan x="928" dy="31">같은 판단 재현</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" role="img" aria-labelledby="title desc">
+  <title id="title">사람의 즉석 해석과 미리 고정한 규칙의 비교</title>
+  <desc id="desc">최종 영상 s08의 사람과 반복 아이콘을 사용해 같은 입력에서도 달라질 수 있는 즉석 해석과 같은 판단을 되풀이하는 고정 규칙을 비교한다.</desc>
+  <metadata>HyperFrames s08 · final-video SHA256 1e445c52604ecfe73ebe61401c7a0a5376183baac02d47a111815bfa80d70c17</metadata>
+  <defs>
+    <filter id="shadow" x="-12%" y="-12%" width="124%" height="138%">
+      <feDropShadow dx="0" dy="9" stdDeviation="9" flood-color="#091F40" flood-opacity="0.10"/>
+    </filter>
+    <style>
+      text { font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif; }
+      .card { stroke-width:2; filter:url(#shadow); }
+      .icon-plate { fill:rgba(255,255,255,.82); stroke:#C7D2E1; stroke-width:3; }
+      .soft { fill:#FFFFFF; stroke:#0F2C59; stroke-width:8; stroke-linejoin:round; }
+      .draw { fill:none; stroke:#0F2C59; stroke-width:8; stroke-linecap:round; stroke-linejoin:round; }
+      .accent { stroke:#0B7A6A; }
+      .arrow-head { fill:#0B7A6A; stroke:#0B7A6A; stroke-width:8; stroke-linejoin:round; }
+      .label { fill:#0B7A6A; font-size:20px; font-weight:700; letter-spacing:1px; }
+      .name { fill:#0F2C59; font-size:32px; font-weight:700; }
+      .body { fill:#52606D; font-size:21px; }
+    </style>
+  </defs>
+  <rect width="1200" height="480" fill="#FFFFFF"/>
+  <rect class="card" x="24" y="24" width="552" height="420" rx="28" fill="#E7EEF9" stroke="#C7D2E1"/>
+  <svg x="48" y="96" width="220" height="210" viewBox="0 0 420 400" aria-hidden="true">
+    <rect class="icon-plate" x="30" y="20" width="360" height="360" rx="96"/>
+    <circle class="soft" cx="180" cy="136" r="68"/>
+    <path class="draw" d="M68 324c11-82 55-123 112-123s101 41 112 123"/>
+    <circle cx="318" cy="126" r="48" fill="#D7F0EA"/>
+    <text x="318" y="151" text-anchor="middle" fill="#0F2C59" font-size="92" font-weight="700">?</text>
+  </svg>
+  <text class="label" x="298" y="115">구분</text>
+  <text class="name" x="298" y="168">사람의 즉석 해석</text>
+  <text class="body" x="298" y="222"><tspan x="298">같은 차트를 보고도</tspan><tspan x="298" dy="33">결론이 달라질 수 있다</tspan></text>
+  <rect x="298" y="310" width="230" height="60" rx="30" fill="#FFFFFF" stroke="#C7D2E1" stroke-width="2"/>
+  <text x="413" y="350" text-anchor="middle" fill="#52606D" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif" font-size="22" font-weight="700">판단이 달라짐</text>
+
+  <rect class="card" x="624" y="24" width="552" height="420" rx="28" fill="#E4F6F0" stroke="#0B7A6A"/>
+  <svg x="648" y="96" width="220" height="210" viewBox="0 0 420 400" aria-hidden="true">
+    <rect class="icon-plate" x="30" y="20" width="360" height="360" rx="96"/>
+    <path class="draw accent" d="M84.43 166.35A130 130 0 0 1 334.86 163.80"/>
+    <g transform="translate(338.03 177.43) rotate(440)"><path class="arrow-head" d="M0 0L-20 -11L-20 11Z"/></g>
+    <path class="draw accent" d="M335.57 233.65A130 130 0 0 1 85.14 236.20"/>
+    <g transform="translate(81.97 222.57) rotate(260)"><path class="arrow-head" d="M0 0L-20 -11L-20 11Z"/></g>
+    <circle cx="210" cy="200" r="47" fill="#0F2C59"/>
+    <path d="M186 200l17 18 36-42" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <text class="label" x="898" y="115">규칙</text>
+  <text class="name" x="898" y="168">미리 고정한 규칙</text>
+  <text class="body" x="898" y="222"><tspan x="898">같은 입력에서</tspan><tspan x="898" dy="33">같은 판단을 다시 만든다</tspan></text>
+  <rect x="898" y="310" width="230" height="60" rx="30" fill="#FFFFFF" stroke="#0B7A6A" stroke-width="2"/>
+  <text x="1013" y="350" text-anchor="middle" fill="#0B7A6A" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif" font-size="22" font-weight="700">판단이 반복됨</text>
+</svg>

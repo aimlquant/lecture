@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">입력과 판단 방식을 나눈 기술적 분석과 퀀트의 관계 지도</title>
+  <desc id="desc">최종 영상 s11의 2×2 매트릭스를 바탕으로 가로축은 가격과 거래량에서 다른 입력으로, 세로축은 사람의 해석에서 명확한 조건으로 이동한다.</desc>
+  <metadata>HyperFrames s11 · final-video SHA256 1e445c52604ecfe73ebe61401c7a0a5376183baac02d47a111815bfa80d70c17</metadata>
+  <defs>
+    <style>
+      text { font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif; }
+      .cell-title { fill:#0F2C59; font-size:30px; font-weight:700; }
+      .cell-body { fill:#52606D; font-size:20px; }
+      .axis-label { fill:#52606D; font-size:21px; font-weight:700; }
+      .axis { fill:none; stroke:#0F2C59; stroke-width:5; stroke-linecap:round; }
+      .head { fill:#0F2C59; }
+    </style>
+  </defs>
+  <rect width="1200" height="650" fill="#FFFFFF"/>
+  <g>
+    <rect x="190" y="30" width="960" height="480" fill="#FFFFFF" stroke="#0F2C59" stroke-width="5"/>
+    <rect x="190" y="30" width="480" height="240" fill="#E4F6F0"/>
+    <rect x="670" y="30" width="480" height="240" fill="#E7EEF9"/>
+    <rect x="190" y="270" width="480" height="240" fill="#FFF1F4"/>
+    <rect x="670" y="270" width="480" height="240" fill="#FFFFFF"/>
+    <path d="M670 30V510M190 270H1150" fill="none" stroke="#C7D2E1" stroke-width="3"/>
+    <rect x="198" y="38" width="464" height="224" fill="none" stroke="#0B7A6A" stroke-width="8"/>
+    <text class="cell-title" x="430" y="126" text-anchor="middle">기술적 분석 + 퀀트</text>
+    <text class="cell-body" x="430" y="173" text-anchor="middle">가격·거래량 × 명확한 조건</text>
+    <text class="cell-title" x="910" y="126" text-anchor="middle">퀀트</text>
+    <text class="cell-body" x="910" y="173" text-anchor="middle">다른 입력 × 명확한 조건</text>
+    <text class="cell-title" x="430" y="366" text-anchor="middle">재량적 기술적 분석</text>
+    <text class="cell-body" x="430" y="413" text-anchor="middle">가격·거래량 × 사람의 해석</text>
+    <text class="cell-title" x="910" y="366" text-anchor="middle">재량 판단</text>
+    <text class="cell-body" x="910" y="413" text-anchor="middle">다른 입력 × 사람의 해석</text>
+  </g>
+  <path class="axis" d="M150 510V55"/>
+  <path class="head" d="M150 30L137 56H163Z"/>
+  <text class="axis-label" x="118" y="394" text-anchor="end">사람의 해석</text>
+  <text x="118" y="96" text-anchor="end" fill="#0B7A6A" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif" font-size="21" font-weight="700">명확한 조건</text>
+  <text x="54" y="270" transform="rotate(-90 54 270)" text-anchor="middle" fill="#0F2C59" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif" font-size="23" font-weight="700">판단 방식</text>
+  <path class="axis" d="M190 568H1124"/>
+  <path class="head" d="M1150 568L1124 555V581Z"/>
+  <text class="axis-label" x="190" y="613">가격·거래량 중심</text>
+  <text x="1150" y="613" text-anchor="end" fill="#0B7A6A" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif" font-size="21" font-weight="700">재무·뉴스 등 다른 입력</text>
+</svg>

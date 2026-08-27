@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 580" role="img" aria-labelledby="title desc">
+  <title id="title">주관적 차트 모양을 계산 가능한 조건으로 바꾸는 과정</title>
+  <desc id="desc">최종 영상 s13의 헤드 앤 숄더 곡선과 네 기준 카드를 사용해 봉우리 구조, 높이 허용치, 시간 간격, 행동 조건으로 바꾸는 과정을 보여 준다.</desc>
+  <metadata>HyperFrames s13 · final-video SHA256 1e445c52604ecfe73ebe61401c7a0a5376183baac02d47a111815bfa80d70c17</metadata>
+  <defs>
+    <filter id="shadow" x="-12%" y="-12%" width="124%" height="138%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#091F40" flood-opacity="0.10"/>
+    </filter>
+    <style>
+      text { font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif; }
+      .card { fill:#FFFFFF; stroke:#C7D2E1; stroke-width:2; filter:url(#shadow); }
+      .draw { fill:none; stroke:#0F2C59; stroke-width:8; stroke-linecap:round; stroke-linejoin:round; }
+      .accent { stroke:#0B7A6A; }
+      .number { fill:#0B7A6A; font-size:20px; font-weight:700; letter-spacing:1px; }
+      .name { fill:#0F2C59; font-size:27px; font-weight:700; }
+      .body { fill:#52606D; font-size:19px; }
+    </style>
+  </defs>
+  <rect width="1200" height="580" fill="#FFFFFF"/>
+  <rect class="card" x="24" y="24" width="548" height="532" rx="28"/>
+  <svg x="34" y="52" width="528" height="416" viewBox="0 0 720 520" aria-hidden="true">
+    <path class="draw" d="M90 70V430H660"/>
+    <path class="draw" d="M90 390C126 354 150 302 195 282C230 268 250 312 282 326C314 340 332 184 382 124C432 184 450 340 482 326C514 312 538 268 570 282C612 302 630 350 654 372"/>
+    <path class="draw accent" d="M282 326H482"/>
+    <circle cx="195" cy="282" r="16" fill="#0F2C59"/>
+    <circle cx="382" cy="124" r="16" fill="#0F2C59"/>
+    <circle cx="570" cy="282" r="16" fill="#0F2C59"/>
+  </svg>
+  <text x="298" y="512" text-anchor="middle" fill="#0B7A6A" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif" font-size="24" font-weight="700">주관적 모양</text>
+
+  <g>
+    <rect class="card" x="620" y="24" width="266" height="246" rx="24"/>
+    <text class="number" x="648" y="70">01</text>
+    <text class="name" x="648" y="122">봉우리 구조</text>
+    <text class="body" x="648" y="165"><tspan x="648">세 봉우리의</tspan><tspan x="648" dy="30">순서를 정의</tspan></text>
+  </g>
+  <g>
+    <rect class="card" x="910" y="24" width="266" height="246" rx="24"/>
+    <text class="number" x="938" y="70">02</text>
+    <text class="name" x="938" y="122">높이 허용치</text>
+    <text class="body" x="938" y="165"><tspan x="938">같은 높이로 볼</tspan><tspan x="938" dy="30">허용 범위를 고정</tspan></text>
+  </g>
+  <g>
+    <rect class="card" x="620" y="310" width="266" height="246" rx="24"/>
+    <text class="number" x="648" y="356">03</text>
+    <text class="name" x="648" y="408">시간 간격</text>
+    <text class="body" x="648" y="451"><tspan x="648">봉우리 사이의</tspan><tspan x="648" dy="30">최소 간격을 고정</tspan></text>
+  </g>
+  <g>
+    <rect x="910" y="310" width="266" height="246" rx="24" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2" filter="url(#shadow)"/>
+    <text class="number" x="938" y="356">04</text>
+    <text class="name" x="938" y="408">행동 조건</text>
+    <text class="body" x="938" y="451"><tspan x="938">목선 이탈 뒤</tspan><tspan x="938" dy="30">매매 행동을 결정</tspan></text>
+  </g>
+</svg>

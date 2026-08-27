@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">서로 다른 입력이 하나의 명시적 판단 구조로 모이는 과정</title>
+  <desc id="desc">최종 영상 s16의 가격 차트, 재무 문서, 뉴스 문장 아이콘과 팬인 합류선을 사용해 세 입력이 하나의 명시적 규칙과 거래 판단으로 모이는 구조를 보여 준다.</desc>
+  <metadata>HyperFrames s16 · final-video SHA256 1e445c52604ecfe73ebe61401c7a0a5376183baac02d47a111815bfa80d70c17</metadata>
+  <defs>
+    <filter id="shadow" x="-12%" y="-12%" width="124%" height="138%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#091F40" flood-opacity="0.10"/>
+    </filter>
+    <style>
+      text { font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif; }
+      .card { fill:#FFFFFF; stroke:#C7D2E1; stroke-width:2; filter:url(#shadow); }
+      .icon-plate { fill:#FFFFFF; stroke:#C7D2E1; stroke-width:3; }
+      .soft { fill:#FFFFFF; stroke:#0F2C59; stroke-width:8; stroke-linejoin:round; }
+      .draw { fill:none; stroke:#0F2C59; stroke-width:8; stroke-linecap:round; stroke-linejoin:round; }
+      .thin { stroke-width:6; }
+      .muted { stroke:#AAB7C7; }
+      .accent { stroke:#0B7A6A; }
+      .input-name { fill:#0F2C59; font-size:27px; font-weight:700; }
+      .fan { fill:none; stroke:#0F2C59; stroke-width:6; stroke-linejoin:round; }
+      .label { fill:#0B7A6A; font-size:21px; font-weight:700; letter-spacing:1px; }
+      .result { fill:#0F2C59; font-size:31px; font-weight:700; }
+    </style>
+  </defs>
+  <rect width="1200" height="620" fill="#FFFFFF"/>
+  <g>
+    <rect class="card" x="24" y="24" width="340" height="172" rx="24"/>
+    <svg x="42" y="38" width="140" height="140" viewBox="0 0 420 400" aria-hidden="true">
+      <rect class="icon-plate" x="30" y="20" width="360" height="360" rx="96"/>
+      <rect class="soft" x="62" y="70" width="296" height="260" rx="30"/>
+      <path class="draw thin muted" d="M102 278h216M102 230h216M102 182h216M102 134h216"/>
+      <path class="draw" d="M102 276l56-66 49 34 65-108 49 42"/>
+      <circle cx="272" cy="136" r="15" fill="#0B7A6A"/>
+    </svg>
+    <text class="input-name" x="196" y="126">가격·거래량</text>
+  </g>
+  <g>
+    <rect class="card" x="24" y="224" width="340" height="172" rx="24"/>
+    <svg x="42" y="238" width="140" height="140" viewBox="0 0 420 400" aria-hidden="true">
+      <rect class="icon-plate" x="30" y="20" width="360" height="360" rx="96"/>
+      <path class="soft" d="M88 70h206l48 48v216H88z"/>
+      <path class="draw thin" d="M294 70v50h48M126 146h136M126 190h176M126 234h116M126 278h146"/>
+      <path class="draw accent" d="M270 276l28 29 48-57"/>
+    </svg>
+    <text class="input-name" x="196" y="326">재무 수치</text>
+  </g>
+  <g>
+    <rect class="card" x="24" y="424" width="340" height="172" rx="24"/>
+    <svg x="42" y="438" width="140" height="140" viewBox="0 0 420 400" aria-hidden="true">
+      <rect class="icon-plate" x="30" y="20" width="360" height="360" rx="96"/>
+      <rect class="soft" x="72" y="76" width="276" height="248" rx="24"/>
+      <rect x="106" y="116" width="78" height="66" rx="14" fill="#D7F0EA"/>
+      <path class="draw thin" d="M210 126h98M210 160h76M106 218h202M106 258h202M106 298h138"/>
+      <circle cx="292" cy="292" r="13" fill="#0B7A6A"/>
+    </svg>
+    <text class="input-name" x="196" y="526">뉴스 문장</text>
+  </g>
+
+  <path class="fan" d="M364 110C470 110 514 310 620 310"/>
+  <path class="fan" d="M364 310H620"/>
+  <path class="fan" d="M364 510C470 510 514 310 620 310"/>
+  <circle cx="620" cy="310" r="11" fill="#0F2C59"/>
+  <path class="fan" d="M620 310H744" stroke-linecap="round"/>
+  <path d="M764 310L740 296V324Z" fill="#0F2C59"/>
+
+  <rect class="card" x="764" y="174" width="412" height="272" rx="30"/>
+  <text class="label" x="970" y="245" text-anchor="middle">같은 구조</text>
+  <text class="result" x="970" y="314" text-anchor="middle">명시적 규칙</text>
+  <path d="M970 337V363" fill="none" stroke="#0B7A6A" stroke-width="5" stroke-linecap="round"/>
+  <path d="M970 380L958 359H982Z" fill="#0B7A6A"/>
+  <text class="result" x="970" y="418" text-anchor="middle">거래 판단</text>
+</svg>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">네 관문이 검증 가능한 전략 후보로 모이는 구조</title>
+  <desc id="desc">최종 영상 s23의 네 카드와 공통 브래킷을 사용해 입력, 판단 기준, 행동, 과거 검증이 모두 이어져야 검증 가능한 전략 후보가 되는 구조를 보여 준다.</desc>
+  <metadata>HyperFrames s23 · final-video SHA256 1e445c52604ecfe73ebe61401c7a0a5376183baac02d47a111815bfa80d70c17</metadata>
+  <defs>
+    <filter id="shadow" x="-14%" y="-14%" width="128%" height="142%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#091F40" flood-opacity="0.10"/>
+    </filter>
+    <style>
+      text { font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif; }
+      .card { fill:#FFFFFF; stroke:#C7D2E1; stroke-width:2; filter:url(#shadow); }
+      .num { fill:#0B7A6A; font-size:19px; font-weight:700; letter-spacing:1px; }
+      .name { fill:#0F2C59; font-size:29px; font-weight:700; }
+      .body { fill:#52606D; font-size:19px; }
+      .shaft { fill:none; stroke:#0F2C59; stroke-width:6; stroke-linecap:round; stroke-linejoin:round; }
+      .head { fill:#0F2C59; }
+    </style>
+  </defs>
+  <rect width="1200" height="500" fill="#FFFFFF"/>
+  <g>
+    <rect class="card" x="20" y="24" width="238" height="220" rx="22"/>
+    <text class="num" x="48" y="70">01</text>
+    <text class="name" x="48" y="124">입력</text>
+    <text class="body" x="48" y="172">자료·값·시점</text>
+  </g>
+  <path class="shaft" d="M258 134H294"/><path class="head" d="M310 134L290 122V146Z"/>
+  <g>
+    <rect class="card" x="310" y="24" width="238" height="220" rx="22"/>
+    <text class="num" x="338" y="70">02</text>
+    <text class="name" x="338" y="124">판단 기준</text>
+    <text class="body" x="338" y="172">계산·조건·순서</text>
+  </g>
+  <path class="shaft" d="M548 134H584"/><path class="head" d="M600 134L580 122V146Z"/>
+  <g>
+    <rect class="card" x="600" y="24" width="238" height="220" rx="22"/>
+    <text class="num" x="628" y="70">03</text>
+    <text class="name" x="628" y="124">행동</text>
+    <text class="body" x="628" y="172">매수·매도·보유</text>
+  </g>
+  <path class="shaft" d="M838 134H874"/><path class="head" d="M890 134L870 122V146Z"/>
+  <g>
+    <rect x="890" y="24" width="238" height="220" rx="22" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2" filter="url(#shadow)"/>
+    <text class="num" x="918" y="70">04</text>
+    <text class="name" x="918" y="124">과거 검증</text>
+    <text class="body" x="918" y="172">당시 자료로 재현</text>
+  </g>
+
+  <path class="shaft" d="M139 244V286H1009V244"/>
+  <path class="shaft" d="M429 244V286M719 244V286"/>
+  <path class="shaft" d="M574 286V360"/>
+  <path class="head" d="M574 378L562 356H586Z"/>
+  <rect x="334" y="378" width="480" height="92" rx="46" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
+  <text x="574" y="437" text-anchor="middle" fill="#0B7A6A" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif" font-size="27" font-weight="700">검증 가능한 전략 후보</text>
+</svg>
