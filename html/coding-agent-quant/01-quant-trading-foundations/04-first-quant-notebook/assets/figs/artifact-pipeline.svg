@@ -17,36 +17,36 @@
   <rect width="1200" height="720" fill="#FFFFFF"/>
 
   <rect x="35" y="175" width="245" height="285" rx="14" fill="#FFF0DF" stroke="#B45309" stroke-width="2"/>
-  <text class="kicker" x="61" y="218" fill="#B45309">외부 경로</text>
+  <text class="kicker" x="61" y="218" fill="#B45309">가격 데이터</text>
   <text class="main" x="61" y="272">NAVER:069500</text>
   <text class="sub" x="61" y="326">CSV가 없을 때만</text>
   <text class="sub" x="61" y="357">네트워크로 수집</text>
   <rect x="61" y="392" width="160" height="34" rx="17" fill="#FFFFFF" stroke="#B45309"/>
-  <text class="kicker" x="141" y="416" text-anchor="middle" fill="#B45309">첫 실행</text>
+  <text class="kicker" x="141" y="416" text-anchor="middle" fill="#B45309">처음 한 번</text>
 
   <rect x="330" y="175" width="245" height="285" rx="14" fill="#E7EEF9" stroke="#0F2C59" stroke-width="2"/>
-  <text class="kicker" x="356" y="218">로컬 기록</text>
+  <text class="kicker" x="356" y="218">저장 파일</text>
   <text class="main" x="356" y="272">가격 CSV</text>
   <text class="sub" x="356" y="326">Date · OHLC</text>
   <text class="sub" x="356" y="357">Volume · Change</text>
   <rect x="356" y="392" width="170" height="34" rx="17" fill="#FFFFFF" stroke="#0F2C59"/>
-  <text class="kicker" x="441" y="416" text-anchor="middle">입력 고정</text>
+  <text class="kicker" x="441" y="416" text-anchor="middle">CSV로 저장</text>
 
   <rect x="625" y="175" width="245" height="285" rx="14" fill="#FFFFFF" stroke="#0F2C59" stroke-width="2"/>
-  <text class="kicker" x="651" y="218">실행 문서</text>
+  <text class="kicker" x="651" y="218">실행과 설명</text>
   <text class="main" x="651" y="272">Jupyter 노트북</text>
   <text class="sub" x="651" y="326">read_csv</text>
-  <text class="sub" x="651" y="357">열 · 날짜 경계 검사</text>
+  <text class="sub" x="651" y="357">열 · 시작일 · 종료일 확인</text>
   <rect x="651" y="392" width="170" height="34" rx="17" fill="#FFFFFF" stroke="#0F2C59"/>
-  <text class="kicker" x="736" y="416" text-anchor="middle">위에서 아래로</text>
+  <text class="kicker" x="736" y="416" text-anchor="middle">셀 순서대로</text>
 
   <rect x="920" y="175" width="245" height="285" rx="14" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
-  <text class="kicker" x="946" y="218" fill="#0B7A6A">관찰 결과</text>
+  <text class="kicker" x="946" y="218" fill="#0B7A6A">노트북 출력</text>
   <text class="main" x="946" y="272">가격표</text>
   <text class="main" x="946" y="310">Close 선 그래프</text>
   <text class="sub" x="946" y="357">첫날 · 마지막 날</text>
   <rect x="946" y="392" width="170" height="34" rx="17" fill="#FFFFFF" stroke="#0B7A6A"/>
-  <text class="kicker" x="1031" y="416" text-anchor="middle" fill="#0B7A6A">사람이 확인</text>
+  <text class="kicker" x="1031" y="416" text-anchor="middle" fill="#0B7A6A">직접 확인</text>
 
   <path class="arrow" d="M280 318H330"/>
   <path class="arrow" d="M575 318H625"/>
@@ -54,5 +54,5 @@
 
   <rect x="235" y="535" width="730" height="100" rx="14" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
   <text class="bar" x="600" y="579" text-anchor="middle">두 번째 실행부터는 같은 로컬 CSV를 다시 읽는다</text>
-  <text class="sub" x="600" y="610" text-anchor="middle">공급자 호출과 노트북 표시를 분리해 재실행 조건을 단순하게 만든다</text>
+  <text class="sub" x="600" y="610" text-anchor="middle">가격을 받는 과정과 화면에 표시하는 과정을 분리한다</text>
 </svg>

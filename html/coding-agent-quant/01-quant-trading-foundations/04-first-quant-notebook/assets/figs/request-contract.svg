@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
-  <title id="title">Codex 작업 계약을 이루는 다섯 요소</title>
-  <desc id="desc">목적, 작업 위치, 산출물, 표시 결과, 완료 보고의 다섯 카드가 같은 크기로 두 줄에 배열되고 아래에서 검증 가능한 요청으로 합쳐진다.</desc>
+  <title id="title">Codex 요청문에 넣을 다섯 가지 내용</title>
+  <desc id="desc">목표, 작업 위치, 만들 파일, 화면에 보일 결과, 마무리 안내를 다섯 카드로 정리한 그림이다.</desc>
   <style>
     text{font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif;fill:#0F172A}
     .num{font-size:20px;font-weight:700;fill:#0F2C59}
@@ -13,7 +13,7 @@
   <g>
     <rect x="80" y="75" width="320" height="185" rx="14" fill="#E7EEF9" stroke="#0F2C59" stroke-width="2"/>
     <text class="num" x="106" y="115">01</text>
-    <text class="main" x="106" y="160">목적</text>
+    <text class="main" x="106" y="160">목표</text>
     <text class="sub" x="106" y="205">KODEX 200의</text>
     <text class="sub" x="106" y="232">고정 기간 가격 확인</text>
 
@@ -25,24 +25,24 @@
 
     <rect x="800" y="75" width="320" height="185" rx="14" fill="#FFFFFF" stroke="#0F2C59" stroke-width="2"/>
     <text class="num" x="826" y="115">03</text>
-    <text class="main" x="826" y="160">산출물</text>
+    <text class="main" x="826" y="160">만들 파일</text>
     <text class="sub" x="826" y="205">CSV · 노트북</text>
-    <text class="sub" x="826" y="232">의존성 기록</text>
+    <text class="sub" x="826" y="232">패키지 목록</text>
 
     <rect x="260" y="310" width="320" height="185" rx="14" fill="#FFFFFF" stroke="#0F2C59" stroke-width="2"/>
     <text class="num" x="286" y="350">04</text>
-    <text class="main" x="286" y="395">표시</text>
+    <text class="main" x="286" y="395">화면 결과</text>
     <text class="sub" x="286" y="440">CSV를 다시 읽은 표</text>
     <text class="sub" x="286" y="467">Close 선 그래프</text>
 
     <rect x="620" y="310" width="320" height="185" rx="14" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
     <text class="num" x="646" y="350" fill="#0B7A6A">05</text>
-    <text class="main" x="646" y="395">완료 보고</text>
+    <text class="main" x="646" y="395">마무리 안내</text>
     <text class="sub" x="646" y="440">파일 · 실행 방법</text>
     <text class="sub" x="646" y="467">공급자 · 남은 한계</text>
   </g>
 
   <rect x="180" y="565" width="840" height="92" rx="14" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
-  <text class="answer" x="600" y="608" text-anchor="middle">요청 안에 결과를 대조할 기준까지 남긴다</text>
-  <text class="sub" x="600" y="638" text-anchor="middle">Codex의 선택을 줄이고 사람의 검토 기준을 선명하게 한다</text>
+  <text class="answer" x="600" y="608" text-anchor="middle">무엇을 만들지와 무엇을 확인할지를 함께 적는다</text>
+  <text class="sub" x="600" y="638" text-anchor="middle">Codex가 추측할 부분을 줄이고 결과를 확인하기 쉽게 만든다</text>
 </svg>

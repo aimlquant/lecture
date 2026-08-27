@@ -22,7 +22,7 @@
   <text class="title" x="85" y="380">069500</text>
   <text class="sub" x="85" y="431">KOSPI 200 추적 ETF</text>
   <rect x="85" y="453" width="170" height="32" rx="16" fill="#FFFFFF" stroke="#C7D2E1"/>
-  <text class="tag" x="170" y="476" text-anchor="middle" fill="#0F2C59">상품 정체 고정</text>
+  <text class="tag" x="170" y="476" text-anchor="middle" fill="#0F2C59">종목 정보 확인</text>
 
   <rect x="560" y="75" width="585" height="245" rx="16" fill="#FFF0DF" stroke="#B45309" stroke-width="2"/>
   <text class="kicker" x="592" y="120" fill="#B45309">공식 데이터 경로</text>
@@ -43,7 +43,7 @@
   <path class="arrow" d="M375 360H452V198H560"/>
   <path class="arrow" d="M375 360H452V522H560"/>
   <rect x="397" y="172" width="112" height="30" rx="15" fill="#FFFFFF" stroke="#C7D2E1"/>
-  <text class="tag" x="453" y="194" text-anchor="middle" fill="#52606D">공식 원천</text>
+  <text class="tag" x="453" y="194" text-anchor="middle" fill="#52606D">공식 경로</text>
   <rect x="397" y="509" width="112" height="30" rx="15" fill="#FFFFFF" stroke="#C7D2E1"/>
   <text class="tag" x="453" y="531" text-anchor="middle" fill="#52606D">첫 실습</text>
 </svg>

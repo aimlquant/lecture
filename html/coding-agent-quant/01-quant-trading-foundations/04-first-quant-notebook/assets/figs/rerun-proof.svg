@@ -31,7 +31,7 @@
   <text class="kicker" x="301" y="127" fill="#B45309">부분 실행</text>
   <text class="main" x="301" y="177">선택한 셀만</text>
   <text class="main" x="301" y="215">다시 실행</text>
-  <text class="sub" x="301" y="258">앞 순서 누락 가능</text>
+  <text class="sub" x="301" y="258">앞 셀을 빠뜨릴 수 있음</text>
 
   <rect x="570" y="85" width="240" height="210" rx="14" fill="#FFF1F4" stroke="#BE123C" stroke-width="2"/>
   <text class="kicker" x="596" y="127" fill="#BE123C">겉보기 성공</text>
@@ -40,9 +40,9 @@
   <text class="sub" x="596" y="258">파일만으로 재현 불확실</text>
 
   <rect x="875" y="85" width="285" height="210" rx="14" fill="#FFF1F4" stroke="#BE123C" stroke-width="2"/>
-  <text class="kicker" x="901" y="127" fill="#BE123C">판정</text>
-  <text class="main" x="901" y="177">완료 증거가</text>
-  <text class="main" x="901" y="215">부족하다</text>
+  <text class="kicker" x="901" y="127" fill="#BE123C">확인 결과</text>
+  <text class="main" x="901" y="177">처음부터 되는지</text>
+  <text class="main" x="901" y="215">알 수 없다</text>
   <text class="sub" x="901" y="258">Restart + Run All 필요</text>
 
   <path class="warn" d="M225 190H275"/>
@@ -63,13 +63,13 @@
   <text class="sub" x="301" y="568">정해진 순서로 실행</text>
 
   <rect x="570" y="395" width="240" height="210" rx="14" fill="#E7EEF9" stroke="#0F2C59" stroke-width="2"/>
-  <text class="kicker" x="596" y="437">고정 입력</text>
+  <text class="kicker" x="596" y="437">저장된 파일</text>
   <text class="main" x="596" y="487">노트북 + CSV</text>
   <text class="sub" x="596" y="535">코드와 로컬 파일만 사용</text>
   <text class="sub" x="596" y="568">날짜·필수 열 검사</text>
 
   <rect x="875" y="395" width="285" height="210" rx="14" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
-  <text class="kicker" x="901" y="437" fill="#0B7A6A">재현된 증거</text>
+  <text class="kicker" x="901" y="437" fill="#0B7A6A">다시 확인한 결과</text>
   <text class="main" x="901" y="487">같은 표</text>
   <text class="main" x="901" y="525">같은 선 그래프</text>
   <text class="sub" x="901" y="568">오류 없이 끝까지 실행</text>

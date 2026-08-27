@@ -1,0 +1,4 @@
+finance-datareader==0.9.202
+pandas==3.0.5
+matplotlib==3.11.1
+ipykernel==7.1.0

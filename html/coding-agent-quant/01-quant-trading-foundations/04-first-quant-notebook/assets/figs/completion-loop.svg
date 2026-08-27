@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
   <title id="title">요청에서 새 커널 전체 실행까지 이어지는 완료 흐름</title>
-  <desc id="desc">작업 계약, 실제 파일, 표와 그래프, 새 커널 전체 실행의 네 단계가 왼쪽에서 오른쪽으로 이어지고 마지막 검증 결과가 아래 결론 상자에 모인다.</desc>
+  <desc id="desc">요청 조건, 실제 파일, 표와 그래프, 새 커널 전체 실행의 네 단계를 차례로 확인하는 흐름이다.</desc>
   <defs>
     <marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
       <path d="M0 0L18 5L0 10Z" fill="#0F2C59"/>
@@ -18,9 +18,9 @@
 
   <g>
     <rect x="40" y="145" width="240" height="265" rx="14" fill="#E7EEF9" stroke="#0F2C59" stroke-width="2"/>
-    <text class="step" x="66" y="188">01 · 요청 고정</text>
+    <text class="step" x="66" y="188">01 · 조건 정하기</text>
     <text class="main" x="66" y="250">종목·기간</text>
-    <text class="main" x="66" y="291">파일·완료 조건</text>
+    <text class="main" x="66" y="291">파일·확인 방법</text>
     <text class="sub" x="66" y="345">069500</text>
     <text class="sub" x="66" y="377">2024-01-02~03-29</text>
 
@@ -36,14 +36,14 @@
     <text class="main" x="656" y="250">가격표</text>
     <text class="main" x="656" y="291">Close 선 그래프</text>
     <text class="sub" x="656" y="345">첫날·마지막 날</text>
-    <text class="sub" x="656" y="377">빈 출력과 오류</text>
+    <text class="sub" x="656" y="377">빈 화면·오류 확인</text>
 
     <rect x="925" y="145" width="240" height="265" rx="14" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
     <text class="step" x="951" y="188" fill="#0B7A6A">04 · 처음부터</text>
     <text class="main" x="951" y="250">Restart</text>
     <text class="main" x="951" y="291">Run All</text>
     <text class="sub" x="951" y="345">새 커널</text>
-    <text class="sub" x="951" y="377">모든 셀 성공</text>
+    <text class="sub" x="951" y="377">모든 셀 완료</text>
   </g>
 
   <path class="arrow" d="M280 278H335"/>
@@ -51,7 +51,7 @@
   <path class="arrow" d="M870 278H925"/>
 
   <rect x="180" y="520" width="840" height="105" rx="14" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
-  <text class="verdict" x="600" y="566" text-anchor="middle">답변이 아니라 관찰 가능한 결과로 완료를 판정한다</text>
+  <text class="verdict" x="600" y="566" text-anchor="middle">Codex의 답변과 실제 파일·실행 결과를 함께 확인한다</text>
   <text class="sub" x="600" y="600" text-anchor="middle">같은 로컬 CSV와 같은 노트북 → 같은 표와 그래프</text>
   <path class="arrow" d="M1045 410V462H600V520"/>
 </svg>

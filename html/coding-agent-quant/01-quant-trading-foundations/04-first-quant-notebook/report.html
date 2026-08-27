@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="코딩 에이전트로 KODEX 200 가격을 불러와 노트북에 표시한다 — 작업 요청을 실제 CSV·노트북·재실행 증거로 바꾸는 첫 실습">
+  <meta name="description" content="코딩 에이전트로 KODEX 200 가격을 불러와 노트북에 표시한다 — 데이터를 파일로 저장하고, 새 커널에서 처음부터 실행해 결과를 확인하는 첫 실습">
   <meta name="robots" content="noindex, nofollow">
   <title>코딩 에이전트로 KODEX 200 가격을 불러와 노트북에 표시한다 · 상세 리포트</title>
   <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
@@ -34,167 +34,165 @@
       <div class="report-cover__wordmark"><span class="report-cover__wordmark-name">AIML Quant</span><span class="report-cover__wordmark-sub">LECTURE</span></div>
       <p class="report-cover__kicker">강의 상세 리포트</p>
       <h1 class="report-cover__title">코딩 에이전트로 KODEX 200 가격을 불러와 노트북에 표시한다</h1>
-      <p class="report-cover__subtitle">작업 요청을 실제 CSV·노트북·재실행 증거로 바꾸는 첫 실습</p>
+      <p class="report-cover__subtitle">데이터를 파일로 저장하고, 새 커널에서 처음부터 실행해 결과를 확인하는 첫 실습</p>
       <p class="report-cover__meta">확인일 2026-08-27</p>
       </section>
 
     <section class="report-section s0 page-break" id="s0" data-tier="core">
       <div class="report-section__kicker">핵심 본편 · core</div>
-      <h1>성공 메시지보다 파일과 실행 결과를 확인한다</h1>
-<h2>이번 실습의 도착점은 두 파일과 한 번의 전체 실행이다</h2>
-<p>이번 차시에서는 앞 영상에서 준비한 <code>course-01-practice</code> 폴더를 그대로 사용한다. Codex에
-KODEX 200 가격을 요청하고, 로컬 CSV와 Jupyter 노트북을 만들게 한다. 작업이 끝났다는
-채팅 문장만으로는 완료로 보지 않는다. 왼쪽 파일 탐색기에 두 파일이 보이고, 노트북이 CSV를
-다시 읽어 표와 그래프를 보여 주며, 커널을 새로 시작한 뒤에도 같은 결과가 나와야 한다.</p>
+      <h1>Codex가 작업을 마쳤다고 해도 결과를 직접 확인한다</h1>
+<h2>CSV와 노트북을 만든 뒤 처음부터 다시 실행해 본다</h2>
+<p>이번 차시에서는 영상 3에서 준비한 <code>course-01-practice</code> 폴더를 사용한다. Codex에 KODEX
+200 가격을 요청해 CSV, Jupyter 노트북, <code>requirements.txt</code>를 만든다. 채팅에 “완료했습니다”가
+나왔다고 끝내지 않는다. 왼쪽 파일 탐색기에 세 파일이 보이는지, 노트북이 저장된 CSV를 읽어
+표와 그래프를 보여 주는지, 커널을 새로 시작해도 모든 셀이 오류 없이 실행되는지 직접 본다.</p>
 <p><a href="https://developers.openai.com/codex/ide">OpenAI의 Codex IDE 공식 문서</a>는 열린 파일과 선택한
-코드를 요청의 문맥으로 쓰고, 편집 결과를 에디터 안에서 검토하는 흐름을 설명한다. 따라서
-Codex의 답변은 작업을 시작하고 요약하는 인터페이스이고, 실제 파일과 실행 결과는 사람이
-확인해야 할 증거다.</p>
-<figure class="report-figure" id="fig-1"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 1</span><span class="asset-caption__title">이번 실습의 완료 흐름: 요청을 고정하고, 두 파일을 만든 뒤, 노트북의 표와 그래프를 확인하고, 새 커널에서 전체 실행한다.</span></figcaption><img alt="작업 요청이 CSV와 노트북을 거쳐 커널 재시작과 전체 실행 확인으로 이어지는 네 단계" src="assets/figs/completion-loop.svg"></figure>
-<table class="cmp-table" id="table-1"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 1</span><span class="asset-caption__title">Codex의 완료 보고와 별도로 사람이 확인할 다섯 가지 증거.</span></div></caption>
+코드를 요청의 문맥으로 쓰고, 편집 결과를 에디터 안에서 검토하는 흐름을 설명한다. Codex의
+답변은 작업 내용을 요약한 안내다. 실제로 만들어진 파일과 실행 결과는 VS Code에서 따로
+확인해야 한다.</p>
+<figure class="report-figure" id="fig-1"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 1</span><span class="asset-caption__title">이번 실습에서 확인할 순서. 요청한 파일이 생겼는지 보고, 노트북의 표와 그래프를 확인한 뒤, 새 커널에서 모든 셀을 다시 실행한다.</span></figcaption><img alt="요청 조건을 정한 뒤 파일, 노트북 출력, 새 커널 전체 실행을 차례로 확인하는 흐름" src="assets/figs/completion-loop.svg"></figure>
+<table class="cmp-table" id="table-1"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 1</span><span class="asset-caption__title">Codex가 작업을 마쳤다고 알려도 직접 확인해야 할 다섯 가지 항목.</span></div></caption>
 <thead>
 <tr>
-<th>확인 대상</th>
-<th>눈으로 확인할 증거</th>
-<th>통과하지 못한 예</th>
+<th>확인할 것</th>
+<th>어디서 확인할까</th>
+<th>문제가 있는 경우</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>작업 범위</td>
-<td>현재 연 폴더가 <code>course-01-practice</code>다</td>
-<td>개인 문서나 상위 폴더를 작업 대상으로 잡았다</td>
+<td>작업 폴더</td>
+<td>VS Code 왼쪽 위에 <code>course-01-practice</code>가 열려 있다</td>
+<td>개인 문서나 상위 폴더가 열려 있다</td>
 </tr>
 <tr>
 <td>가격 파일</td>
-<td><code>data/kodex200_price.csv</code>가 실제로 존재한다</td>
-<td>채팅에는 저장했다고 쓰였지만 파일이 없다</td>
+<td><code>data/kodex200_price.csv</code>가 보이고 내용이 비어 있지 않다</td>
+<td>답변에는 저장했다고 했지만 파일이 없다</td>
 </tr>
 <tr>
 <td>노트북</td>
 <td><code>notebooks/kodex200_price.ipynb</code>가 CSV를 읽는다</td>
-<td>화면에 보이는 표가 코드에 직접 적힌 예시 값이다</td>
+<td>표의 값을 코드에 직접 적어 놓았다</td>
 </tr>
 <tr>
-<td>표시 결과</td>
+<td>실행 결과</td>
 <td>날짜가 있는 표와 <code>Close</code> 선 그래프가 보인다</td>
-<td>셀 실행 오류가 남아 있거나 빈 그래프다</td>
+<td>셀에 빨간 오류가 있거나 그래프가 비어 있다</td>
 </tr>
 <tr>
-<td>전체 실행</td>
-<td>커널을 다시 시작하고 <code>Run All</code>을 끝낸다</td>
-<td>앞에서 우연히 만든 변수에 기대야 실행된다</td>
+<td>처음부터 실행</td>
+<td>커널을 다시 시작한 뒤 <code>Run All</code>이 끝까지 완료된다</td>
+<td>앞서 만든 변수에 기대야만 실행된다</td>
 </tr>
 </tbody>
 </table>
-<p>이 기준은 코드 품질이나 투자 전략의 수익성을 판정하지 않는다. 첫 실습이므로 “요청한
-위치에 파일이 생겼는가”, “그 파일을 다시 읽을 수 있는가”, “처음부터 실행되는가”만
-확인한다.</p>
+<p>여기서는 코드의 완성도나 투자 전략의 수익성을 평가하지 않는다. 요청한 위치에 파일이
+생겼는지, 그 파일을 다시 읽을 수 있는지, 노트북이 처음부터 실행되는지만 확인한다.</p>
 <hr>
     </section>
     <section class="report-section s1 page-break" id="s1" data-tier="core">
       <div class="report-section__kicker">핵심 본편 · core</div>
-      <h1>상품의 정체와 데이터를 가져오는 길을 따로 확인한다</h1>
-<h2><code>069500</code>이 KODEX 200인지 먼저 확인한다</h2>
+      <h1>종목 정보와 데이터를 가져올 방법을 먼저 확인한다</h1>
+<h2><code>069500</code>이 KODEX 200인지 공식 상품 페이지에서 확인한다</h2>
 <p>실습 대상은 <strong>KODEX 200</strong>, 종목코드는 <strong><code>069500</code></strong>이다. 삼성자산운용의
-<a href="https://m.samsungfund.com/etf/product/view.do?id=2ETF01">KODEX 200 공식 상품 페이지</a>는
-상품명과 종목코드, KOSPI 200 지수를 추적한다는 설명을 함께 제공한다. 숫자 코드만 보고
-데이터를 받지 말고, 상품명과 코드를 공식 상품 페이지에서 먼저 맞춘다.</p>
+<a href="https://m.samsungfund.com/etf/product/view.do?id=2ETF01">KODEX 200 공식 상품 페이지</a>에서
+상품명, 종목코드, KOSPI 200 지수를 추적한다는 설명을 함께 확인할 수 있다. 숫자 코드만
+믿고 바로 데이터를 받지 말고, 먼저 공식 상품 페이지에서 이름과 코드를 맞춘다.</p>
 <p>한국거래소의 <a href="https://openapi.krx.co.kr/contents/OPP/INFO/service/OPPINFO004.cmd">OPEN API 서비스 목록</a>에는
-2010년 1월 4일 이후의 ETF 일별매매정보가 있다. 다만
-<a href="https://openapi.krx.co.kr/contents/OPP/INFO/OPPINFO003.jsp">서비스 이용방법</a>에 따르면 회원가입과
-로그인, API 인증키 신청, 관리자 승인, 개별 서비스 신청과 승인이 필요하다. 공식 거래소
-경로는 중요하지만, 가입과 승인을 마치지 않은 초보자가 15분 안에 따라 할 첫 실습에는 맞지
-않는다.</p>
-<figure class="report-figure" id="fig-2"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 2</span><span class="asset-caption__title">상품의 정체는 공식 상품 페이지에서 확인하고, 데이터 수집 경로는 목적에 따라 선택한다. 이 차시는 승인 절차가 없는 FinanceDataReader 경로를 사용한다.</span></figcaption><img alt="KODEX 200의 공식 상품 확인에서 KRX 공식 API와 첫 실습용 FinanceDataReader 경로가 갈라지는 구조" src="assets/figs/data-route.svg"></figure>
-<h2>첫 실습은 공급자를 적은 <code>NAVER:069500</code>으로 고정한다</h2>
+ETF 일별매매정보가 있다. 다만
+<a href="https://openapi.krx.co.kr/contents/OPP/INFO/OPPINFO003.jsp">서비스 이용방법</a>에 따르면 회원가입,
+API 인증키 신청, 관리자 승인, 개별 서비스 신청이 필요하다. 거래소가 제공하는 공식 경로는
+중요하지만, 가입과 승인을 마치지 않은 초보자가 바로 따라 할 첫 실습에는 절차가 많다.</p>
+<figure class="report-figure" id="fig-2"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 2</span><span class="asset-caption__title">상품명과 종목코드는 공식 상품 페이지에서 확인한다. 가격을 받는 방법은 수업 목적에 맞춰 고른다. 이번에는 별도의 승인 없이 실행할 수 있는 FinanceDataReader를 사용한다.</span></figcaption><img alt="KODEX 200 상품 정보를 확인한 뒤 KRX 공식 API와 FinanceDataReader 실습 경로를 비교하는 그림" src="assets/figs/data-route.svg"></figure>
+<h2>이번 실습에서는 공급자까지 적은 <code>NAVER:069500</code>을 사용한다</h2>
 <p><a href="https://github.com/FinanceData/FinanceDataReader">FinanceDataReader 공식 저장소</a>는 국내 종목
-가격을 읽는 <code>DataReader</code>와 <code>NAVER:</code> 접두사를 문서화한다. 이 차시에서는 다음 호출을 쓴다.</p>
+가격을 읽는 <code>DataReader</code>와 <code>NAVER:</code> 접두사를 안내한다. 이번 실습의 호출은 다음과 같다.</p>
 <pre><code class="language-python">fdr.DataReader(&quot;NAVER:069500&quot;, &quot;2024-01-02&quot;, &quot;2024-03-29&quot;)
 </code></pre>
-<p>종목코드만 <code>069500</code>으로 써도 2026-08-27의 FinanceDataReader는 NAVER 경로를 기본값으로
-선택했다. 그러나 기본값은 라이브러리 버전에서 바뀔 수 있다. <code>NAVER:069500</code>처럼 공급자를
-직접 적으면 어떤 경로를 사용했는지 코드만 보고도 알 수 있다.</p>
-<table class="cmp-table" id="table-2"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 2</span><span class="asset-caption__title">공식성, 접근 절차, 공급자 명시 여부를 기준으로 고른 데이터 경로.</span></div></caption>
+<p>2026년 8월 27일에 확인한 FinanceDataReader 0.9.202는 종목코드만 <code>069500</code>으로 적어도
+NAVER 경로를 선택했다. 하지만 기본 설정은 라이브러리 버전에 따라 달라질 수 있다.
+<code>NAVER:069500</code>처럼 공급자를 함께 적으면 어느 경로를 사용했는지 코드만 보고도 알 수 있다.</p>
+<table class="cmp-table" id="table-2"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 2</span><span class="asset-caption__title">공식성, 이용 절차, 공급자 표시 여부를 비교해 이번 데이터 수집 방법을 골랐다.</span></div></caption>
 <thead>
 <tr>
-<th>경로</th>
-<th>장점</th>
-<th>첫 실습에서의 판단</th>
+<th>방법</th>
+<th>특징</th>
+<th>이번 실습에서의 선택</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>KRX OPEN API</td>
-<td>거래소가 제공하는 공식 ETF 일별매매정보다</td>
-<td>인증키와 서비스 승인이 필요해 기본 실습에서는 사용하지 않는다</td>
+<td>거래소가 ETF 일별매매정보를 제공한다</td>
+<td>인증키와 서비스 승인이 필요하므로 뒤에서 다룬다</td>
 </tr>
 <tr>
 <td>FinanceDataReader <code>NAVER:069500</code></td>
-<td>짧은 Python 호출로 지정 기간을 받을 수 있다</td>
-<td>이번 영상의 고정 경로로 사용하고 버전·실행일을 함께 기록한다</td>
+<td>짧은 Python 코드로 지정한 기간을 받을 수 있다</td>
+<td>공급자와 버전을 기록하고 이번 실습에 사용한다</td>
 </tr>
 <tr>
 <td>종목코드만 <code>069500</code></td>
-<td>코드가 짧다</td>
-<td>내부 기본 공급자가 드러나지 않아 사용하지 않는다</td>
+<td>코드는 짧지만 실제 공급자가 드러나지 않는다</td>
+<td>사용하지 않는다</td>
 </tr>
 </tbody>
 </table>
-<p>FinanceDataReader는 거래소 공식 API가 아니라 여러 웹 데이터 경로를 읽기 쉽게 묶은
-오픈소스 도구다. 공급 사이트의 응답 형식이나 라이브러리 구현이 바뀌면 열과 값도 달라질 수
-있다. 또한 이 도구가 반환한 <code>Close</code>라는 열 이름만 보고 거래소 원시 종가인지, 어떤 조정이
-적용됐는지까지 단정하지 않는다. 가격 열의 세부 의미와 공급자 간 차이는 다음 과정인
-「노트북과 데이터 문해력」에서 다룬다.</p>
+<p>FinanceDataReader는 거래소 공식 API가 아니라 여러 웹 데이터 경로를 편하게 읽도록 만든
+오픈소스 도구다. 공급 사이트의 응답 형식이나 라이브러리 구현이 바뀌면 열과 값이 달라질 수
+있다. 또한 <code>Close</code>라는 열 이름만 보고 가격 조정 방식까지 단정하지 않는다. 가격 열의 의미와
+공급자 차이는 다음 과정인 「노트북과 데이터 문해력」에서 다룬다.</p>
 <hr>
     </section>
     <section class="report-section s2 page-break" id="s2" data-tier="core">
       <div class="report-section__kicker">핵심 본편 · core</div>
-      <h1>요청문에는 목적·위치·산출물·표시·완료 조건을 적는다</h1>
-<h2>좋은 요청은 무엇을 만들고 어디까지 확인할지 분명하다</h2>
+      <h1>요청문에는 목표, 작업 위치, 만들 파일, 확인 방법을 적는다</h1>
+<h2>무엇을 만들고 어디까지 실행할지 한 번에 알려 준다</h2>
 <p>“KODEX 200 그래프를 만들어 줘”라고만 쓰면 종목, 기간, 저장 위치, 파일 이름, 데이터
-공급자, 완료 기준을 Codex가 추측해야 한다. 결과가 나와도 내가 원한 작업과 같은지 판단하기
-어렵다. 첫 요청은 다섯 부분으로 나눈다.</p>
-<figure class="report-figure" id="fig-3"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 3</span><span class="asset-caption__title">Codex에 전달할 작업 계약의 다섯 요소. 각 칸을 채우면 결과를 무엇과 대조할지가 요청문 안에 함께 남는다.</span></figcaption><img alt="목적 위치 산출물 표시 완료 보고의 다섯 칸으로 구성된 작업 계약" src="assets/figs/request-contract.svg"></figure>
-<table class="cmp-table" id="table-3"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 3</span><span class="asset-caption__title">요청문 다섯 요소와 각각을 검증할 관찰 가능한 증거.</span></div></caption>
+공급자를 Codex가 추측해야 한다. 결과가 나와도 내가 원한 작업인지 확인하기 어렵다. 처음부터
+다음 다섯 가지를 요청문에 적는다.</p>
+<figure class="report-figure" id="fig-3"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 3</span><span class="asset-caption__title">요청문에 넣을 다섯 가지 내용. 무엇을 만들지뿐 아니라 작업이 끝난 뒤 무엇을 확인할지도 함께 적는다.</span></figcaption><img alt="목표 작업 위치 만들 파일 화면에 보일 결과 완료 안내의 다섯 칸으로 구성한 요청문" src="assets/figs/request-contract.svg"></figure>
+<table class="cmp-table" id="table-3"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 3</span><span class="asset-caption__title">요청문에 적은 내용과 작업이 끝난 뒤 살펴볼 곳.</span></div></caption>
 <thead>
 <tr>
-<th>요소</th>
-<th>이번 실습에서 고정할 내용</th>
-<th>나중에 확인할 증거</th>
+<th>요청에 넣을 내용</th>
+<th>이번 실습에서 정할 값</th>
+<th>작업 뒤에 확인할 곳</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>목적</td>
-<td>KODEX 200 <code>069500</code>의 2024-01-02~2024-03-29 일별 가격을 확인한다</td>
-<td>종목과 날짜 경계가 맞다</td>
+<td>목표</td>
+<td>KODEX 200 <code>069500</code>의 2024-01-02~2024-03-29 일별 가격</td>
+<td>CSV의 종목과 시작일·종료일</td>
 </tr>
 <tr>
-<td>위치</td>
-<td>현재 연 <code>course-01-practice</code> 폴더 안에서만 작업한다</td>
-<td>상위 폴더나 개인 파일을 바꾸지 않았다</td>
+<td>작업 위치</td>
+<td>현재 연 <code>course-01-practice</code> 폴더 안</td>
+<td>왼쪽 파일 탐색기와 변경 파일 목록</td>
 </tr>
 <tr>
-<td>산출물</td>
-<td>CSV, 노트북, <code>requirements.txt</code>를 만든다</td>
-<td>세 경로에 실제 파일이 있다</td>
+<td>만들 파일</td>
+<td>CSV, 노트북, <code>requirements.txt</code></td>
+<td>세 파일의 실제 경로</td>
 </tr>
 <tr>
-<td>표시</td>
-<td>CSV를 다시 읽어 표 일부와 <code>Close</code> 선 그래프를 보인다</td>
-<td>표와 그래프가 노트북 출력에 있다</td>
+<td>화면에 보일 결과</td>
+<td>CSV를 다시 읽은 표와 <code>Close</code> 선 그래프</td>
+<td>노트북 셀의 출력</td>
 </tr>
 <tr>
-<td>완료 보고</td>
-<td>파일, 실행 방법, 데이터 경로, 남은 한계를 설명한다</td>
-<td>보고 내용이 실제 파일과 일치한다</td>
+<td>마무리 안내</td>
+<td>만든 파일, 실행 방법, 공급자, 남은 한계</td>
+<td>Codex 답변과 실제 파일의 일치 여부</td>
 </tr>
 </tbody>
 </table>
-<h2>그대로 붙여 넣을 첫 작업 요청</h2>
-<p>다음 문장은 정답 프롬프트가 아니라 이 차시에서 결과를 비교하기 위한 <strong>고정 작업 계약</strong>이다.
-Codex 사이드바에 붙여 넣기 전에 현재 열린 폴더가 <code>course-01-practice</code>인지 확인한다.</p>
+<h2>그대로 붙여 넣어 실습할 요청문</h2>
+<p>다음 문장은 하나뿐인 정답 프롬프트가 아니다. 모든 수강생이 같은 결과를 비교할 수 있도록
+이번 차시에서 사용할 조건을 정리한 예시다. 붙여 넣기 전에 현재 열린 폴더가
+<code>course-01-practice</code>인지 확인한다.</p>
 <pre><code class="language-text">현재 VS Code에서 연 course-01-practice 폴더 안에서만 작업해 주세요.
 
 목적:
@@ -217,15 +215,15 @@ Codex 사이드바에 붙여 넣기 전에 현재 열린 폴더가 <code>course-
 - 만든 파일, 실행 방법, 사용한 라이브러리와 공급자, 확인이 필요한 한계를 요약해 주세요.
 - 아직 매매 규칙이나 백테스트를 만들지 마세요.
 </code></pre>
-<p>Codex가 제안한 계획을 먼저 읽는다. 현재 폴더 밖의 파일을 고치거나, 다른 종목·기간을
-선택하거나, 인증 정보 입력을 요구한다면 실행 전에 범위를 바로잡는다. 패키지 설치처럼
-네트워크와 파일 변경이 생기는 명령도 목적과 대상 환경을 확인한 뒤 진행한다.</p>
+<p>Codex가 제안한 작업 순서를 먼저 읽는다. 현재 폴더 밖의 파일을 고치거나 다른 종목과 기간을
+선택했다면 실행 전에 바로잡는다. 패키지 설치처럼 네트워크 연결과 파일 변경이 필요한 명령도
+어느 가상환경에 설치하는지 확인한 뒤 진행한다.</p>
 <hr>
     </section>
     <section class="report-section s3 page-break" id="s3" data-tier="core">
       <div class="report-section__kicker">핵심 본편 · core</div>
-      <h1>CSV는 원본 기록이고 노트북은 그 기록을 읽는 설명서다</h1>
-<h2>세 파일은 서로 다른 책임을 가진다</h2>
+      <h1>CSV와 노트북의 역할을 나눠서 만든다</h1>
+<h2>CSV에는 받은 가격을 저장하고 노트북은 그 파일을 읽는다</h2>
 <p>작업이 끝나면 폴더는 다음처럼 보인다.</p>
 <pre><code class="language-text">course-01-practice/
 ├── data/
@@ -234,59 +232,68 @@ Codex 사이드바에 붙여 넣기 전에 현재 열린 폴더가 <code>course-
 │   └── kodex200_price.ipynb
 └── requirements.txt
 </code></pre>
-<p><code>requirements.txt</code>는 같은 도구 버전을 다시 설치하기 위한 기록이다. 이 리포트의 로컬
-검증에서는 Python 3.12.3과 다음 버전을 사용했다.</p>
+<p><code>requirements.txt</code>에는 같은 도구를 다시 설치할 수 있도록 패키지 버전을 적는다. 실제 데모는
+Python 3.12.3 가상환경과 다음 버전으로 실행했다.</p>
 <pre><code class="language-text">finance-datareader==0.9.202
 pandas==3.0.5
 matplotlib==3.11.1
+ipykernel==7.1.0
 </code></pre>
-<figure class="report-figure" id="fig-4"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 4</span><span class="asset-caption__title">데이터 수집과 표시를 분리한 파일 흐름. 네트워크는 CSV가 없을 때만 필요하고, 노트북의 표와 그래프는 저장된 CSV를 입력으로 사용한다.</span></figcaption><img alt="공급자에서 받은 가격이 로컬 CSV에 고정되고 노트북이 CSV를 다시 읽어 표와 선 그래프를 만드는 흐름" src="assets/figs/artifact-pipeline.svg"></figure>
-<table class="cmp-table" id="table-4"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 4</span><span class="asset-caption__title">세 산출물의 역할을 나누어 한 파일에 모든 책임이 섞이지 않게 한다.</span></div></caption>
+<figure class="report-figure" id="fig-4"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 4</span><span class="asset-caption__title">가격을 받는 과정과 화면에 표시하는 과정을 나눴다. CSV가 이미 있으면 노트북은 인터넷에서 다시 받지 않고 로컬 파일을 읽는다.</span></figcaption><img alt="가격을 처음 한 번 내려받아 CSV에 저장하고 노트북이 그 CSV를 읽어 표와 그래프를 표시하는 흐름" src="assets/figs/artifact-pipeline.svg"></figure>
+<table class="cmp-table" id="table-4"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 4</span><span class="asset-caption__title">세 파일의 역할. 가격 원본과 이를 설명·표시하는 코드를 한 파일에 섞지 않는다.</span></div></caption>
 <thead>
 <tr>
 <th>파일</th>
-<th>맡은 일</th>
-<th>직접 확인할 내용</th>
+<th>하는 일</th>
+<th>열어 볼 내용</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>requirements.txt</code></td>
-<td>사용한 Python 패키지 버전을 기록한다</td>
-<td>세 패키지와 버전이 있다</td>
+<td>실습에 사용한 Python 패키지 버전을 적는다</td>
+<td>네 패키지 이름과 버전</td>
 </tr>
 <tr>
 <td><code>data/kodex200_price.csv</code></td>
-<td>첫 수집 결과를 로컬에 보존한다</td>
-<td><code>Date</code>와 가격 열이 있고 파일이 비어 있지 않다</td>
+<td>처음 받은 가격을 로컬에 저장한다</td>
+<td><code>Date</code>와 가격 열, 실제 데이터 행</td>
 </tr>
 <tr>
 <td><code>notebooks/kodex200_price.ipynb</code></td>
-<td>CSV를 읽고 검사하며 표와 그래프를 표시한다</td>
-<td>파일 경로와 열 이름이 CSV와 일치한다</td>
+<td>CSV를 읽고 검사한 뒤 표와 그래프를 표시한다</td>
+<td>파일 경로, 열 이름, 셀 출력</td>
 </tr>
 </tbody>
 </table>
-<h2>노트북의 핵심 코드는 수집과 읽기를 분리한다</h2>
+<figure class="report-figure" id="fig-5"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 5</span><span class="asset-caption__title">2026년 8월 27일 실제 데모 화면. <code>data/kodex200_price.csv</code>를 VS Code에서 열어 머리글과 가격 행이 저장됐는지 확인했다. 설명을 위해 다시 그린 그림이 아니라 녹화에 사용한 실제 화면이다.</span></figcaption><img alt="VS Code에서 실제로 연 kodex200_price.csv와 왼쪽 파일 탐색기에 보이는 실습 파일" src="assets/figs/demo-csv-preview.webp"></figure>
+<h2>노트북 코드에는 각 단계의 이유를 주석으로 남긴다</h2>
 <p><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_csv.html">pandas 공식 문서</a>는
 <code>DataFrame.to_csv()</code>로 표를 CSV에 쓰는 방법을,
 <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html"><code>read_csv()</code> 문서</a>는
-그 파일을 다시 표로 읽는 방법을 설명한다. 노트북의 핵심 흐름은 다음과 같다.</p>
-<pre><code class="language-python">from pathlib import Path
+그 파일을 다시 표로 읽는 방법을 설명한다. 내려받을 노트북에는 아래 코드를 단계별 셀로
+나눠 넣었다. 처음 배우는 사람도 흐름을 따라갈 수 있도록 주석은 도구 불러오기, 경로 설정,
+첫 수집, CSV 읽기, 값 확인, 표와 그래프 표시에 맞춰 달았다.</p>
+<pre><code class="language-python"># 파일 경로, 데이터 수집, 표 처리, 그래프에 필요한 도구를 불러옵니다.
+from pathlib import Path
 
 import FinanceDataReader as fdr
 import matplotlib.pyplot as plt
 import pandas as pd
 
+# 실습에서 사용할 종목과 조회 기간을 한곳에 모아 둡니다.
 START = &quot;2024-01-02&quot;
 END = &quot;2024-03-29&quot;
 SYMBOL = &quot;NAVER:069500&quot;
 
+# 노트북 폴더에서 실행해도 프로젝트의 data 폴더를 찾도록 기준 경로를 정합니다.
 cwd = Path.cwd()
 project_root = cwd.parent if cwd.name == &quot;notebooks&quot; else cwd
 csv_path = project_root / &quot;data&quot; / &quot;kodex200_price.csv&quot;
 csv_path.parent.mkdir(parents=True, exist_ok=True)
+print(f&quot;저장 위치: {csv_path.relative_to(project_root)}&quot;)
 
+# CSV가 없을 때만 가격을 내려받아 저장합니다.
 if not csv_path.exists():
     downloaded = fdr.DataReader(SYMBOL, START, END)
     if downloaded.empty:
@@ -294,7 +301,12 @@ if not csv_path.exists():
     downloaded.index.name = &quot;Date&quot;
     downloaded.to_csv(csv_path)
 
+print(f&quot;사용할 CSV: {csv_path.relative_to(project_root)}&quot;)
+
+# 이후 작업은 인터넷이 아니라 저장해 둔 CSV를 다시 읽어 진행합니다.
 prices = pd.read_csv(csv_path, parse_dates=[&quot;Date&quot;])
+
+# 필요한 열과 시작일·종료일이 요청한 조건과 맞는지 확인합니다.
 required = {&quot;Date&quot;, &quot;Open&quot;, &quot;High&quot;, &quot;Low&quot;, &quot;Close&quot;, &quot;Volume&quot;, &quot;Change&quot;}
 if not required.issubset(prices.columns):
     raise RuntimeError(f&quot;필수 열이 없습니다: {required - set(prices.columns)}&quot;)
@@ -303,166 +315,178 @@ if prices[&quot;Date&quot;].min() != pd.Timestamp(START):
 if prices[&quot;Date&quot;].max() != pd.Timestamp(END):
     raise RuntimeError(&quot;마지막 날짜가 요청과 다릅니다.&quot;)
 
+print(
+    f&quot;확인 완료: {len(prices)}행, &quot;
+    f&quot;{prices['Date'].min().date()} ~ {prices['Date'].max().date()}&quot;
+)
+
+# 표의 처음과 마지막을 나란히 확인합니다.
 display(prices.head())
 display(prices.tail())
 
+# Date를 가로축, Close를 세로축으로 종가 흐름을 그립니다.
 fig, ax = plt.subplots(figsize=(10, 4))
 ax.plot(prices[&quot;Date&quot;], prices[&quot;Close&quot;], color=&quot;#0F2C59&quot;, linewidth=2)
 ax.set(title=&quot;KODEX 200 Close&quot;, xlabel=&quot;Date&quot;, ylabel=&quot;Close&quot;)
 ax.grid(alpha=0.2)
 plt.show()
 </code></pre>
-<p>첫 실행에서는 CSV가 없으므로 데이터를 받아 저장한다. 그 뒤에는 저장된 CSV를 읽는다. 이
-구조 덕분에 노트북을 다시 실행할 때 공급자 응답이 바뀌거나 잠시 인터넷이 끊겨도 이미 받은
-실습 데이터로 표와 그래프를 확인할 수 있다. 데이터를 새로 받고 싶다면 기존 파일을
-덮어쓰는 대신 날짜와 공급자를 확인한 뒤 의도적으로 갱신해야 한다.</p>
+<p>첫 실행에서는 CSV가 없으므로 데이터를 받아 저장한다. 그다음부터는 같은 CSV를 읽는다.
+인터넷 연결이 잠시 끊겨도 이미 받은 실습 데이터로 표와 그래프를 다시 만들 수 있다. 데이터를
+새로 받고 싶다면 기존 파일을 무심코 덮어쓰지 말고 종목, 기간, 공급자를 먼저 확인한다.</p>
 <hr>
     </section>
     <section class="report-section s4 page-break" id="s4" data-tier="core">
       <div class="report-section__kicker">핵심 본편 · core</div>
-      <h1>행 수보다 종목·날짜 경계·열·그래프를 함께 본다</h1>
-<h2>2026-08-27의 기록된 실행 결과</h2>
-<p>위 호출을 Python 3.12.3의 격리 환경에서 실행한 결과, 2024-01-02부터 2024-03-29까지
-61행이 반환됐다. 열은 <code>Open</code>, <code>High</code>, <code>Low</code>, <code>Close</code>, <code>Volume</code>, <code>Change</code>였고, 인덱스
-이름을 <code>Date</code>로 저장했다. 첫 행의 <code>Close</code>는 34,541, 마지막 행은 36,123이었다.</p>
-<figure class="report-figure" id="fig-5"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 5</span><span class="asset-caption__title">2026-08-27에 <code>NAVER:069500</code>으로 받은 61개 <code>Close</code> 값. 원시 CSV는 공개하지 않고 이 리포트에는 검증된 실행 결과의 선 모양과 경계값만 표시했다.</span></figcaption><img alt="2024년 1월 2일부터 3월 29일까지 FinanceDataReader가 반환한 KODEX 200 Close 열의 선 그래프" src="assets/figs/kodex200-close.svg"></figure>
-<table class="cmp-table" id="table-5"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 5</span><span class="asset-caption__title">FinanceDataReader 0.9.202로 2026-08-27에 확인한 실행 기록.</span></div></caption>
+      <h1>실제 노트북의 표와 그래프로 받은 데이터를 확인한다</h1>
+<h2>코드 셀을 실행하면 표와 차트가 노트북 안에 나타난다</h2>
+<p>위 코드는 설명용 예시로 끝나지 않는다. 실제 데모 노트북에서 셀을 실행하면
+<code>display(prices.head())</code>와 <code>display(prices.tail())</code>의 표가 코드 바로 아래에 나타나고,
+마지막 셀 아래에는 Matplotlib 그래프가 표시된다.</p>
+<figure class="report-figure" id="fig-6"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 6</span><span class="asset-caption__title">실제 실행이 끝난 VS Code 노트북 화면. 위쪽에는 가격표의 처음과 마지막 다섯 행, 아래쪽에는 같은 CSV의 <code>Close</code> 열을 그린 그래프가 보인다.</span></figcaption><img alt="실제로 실행한 Jupyter 노트북에 가격표의 처음과 마지막 행 및 KODEX 200 Close 그래프가 표시된 화면" src="assets/figs/demo-notebook-output.webp"></figure>
+<h2>2026년 8월 27일에 직접 실행해 확인한 결과</h2>
+<p>Python 3.12.3 가상환경에서 실행했을 때 2024년 1월 2일부터 3월 29일까지 61행이 저장됐다.
+열은 <code>Date</code>, <code>Open</code>, <code>High</code>, <code>Low</code>, <code>Close</code>, <code>Volume</code>, <code>Change</code>였고, 첫 행의 <code>Close</code>는
+34,541, 마지막 행은 36,123이었다.</p>
+<figure class="report-figure" id="fig-7"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 7</span><span class="asset-caption__title">실제 노트북에서 사용한 61개 <code>Close</code> 값을 리포트에서 크게 볼 수 있도록 같은 값으로 다시 그린 벡터 그래프. 노트북 실행 여부는 그림 6의 실제 화면에서 확인한다.</span></figcaption><img alt="2024년 1월 2일부터 3월 29일까지 저장된 KODEX 200 Close 61개 값을 크게 다시 그린 선 그래프" src="assets/figs/kodex200-close.svg"></figure>
+<table class="cmp-table" id="table-5"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 5</span><span class="asset-caption__title">FinanceDataReader 0.9.202로 저장한 CSV와 실제 노트북 화면을 맞춰 본 결과.</span></div></caption>
 <thead>
 <tr>
-<th>항목</th>
-<th style="text-align: right;">기록된 값</th>
-<th>확인 이유</th>
+<th>확인 항목</th>
+<th style="text-align: right;">이번 실행의 값</th>
+<th>노트북에서 볼 곳</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>행 수</td>
 <td style="text-align: right;">61</td>
-<td>파일이 비어 있지 않고 지정 기간의 거래일 자료가 들어왔는지 본다</td>
+<td>확인 완료 메시지</td>
 </tr>
 <tr>
-<td>첫 날짜</td>
+<td>시작일</td>
 <td style="text-align: right;">2024-01-02</td>
-<td>시작 경계가 요청과 같은지 본다</td>
+<td>첫 번째 표의 첫 행</td>
 </tr>
 <tr>
-<td>마지막 날짜</td>
+<td>종료일</td>
 <td style="text-align: right;">2024-03-29</td>
-<td>종료 경계가 요청과 같은지 본다</td>
+<td>두 번째 표의 마지막 행</td>
 </tr>
 <tr>
 <td>첫 <code>Close</code></td>
 <td style="text-align: right;">34,541</td>
-<td>노트북 표와 기록된 실행을 대조한다</td>
+<td>첫 번째 표의 첫 행</td>
 </tr>
 <tr>
 <td>마지막 <code>Close</code></td>
 <td style="text-align: right;">36,123</td>
-<td>그래프 끝점과 표의 마지막 행을 대조한다</td>
+<td>두 번째 표의 마지막 행</td>
 </tr>
 <tr>
 <td>최저 <code>Close</code></td>
 <td style="text-align: right;">31,248 (2024-01-17)</td>
-<td>선 그래프의 가장 낮은 지점이 표 안에 있는지 본다</td>
+<td>CSV와 그래프의 가장 낮은 지점</td>
 </tr>
 <tr>
 <td>최고 <code>Close</code></td>
 <td style="text-align: right;">36,123 (2024-03-29)</td>
-<td>선 그래프의 가장 높은 지점이 마지막 행과 맞는지 본다</td>
+<td>CSV 마지막 행과 그래프 끝점</td>
 </tr>
 </tbody>
 </table>
-<p>61이라는 숫자를 영구 정답처럼 외우지는 않는다. 공급자가 과거 자료를 정정하거나
-FinanceDataReader의 처리 방식이 바뀌면 나중의 실행 결과가 달라질 수 있다. 촬영일에는 같은
-호출을 새 환경에서 다시 실행하고, 행 수·열·첫 날짜·마지막 날짜를 이 표와 대조한다. 값이
-달라졌다면 실패를 숨기지 말고 공급자와 버전을 기록한 뒤 리포트와 화면을 함께 갱신한다.</p>
-<h2>표와 그래프는 서로 다른 오류를 찾는다</h2>
-<p>표에서는 열 이름, 날짜, 첫 행과 마지막 행을 정확히 읽을 수 있다. 그래프에서는 시간 순서가
-뒤집혔거나 값이 한 줄로 뭉개졌거나 결측 구간이 큰 문제를 빠르게 발견할 수 있다.
+<p>61행이라는 숫자는 이번에 저장한 파일의 결과다. 공급자가 과거 자료를 고치거나
+FinanceDataReader의 처리 방식이 바뀌면 나중에는 값이 달라질 수 있다. 촬영하거나 다시
+실습할 때에는 행 수, 열 이름, 시작일, 종료일을 새 결과와 맞춰 본다. 달라졌다면 공급자와
+버전을 기록하고 리포트와 화면을 함께 고친다.</p>
+<p>표에서는 열 이름과 정확한 날짜·값을 읽기 쉽다. 그래프에서는 날짜 순서가 뒤집혔는지, 값이
+한 줄로 뭉개졌는지, 큰 빈 구간이 있는지 빠르게 볼 수 있다.
 <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html">Matplotlib의 <code>plot</code> 공식 문서</a>는
-x와 y 값을 선으로 잇는 기본 동작을 설명한다. 이 실습에서 그래프는 투자 신호가 아니라
-<strong>CSV를 날짜 순서로 읽어 <code>Close</code> 열을 표시했다는 확인 화면</strong>이다.</p>
+x와 y 값을 선으로 잇는 기본 동작을 설명한다. 여기서 그래프는 투자 신호가 아니라
+<strong>CSV의 <code>Close</code> 열을 날짜 순서대로 표시했는지 확인하는 화면</strong>이다.</p>
 <hr>
     </section>
     <section class="report-section s5 page-break" id="s5" data-tier="deep">
       <div class="report-section__kicker">심화 부록 · deep</div>
-      <h1>새 커널에서 전체 셀을 실행해야 숨은 순서 의존성이 드러난다</h1>
-<h2>위에서 아래로 한 번에 실행해 본다</h2>
-<p>노트북은 셀을 원하는 순서로 실행할 수 있다. 편리하지만, 앞서 실행한 셀의 변수가 메모리에
-남아 있으면 현재 파일만으로는 실행되지 않는 문제를 놓칠 수 있다.
+      <h1>새 커널에서 노트북을 처음부터 다시 실행한다</h1>
+<h2>Restart와 Run All을 실제로 눌러 본다</h2>
+<p>노트북은 셀을 원하는 순서로 실행할 수 있다. 편리하지만 앞서 실행한 셀의 변수가 메모리에
+남아 있으면, 현재 파일만으로는 실행되지 않는 문제를 놓칠 수 있다.
 <a href="https://code.visualstudio.com/docs/datascience/jupyter-notebooks">VS Code의 Jupyter 공식 문서</a>는
 오른쪽 위에서 커널을 선택하고, 노트북 도구 모음에서 커널을 다시 시작하거나 <code>Run All</code>로
 모든 셀을 실행하는 기능을 안내한다.</p>
-<figure class="report-figure" id="fig-6"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 6</span><span class="asset-caption__title">새 커널에서 <code>Run All</code>을 실행하면 이전 메모리가 아니라 노트북과 로컬 CSV만으로 결과가 만들어지는지 확인할 수 있다.</span></figcaption><img alt="기존 메모리를 지운 새 커널이 노트북 셀을 위에서 아래로 실행하고 같은 CSV에서 같은 표와 그래프를 만드는 확인 절차" src="assets/figs/rerun-proof.svg"></figure>
-<p>다음 순서로 확인한다.</p>
+<figure class="report-figure" id="fig-8"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 8</span><span class="asset-caption__title">실제 데모에서 </em><em>Restart</em><em>를 누른 화면. 다시 시작하면 메모리에 남아 있던 변수가 지워진다. 확인 창에서 Restart를 선택한 뒤 Run All을 누른다.</span></figcaption><img alt="VS Code 노트북의 Restart 단추를 누른 뒤 Jupyter 커널을 다시 시작할지 묻는 실제 확인 창" src="assets/figs/demo-restart-confirm.webp"></figure>
+<figure class="report-figure" id="fig-9"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 9</span><span class="asset-caption__title">커널을 다시 시작하고 </em><em>Run All</em><em>을 마친 실제 화면. 오른쪽 위의 <code>.venv</code> 커널, 도구 모음의 Run All, 각 코드 셀 아래의 초록색 완료 표시를 함께 볼 수 있다.</span></figcaption><img alt="새 커널에서 Run All을 마친 뒤 모든 코드 셀에 초록색 완료 표시가 나타난 실제 VS Code 화면" src="assets/figs/demo-run-all-complete.webp"></figure>
+<figure class="report-figure" id="fig-10"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 10</span><span class="asset-caption__title">일부 셀만 다시 실행하면 이전 메모리에 기대어 우연히 성공할 수 있다. 새 커널에서 첫 셀부터 실행하면 저장된 노트북과 CSV만으로 결과가 만들어지는지 확인할 수 있다.</span></figcaption><img alt="기존 커널에서 일부 셀만 실행하는 경우와 새 커널에서 모든 셀을 실행하는 경우를 비교한 그림" src="assets/figs/rerun-proof.svg"></figure>
+<p>다음 순서로 직접 해 본다.</p>
 <ol>
 <li><code>kodex200_price.ipynb</code>를 저장한다.</li>
 <li>오른쪽 위 커널이 영상 3에서 만든 <code>.venv</code>인지 확인한다.</li>
-<li>노트북 도구 모음에서 <strong>Restart Kernel</strong>을 선택한다.</li>
-<li><strong>Run All</strong>을 눌러 첫 셀부터 마지막 셀까지 기다린다.</li>
-<li>빨간 오류가 없고, 표의 첫·마지막 날짜와 <code>Close</code> 그래프가 다시 보이는지 확인한다.</li>
+<li>노트북 도구 모음에서 <strong>Restart</strong>를 누르고, 확인 창에서 <strong>Restart</strong>를 선택한다.</li>
+<li><strong>Run All</strong>을 눌러 첫 셀부터 마지막 셀까지 실행이 끝날 때까지 기다린다.</li>
+<li>빨간 오류가 없고, 표의 시작일·종료일과 <code>Close</code> 그래프가 다시 나타나는지 확인한다.</li>
 </ol>
-<p>여기서 “같은 결과”는 인터넷의 값이 영원히 고정된다는 뜻이 아니다. 이 노트북은 첫 수집
-결과를 로컬 CSV에 저장하고 이후 셀에서 같은 파일을 읽기 때문에, <strong>같은 CSV와 같은 코드가
-같은 표와 그래프를 만드는지</strong>를 확인한다. CSV를 의도적으로 갱신했다면 새 파일의 공급자,
-기간, 열을 다시 검사한다.</p>
-<p>오류가 나면 Codex에 오류 메시지를 그대로 보여 주되 “고쳐 줘”만 쓰지 않는다. 어떤 셀에서
-멈췄는지, 기대한 파일이 무엇인지, 현재 파일이 실제로 존재하는지를 함께 전달한다. 수정 뒤에는
-다시 커널을 시작하고 <code>Run All</code>을 반복한다. 중간 셀 하나만 성공한 것으로 끝내지 않는다.</p>
+<p>여기서 “같은 결과”는 인터넷의 값이 앞으로도 영원히 같다는 뜻이 아니다. 이 노트북은 처음
+받은 데이터를 로컬 CSV에 저장하고, 이후 실행에서는 그 파일을 다시 읽는다. 따라서 같은
+CSV와 같은 코드로 같은 표와 그래프가 나오는지를 보는 것이다. CSV를 의도적으로 갱신했다면
+새 파일의 공급자, 기간, 열 이름을 다시 확인한다.</p>
+<p>오류가 나면 Codex에 “고쳐 줘”라고만 쓰지 말고 오류 메시지를 그대로 보여 준다. 어느 셀에서
+멈췄는지, 어떤 파일을 찾고 있었는지, 그 파일이 실제로 있는지도 함께 알려 준다. 수정한 뒤에는
+커널을 다시 시작하고 <code>Run All</code>을 반복한다. 중간 셀 하나가 실행됐다는 이유로 끝내지 않는다.</p>
 <hr>
     </section>
     <section class="report-section s6 page-break" id="s6" data-tier="deep">
       <div class="report-section__kicker">심화 부록 · deep</div>
-      <h1>가격표와 선 그래프가 나와도 전략 검증은 시작되지 않았다</h1>
-<h2>이번에 확인한 것은 데이터 수집과 표시다</h2>
-<p>첫 영상에서 퀀트 트레이딩을 판단하려면 입력, 판단 기준, 행동, 과거 검증을 구분해야 한다고
-배웠다. 이번 노트북에는 입력 자료인 가격과 이를 읽는 코드가 있다. 그러나 언제 사고팔지
-정하는 규칙, 실제 거래를 흉내 낸 체결, 수수료와 슬리피지, 성과와 위험 평가는 없다.</p>
-<figure class="report-figure" id="fig-7"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 7</span><span class="asset-caption__title">이번 실습은 데이터 수집과 표시에서 멈춘다. 뒤의 네 칸이 없으므로 선 그래프를 전략 백테스트 결과로 해석할 수 없다.</span></figcaption><img alt="데이터 수집과 표시는 완료됐지만 규칙 거래 비용 성과 평가가 비어 있어 백테스트에 도달하지 않은 단계도" src="assets/figs/not-backtest.svg"></figure>
-<table class="cmp-table" id="table-6"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 6</span><span class="asset-caption__title">이번 결과가 증명하는 것과 전략 검증에 아직 필요한 것.</span></div></caption>
+      <h1>그래프가 나왔다고 백테스트를 한 것은 아니다</h1>
+<h2>이번에 한 일은 데이터 수집·저장·표시까지다</h2>
+<p>첫 영상에서 퀀트 트레이딩을 설명하며 입력, 판단 기준, 행동, 과거 검증을 나눴다. 이번
+노트북에는 입력 자료인 가격과 이를 읽는 코드가 있다. 하지만 언제 사고팔지 정하는 규칙,
+거래를 흉내 낸 체결 기록, 수수료와 슬리피지, 성과와 위험 평가는 없다.</p>
+<figure class="report-figure" id="fig-11"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 11</span><span class="asset-caption__title">이번 실습은 데이터 수집과 표시에서 멈춘다. 매매 규칙, 거래 기록, 비용, 성과 평가가 없으므로 선 그래프를 백테스트 결과로 해석할 수 없다.</span></figcaption><img alt="데이터 수집과 표시는 끝났지만 매매 규칙 거래 비용 성과 평가가 없어 백테스트가 아닌 상태" src="assets/figs/not-backtest.svg"></figure>
+<table class="cmp-table" id="table-6"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 6</span><span class="asset-caption__title">이번 실습으로 확인한 범위와 전략 검증을 위해 앞으로 해야 할 일.</span></div></caption>
 <thead>
 <tr>
-<th>현재 있는 것</th>
-<th>아직 없는 것</th>
-<th>따라서 말할 수 있는 것</th>
+<th>지금 확인한 것</th>
+<th>아직 하지 않은 것</th>
+<th>말할 수 있는 범위</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>KODEX 200 가격 CSV</td>
 <td>매수·매도 규칙</td>
-<td>지정한 상품과 기간의 가격 파일을 만들었다</td>
+<td>지정한 종목과 기간의 가격 파일을 만들었다</td>
 </tr>
 <tr>
 <td>날짜별 <code>Close</code> 선 그래프</td>
 <td>포지션과 거래 기록</td>
-<td>저장된 가격을 시간 순서로 표시했다</td>
+<td>저장된 가격을 날짜 순서대로 표시했다</td>
 </tr>
 <tr>
-<td>새 커널의 전체 실행</td>
-<td>수수료·슬리피지·세금</td>
-<td>노트북이 숨은 메모리 상태 없이 실행됐다</td>
+<td>새 커널에서 전체 실행</td>
+<td>수수료·슬리피지·세금 반영</td>
+<td>노트북이 처음부터 오류 없이 실행됐다</td>
 </tr>
 <tr>
-<td>시작일·종료일·필수 열 검사</td>
-<td>수익률·위험·비교 기준</td>
-<td>기본 파일 계약이 맞는지 확인했다</td>
+<td>시작일·종료일·필수 열 확인</td>
+<td>수익률·위험·비교 기준 계산</td>
+<td>파일 구조와 조회 기간이 요청과 맞았다</td>
 </tr>
 </tbody>
 </table>
-<p>그래프가 오른쪽 위로 올라갔다고 해서 수익을 냈다고 말할 수도 없다. 어느 날 매수했는지,
-보유 비중은 얼마인지, 언제 청산했는지 정하지 않았기 때문이다. 이 차시의 마지막 답은
-다음 뜻을 포함해야 한다.</p>
-<div class="callout--insight"><span class="callout__kicker">읽기 포인트</span><div class="callout__body"><p>요청한 기간의 KODEX 200 가격을 로컬 CSV에 저장하고, 노트북이 그 파일을 읽어 표와
-그래프로 다시 표시하는 것은 확인했다. 그러나 매매 규칙, 체결, 비용, 성과 평가가 없으므로
-전략의 수익성이나 실전 가능성은 확인하지 않았다.</p></div></div>
-<p>이렇게 멈추면 첫 퀀트 작업의 범위가 선명해진다. 다음 과정에서는 날짜와 열의 의미, 휴장일,
-결측치, 수정주가, 공급자 차이를 차례로 다룬다. 전략 백테스트는 그 데이터 점검 뒤에 시작한다.</p>
+<p>그래프가 오른쪽 위로 올라갔다고 해서 전략이 수익을 냈다고 말할 수도 없다. 어느 날
+매수했는지, 얼마나 보유했는지, 언제 매도했는지 정하지 않았기 때문이다. 이번 결과는 다음과
+같이 정리한다.</p>
+<div class="callout--insight"><span class="callout__kicker">읽기 포인트</span><div class="callout__body"><p>요청한 기간의 KODEX 200 가격을 CSV에 저장하고, 노트북이 그 파일을 읽어 표와 그래프로
+다시 표시하는 것까지 확인했다. 매매 규칙, 체결, 비용, 성과 평가가 없으므로 전략의
+수익성이나 실제 운용 가능성은 아직 판단하지 않았다.</p></div></div>
+<p>다음 과정에서는 날짜와 열의 의미, 휴장일, 결측치, 수정주가, 공급자 차이를 차례로 다룬다.
+전략 백테스트는 데이터를 먼저 점검한 뒤 시작한다.</p>
 <hr>
     </section>
     <section class="report-appendix page-break" id="appendix-sources">
       <div class="report-section__kicker">부록 A</div>
-      <h1>용어와 검증 기록</h1>
+      <h1>용어, 실행 기록, 참고 자료</h1>
 <h2>핵심 용어</h2>
 <table class="cmp-table" id="table-7"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 7</span><span class="asset-caption__title">첫 노트북 실습에서 사용하는 용어.</span></div></caption>
 <thead>
@@ -486,7 +510,7 @@ x와 y 값을 선으로 잇는 기본 동작을 설명한다. 이 실습에서 �
 </tr>
 <tr>
 <td>커널</td>
-<td>노트북의 Python 코드를 실행하고 변수를 메모리에 보관하는 프로세스</td>
+<td>노트북의 Python 코드를 실행하고 변수를 메모리에 보관하는 프로그램</td>
 </tr>
 <tr>
 <td><code>Run All</code></td>
@@ -494,67 +518,86 @@ x와 y 값을 선으로 잇는 기본 동작을 설명한다. 이 실습에서 �
 </tr>
 <tr>
 <td>공급자</td>
-<td>가격 데이터를 실제로 돌려주는 외부 경로. 이 차시에서는 NAVER 경로를 명시한다</td>
+<td>가격 데이터를 돌려주는 외부 경로. 이 차시에서는 NAVER 경로를 코드에 적는다</td>
 </tr>
 <tr>
 <td>백테스트</td>
-<td>정해진 매매 규칙과 체결·비용 가정을 과거 데이터에 적용해 성과와 위험을 평가하는 절차</td>
+<td>정해진 매매 규칙과 체결·비용 가정을 과거 데이터에 적용해 성과와 위험을 살펴보는 절차</td>
 </tr>
 </tbody>
 </table>
-<h2>로컬 재현 기록</h2>
-<p>2026-08-27에 별도 Python 가상 환경을 만들고, <code>NAVER:069500</code> 호출로 CSV를 생성한 다음
-같은 파일을 다시 읽어 표와 Matplotlib 선 그래프를 만들었다. 두 번째 실행에서는 네트워크
-호출 없이 저장된 CSV를 읽었고, 파일의 SHA-256은 두 실행에서 모두
-<code>99daaa462e9c2daa8ea963f8a117cff9195a2686ec000705f2411f2d1a034cbb</code>였다. 이 해시는
-공개 정답이 아니라 이번 제작 검증에 사용한 로컬 파일이 두 실행 사이에서 바뀌지 않았다는
-감사 기록이다. 원시 CSV 자체는 강의 저장소에 넣지 않는다.</p>
+<h2>실제 데모와 재실행 기록</h2>
+<p>2026년 8월 27일에 별도의 <code>course-01-practice</code> 폴더와 Python 3.12.3 가상환경을 만들었다.
+<code>NAVER:069500</code>으로 CSV를 생성한 뒤 VS Code에서 노트북을 열어 커널을 다시 시작하고
+<code>Run All</code>을 실행했다. 표의 처음·마지막 다섯 행과 Matplotlib 그래프가 다시 나타나는
+과정을 실제로 녹화했고, 그림 5·6·8·9는 그 데모 화면에서 가져왔다.</p>
+<p>CSV의 SHA-256은
+<code>99daaa462e9c2daa8ea963f8a117cff9195a2686ec000705f2411f2d1a034cbb</code>였다. 이 값은 정답으로
+외울 숫자가 아니다. 처음 실행과 새 커널 전체 실행 사이에서 같은 CSV를 사용했는지 확인하기
+위해 남긴 제작 기록이다.</p>
 <h2>외부 1차 자료에서 확인한 내용</h2>
-<table class="cmp-table" id="table-8"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 8</span><span class="asset-caption__title">상품 정체, 데이터 경로, 파일 입출력, 노트북 실행을 확인한 공식 자료와 프로젝트 원문. FinanceDataReader는 거래소나 공급 사이트의 공식 서비스가 아니라 이 차시가 선택한 오픈소스 접근 도구다.</span></div></caption>
+<table class="cmp-table" id="table-8"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 8</span><span class="asset-caption__title">종목 정보, 데이터 수집 방법, 파일 입출력, 노트북 실행 방법을 확인한 공식 문서와 프로젝트 원문. FinanceDataReader는 거래소나 공급 사이트의 공식 서비스가 아니라 이번 실습에서 사용한 오픈소스 도구다.</span></div></caption>
 <thead>
 <tr>
 <th>자료</th>
-<th>이 리포트에서 확인한 내용</th>
+<th>확인한 내용</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>삼성자산운용, <a href="https://m.samsungfund.com/etf/product/view.do?id=2ETF01">KODEX 200 공식 상품 페이지</a></td>
-<td>상품명이 KODEX 200이고 종목코드가 <code>069500</code>이며 KOSPI 200 지수를 추적한다는 상품 정체</td>
+<td>상품명, 종목코드 <code>069500</code>, KOSPI 200 추적 상품이라는 설명</td>
 </tr>
 <tr>
 <td>한국거래소, <a href="https://openapi.krx.co.kr/contents/OPP/INFO/service/OPPINFO004.cmd">OPEN API 서비스 목록</a></td>
-<td>ETF 일별매매정보를 2010-01-04 이후 데이터로 제공한다는 공식 데이터 범위</td>
+<td>ETF 일별매매정보의 제공 범위</td>
 </tr>
 <tr>
 <td>한국거래소, <a href="https://openapi.krx.co.kr/contents/OPP/INFO/OPPINFO003.jsp">OPEN API 서비스 이용방법</a></td>
-<td>회원가입·인증키 신청·관리자 승인·개별 서비스 신청과 승인이 필요한 이용 절차</td>
+<td>회원가입, 인증키 신청, 관리자 승인, 개별 서비스 신청 절차</td>
 </tr>
 <tr>
 <td>FinanceDataReader, <a href="https://github.com/FinanceData/FinanceDataReader">공식 GitHub 저장소와 사용 예</a></td>
-<td><code>DataReader</code>의 국내 종목 가격 호출, <code>NAVER:</code> 공급자 접두사와 국내 종목의 기본 경로</td>
+<td>국내 종목 가격 호출과 <code>NAVER:</code> 공급자 접두사</td>
 </tr>
 <tr>
 <td>OpenAI, <a href="https://developers.openai.com/codex/ide">Codex IDE 공식 문서</a></td>
-<td>열린 파일과 선택 영역을 문맥으로 작업하고 에디터에서 변경을 검토하는 IDE 흐름</td>
+<td>열린 파일을 문맥으로 작업하고 에디터에서 변경 내용을 검토하는 흐름</td>
 </tr>
 <tr>
 <td>Microsoft, <a href="https://code.visualstudio.com/docs/datascience/jupyter-notebooks">Jupyter Notebooks in VS Code</a></td>
-<td>커널 선택, 모든 셀 실행, 출력 지우기와 커널 재시작을 제공하는 노트북 기능</td>
+<td>커널 선택, Run All, 출력 지우기, 커널 다시 시작 기능</td>
 </tr>
 <tr>
 <td>pandas, <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_csv.html"><code>DataFrame.to_csv</code></a>와 <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html"><code>read_csv</code></a></td>
-<td>표를 CSV로 저장하고 다시 읽는 API의 동작과 주요 매개변수</td>
+<td>표를 CSV로 저장하고 다시 읽는 방법</td>
 </tr>
 <tr>
 <td>Matplotlib, <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html"><code>pyplot.plot</code></a></td>
-<td>x와 y 값을 선으로 표시하는 기본 그래프 동작</td>
+<td>x와 y 값을 선으로 표시하는 기본 동작</td>
 </tr>
 </tbody>
 </table>
-<p>표 1·3·4·6과 그림 1·3·4·6·7의 완료 기준은 외부 기관이 정한 표준이 아니다. 초보자가
-Codex의 답변과 실제 파일·실행 결과를 대조하도록 AIML Quant가 만든 학습용 점검 기준이다.
-이 기준을 통과해도 데이터 품질, 전략 수익성, 위험, 실전 가능성이 증명되지는 않는다.</p>
+<p>표 1·3·4·6과 그림 1·3·4·10·11의 확인 방법은 외부 기관이 정한 표준이 아니다. 초보자가
+Codex의 답변과 실제 파일·실행 결과를 맞춰 보도록 AIML Quant가 만든 학습용 점검 방법이다.
+이 항목을 모두 확인해도 데이터 품질, 전략 수익성, 위험, 실제 운용 가능성이 보장되지는 않는다.</p>
+<hr>
+    </section>
+    <section class="report-appendix page-break" id="downloads">
+      <div class="report-section__kicker">부록 B</div>
+      <h1>실습 파일 내려받기</h1>
+<p>아래 파일은 이 리포트와 실제 데모에 사용한 <strong>2026년 8월 27일 실행본</strong>이다. 먼저 세 파일을
+같은 <code>course-01-practice</code> 폴더 구조에 놓고, 영상 3에서 만든 <code>.venv</code>를 커널로 선택한 뒤
+노트북을 실행한다. CSV는 학습 결과를 고정하기 위한 파일이며 최신 시세를 자동으로 반영하지
+않는다.</p>
+<ul>
+<li><a href="assets/downloads/kodex200_price.ipynb">Jupyter 노트북 내려받기 — kodex200_price.ipynb</a></li>
+<li><a href="assets/downloads/kodex200_price.csv">KODEX 200 가격 CSV 내려받기 — kodex200_price.csv</a></li>
+<li><a href="assets/downloads/requirements.txt">패키지 목록 내려받기 — requirements.txt</a></li>
+</ul>
+<p>파일을 각각 저장했다면 <code>data/kodex200_price.csv</code>,
+<code>notebooks/kodex200_price.ipynb</code>, <code>requirements.txt</code> 경로로 배치한다. 노트북에서
+<strong>Restart → Run All</strong>을 실행해 그림 6과 같은 표와 그래프가 나타나는지 확인한다.</p>
     </section>
     </article>
   </main>
