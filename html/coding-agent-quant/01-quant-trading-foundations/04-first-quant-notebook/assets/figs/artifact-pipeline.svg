@@ -1,58 +1,117 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
-  <title id="title">가격 공급자에서 CSV와 노트북 출력으로 이어지는 파일 흐름</title>
-  <desc id="desc">NAVER 가격 경로에서 처음 한 번 데이터를 받아 로컬 CSV에 저장하고, 노트북이 CSV를 읽고 검사한 뒤 표와 선 그래프를 만든다.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">가격 공급자에서 CSV, 노트북, 표와 그래프로 이어지는 파일 흐름</title>
+  <desc id="desc">CSV가 없을 때만 NAVER 경로에서 가격을 받고, 로컬 CSV에 저장한 뒤 Jupyter 노트북이 파일을 읽고 검사해 가격표와 Close 선 그래프를 만든다. 다음 실행부터는 네트워크 대신 같은 CSV를 읽는다.</desc>
   <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#0F2C59" flood-opacity="0.12"/>
+    </filter>
     <marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
       <path d="M0 0L18 5L0 10Z" fill="#0F2C59"/>
     </marker>
+    <marker id="arrow-ok" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
+      <path d="M0 0L18 5L0 10Z" fill="#0B7A6A"/>
+    </marker>
     <style>
       text{font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif;fill:#0F172A}
-      .kicker{font-size:19px;font-weight:700;fill:#0F2C59}
-      .main{font-size:29px;font-weight:700}
-      .sub{font-size:19px;font-weight:400;fill:#52606D}
-      .bar{font-size:24px;font-weight:700;fill:#0B7A6A}
+      .meta{font-size:16px;font-weight:700;letter-spacing:1.2px;fill:#52606D}
+      .step{font-size:17px;font-weight:700;fill:#0B7A6A}
+      .main{font-size:27px;font-weight:700}
+      .sub{font-size:17px;font-weight:400;fill:#52606D}
+      .chip{font-size:15px;font-weight:700}
+      .bar{font-size:26px;font-weight:700;fill:#0B7A6A}
       .arrow{fill:none;stroke:#0F2C59;stroke-width:3;marker-end:url(#arrow)}
+      .arrow-ok{fill:none;stroke:#0B7A6A;stroke-width:3;marker-end:url(#arrow-ok)}
+      .icon{fill:none;stroke:#0F2C59;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+      .icon-warn{fill:none;stroke:#B45309;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+      .icon-ok{fill:none;stroke:#0B7A6A;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
     </style>
   </defs>
-  <rect width="1200" height="720" fill="#FFFFFF"/>
+  <rect width="1200" height="700" fill="#FFFFFF"/>
+  <g id="background" aria-hidden="true">
+    <text class="meta" x="35" y="58">LOCAL-FIRST DATA FLOW</text>
+    <text class="meta" x="1165" y="58" text-anchor="end">수집과 표시를 파일로 분리한다</text>
+    <path d="M35 74H1165" stroke="#E7EEF9" stroke-width="2"/>
+  </g>
 
-  <rect x="35" y="175" width="245" height="285" rx="14" fill="#FFF0DF" stroke="#B45309" stroke-width="2"/>
-  <text class="kicker" x="61" y="218" fill="#B45309">가격 데이터</text>
-  <text class="main" x="61" y="272">NAVER:069500</text>
-  <text class="sub" x="61" y="326">CSV가 없을 때만</text>
-  <text class="sub" x="61" y="357">네트워크로 수집</text>
-  <rect x="61" y="392" width="160" height="34" rx="17" fill="#FFFFFF" stroke="#B45309"/>
-  <text class="kicker" x="141" y="416" text-anchor="middle" fill="#B45309">처음 한 번</text>
+  <g id="main-connectors" aria-hidden="true">
+    <path class="arrow" d="M285 292H325"/>
+    <path class="arrow" d="M575 292H615"/>
+    <path class="arrow" d="M865 292H905"/>
+    <text class="meta" x="305" y="266" text-anchor="middle">저장</text>
+    <text class="meta" x="595" y="266" text-anchor="middle">읽기</text>
+    <text class="meta" x="885" y="266" text-anchor="middle">표시</text>
+  </g>
 
-  <rect x="330" y="175" width="245" height="285" rx="14" fill="#E7EEF9" stroke="#0F2C59" stroke-width="2"/>
-  <text class="kicker" x="356" y="218">저장 파일</text>
-  <text class="main" x="356" y="272">가격 CSV</text>
-  <text class="sub" x="356" y="326">Date · OHLC</text>
-  <text class="sub" x="356" y="357">Volume · Change</text>
-  <rect x="356" y="392" width="170" height="34" rx="17" fill="#FFFFFF" stroke="#0F2C59"/>
-  <text class="kicker" x="441" y="416" text-anchor="middle">CSV로 저장</text>
+  <g id="source-provider" filter="url(#shadow)">
+    <rect x="35" y="125" width="250" height="335" rx="20" fill="#FFF0DF" stroke="#B45309" stroke-width="2"/>
+    <rect x="59" y="153" width="72" height="72" rx="18" fill="#FFFFFF" stroke="#B45309"/>
+    <g class="icon-warn" transform="translate(72 166)">
+      <ellipse cx="23" cy="8" rx="20" ry="7"/><path d="M3 8V37C3 41 12 45 23 45S43 41 43 37V8"/>
+      <path d="M3 22C3 26 12 30 23 30S43 26 43 22"/>
+    </g>
+    <text class="step" x="150" y="177" fill="#B45309">01</text>
+    <text class="meta" x="150" y="204">가격 공급자</text>
+    <text class="main" x="59" y="274">NAVER:069500</text>
+    <text class="sub" x="59" y="319">CSV가 없을 때만</text>
+    <text class="sub" x="59" y="347">네트워크로 수집</text>
+    <rect x="59" y="398" width="132" height="32" rx="16" fill="#FFFFFF" stroke="#B45309"/>
+    <text class="chip" x="125" y="420" text-anchor="middle" fill="#B45309">처음 한 번</text>
+  </g>
 
-  <rect x="625" y="175" width="245" height="285" rx="14" fill="#FFFFFF" stroke="#0F2C59" stroke-width="2"/>
-  <text class="kicker" x="651" y="218">실행과 설명</text>
-  <text class="main" x="651" y="272">Jupyter 노트북</text>
-  <text class="sub" x="651" y="326">read_csv</text>
-  <text class="sub" x="651" y="357">열 · 시작일 · 종료일 확인</text>
-  <rect x="651" y="392" width="170" height="34" rx="17" fill="#FFFFFF" stroke="#0F2C59"/>
-  <text class="kicker" x="736" y="416" text-anchor="middle">셀 순서대로</text>
+  <g id="local-csv" filter="url(#shadow)">
+    <rect x="325" y="125" width="250" height="335" rx="20" fill="#E7EEF9" stroke="#0F2C59" stroke-width="2"/>
+    <rect x="349" y="153" width="72" height="72" rx="18" fill="#FFFFFF" stroke="#C7D2E1"/>
+    <g class="icon" transform="translate(363 165)">
+      <path d="M4 2H30L44 16V47H4Z"/><path d="M30 2V17H44M12 27H36M12 36H36"/>
+    </g>
+    <text class="step" x="440" y="177">02</text>
+    <text class="meta" x="440" y="204">로컬 저장</text>
+    <text class="main" x="349" y="274">가격 CSV</text>
+    <text class="sub" x="349" y="319">Date · OHLC</text>
+    <text class="sub" x="349" y="347">Volume · Change</text>
+    <rect x="349" y="398" width="132" height="32" rx="16" fill="#FFFFFF" stroke="#0F2C59"/>
+    <text class="chip" x="415" y="420" text-anchor="middle" fill="#0F2C59">파일로 남긴다</text>
+  </g>
 
-  <rect x="920" y="175" width="245" height="285" rx="14" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
-  <text class="kicker" x="946" y="218" fill="#0B7A6A">노트북 출력</text>
-  <text class="main" x="946" y="272">가격표</text>
-  <text class="main" x="946" y="310">Close 선 그래프</text>
-  <text class="sub" x="946" y="357">첫날 · 마지막 날</text>
-  <rect x="946" y="392" width="170" height="34" rx="17" fill="#FFFFFF" stroke="#0B7A6A"/>
-  <text class="kicker" x="1031" y="416" text-anchor="middle" fill="#0B7A6A">직접 확인</text>
+  <g id="jupyter-notebook" filter="url(#shadow)">
+    <rect x="615" y="125" width="250" height="335" rx="20" fill="#FFFFFF" stroke="#0F2C59" stroke-width="2"/>
+    <rect x="639" y="153" width="72" height="72" rx="18" fill="#E7EEF9" stroke="#C7D2E1"/>
+    <g class="icon" transform="translate(653 166)">
+      <rect x="4" y="2" width="42" height="44" rx="4"/><path d="M12 13H38M12 23H38M12 33H27"/>
+      <path class="icon-ok" d="M29 36L35 42L46 29"/>
+    </g>
+    <text class="step" x="730" y="177">03</text>
+    <text class="meta" x="730" y="204">읽기와 검사</text>
+    <text class="main" x="639" y="274">Jupyter 노트북</text>
+    <text class="sub" x="639" y="319">read_csv</text>
+    <text class="sub" x="639" y="347">열 · 시작일 · 종료일</text>
+    <rect x="639" y="398" width="132" height="32" rx="16" fill="#E7EEF9" stroke="#0F2C59"/>
+    <text class="chip" x="705" y="420" text-anchor="middle" fill="#0F2C59">셀 순서대로</text>
+  </g>
 
-  <path class="arrow" d="M280 318H330"/>
-  <path class="arrow" d="M575 318H625"/>
-  <path class="arrow" d="M870 318H920"/>
+  <g id="notebook-output" filter="url(#shadow)">
+    <rect x="905" y="125" width="260" height="335" rx="20" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
+    <rect x="929" y="153" width="72" height="72" rx="18" fill="#FFFFFF" stroke="#0B7A6A"/>
+    <g class="icon-ok" transform="translate(942 166)">
+      <path d="M2 43V3M2 43H47"/><path d="M9 34L20 25L30 29L43 11"/>
+      <circle cx="9" cy="34" r="3" fill="#0B7A6A" stroke="none"/><circle cx="43" cy="11" r="3" fill="#0B7A6A" stroke="none"/>
+    </g>
+    <text class="step" x="1020" y="177">04</text>
+    <text class="meta" x="1020" y="204">노트북 출력</text>
+    <text class="main" x="929" y="274">가격표</text>
+    <text class="main" x="929" y="311">Close 선 그래프</text>
+    <text class="sub" x="929" y="352">첫날 · 마지막 날</text>
+    <rect x="929" y="398" width="132" height="32" rx="16" fill="#FFFFFF" stroke="#0B7A6A"/>
+    <text class="chip" x="995" y="420" text-anchor="middle" fill="#0B7A6A">직접 확인</text>
+  </g>
 
-  <rect x="235" y="535" width="730" height="100" rx="14" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
-  <text class="bar" x="600" y="579" text-anchor="middle">두 번째 실행부터는 같은 로컬 CSV를 다시 읽는다</text>
-  <text class="sub" x="600" y="610" text-anchor="middle">가격을 받는 과정과 화면에 표시하는 과정을 분리한다</text>
+  <g id="local-rerun" aria-label="다음 실행에서는 CSV에서 노트북으로 바로 이어지는 흐름">
+    <path class="arrow-ok" d="M450 460V510H740V460"/>
+    <text class="meta" x="595" y="540" text-anchor="middle" fill="#0B7A6A">NEXT RUN · 저장된 CSV를 바로 읽는다</text>
+  </g>
+  <g id="pipeline-result" filter="url(#shadow)">
+    <rect x="210" y="558" width="780" height="105" rx="20" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
+    <text class="bar" x="600" y="606" text-anchor="middle">가격을 받는 과정과 화면에 표시하는 과정을 분리한다</text>
+    <text class="sub" x="600" y="638" text-anchor="middle">로컬 CSV가 남으므로 같은 파일로 표와 그래프를 다시 만들 수 있다</text>
+  </g>
 </svg>

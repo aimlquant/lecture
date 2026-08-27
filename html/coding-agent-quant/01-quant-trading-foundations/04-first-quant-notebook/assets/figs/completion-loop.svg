@@ -1,57 +1,117 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
-  <title id="title">요청에서 새 커널 전체 실행까지 이어지는 완료 흐름</title>
-  <desc id="desc">요청 조건, 실제 파일, 표와 그래프, 새 커널 전체 실행의 네 단계를 차례로 확인하는 흐름이다.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">요청 조건에서 새 커널 전체 실행까지 이어지는 네 단계 확인 흐름</title>
+  <desc id="desc">종목과 기간을 정한 뒤 실제 파일, 노트북 출력, 새 커널 전체 실행을 차례로 확인하고 Codex의 답변과 실제 결과를 맞춰 보는 흐름이다.</desc>
   <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#0F2C59" flood-opacity="0.12"/>
+    </filter>
     <marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
       <path d="M0 0L18 5L0 10Z" fill="#0F2C59"/>
     </marker>
+    <marker id="arrow-ok" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
+      <path d="M0 0L18 5L0 10Z" fill="#0B7A6A"/>
+    </marker>
     <style>
       text{font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif;fill:#0F172A}
-      .step{font-size:22px;font-weight:700;fill:#0F2C59}
-      .main{font-size:31px;font-weight:700}
-      .sub{font-size:20px;font-weight:400;fill:#52606D}
-      .verdict{font-size:30px;font-weight:700;fill:#0B7A6A}
+      .meta{font-size:17px;font-weight:700;letter-spacing:1.5px;fill:#52606D}
+      .step{font-size:18px;font-weight:700;fill:#0B7A6A}
+      .main{font-size:28px;font-weight:700}
+      .sub{font-size:17px;font-weight:400;fill:#52606D}
+      .chip{font-size:16px;font-weight:700;fill:#0F2C59}
+      .verdict{font-size:28px;font-weight:700;fill:#0B7A6A}
       .arrow{fill:none;stroke:#0F2C59;stroke-width:3;marker-end:url(#arrow)}
+      .arrow-ok{fill:none;stroke:#0B7A6A;stroke-width:3;marker-end:url(#arrow-ok)}
+      .icon{fill:none;stroke:#0F2C59;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+      .icon-ok{fill:none;stroke:#0B7A6A;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
     </style>
   </defs>
-  <rect width="1200" height="680" fill="#FFFFFF"/>
-
-  <g>
-    <rect x="40" y="145" width="240" height="265" rx="14" fill="#E7EEF9" stroke="#0F2C59" stroke-width="2"/>
-    <text class="step" x="66" y="188">01 · 조건 정하기</text>
-    <text class="main" x="66" y="250">종목·기간</text>
-    <text class="main" x="66" y="291">파일·확인 방법</text>
-    <text class="sub" x="66" y="345">069500</text>
-    <text class="sub" x="66" y="377">2024-01-02~03-29</text>
-
-    <rect x="335" y="145" width="240" height="265" rx="14" fill="#FFFFFF" stroke="#0F2C59" stroke-width="2"/>
-    <text class="step" x="361" y="188">02 · 파일 확인</text>
-    <text class="main" x="361" y="250">CSV</text>
-    <text class="main" x="361" y="291">노트북</text>
-    <text class="sub" x="361" y="345">경로와 이름</text>
-    <text class="sub" x="361" y="377">실제 존재 여부</text>
-
-    <rect x="630" y="145" width="240" height="265" rx="14" fill="#FFFFFF" stroke="#0F2C59" stroke-width="2"/>
-    <text class="step" x="656" y="188">03 · 출력 확인</text>
-    <text class="main" x="656" y="250">가격표</text>
-    <text class="main" x="656" y="291">Close 선 그래프</text>
-    <text class="sub" x="656" y="345">첫날·마지막 날</text>
-    <text class="sub" x="656" y="377">빈 화면·오류 확인</text>
-
-    <rect x="925" y="145" width="240" height="265" rx="14" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
-    <text class="step" x="951" y="188" fill="#0B7A6A">04 · 처음부터</text>
-    <text class="main" x="951" y="250">Restart</text>
-    <text class="main" x="951" y="291">Run All</text>
-    <text class="sub" x="951" y="345">새 커널</text>
-    <text class="sub" x="951" y="377">모든 셀 완료</text>
+  <rect width="1200" height="700" fill="#FFFFFF"/>
+  <g id="background" aria-hidden="true">
+    <path d="M42 88H1158" stroke="#E7EEF9" stroke-width="2"/>
+    <text class="meta" x="42" y="72">CHECKPOINT 01—04</text>
+    <text class="meta" x="1158" y="72" text-anchor="end">REQUEST → FILES → OUTPUT → RERUN</text>
   </g>
 
-  <path class="arrow" d="M280 278H335"/>
-  <path class="arrow" d="M575 278H630"/>
-  <path class="arrow" d="M870 278H925"/>
+  <g id="connectors" aria-hidden="true">
+    <path class="arrow" d="M288 286H332"/>
+    <path class="arrow" d="M578 286H622"/>
+    <path class="arrow" d="M868 286H912"/>
+    <path class="arrow-ok" d="M1035 445V480H600V535"/>
+  </g>
 
-  <rect x="180" y="520" width="840" height="105" rx="14" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
-  <text class="verdict" x="600" y="566" text-anchor="middle">Codex의 답변과 실제 파일·실행 결과를 함께 확인한다</text>
-  <text class="sub" x="600" y="600" text-anchor="middle">같은 로컬 CSV와 같은 노트북 → 같은 표와 그래프</text>
-  <path class="arrow" d="M1045 410V462H600V520"/>
+  <g id="step-01-request" filter="url(#shadow)">
+    <rect x="42" y="125" width="246" height="320" rx="18" fill="#E7EEF9" stroke="#0F2C59" stroke-width="2"/>
+    <rect x="66" y="153" width="70" height="70" rx="18" fill="#FFFFFF" stroke="#C7D2E1"/>
+    <g class="icon" transform="translate(78 165)">
+      <circle cx="23" cy="23" r="17"/><circle cx="23" cy="23" r="7"/>
+      <path d="M23 0V8M23 38V46M0 23H8M38 23H46"/>
+    </g>
+    <text class="step" x="154" y="178">01</text>
+    <text class="meta" x="154" y="205">요청 조건</text>
+    <text class="main" x="66" y="270">종목·기간</text>
+    <text class="main" x="66" y="307">파일·확인 방법</text>
+    <text class="sub" x="66" y="352">069500 · 2024-01-02</text>
+    <text class="sub" x="66" y="380">~ 2024-03-29</text>
+    <rect x="66" y="401" width="128" height="28" rx="14" fill="#FFFFFF" stroke="#C7D2E1"/>
+    <text class="chip" x="130" y="421" text-anchor="middle">먼저 정한다</text>
+  </g>
+
+  <g id="step-02-files" filter="url(#shadow)">
+    <rect x="332" y="125" width="246" height="320" rx="18" fill="#FFFFFF" stroke="#0F2C59" stroke-width="2"/>
+    <rect x="356" y="153" width="70" height="70" rx="18" fill="#E7EEF9" stroke="#C7D2E1"/>
+    <g class="icon" transform="translate(368 166)">
+      <path d="M3 10H19L25 16H43V42H3Z"/><path d="M3 18H43"/>
+      <path class="icon-ok" d="M13 31L19 36L31 25"/>
+    </g>
+    <text class="step" x="444" y="178">02</text>
+    <text class="meta" x="444" y="205">실제 파일</text>
+    <text class="main" x="356" y="270">CSV</text>
+    <text class="main" x="356" y="307">Jupyter 노트북</text>
+    <text class="sub" x="356" y="352">경로와 파일 이름</text>
+    <text class="sub" x="356" y="380">내용과 크기 확인</text>
+    <rect x="356" y="401" width="128" height="28" rx="14" fill="#E7EEF9" stroke="#C7D2E1"/>
+    <text class="chip" x="420" y="421" text-anchor="middle">직접 연다</text>
+  </g>
+
+  <g id="step-03-output" filter="url(#shadow)">
+    <rect x="622" y="125" width="246" height="320" rx="18" fill="#FFFFFF" stroke="#0F2C59" stroke-width="2"/>
+    <rect x="646" y="153" width="70" height="70" rx="18" fill="#E7EEF9" stroke="#C7D2E1"/>
+    <g class="icon" transform="translate(658 165)">
+      <path d="M3 5H44V42H3Z"/><path d="M3 15H44M13 15V42"/>
+      <path class="icon-ok" d="M19 34L26 27L32 31L41 20"/>
+    </g>
+    <text class="step" x="734" y="178">03</text>
+    <text class="meta" x="734" y="205">노트북 출력</text>
+    <text class="main" x="646" y="270">가격표</text>
+    <text class="main" x="646" y="307">Close 선 그래프</text>
+    <text class="sub" x="646" y="352">첫날·마지막 날</text>
+    <text class="sub" x="646" y="380">빈 화면·오류 확인</text>
+    <rect x="646" y="401" width="128" height="28" rx="14" fill="#E7EEF9" stroke="#C7D2E1"/>
+    <text class="chip" x="710" y="421" text-anchor="middle">눈으로 본다</text>
+  </g>
+
+  <g id="step-04-rerun" filter="url(#shadow)">
+    <rect x="912" y="125" width="246" height="320" rx="18" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
+    <rect x="936" y="153" width="70" height="70" rx="18" fill="#FFFFFF" stroke="#C7D2E1"/>
+    <g class="icon-ok" transform="translate(948 165)">
+      <path d="M39 17A18 18 0 1 0 40 31"/><path d="M39 6V18H27"/>
+      <path d="M14 27L21 34L34 20"/>
+    </g>
+    <text class="step" x="1024" y="178">04</text>
+    <text class="meta" x="1024" y="205">새 커널</text>
+    <text class="main" x="936" y="270">Restart</text>
+    <text class="main" x="936" y="307">Run All</text>
+    <text class="sub" x="936" y="352">메모리를 비우고</text>
+    <text class="sub" x="936" y="380">모든 셀 완료</text>
+    <rect x="936" y="401" width="128" height="28" rx="14" fill="#FFFFFF" stroke="#0B7A6A"/>
+    <text class="chip" x="1000" y="421" text-anchor="middle" fill="#0B7A6A">처음부터</text>
+  </g>
+
+  <g id="verified-result" filter="url(#shadow)">
+    <rect x="180" y="535" width="840" height="112" rx="20" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
+    <circle cx="234" cy="591" r="27" fill="#FFFFFF" stroke="#0B7A6A" stroke-width="2"/>
+    <path class="icon-ok" d="M219 591L230 602L250 580"/>
+    <text class="verdict" x="600" y="585" text-anchor="middle">답변과 실제 파일·실행 결과를 함께 확인한다</text>
+    <text class="sub" x="600" y="617" text-anchor="middle">같은 로컬 CSV와 같은 노트북에서 같은 표와 그래프가 다시 나타나는가</text>
+  </g>
 </svg>

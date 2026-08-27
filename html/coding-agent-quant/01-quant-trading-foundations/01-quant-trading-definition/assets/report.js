@@ -228,14 +228,16 @@
   // ===== Fullscreen image viewer with zoom / pan =====
   function setupImageLightbox() {
     var targets = Array.from(document.querySelectorAll([
-      '.report-figure > img',
-      '.report-figure > svg',
-      '.svg-figure > img',
-      '.svg-figure > svg',
+      '.report-figure img',
+      '.report-figure svg',
+      '.svg-figure img',
+      '.svg-figure svg',
       '.report-section > img',
       '.report-appendix > img'
     ].join(', '))).filter(function (target) {
-      return !target.closest('a') && !target.closest('.report-lightbox');
+      return !target.closest('a')
+        && !target.closest('.report-lightbox')
+        && !(target.tagName.toLowerCase() === 'svg' && target.ownerSVGElement);
     });
     if (!targets.length) return;
 
@@ -291,7 +293,9 @@
 
     function getLabel(target) {
       var figure = target.closest('figure');
-      var caption = figure && figure.querySelector('.asset-caption__title, figcaption');
+      var caption = figure && (
+        figure.querySelector('.asset-caption__title') || figure.querySelector('figcaption')
+      );
       return (caption && caption.textContent.trim())
         || target.getAttribute('alt')
         || target.getAttribute('aria-label')
@@ -395,12 +399,13 @@
     }
 
     targets.forEach(function (target) {
+      var label = getLabel(target);
       target.dataset.reportZoomable = 'true';
       target.tabIndex = 0;
       target.setAttribute('role', 'button');
       target.setAttribute('aria-haspopup', 'dialog');
-      target.setAttribute('aria-label', getLabel(target) + ' — 전체화면으로 확대');
-      if (!target.title) target.title = '클릭하여 전체화면으로 확대';
+      target.setAttribute('aria-label', label + ' — 전체 화면으로 확대');
+      if (!target.title) target.title = '클릭하여 전체 화면으로 확대';
       target.addEventListener('click', function () { openLightbox(target); });
       target.addEventListener('keydown', function (event) {
         if (event.key === 'Enter' || event.key === ' ') {
@@ -409,6 +414,25 @@
         }
       });
       target.addEventListener('dragstart', function (event) { event.preventDefault(); });
+
+      var figure = target.closest('.report-figure, .svg-figure');
+      if (figure) {
+        var trigger = document.createElement('button');
+        trigger.type = 'button';
+        trigger.className = 'report-figure__zoom-trigger';
+        trigger.setAttribute('aria-label', label + ' — 전체 화면으로 보기');
+        trigger.innerHTML = '<span aria-hidden="true">⛶</span><span>전체 화면으로 보기</span>';
+        trigger.addEventListener('click', function (event) {
+          event.preventDefault();
+          event.stopPropagation();
+          openLightbox(target);
+        });
+        var visualRoot = target;
+        while (visualRoot.parentElement && visualRoot.parentElement !== figure) {
+          visualRoot = visualRoot.parentElement;
+        }
+        figure.insertBefore(trigger, visualRoot);
+      }
     });
 
     lightbox.addEventListener('click', function (event) {

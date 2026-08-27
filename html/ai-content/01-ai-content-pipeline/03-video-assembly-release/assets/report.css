@@ -3703,6 +3703,37 @@ html, body, button, input { font-family: var(--font-sans-ko); }
   outline-color: var(--brand-active);
   box-shadow: 0 0 0 5px rgba(37,99,235,0.16);
 }
+.report-figure__zoom-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 36px;
+  margin: 8px 0 10px auto;
+  padding: 7px 11px;
+  border: 1px solid rgba(15,44,89,0.24);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--brand-deep);
+  box-shadow: 0 3px 12px rgba(15,44,89,0.08);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: zoom-in;
+}
+.report-figure__zoom-trigger:hover {
+  border-color: var(--brand-primary);
+  background: var(--brand-soft);
+  box-shadow: 0 5px 16px rgba(15,44,89,0.13);
+}
+.report-figure__zoom-trigger:focus-visible {
+  outline: 2px solid var(--brand-active);
+  outline-offset: 2px;
+}
+.report-figure__zoom-trigger > span:first-child {
+  font-size: 17px;
+  line-height: 0.8;
+}
 .report-lightbox-open { overflow: hidden !important; }
 .report-lightbox[hidden] { display: none !important; }
 .report-lightbox {
@@ -3815,6 +3846,14 @@ svg.report-lightbox__visual {
   letter-spacing: 0;
 }
 @media (max-width: 640px) {
+  .report-figure__zoom-trigger {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    width: max-content;
+    margin-right: auto;
+    margin-left: 0;
+  }
   .report-lightbox__toolbar { min-height: 58px; gap: 8px; padding-top: max(8px, env(safe-area-inset-top)); }
   .report-lightbox__title { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
   .report-lightbox__actions { width: 100%; justify-content: center; }
@@ -3826,7 +3865,24 @@ svg.report-lightbox__visual {
 }
 @media print {
   [data-report-zoomable="true"] { cursor: default !important; outline: none !important; box-shadow: none !important; filter: none !important; }
+  .report-figure__zoom-trigger,
   .report-lightbox { display: none !important; }
+
+  /* Markdown의 절 사이 `---`는 화면에서만 호흡을 나눈다. 인쇄에서 이 hr가 앞 절의
+   * 마지막 쪽으로 밀린 뒤 다음 절의 강제 page break와 겹치면 빈 A4 한 장이 생긴다. */
+  .continuous-mode .report-section > hr,
+  .continuous-mode .report-appendix > hr { display: none !important; }
+
+  /* 검토 배너를 표지 위에 겹쳐 두어 A4 한 장만큼의 표지 뒤에 빈 쪽이 생기지 않게 한다. */
+  .continuous-mode { position: relative; }
+  .continuous-mode > .callout--hero:first-child {
+    position: absolute;
+    z-index: 2;
+    top: 8mm;
+    right: 28mm;
+    left: 30mm;
+    margin: 0;
+  }
 
   .continuous-mode .report-section:not(.s0),
   .continuous-mode .report-appendix {

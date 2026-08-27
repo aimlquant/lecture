@@ -1,48 +1,93 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
-  <title id="title">Codex 요청문에 넣을 다섯 가지 내용</title>
-  <desc id="desc">목표, 작업 위치, 만들 파일, 화면에 보일 결과, 마무리 안내를 다섯 카드로 정리한 그림이다.</desc>
-  <style>
-    text{font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif;fill:#0F172A}
-    .num{font-size:20px;font-weight:700;fill:#0F2C59}
-    .main{font-size:30px;font-weight:700}
-    .sub{font-size:19px;font-weight:400;fill:#52606D}
-    .answer{font-size:30px;font-weight:700;fill:#0B7A6A}
-  </style>
+  <title id="title">Codex 요청문을 실행 계획으로 바꾸는 다섯 가지 내용</title>
+  <desc id="desc">목표, 작업 위치, 만들 파일, 화면에 보일 결과, 마무리 안내의 다섯 카드가 하나의 실행 계획으로 모이는 그림이다.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#0F2C59" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
+      <path d="M0 0L18 5L0 10Z" fill="#0F2C59"/>
+    </marker>
+    <style>
+      text{font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif;fill:#0F172A}
+      .meta{font-size:16px;font-weight:700;letter-spacing:1.2px;fill:#52606D}
+      .num{font-size:16px;font-weight:700;fill:#0B7A6A}
+      .main{font-size:26px;font-weight:700}
+      .sub{font-size:16px;font-weight:400;fill:#52606D}
+      .answer{font-size:28px;font-weight:700;fill:#0B7A6A}
+      .connector{fill:none;stroke:#0F2C59;stroke-width:3}
+      .arrow{fill:none;stroke:#0F2C59;stroke-width:3;marker-end:url(#arrow)}
+      .icon{fill:none;stroke:#0F2C59;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+      .icon-ok{fill:none;stroke:#0B7A6A;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+    </style>
+  </defs>
   <rect width="1200" height="720" fill="#FFFFFF"/>
-
-  <g>
-    <rect x="80" y="75" width="320" height="185" rx="14" fill="#E7EEF9" stroke="#0F2C59" stroke-width="2"/>
-    <text class="num" x="106" y="115">01</text>
-    <text class="main" x="106" y="160">목표</text>
-    <text class="sub" x="106" y="205">KODEX 200의</text>
-    <text class="sub" x="106" y="232">고정 기간 가격 확인</text>
-
-    <rect x="440" y="75" width="320" height="185" rx="14" fill="#FFFFFF" stroke="#0F2C59" stroke-width="2"/>
-    <text class="num" x="466" y="115">02</text>
-    <text class="main" x="466" y="160">작업 위치</text>
-    <text class="sub" x="466" y="205">현재 연 강의 폴더</text>
-    <text class="sub" x="466" y="232">밖으로 나가지 않기</text>
-
-    <rect x="800" y="75" width="320" height="185" rx="14" fill="#FFFFFF" stroke="#0F2C59" stroke-width="2"/>
-    <text class="num" x="826" y="115">03</text>
-    <text class="main" x="826" y="160">만들 파일</text>
-    <text class="sub" x="826" y="205">CSV · 노트북</text>
-    <text class="sub" x="826" y="232">패키지 목록</text>
-
-    <rect x="260" y="310" width="320" height="185" rx="14" fill="#FFFFFF" stroke="#0F2C59" stroke-width="2"/>
-    <text class="num" x="286" y="350">04</text>
-    <text class="main" x="286" y="395">화면 결과</text>
-    <text class="sub" x="286" y="440">CSV를 다시 읽은 표</text>
-    <text class="sub" x="286" y="467">Close 선 그래프</text>
-
-    <rect x="620" y="310" width="320" height="185" rx="14" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
-    <text class="num" x="646" y="350" fill="#0B7A6A">05</text>
-    <text class="main" x="646" y="395">마무리 안내</text>
-    <text class="sub" x="646" y="440">파일 · 실행 방법</text>
-    <text class="sub" x="646" y="467">공급자 · 남은 한계</text>
+  <g id="background" aria-hidden="true">
+    <text class="meta" x="34" y="58">REQUEST CONTRACT</text>
+    <text class="meta" x="1166" y="58" text-anchor="end">다섯 가지를 함께 적으면 추측이 줄어든다</text>
+    <path d="M34 74H1166" stroke="#E7EEF9" stroke-width="2"/>
   </g>
 
-  <rect x="180" y="565" width="840" height="92" rx="14" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
-  <text class="answer" x="600" y="608" text-anchor="middle">무엇을 만들지와 무엇을 확인할지를 함께 적는다</text>
-  <text class="sub" x="600" y="638" text-anchor="middle">Codex가 추측할 부분을 줄이고 결과를 확인하기 쉽게 만든다</text>
+  <g id="plan-connectors" aria-hidden="true">
+    <path class="connector" d="M136 452V500H1064V452"/>
+    <path class="connector" d="M368 452V500M600 452V500M832 452V500"/>
+    <path class="arrow" d="M600 500V550"/>
+  </g>
+
+  <g id="request-goal" filter="url(#shadow)">
+    <rect x="30" y="125" width="212" height="327" rx="18" fill="#E7EEF9" stroke="#0F2C59" stroke-width="2"/>
+    <text class="num" x="54" y="158">01</text>
+    <rect x="54" y="178" width="66" height="66" rx="18" fill="#FFFFFF" stroke="#C7D2E1"/>
+    <g class="icon-ok" transform="translate(65 189)"><circle cx="22" cy="22" r="17"/><circle cx="22" cy="22" r="7"/><path d="M22 0V8M22 36V44M0 22H8M36 22H44"/></g>
+    <text class="main" x="54" y="292">목표</text>
+    <text class="sub" x="54" y="332">KODEX 200의</text><text class="sub" x="54" y="358">고정 기간 가격</text>
+    <rect x="54" y="393" width="112" height="30" rx="15" fill="#FFFFFF" stroke="#C7D2E1"/><text class="meta" x="110" y="414" text-anchor="middle">무엇을</text>
+  </g>
+
+  <g id="request-scope" filter="url(#shadow)">
+    <rect x="262" y="125" width="212" height="327" rx="18" fill="#FFFFFF" stroke="#0F2C59" stroke-width="2"/>
+    <text class="num" x="286" y="158">02</text>
+    <rect x="286" y="178" width="66" height="66" rx="18" fill="#E7EEF9" stroke="#C7D2E1"/>
+    <g class="icon" transform="translate(297 191)"><path d="M2 10H18L24 16H44V42H2Z"/><path d="M2 19H44"/><path class="icon-ok" d="M31 30L36 35L45 25"/></g>
+    <text class="main" x="286" y="292">작업 위치</text>
+    <text class="sub" x="286" y="332">현재 연 강의 폴더</text><text class="sub" x="286" y="358">밖으로 나가지 않기</text>
+    <rect x="286" y="393" width="112" height="30" rx="15" fill="#E7EEF9" stroke="#C7D2E1"/><text class="meta" x="342" y="414" text-anchor="middle">어디서</text>
+  </g>
+
+  <g id="request-files" filter="url(#shadow)">
+    <rect x="494" y="125" width="212" height="327" rx="18" fill="#FFFFFF" stroke="#0F2C59" stroke-width="2"/>
+    <text class="num" x="518" y="158">03</text>
+    <rect x="518" y="178" width="66" height="66" rx="18" fill="#E7EEF9" stroke="#C7D2E1"/>
+    <g class="icon" transform="translate(531 189)"><path d="M5 1H31L43 13V45H5Z"/><path d="M31 1V14H43M13 25H35M13 34H35"/></g>
+    <text class="main" x="518" y="292">만들 파일</text>
+    <text class="sub" x="518" y="332">CSV · 노트북</text><text class="sub" x="518" y="358">패키지 목록</text>
+    <rect x="518" y="393" width="112" height="30" rx="15" fill="#E7EEF9" stroke="#C7D2E1"/><text class="meta" x="574" y="414" text-anchor="middle">무엇을</text>
+  </g>
+
+  <g id="request-output" filter="url(#shadow)">
+    <rect x="726" y="125" width="212" height="327" rx="18" fill="#FFFFFF" stroke="#0F2C59" stroke-width="2"/>
+    <text class="num" x="750" y="158">04</text>
+    <rect x="750" y="178" width="66" height="66" rx="18" fill="#E7EEF9" stroke="#C7D2E1"/>
+    <g class="icon" transform="translate(761 189)"><path d="M2 4H44V43H2Z"/><path d="M2 14H44M12 14V43"/><path class="icon-ok" d="M18 34L25 27L31 31L40 20"/></g>
+    <text class="main" x="750" y="292">화면 결과</text>
+    <text class="sub" x="750" y="332">CSV를 다시 읽은 표</text><text class="sub" x="750" y="358">Close 선 그래프</text>
+    <rect x="750" y="393" width="112" height="30" rx="15" fill="#E7EEF9" stroke="#C7D2E1"/><text class="meta" x="806" y="414" text-anchor="middle">어떻게 볼지</text>
+  </g>
+
+  <g id="request-summary" filter="url(#shadow)">
+    <rect x="958" y="125" width="212" height="327" rx="18" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
+    <text class="num" x="982" y="158">05</text>
+    <rect x="982" y="178" width="66" height="66" rx="18" fill="#FFFFFF" stroke="#0B7A6A"/>
+    <g class="icon-ok" transform="translate(993 190)"><path d="M3 6H43M3 18H34M3 30H25"/><path d="M27 36L33 42L44 27"/></g>
+    <text class="main" x="982" y="292">마무리 안내</text>
+    <text class="sub" x="982" y="332">파일 · 실행 방법</text><text class="sub" x="982" y="358">공급자 · 남은 한계</text>
+    <rect x="982" y="393" width="112" height="30" rx="15" fill="#FFFFFF" stroke="#0B7A6A"/><text class="meta" x="1038" y="414" text-anchor="middle">어디까지</text>
+  </g>
+
+  <g id="execution-plan" filter="url(#shadow)">
+    <rect x="180" y="550" width="840" height="120" rx="22" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
+    <circle cx="238" cy="610" r="28" fill="#FFFFFF" stroke="#0B7A6A" stroke-width="2"/><path class="icon-ok" d="M221 610L233 622L255 598"/>
+    <text class="answer" x="630" y="604" text-anchor="middle">무엇을 만들지와 무엇을 확인할지를 함께 적는다</text>
+    <text class="sub" x="630" y="638" text-anchor="middle">Codex가 추측할 부분을 줄이고 작업 뒤의 확인 순서까지 정한다</text>
+  </g>
 </svg>

@@ -98,8 +98,8 @@
   line-height: 1.35;
 }
 
-.continuous-mode .report-section .report-figure > img,
-.continuous-mode .report-section .report-figure > svg {
+.continuous-mode .report-section .report-figure img,
+.continuous-mode .report-section .report-figure svg {
   border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
   border-radius: 12px;
   box-shadow: none;
@@ -138,8 +138,8 @@
     font-weight: 700;
   }
 
-  .continuous-mode .report-section .report-figure > img,
-  .continuous-mode .report-section .report-figure > svg {
+  .continuous-mode .report-section .report-figure img,
+  .continuous-mode .report-section .report-figure svg {
     width: 620px;
     min-width: 620px;
     max-width: none;
