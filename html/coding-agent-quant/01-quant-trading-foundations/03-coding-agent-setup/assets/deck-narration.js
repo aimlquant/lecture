@@ -32,6 +32,7 @@
     ? Array.prototype.slice.call(narrationPanel.querySelectorAll("[data-narration-slide]"))
     : [];
   var videoFrameDeck = Boolean(stage.querySelector("[data-frame-pattern]"));
+  var hyperframesSceneDeck = Boolean(stage.querySelector("[data-hyperframes-scene]"));
   var printFramePreloads = [];
   if (videoFrameDeck) {
     slides.forEach(function (slide) {
@@ -53,6 +54,23 @@
     return top;
   }
 
+  function setHyperframesStep(scene, step) {
+    if (!scene || !scene.contentWindow) return;
+    scene.setAttribute("data-scene-step", String(step));
+    try {
+      if (typeof scene.contentWindow.aimlquantHyperframesSetStep === "function") {
+        scene.contentWindow.aimlquantHyperframesSetStep(step);
+        return;
+      }
+    } catch (_error) {
+      // 다른 origin에서 장면을 보는 경우는 postMessage 경로를 쓴다.
+    }
+    scene.contentWindow.postMessage({
+      type: "aimlquant-hyperframes-step",
+      step: step
+    }, "*");
+  }
+
   function paint(slide) {
     var current = steps.get(slide) || 1;
     var top = maxStep(slide);
@@ -61,6 +79,11 @@
       var frameStep = enabled ? current : top;
       var pattern = frame.getAttribute("data-frame-pattern") || "";
       frame.src = pattern.replace("{step}", String(frameStep).padStart(2, "0"));
+    }
+    var scene = slide.querySelector("[data-hyperframes-scene]");
+    if (scene) {
+      var sceneStep = enabled ? current : top;
+      setHyperframesStep(scene, sceneStep);
     }
     var marked = slide.querySelectorAll("[data-reveal]");
     for (var i = 0; i < marked.length; i += 1) {
@@ -140,6 +163,25 @@
   slides.forEach(function (slide) {
     steps.set(slide, 1);
     observer.observe(slide, { attributes: true, attributeFilter: ["class"] });
+    var scene = slide.querySelector("[data-hyperframes-scene]");
+    if (scene) scene.addEventListener("load", function () { paint(slide); });
+  });
+
+  window.addEventListener("message", function (event) {
+    var data = event.data || {};
+    if (data.type !== "aimlquant-hyperframes-key") return;
+    var slide = activeSlide();
+    var scene = slide && slide.querySelector("[data-hyperframes-scene]");
+    if (!scene || event.source !== scene.contentWindow) return;
+    if (data.key === "ArrowRight" || data.key === "ArrowLeft") {
+      var direction = data.key === "ArrowRight" ? 1 : -1;
+      if (!advance(direction)) {
+        var button = document.getElementById(direction > 0 ? "nextButton" : "prevButton");
+        if (button) button.click();
+      }
+    } else if (String(data.key).toLowerCase() === "n" && narrationPanel) {
+      setNarration(!document.body.classList.contains("narration-open"));
+    }
   });
 
   window.addEventListener("keydown", function (event) {
@@ -166,12 +208,12 @@
 
   var toggle = document.getElementById("stepToggle");
   if (toggle) {
-    if (videoFrameDeck) toggle.textContent = "문장 따라가기 켬";
+    if (videoFrameDeck || hyperframesSceneDeck) toggle.textContent = "문장 따라가기 켬";
     toggle.addEventListener("click", function () {
       enabled = !enabled;
       document.documentElement.classList.toggle("stepping", enabled);
       toggle.setAttribute("aria-pressed", String(enabled));
-      toggle.textContent = videoFrameDeck
+      toggle.textContent = (videoFrameDeck || hyperframesSceneDeck)
         ? (enabled ? "문장 따라가기 켬" : "최종 화면 고정")
         : (enabled ? "드러내기 켬" : "드러내기 끔");
       slides.forEach(paint);
@@ -182,6 +224,8 @@
     slides.forEach(function (slide) {
       var frame = slide.querySelector("[data-frame-final]");
       if (frame) frame.src = frame.getAttribute("data-frame-final");
+      var scene = slide.querySelector("[data-hyperframes-scene]");
+      if (scene) setHyperframesStep(scene, maxStep(slide));
     });
   });
   window.addEventListener("afterprint", function () {

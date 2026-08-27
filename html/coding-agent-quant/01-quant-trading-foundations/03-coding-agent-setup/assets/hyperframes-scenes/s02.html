@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=1280,height=720,initial-scale=1"><title>이 순서대로 준비하면 된다</title><link rel="stylesheet" href="assets/shared.css"><script src="assets/gsap.min.js"></script></head><body>
+  <style>
+@font-face { font-family:"Noto Sans CJK KR"; src:url("assets/fonts/NotoSansCJK-Regular-subset.ttf") format("truetype"); font-style:normal; font-weight:400; }
+@font-face { font-family:"Noto Sans CJK KR"; src:url("assets/fonts/NotoSansCJK-Bold-subset.ttf") format("truetype"); font-style:normal; font-weight:700; }
+.cover-lockup { position:absolute; z-index:8; top:205px; left:150px; width:1570px; }
+.cover-course { margin:0 0 30px; color:#0f2c59; font-size:27px; font-weight:700; letter-spacing:.055em; opacity:0; }
+.cover-title { margin:0; color:#101114; font-size:82px; font-weight:700; line-height:1.18; letter-spacing:-.052em; opacity:0; }
+.cover-rule { display:block; width:1100px; height:10px; margin:40px 0 34px; border-radius:99px; background:#0f2c59; transform-origin:0 50%; }
+.cover-bottom { display:flex; align-items:center; gap:24px; color:#686b73; font-size:27px; opacity:0; }
+.cover-bottom b { display:inline-flex; min-height:48px; align-items:center; padding:0 22px; border-radius:99px; background:#e4f6f0; color:#0b685c; font-size:20px; }
+.visual-stage { top:292px; height:710px; display:grid; grid-template-columns:300px 1fr; gap:42px; }
+.visual-rail { align-self:center; display:grid; gap:14px; padding:18px 0; opacity:0; }
+.visual-rail-item { display:grid; grid-template-columns:52px 1fr; align-items:center; min-height:76px; padding:0 18px; border-left:4px solid #c9d3e2; border-radius:0 16px 16px 0; color:#657184; background:rgba(255,255,255,.56); opacity:.42; will-change:transform,opacity; }
+.visual-rail-item span { color:#0b7a6a; font-size:18px; font-weight:700; letter-spacing:.08em; }
+.visual-rail-item strong { font-size:25px; line-height:1.25; }
+.visual-viewport { position:relative; min-width:0; height:100%; overflow:hidden; border-radius:38px; background:linear-gradient(135deg,rgba(232,238,248,.84),rgba(228,246,240,.72)); box-shadow:inset 0 0 0 2px rgba(15,44,89,.08); }
+.visual-viewport::before { content:""; position:absolute; right:-110px; top:-140px; width:430px; height:430px; border-radius:50%; background:rgba(15,44,89,.07); }
+.visual-viewport::after { content:""; position:absolute; left:54px; bottom:120px; width:290px; height:18px; border-radius:50%; background:rgba(9,31,64,.08); filter:blur(12px); }
+.visual-beat { position:absolute; inset:0; display:grid; grid-template-columns:1.08fr .92fr; align-items:center; gap:34px; padding:50px 62px; opacity:0; will-change:transform,opacity; }
+.visual-art { position:relative; z-index:2; display:grid; place-items:center; min-width:0; }
+.visual-svg { width:100%; max-width:690px; height:auto; overflow:visible; }
+.visual-keyline { position:relative; z-index:3; align-self:center; padding:30px 0 30px 38px; border-left:8px solid #0b7a6a; }
+.visual-keyline span { display:block; margin-bottom:14px; color:#0b7a6a; font-size:27px; font-weight:700; }
+.visual-keyline strong { display:block; color:#0f2c59; font-size:45px; line-height:1.27; letter-spacing:-.042em; word-break:keep-all; }
+.v-panel { fill:#fff; stroke:#0f2c59; stroke-width:7; }
+.v-soft { fill:#fff; stroke:#9cafc7; stroke-width:5; }
+.v-draw { fill:none; stroke:#0f2c59; stroke-width:7; stroke-linecap:round; stroke-linejoin:round; }
+.v-accent { stroke:#0b7a6a; }
+.v-green-stroke { stroke:#0b7a6a; }
+.v-check { stroke:#fff; stroke-width:8; }
+.v-warn { stroke:#b45309; stroke-width:10; }
+.v-dashed { stroke-dasharray:18 14; }
+.v-blue { fill:#0f2c59; }
+.v-green { fill:#0b7a6a; }
+.v-orange { fill:#f59e0b; }
+.v-chip { fill:#0f2c59; }
+.v-cube { fill:#e4f6f0; stroke:#0b7a6a; stroke-width:7; stroke-linejoin:round; }
+.v-label { fill:#0f2c59; font-family:"Noto Sans CJK KR",sans-serif; font-size:38px; font-weight:700; }
+.v-chip-text { fill:#fff; font-family:"Noto Sans CJK KR",sans-serif; font-size:25px; font-weight:700; }
+.v-symbol { fill:#fff; font-family:"Noto Sans CJK KR",sans-serif; font-size:92px; font-weight:700; }
+.hub-stage { display:grid; grid-template-columns:520px 1fr; align-items:center; gap:200px; }
+.hub-core { position:relative; z-index:3; display:flex; width:500px; height:360px; flex-direction:column; align-items:center; justify-content:center; border:3px solid #0f2c59; border-radius:36px; background:#e8eef8; box-shadow:0 24px 60px rgba(9,31,64,.12); opacity:0; }
+.hub-core span { color:#0b7a6a; font-size:23px; font-weight:700; }
+.hub-core strong { margin:8px 0 12px; color:#0f2c59; font-size:62px; }
+.hub-core small { width:330px; color:#52606d; font-size:22px; line-height:1.45; text-align:center; }
+.hub-nodes { display:grid; gap:20px; }
+.hub-node { height:165px; padding:24px 30px; opacity:0; }
+.hub-node h2 { margin:0 0 8px; color:#0f2c59; font-size:31px; }
+.hub-node p { margin:0; color:#52606d; font-size:22px; line-height:1.4; }
+.hub-connectors { position:absolute; z-index:1; inset:0; width:1680px; height:650px; overflow:visible; pointer-events:none; }
+.hub-connector { fill:none; stroke:#0f2c59; stroke-width:6px; stroke-linecap:round; }
+.hub-head { fill:#0f2c59; opacity:0; transform-box:fill-box; transform-origin:0 50%; }
+.compare-stage { display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:28px; }
+.compare-card { display:grid; grid-template-columns:310px 1fr; align-items:center; gap:34px; height:470px; padding:36px 40px; opacity:0; }
+.compare-visual { display:grid; place-items:center; min-width:0; }
+.compare-visual .visual-svg { width:100%; }
+.compare-copy > span { color:#0b7a6a; font-size:23px; font-weight:700; }
+.compare-card h2 { margin:12px 0 18px; color:#0f2c59; font-size:46px; }
+.compare-card p { margin:0 0 26px; color:#52606d; font-size:25px; line-height:1.46; }
+.compare-card strong { display:inline-flex; align-self:flex-start; padding:13px 20px; border-radius:99px; background:#fff; color:#0f2c59; font-size:21px; }
+.path-stage { display:grid; grid-template-columns:1fr 72px 1fr 72px 1fr 72px 1fr; align-items:center; }
+.path-card { height:340px; padding:30px 28px; opacity:0; }
+.path-card > span { color:#0b7a6a; font-size:20px; font-weight:700; letter-spacing:.08em; }
+.path-card h2 { margin:20px 0 13px; color:#0f2c59; font-size:34px; line-height:1.28; }
+.path-card p { margin:0; color:#52606d; font-size:22px; line-height:1.45; }
+.path-note { position:absolute; left:545px; bottom:22px; opacity:0; }
+</style>
+  <div id="root" data-composition-id="slide-s02" data-duration="17.88" data-width="1920" data-height="1080">
+    <div id="scene-s02" class="hf-scene">
+      <div class="hf-grid" data-layout-ignore></div>
+      <div class="hf-orb" style="right:-170px;bottom:-230px" data-layout-ignore></div>
+      <div class="hf-topbar"><span class="hf-kicker">퀀트 트레이딩과 코딩 에이전트 입문</span><span class="hf-scene-no">02 / 31</span></div>
+      <header class="hf-header"><h1 class="hf-title">이 순서대로 준비하면 된다</h1><p class="hf-subtitle">처음에는 이름을 모두 외우기보다 준비 순서부터 익히면 됩니다.</p></header><section class="hf-stage"><div class="flow-strip"><article class="flow-card hf-card"><span class="step">STEP 01</span><h2>프로그램 알아보기</h2><p>VS Code·Codex·Python·Jupyter가 맡는 일</p></article><svg class="flow-arrow" viewBox="0 0 72 44" aria-hidden="true">
+      <path class="shaft draw-path" id="shaft-1" d="M0 22H54"/>
+      <path class="head" d="M51 10L72 22 51 34Z"/>
+    </svg><article class="flow-card hf-card"><span class="step">STEP 02</span><h2>작업 폴더 열기</h2><p>강의용 폴더를 만들고 VS Code에서 열기</p></article><svg class="flow-arrow" viewBox="0 0 72 44" aria-hidden="true">
+      <path class="shaft draw-path" id="shaft-2" d="M0 22H54"/>
+      <path class="head" d="M51 10L72 22 51 34Z"/>
+    </svg><article class="flow-card hf-card"><span class="step">STEP 03</span><h2>프로그램 준비</h2><p>Codex와 Python 가상 환경 설치</p></article><svg class="flow-arrow" viewBox="0 0 72 44" aria-hidden="true">
+      <path class="shaft draw-path" id="shaft-3" d="M0 22H54"/>
+      <path class="head" d="M51 10L72 22 51 34Z"/>
+    </svg><article class="flow-card hf-card is-green"><span class="step">STEP 04</span><h2>실행해 보기</h2><p>Jupyter에서 짧은 코드 실행</p></article></div></section>
+    </div>
+    <script>(function(){
+      var root=document.getElementById("scene-s02");
+      var q=function(s){return root.querySelector(s);};
+      var qa=function(s){return root.querySelectorAll(s);};
+      var duration=17.88;
+      var tl=gsap.timeline({paused:true});
+      tl.fromTo(q(".hf-grid"),{x:-18,y:-12},{x:24,y:14,duration:duration,ease:"none"},0);
+      tl.fromTo(q(".hf-orb"),{scale:.94,opacity:.32},{scale:1.05,opacity:.68,duration:duration,ease:"sine.inOut"},0);
+      tl.fromTo(q(".hf-header"), {opacity:0,y:28}, {opacity:1,y:0,duration:.55,ease:"power3.out"}, .12);
+        var cardStarts=[2.66, 5.16, 10.18, 13.68];
+        Array.prototype.forEach.call(qa(".flow-card, .path-card"), function(card,index){ tl.fromTo(card,{opacity:0,y:28,scale:.97},{opacity:1,y:0,scale:1,duration:.45,ease:"power3.out"},cardStarts[index]); });
+        var arrowStarts=[5.07, 10.09, 13.59];
+        Array.prototype.forEach.call(qa(".flow-arrow"), function(a,index){ var shaft=a.querySelector(".shaft"), head=a.querySelector(".head"), len=shaft.getTotalLength(); shaft.setAttribute("stroke-dasharray",len); shaft.setAttribute("stroke-dashoffset",len); var at=arrowStarts[index]; tl.fromTo(shaft,{attr:{"stroke-dashoffset":len}},{attr:{"stroke-dashoffset":0},duration:.39,ease:"power2.out"},at); tl.fromTo(head,{opacity:0,scale:.7,transformOrigin:"0% 50%"},{opacity:1,scale:1,duration:.16,ease:"power3.out"},at+.37); });
+        if(q(".path-note")){ tl.fromTo(q(".path-note"),{opacity:0,y:16},{opacity:1,y:0,duration:.45,ease:"power3.out"},null); }
+      window.__timelines=window.__timelines||{};
+      window.__timelines["slide-s02"]=tl;
+    })();</script>
+  </div>
+<style id="presentation-mode">
+html, body { width:1280px !important; height:720px !important; margin:0; overflow:hidden; background:#fafaf9; }
+body > #root { width:1920px; height:1080px; transform:scale(0.6666666667); transform-origin:0 0; }
+video, audio { display:none !important; }
+</style>
+<script>
+(function() {
+  "use strict";
+  var slideId = "s02";
+  var times = [3.44,5.94,10.96,14.46,17.76];
+  var requested = Number(new URLSearchParams(window.location.search).get("step")) || 1;
+  function clamp(step) { return Math.max(1, Math.min(times.length, Number(step) || 1)); }
+  function apply(step) {
+    var current = clamp(step);
+    var timeline = window.__timelines && window.__timelines["slide-" + slideId];
+    if (!timeline) return false;
+    timeline.pause(times[current - 1], false);
+    document.documentElement.setAttribute("data-presentation-step", String(current));
+    document.documentElement.setAttribute("data-presentation-ready", "true");
+    if (window.parent !== window) window.parent.postMessage({
+      type:"aimlquant-hyperframes-ready", slideId:slideId, step:current
+    }, "*");
+    return true;
+  }
+  window.aimlquantHyperframesSetStep = apply;
+  function boot() {
+    var ready = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+    ready.then(function() {
+      requestAnimationFrame(function() { if (!apply(requested)) setTimeout(function() { apply(requested); }, 0); });
+    });
+  }
+  window.addEventListener("message", function(event) {
+    var data = event.data || {};
+    if (data.type === "aimlquant-hyperframes-step") { requested = clamp(data.step); apply(requested); }
+  });
+  window.addEventListener("beforeprint", function() { apply(times.length); });
+  window.addEventListener("keydown", function(event) {
+    if (event.metaKey || event.ctrlKey || event.altKey) return;
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight" && event.key.toLowerCase() !== "n") return;
+    event.preventDefault();
+    if (window.parent !== window) window.parent.postMessage({
+      type:"aimlquant-hyperframes-key", key:event.key, slideId:slideId
+    }, "*");
+  });
+  boot();
+})();
+</script></body></html>

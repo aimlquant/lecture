@@ -127,6 +127,40 @@ a {
   display: none;
 }
 
+/*
+ * 영상과 발표자료가 공유하는 HyperFrames 장면.
+ * 덱은 1280x720 컴포지션을 그대로 받고, iframe 안의 장면이 원본
+ * 1920x1080 DOM·SVG 타임라인을 2/3 배로 표시한다. 따라서 전체 화면 캡처를
+ * 확대하는 방식과 달리 글자·선·SVG가 브라우저에서 다시 그려진다.
+ */
+.slide--hyperframes-scene {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  padding: 0;
+  overflow: hidden;
+  background: #fafaf9;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.slide--hyperframes-scene.is-active {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.slide--hyperframes-scene > iframe {
+  display: block;
+  width: 1280px;
+  height: 720px;
+  border: 0;
+  background: #fafaf9;
+}
+
+.hyperframes-scene-reveal-markers {
+  display: none;
+}
+
 .slide-header,
 .cover-brand {
   display: flex;
@@ -1634,6 +1668,13 @@ html.theme-dark .deck-report-figure figcaption b { color: #fff; background: #0f2
     display: flex;
     break-after: page;
     page-break-after: always;
+  }
+
+  .slide--hyperframes-scene,
+  .slide--hyperframes-scene.is-active {
+    position: relative;
+    visibility: visible;
+    pointer-events: auto;
   }
 
   .slide:last-child {

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=1280,height=720,initial-scale=1"><title>.venv를 고른 뒤 Run All을 누른다</title><link rel="stylesheet" href="assets/shared.css"><script src="assets/gsap.min.js"></script></head><body>
+  <style>
+@font-face { font-family:"Noto Sans CJK KR"; src:url("assets/fonts/NotoSansCJK-Regular-subset.ttf") format("truetype"); font-style:normal; font-weight:400; }
+@font-face { font-family:"Noto Sans CJK KR"; src:url("assets/fonts/NotoSansCJK-Bold-subset.ttf") format("truetype"); font-style:normal; font-weight:700; }
+.cover-lockup { position:absolute; z-index:8; top:205px; left:150px; width:1570px; }
+.cover-course { margin:0 0 30px; color:#0f2c59; font-size:27px; font-weight:700; letter-spacing:.055em; opacity:0; }
+.cover-title { margin:0; color:#101114; font-size:82px; font-weight:700; line-height:1.18; letter-spacing:-.052em; opacity:0; }
+.cover-rule { display:block; width:1100px; height:10px; margin:40px 0 34px; border-radius:99px; background:#0f2c59; transform-origin:0 50%; }
+.cover-bottom { display:flex; align-items:center; gap:24px; color:#686b73; font-size:27px; opacity:0; }
+.cover-bottom b { display:inline-flex; min-height:48px; align-items:center; padding:0 22px; border-radius:99px; background:#e4f6f0; color:#0b685c; font-size:20px; }
+.visual-stage { top:292px; height:710px; display:grid; grid-template-columns:300px 1fr; gap:42px; }
+.visual-rail { align-self:center; display:grid; gap:14px; padding:18px 0; opacity:0; }
+.visual-rail-item { display:grid; grid-template-columns:52px 1fr; align-items:center; min-height:76px; padding:0 18px; border-left:4px solid #c9d3e2; border-radius:0 16px 16px 0; color:#657184; background:rgba(255,255,255,.56); opacity:.42; will-change:transform,opacity; }
+.visual-rail-item span { color:#0b7a6a; font-size:18px; font-weight:700; letter-spacing:.08em; }
+.visual-rail-item strong { font-size:25px; line-height:1.25; }
+.visual-viewport { position:relative; min-width:0; height:100%; overflow:hidden; border-radius:38px; background:linear-gradient(135deg,rgba(232,238,248,.84),rgba(228,246,240,.72)); box-shadow:inset 0 0 0 2px rgba(15,44,89,.08); }
+.visual-viewport::before { content:""; position:absolute; right:-110px; top:-140px; width:430px; height:430px; border-radius:50%; background:rgba(15,44,89,.07); }
+.visual-viewport::after { content:""; position:absolute; left:54px; bottom:120px; width:290px; height:18px; border-radius:50%; background:rgba(9,31,64,.08); filter:blur(12px); }
+.visual-beat { position:absolute; inset:0; display:grid; grid-template-columns:1.08fr .92fr; align-items:center; gap:34px; padding:50px 62px; opacity:0; will-change:transform,opacity; }
+.visual-art { position:relative; z-index:2; display:grid; place-items:center; min-width:0; }
+.visual-svg { width:100%; max-width:690px; height:auto; overflow:visible; }
+.visual-keyline { position:relative; z-index:3; align-self:center; padding:30px 0 30px 38px; border-left:8px solid #0b7a6a; }
+.visual-keyline span { display:block; margin-bottom:14px; color:#0b7a6a; font-size:27px; font-weight:700; }
+.visual-keyline strong { display:block; color:#0f2c59; font-size:45px; line-height:1.27; letter-spacing:-.042em; word-break:keep-all; }
+.v-panel { fill:#fff; stroke:#0f2c59; stroke-width:7; }
+.v-soft { fill:#fff; stroke:#9cafc7; stroke-width:5; }
+.v-draw { fill:none; stroke:#0f2c59; stroke-width:7; stroke-linecap:round; stroke-linejoin:round; }
+.v-accent { stroke:#0b7a6a; }
+.v-green-stroke { stroke:#0b7a6a; }
+.v-check { stroke:#fff; stroke-width:8; }
+.v-warn { stroke:#b45309; stroke-width:10; }
+.v-dashed { stroke-dasharray:18 14; }
+.v-blue { fill:#0f2c59; }
+.v-green { fill:#0b7a6a; }
+.v-orange { fill:#f59e0b; }
+.v-chip { fill:#0f2c59; }
+.v-cube { fill:#e4f6f0; stroke:#0b7a6a; stroke-width:7; stroke-linejoin:round; }
+.v-label { fill:#0f2c59; font-family:"Noto Sans CJK KR",sans-serif; font-size:38px; font-weight:700; }
+.v-chip-text { fill:#fff; font-family:"Noto Sans CJK KR",sans-serif; font-size:25px; font-weight:700; }
+.v-symbol { fill:#fff; font-family:"Noto Sans CJK KR",sans-serif; font-size:92px; font-weight:700; }
+.hub-stage { display:grid; grid-template-columns:520px 1fr; align-items:center; gap:200px; }
+.hub-core { position:relative; z-index:3; display:flex; width:500px; height:360px; flex-direction:column; align-items:center; justify-content:center; border:3px solid #0f2c59; border-radius:36px; background:#e8eef8; box-shadow:0 24px 60px rgba(9,31,64,.12); opacity:0; }
+.hub-core span { color:#0b7a6a; font-size:23px; font-weight:700; }
+.hub-core strong { margin:8px 0 12px; color:#0f2c59; font-size:62px; }
+.hub-core small { width:330px; color:#52606d; font-size:22px; line-height:1.45; text-align:center; }
+.hub-nodes { display:grid; gap:20px; }
+.hub-node { height:165px; padding:24px 30px; opacity:0; }
+.hub-node h2 { margin:0 0 8px; color:#0f2c59; font-size:31px; }
+.hub-node p { margin:0; color:#52606d; font-size:22px; line-height:1.4; }
+.hub-connectors { position:absolute; z-index:1; inset:0; width:1680px; height:650px; overflow:visible; pointer-events:none; }
+.hub-connector { fill:none; stroke:#0f2c59; stroke-width:6px; stroke-linecap:round; }
+.hub-head { fill:#0f2c59; opacity:0; transform-box:fill-box; transform-origin:0 50%; }
+.compare-stage { display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:28px; }
+.compare-card { display:grid; grid-template-columns:310px 1fr; align-items:center; gap:34px; height:470px; padding:36px 40px; opacity:0; }
+.compare-visual { display:grid; place-items:center; min-width:0; }
+.compare-visual .visual-svg { width:100%; }
+.compare-copy > span { color:#0b7a6a; font-size:23px; font-weight:700; }
+.compare-card h2 { margin:12px 0 18px; color:#0f2c59; font-size:46px; }
+.compare-card p { margin:0 0 26px; color:#52606d; font-size:25px; line-height:1.46; }
+.compare-card strong { display:inline-flex; align-self:flex-start; padding:13px 20px; border-radius:99px; background:#fff; color:#0f2c59; font-size:21px; }
+.path-stage { display:grid; grid-template-columns:1fr 72px 1fr 72px 1fr 72px 1fr; align-items:center; }
+.path-card { height:340px; padding:30px 28px; opacity:0; }
+.path-card > span { color:#0b7a6a; font-size:20px; font-weight:700; letter-spacing:.08em; }
+.path-card h2 { margin:20px 0 13px; color:#0f2c59; font-size:34px; line-height:1.28; }
+.path-card p { margin:0; color:#52606d; font-size:22px; line-height:1.45; }
+.path-note { position:absolute; left:545px; bottom:22px; opacity:0; }
+</style>
+  <div id="root" data-composition-id="slide-s23" data-duration="18.24" data-width="1920" data-height="1080">
+    <div id="scene-s23" class="hf-scene">
+      <div class="hf-grid" data-layout-ignore></div>
+      <div class="hf-orb" style="right:-170px;bottom:-230px" data-layout-ignore></div>
+      <div class="hf-topbar"><span class="hf-kicker">퀀트 트레이딩과 코딩 에이전트 입문</span><span class="hf-scene-no">23 / 31</span></div>
+      <header class="hf-header media-header"><h1 class="hf-title">.venv를 고른 뒤 Run All을 누른다</h1><div class="media-caption-rail"><span class="media-demo-label">실제 노트북 실행 화면</span><div class="media-caption-stack"><p class="media-caption-base">커널을 고르고 코드를 실행한 뒤 세 줄의 결과를 확인합니다.</p><p class="media-caption-card"><strong>실행</strong><span>Run All</span></p><p class="media-caption-card"><strong>실행 결과</strong><span>코드 아래 세 줄 확인</span></p></div></div></header><section class="hf-stage media-stage"><div class="media-layout"><div class="media-shell" data-source-width="1920" data-source-height="1080"><div class="media-zoom-outer" data-layout-allow-overflow><div class="media-zoom-inner"><div class="media-visual"><img src="assets/ui/notebook-executed.png" alt=".venv를 고른 뒤 Run All을 누른다 화면"/></div></div></div><span class="media-focus-box" data-focus-index="1" data-source-x="610" data-source-y="78" data-source-w="132" data-source-h="66" data-scale="2.04"></span><span class="media-focus-box" data-focus-index="2" data-source-x="378" data-source-y="404" data-source-w="460" data-source-h="118" data-scale="1.84"></span></div></div></section><span class="hf-footer-note">Python 버전 숫자는 컴퓨터에 따라 다를 수 있습니다.</span>
+    </div>
+    <script>(function(){
+      var root=document.getElementById("scene-s23");
+      var q=function(s){return root.querySelector(s);};
+      var qa=function(s){return root.querySelectorAll(s);};
+      var duration=18.24;
+      var tl=gsap.timeline({paused:true});
+      tl.fromTo(q(".hf-grid"),{x:-18,y:-12},{x:24,y:14,duration:duration,ease:"none"},0);
+      tl.fromTo(q(".hf-orb"),{scale:.94,opacity:.32},{scale:1.05,opacity:.68,duration:duration,ease:"sine.inOut"},0);
+      tl.fromTo(q(".hf-header"), {opacity:0,y:28}, {opacity:1,y:0,duration:.55,ease:"power3.out"}, .12);
+        tl.fromTo(q(".media-shell"),{opacity:0,x:34,scale:.985},{opacity:1,x:0,scale:1,duration:.55,ease:"power3.out"},.12);
+        if(q(".media-demo-label")){ tl.fromTo(q(".media-demo-label"),{opacity:0,y:14},{opacity:1,y:0,duration:.4,ease:"power3.out"},.18); }
+        var captionStarts=[5.16, 10.66], captions=qa(".media-caption-card"), captionBase=q(".media-caption-base");
+        Array.prototype.forEach.call(captions,function(card,index){ var at=captionStarts[index]; var outAt=Math.max(.12,at-.18); if(index===0){ tl.to(captionBase,{opacity:0,y:-8,duration:.18,ease:"power1.out"},outAt); } else { tl.to(captions[index-1],{opacity:0,y:-8,duration:.18,ease:"power1.out"},outAt); } tl.fromTo(card,{opacity:0,y:10},{opacity:1,y:0,duration:.34,ease:"power3.out"},at); });
+        var shell=q(".media-shell"), outer=q(".media-zoom-outer"), inner=q(".media-zoom-inner"), boxes=qa(".media-focus-box"), focusTargets=[6.14, 11.64];
+        function targetGeometry(box){
+          var sw=Number(shell.dataset.sourceWidth), sh=Number(shell.dataset.sourceHeight), shellW=shell.clientWidth, shellH=shell.clientHeight;
+          var fit=Math.min(shellW/sw,shellH/sh), mediaW=sw*fit, mediaH=sh*fit, mediaLeft=(shellW-mediaW)/2, mediaTop=(shellH-mediaH)/2;
+          var x=mediaLeft+Number(box.dataset.sourceX)*fit, y=mediaTop+Number(box.dataset.sourceY)*fit, w=Number(box.dataset.sourceW)*fit, h=Number(box.dataset.sourceH)*fit;
+          return {x:x,y:y,w:w,h:h,cx:x+w/2,cy:y+h/2};
+        }
+        function placeBox(box){ var g=targetGeometry(box); gsap.set(box,{left:g.x,top:g.y,width:g.w,height:g.h}); return g; }
+        Array.prototype.forEach.call(boxes,placeBox);
+        function addFocus(box,target){ var at=Math.max(.12,target-0.42), boxOutAt=target+0.22, zoomAt=boxOutAt+0.26, g=placeBox(box); var desired=Number(box.dataset.scale), fitScale=Math.min(shell.clientWidth*.84/g.w,shell.clientHeight*.78/g.h); var scale=Math.min(desired,fitScale); var offsetX=g.cx-shell.clientWidth/2, offsetY=g.cy-shell.clientHeight/2; tl.fromTo(box,{opacity:0,scale:.94},{opacity:1,scale:1,duration:0.28,ease:"power3.out"},at); tl.to(box,{opacity:0,duration:0.16,ease:"power1.out"},boxOutAt); tl.to(outer,{scale:scale,duration:0.62,ease:"power3.inOut"},zoomAt); tl.to(inner,{x:-offsetX,y:-offsetY,duration:0.62,ease:"power3.inOut"},zoomAt); }
+        if(boxes.length===1){ addFocus(boxes[0],focusTargets[0]); }
+        if(boxes.length>1){ addFocus(boxes[0],focusTargets[0]); var secondTarget=focusTargets[1], resetAt=Math.max(.12,secondTarget-0.74); tl.to(outer,{scale:1,duration:0.28,ease:"power2.inOut"},resetAt); tl.to(inner,{x:0,y:0,duration:0.28,ease:"power2.inOut"},resetAt); addFocus(boxes[1],secondTarget); }
+      window.__timelines=window.__timelines||{};
+      window.__timelines["slide-s23"]=tl;
+    })();</script>
+  </div>
+<style id="presentation-mode">
+html, body { width:1280px !important; height:720px !important; margin:0; overflow:hidden; background:#fafaf9; }
+body > #root { width:1920px; height:1080px; transform:scale(0.6666666667); transform-origin:0 0; }
+video, audio { display:none !important; }
+</style>
+<script>
+(function() {
+  "use strict";
+  var slideId = "s23";
+  var times = [5.94,11.44,18.12];
+  var requested = Number(new URLSearchParams(window.location.search).get("step")) || 1;
+  function clamp(step) { return Math.max(1, Math.min(times.length, Number(step) || 1)); }
+  function apply(step) {
+    var current = clamp(step);
+    var timeline = window.__timelines && window.__timelines["slide-" + slideId];
+    if (!timeline) return false;
+    timeline.pause(times[current - 1], false);
+    document.documentElement.setAttribute("data-presentation-step", String(current));
+    document.documentElement.setAttribute("data-presentation-ready", "true");
+    if (window.parent !== window) window.parent.postMessage({
+      type:"aimlquant-hyperframes-ready", slideId:slideId, step:current
+    }, "*");
+    return true;
+  }
+  window.aimlquantHyperframesSetStep = apply;
+  function boot() {
+    var ready = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+    ready.then(function() {
+      requestAnimationFrame(function() { if (!apply(requested)) setTimeout(function() { apply(requested); }, 0); });
+    });
+  }
+  window.addEventListener("message", function(event) {
+    var data = event.data || {};
+    if (data.type === "aimlquant-hyperframes-step") { requested = clamp(data.step); apply(requested); }
+  });
+  window.addEventListener("beforeprint", function() { apply(times.length); });
+  window.addEventListener("keydown", function(event) {
+    if (event.metaKey || event.ctrlKey || event.altKey) return;
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight" && event.key.toLowerCase() !== "n") return;
+    event.preventDefault();
+    if (window.parent !== window) window.parent.postMessage({
+      type:"aimlquant-hyperframes-key", key:event.key, slideId:slideId
+    }, "*");
+  });
+  boot();
+})();
+</script></body></html>
