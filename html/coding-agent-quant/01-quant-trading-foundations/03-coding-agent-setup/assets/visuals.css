@@ -273,4 +273,17 @@
     break-inside: avoid;
     page-break-inside: avoid;
   }
+
+  /*
+   * This lesson has short bridge paragraphs at the end of sections 0, 3,
+   * and 5. Let the following section use the remaining A4 space instead of
+   * producing a nearly empty page. Other section boundaries keep the shared
+   * report template's page-break contract.
+   */
+  .continuous-mode .report-section.s1,
+  .continuous-mode .report-section.s4,
+  .continuous-mode .report-section.s6 {
+    break-before: auto !important;
+    page-break-before: auto !important;
+  }
 }

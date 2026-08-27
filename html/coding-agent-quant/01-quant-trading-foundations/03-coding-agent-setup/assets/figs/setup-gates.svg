@@ -1,38 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 540" role="img" aria-labelledby="title desc">
   <title id="title">VS Code와 Codex, Python, Jupyter의 관계</title>
-  <desc id="desc">VS Code라는 작업 화면 안에서 Codex는 코딩을 돕고, Python은 코드를 실행하며, Jupyter는 설명과 코드와 결과를 한 문서에 보여 준다.</desc>
+  <desc id="desc">왼쪽의 VS Code 작업 화면에서 세 연결선이 갈라져 오른쪽의 Codex, Python, Jupyter 카드 왼쪽 면 중앙에 각각 닿는다.</desc>
   <defs>
+    <marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
+      <path d="M0 0L18 5L0 10Z" fill="#0F2C59"/>
+    </marker>
+    <filter id="shadow" x="-15%" y="-20%" width="130%" height="145%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0F172A" flood-opacity=".08"/>
+    </filter>
     <style>
       text { font-family: "Noto Sans CJK KR","Noto Sans KR",sans-serif; }
-      .eyebrow { font-size: 20px; font-weight: 700; letter-spacing: .07em; fill: #0F2C59; }
-      .title { font-size: 34px; font-weight: 700; fill: #0F172A; }
-      .name { font-size: 28px; font-weight: 700; fill: #0F172A; }
-      .body { font-size: 21px; font-weight: 400; fill: #52606D; }
+      .eyebrow { font-size: 19px; font-weight: 700; letter-spacing: .06em; fill: #0B7A6A; }
+      .core { font-size: 40px; font-weight: 700; fill: #0F2C59; }
+      .name { font-size: 27px; font-weight: 700; fill: #0F2C59; }
+      .body { font-size: 19px; font-weight: 400; fill: #52606D; }
+      .connector { fill: none; stroke: #0F2C59; stroke-width: 3; stroke-linecap: round; marker-end: url(#arrow); }
     </style>
   </defs>
-  <rect width="1200" height="500" fill="#FFFFFF"/>
-  <rect x="50" y="45" width="1100" height="410" rx="18" fill="#E7EEF9" stroke="#0F2C59" stroke-width="3"/>
-  <text class="eyebrow" x="90" y="92">강의 파일을 열고 작업하는 화면</text>
-  <text class="title" x="90" y="140">VS Code</text>
-  <g>
-    <rect x="90" y="185" width="300" height="210" rx="12" fill="#FFFFFF" stroke="#C7D2E1" stroke-width="2"/>
-    <text class="eyebrow" x="120" y="230">코딩 에이전트</text>
-    <text class="name" x="120" y="278">Codex</text>
-    <text class="body" x="120" y="326">부탁을 읽고 파일과</text>
-    <text class="body" x="120" y="358">코드를 함께 다룬다</text>
+  <rect width="1200" height="540" fill="#FFFFFF"/>
+  <rect x="55" y="125" width="345" height="290" rx="24" fill="#E7EEF9" stroke="#0F2C59" stroke-width="2.5" filter="url(#shadow)"/>
+  <text class="eyebrow" x="227.5" y="218" text-anchor="middle">작업 화면</text>
+  <text class="core" x="227.5" y="274" text-anchor="middle">VS Code</text>
+  <text class="body" x="227.5" y="320" text-anchor="middle">강의 파일과 코드를 한곳에서 본다</text>
+
+  <path class="connector" d="M400 270 C485 270 515 105 649 105"/>
+  <path class="connector" d="M400 270 C500 270 535 270 649 270"/>
+  <path class="connector" d="M400 270 C485 270 515 435 649 435"/>
+
+  <g filter="url(#shadow)">
+    <rect x="650" y="40" width="495" height="130" rx="18" fill="#FFFFFF" stroke="#C7D2E1" stroke-width="2"/>
+    <rect x="650" y="205" width="495" height="130" rx="18" fill="#FFFFFF" stroke="#C7D2E1" stroke-width="2"/>
+    <rect x="650" y="370" width="495" height="130" rx="18" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
   </g>
-  <g>
-    <rect x="450" y="185" width="300" height="210" rx="12" fill="#FFFFFF" stroke="#C7D2E1" stroke-width="2"/>
-    <text class="eyebrow" x="480" y="230">프로그래밍 언어</text>
-    <text class="name" x="480" y="278">Python</text>
-    <text class="body" x="480" y="326">퀀트 코드를 적고</text>
-    <text class="body" x="480" y="358">실제로 실행한다</text>
-  </g>
-  <g>
-    <rect x="810" y="185" width="300" height="210" rx="12" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
-    <text class="eyebrow" x="840" y="230">설명과 실행 결과</text>
-    <text class="name" x="840" y="278">Jupyter</text>
-    <text class="body" x="840" y="326">설명과 코드를 나누어</text>
-    <text class="body" x="840" y="358">한 문서에서 확인한다</text>
-  </g>
+  <text class="name" x="690" y="92">Codex</text>
+  <text class="body" x="690" y="128">파일과 코드 작업을 돕는 코딩 에이전트</text>
+  <text class="name" x="690" y="257">Python</text>
+  <text class="body" x="690" y="293">작성한 코드를 실제로 실행하는 언어와 프로그램</text>
+  <text class="name" x="690" y="422">Jupyter</text>
+  <text class="body" x="690" y="458">설명·코드·결과를 한 문서에 보여 주는 프로그램</text>
 </svg>
