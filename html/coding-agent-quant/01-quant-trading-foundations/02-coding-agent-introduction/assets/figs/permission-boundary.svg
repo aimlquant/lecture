@@ -1,46 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
-  <title id="title">첫 실습에서 어디까지 맡길지 정하는 기준</title>
-  <desc id="desc">왼쪽은 강의 전용 폴더 안에서 맡길 일이다. 오른쪽은 추가 확인이 필요한 일과 첫 실습에서 맡기지 않을 일을 보여 준다.</desc>
-  <style>
-    text{font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif;fill:#0F172A;font-weight:400}
-    .safe-panel{fill:#E4F6F0;stroke:#0B7A6A;stroke-width:3}
-    .review-panel{fill:#FFF0DF;stroke:#B45309;stroke-width:3}
-    .stop-panel{fill:#FFF1F4;stroke:#BE123C;stroke-width:3}
-    .safe-box{fill:#FFFFFF;stroke:#0B7A6A;stroke-width:2}
-    .review-box{fill:#FFFFFF;stroke:#B45309;stroke-width:2}
-    .stop-box{fill:#FFFFFF;stroke:#BE123C;stroke-width:2}
-    .head{font-size:29px;font-weight:700}
-    .label{font-size:25px;font-weight:700}
-    .stop-label{font-size:21px;font-weight:700}
-    .small{font-size:21px;fill:#52606D}
-    .boundary{stroke:#0F2C59;stroke-width:2;stroke-dasharray:10 10}
-  </style>
-  <rect width="1200" height="700" fill="#FFFFFF"/>
-
-  <rect class="safe-panel" x="45" y="70" width="500" height="560" rx="16"/>
-  <text class="head" x="85" y="120" fill="#0B7A6A">정해진 범위에서 맡길 일</text>
-  <text class="small" x="85" y="155">강의 전용 폴더 안에서 필요한 일</text>
-  <rect class="safe-box" x="95" y="205" width="400" height="95" rx="12"/>
-  <text class="label" x="295" y="260" text-anchor="middle">관련 파일 읽기</text>
-  <rect class="safe-box" x="95" y="335" width="400" height="95" rx="12"/>
-  <text class="label" x="295" y="390" text-anchor="middle">파일 만들기·수정</text>
-  <rect class="safe-box" x="95" y="465" width="400" height="95" rx="12"/>
-  <text class="label" x="295" y="520" text-anchor="middle">필요한 명령 실행</text>
-
-  <line class="boundary" x1="600" y1="70" x2="600" y2="630"/>
-  <rect x="550" y="288" width="100" height="124" rx="50" fill="#FFFFFF" stroke="#0F2C59" stroke-width="3"/>
-  <text class="label" x="600" y="336" text-anchor="middle" fill="#0F2C59">사람이</text>
-  <text class="small" x="600" y="374" text-anchor="middle">확인</text>
-
-  <rect class="review-panel" x="655" y="70" width="500" height="340" rx="16"/>
-  <text class="head" x="695" y="120" fill="#B45309">추가 확인이 필요한 일</text>
-  <rect class="review-box" x="705" y="175" width="400" height="80" rx="12"/>
-  <text class="label" x="905" y="224" text-anchor="middle">강의 폴더 밖의 파일</text>
-  <rect class="review-box" x="705" y="285" width="400" height="80" rx="12"/>
-  <text class="label" x="905" y="334" text-anchor="middle">인터넷·새 패키지 사용</text>
-
-  <rect class="stop-panel" x="655" y="440" width="500" height="190" rx="16"/>
-  <text class="head" x="695" y="490" fill="#BE123C">첫 실습에서 하지 않는 일</text>
-  <rect class="stop-box" x="705" y="525" width="400" height="70" rx="12"/>
-  <text class="stop-label" x="905" y="554" text-anchor="middle"><tspan x="905">비밀값 입력 · 실제 주문</tspan><tspan x="905" dy="28">되돌리기 어려운 삭제</tspan></text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">할 수 있는 일과 해도 되는 일 사이의 권한 경계</title>
+  <desc id="desc">최종 영상 s22의 안정 화면을 바탕으로 정해진 범위 안의 작업과 사람 확인에서 멈춰야 하는 범위를 중앙의 정지선으로 나눈다.</desc>
+  <metadata>HyperFrames s22 · final-video SHA256 c446fa42faf3cc41f831e02b9f49591cc7559b0485a24afa0938ac43684c1c11</metadata>
+  <defs><filter id="shadow" x="-15%" y="-15%" width="130%" height="145%"><feDropShadow dx="0" dy="9" stdDeviation="9" flood-color="#0F2C59" flood-opacity=".11"/></filter><style>text{font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif}.zone{stroke-width:2;filter:url(#shadow)}.allow{fill:#fff;stroke:#CBD6E3}.gate{fill:#FFF0DF;stroke:#E0AE72}.eyebrow{fill:#0B7A6A;font-size:17px;font-weight:700}.gate-eye{fill:#B45309}.title{fill:#0F2C59;font-size:30px;font-weight:700}.item{fill:#52606D;font-size:20px}.ok{fill:#E4F6F0}.warn{fill:#FFF0DF}.chip{fill:#0F2C59}.line{fill:#0F2C59}.stop{fill:#B45309;stroke:#fff;stroke-width:7}</style></defs>
+  <rect width="1200" height="520" fill="#fff"/>
+  <g transform="translate(28 30)"><rect class="zone allow" width="490" height="460" rx="28"/><text class="eyebrow" x="36" y="52">정해진 범위 안</text><text class="title" x="36" y="101">바로 맡길 수 있는 일</text><g transform="translate(36 145)"><rect class="ok" width="38" height="38" rx="12"/><text x="19" y="27" text-anchor="middle" fill="#0B7A6A" font-size="22" font-weight="700">✓</text><text class="item" x="58" y="27">강의 폴더 파일 읽기·쓰기</text></g><g transform="translate(36 218)"><rect class="ok" width="38" height="38" rx="12"/><text x="19" y="27" text-anchor="middle" fill="#0B7A6A" font-size="22" font-weight="700">✓</text><text class="item" x="58" y="27">정해진 명령 실행</text></g><g transform="translate(36 291)"><rect class="ok" width="38" height="38" rx="12"/><text x="19" y="27" text-anchor="middle" fill="#0B7A6A" font-size="22" font-weight="700">✓</text><text class="item" x="58" y="27">변경 내용과 결과 기록</text></g></g>
+  <rect class="chip" x="536" y="30" width="128" height="48" rx="24"/><text x="600" y="61" text-anchor="middle" fill="#fff" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif" font-size="18" font-weight="700">사람 확인</text><rect class="line" x="597" y="94" width="6" height="350" rx="3"/><circle class="stop" cx="600" cy="270" r="51"/><text x="600" y="279" text-anchor="middle" fill="#fff" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif" font-size="24" font-weight="700">STOP</text>
+  <g transform="translate(682 30)"><rect class="zone gate" width="490" height="460" rx="28"/><text class="eyebrow gate-eye" x="36" y="52">범위를 넘는 작업</text><text class="title" x="36" y="101">확인하거나 맡기지 않을 일</text><g transform="translate(36 137)"><rect class="warn" width="38" height="38" rx="12"/><text x="19" y="27" text-anchor="middle" fill="#B45309" font-size="22" font-weight="700">!</text><text class="item" x="58" y="27">폴더 밖 접근</text></g><g transform="translate(36 194)"><rect class="warn" width="38" height="38" rx="12"/><text x="19" y="27" text-anchor="middle" fill="#B45309" font-size="22" font-weight="700">!</text><text class="item" x="58" y="27">인터넷·패키지</text></g><g transform="translate(36 251)"><rect class="warn" width="38" height="38" rx="12"/><text x="19" y="27" text-anchor="middle" fill="#B45309" font-size="22" font-weight="700">!</text><text class="item" x="58" y="27">비밀번호·API 키</text></g><g transform="translate(36 308)"><rect class="warn" width="38" height="38" rx="12"/><text x="19" y="27" text-anchor="middle" fill="#B45309" font-size="22" font-weight="700">!</text><text class="item" x="58" y="27">실제 주문</text></g><g transform="translate(36 365)"><rect class="warn" width="38" height="38" rx="12"/><text x="19" y="27" text-anchor="middle" fill="#B45309" font-size="22" font-weight="700">!</text><text class="item" x="58" y="27">되돌리기 어려운 삭제</text></g></g>
 </svg>

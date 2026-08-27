@@ -1,50 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
-  <title id="title">코딩 에이전트의 작업 구조</title>
-  <desc id="desc">왼쪽의 작업 요청과 프로젝트 정보가 가운데 코딩 에이전트로 들어간다. 에이전트는 오른쪽의 파일 도구와 명령 도구를 사용하고, 아래에 사람이 확인할 결과를 남긴다.</desc>
-  <defs>
-    <marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
-      <path d="M0 0L18 5L0 10Z" fill="context-stroke"/>
-    </marker>
-    <style>
-      text{font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif;fill:#0F172A;font-weight:400}
-      .label{font-size:29px;font-weight:700}
-      .small{font-size:22px;fill:#52606D}
-      .input{fill:#E7EEF9;stroke:#0F2C59;stroke-width:2}
-      .agent{fill:#E4F6F0;stroke:#0B7A6A;stroke-width:3}
-      .tool{fill:#FFF0DF;stroke:#B45309;stroke-width:2}
-      .result{fill:#FFFFFF;stroke:#0F2C59;stroke-width:3}
-      .in{fill:none;stroke:#0F2C59;stroke-width:3;marker-end:url(#arrow)}
-      .out{fill:none;stroke:#0B7A6A;stroke-width:3;marker-end:url(#arrow)}
-    </style>
-  </defs>
-  <rect width="1200" height="720" fill="#FFFFFF"/>
-
-  <rect class="input" x="55" y="120" width="320" height="120" rx="14"/>
-  <text class="label" x="215" y="170" text-anchor="middle">작업 요청</text>
-  <text class="small" x="215" y="207" text-anchor="middle">목적·범위·완료 조건</text>
-  <rect class="input" x="55" y="330" width="320" height="120" rx="14"/>
-  <text class="label" x="215" y="380" text-anchor="middle">프로젝트 문맥</text>
-  <text class="small" x="215" y="417" text-anchor="middle">열린 파일·선택 영역·안내 문서</text>
-
-  <rect class="agent" x="455" y="205" width="290" height="190" rx="16"/>
-  <text class="label" x="600" y="275" text-anchor="middle">코딩 에이전트</text>
-  <text class="small" x="600" y="318" text-anchor="middle">계획하고 도구를 고른다</text>
-  <text class="small" x="600" y="354" text-anchor="middle">결과를 보고 다시 고친다</text>
-
-  <rect class="tool" x="825" y="120" width="320" height="120" rx="14"/>
-  <text class="label" x="985" y="170" text-anchor="middle">파일 도구</text>
-  <text class="small" x="985" y="207" text-anchor="middle">찾기·읽기·만들기·수정</text>
-  <rect class="tool" x="825" y="330" width="320" height="120" rx="14"/>
-  <text class="label" x="985" y="380" text-anchor="middle">명령 도구</text>
-  <text class="small" x="985" y="417" text-anchor="middle">실행·검사·오류 확인</text>
-
-  <path class="in" d="M375 180H420V255H455"/>
-  <path class="in" d="M375 390H420V345H455"/>
-  <path class="out" d="M745 255H785V180H825"/>
-  <path class="out" d="M745 345H785V390H825"/>
-
-  <path class="out" d="M600 395V525"/>
-  <rect class="result" x="350" y="525" width="500" height="120" rx="14"/>
-  <text class="label" x="600" y="574" text-anchor="middle">사람이 확인할 결과</text>
-  <text class="small" x="600" y="612" text-anchor="middle">파일 · 바뀐 내용 · 명령 기록 · 화면 출력</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+  <title id="title">작업 요청과 프로젝트 문맥이 도구를 거쳐 확인 가능한 결과가 되는 구조</title>
+  <desc id="desc">최종 영상 s10의 안정 화면을 바탕으로 두 입력이 중앙의 코딩 에이전트로 모이고 파일 도구와 명령 도구를 거쳐 확인 가능한 결과로 이어지는 구조를 옮겼다.</desc>
+  <metadata>HyperFrames s10 · final-video SHA256 c446fa42faf3cc41f831e02b9f49591cc7559b0485a24afa0938ac43684c1c11</metadata>
+  <defs><filter id="shadow" x="-16%" y="-16%" width="132%" height="148%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#0F2C59" flood-opacity=".10"/></filter><style>text{font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif}.card{fill:#fff;stroke:#CBD6E3;stroke-width:2;filter:url(#shadow)}.agent{fill:#fff;stroke:#0B7A6A;stroke-width:3;filter:url(#shadow)}.output{fill:#E4F6F0;stroke:#78BEB2;stroke-width:2}.name{fill:#0F2C59;font-size:22px;font-weight:700}.body{fill:#52606D;font-size:16px}.shaft{fill:none;stroke:#0F2C59;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}.head{fill:#0F2C59}.plate{fill:#F8FAFC;stroke:#CBD6E3;stroke-width:1.5}.icon{fill:none;stroke:#0F2C59;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.accent{fill:#0B7A6A}</style></defs>
+  <rect width="1200" height="600" fill="#fff"/>
+  <path class="shaft" d="M252 148C340 148 352 252 410 252"/><path class="head" d="M428 252L408 240V264Z"/>
+  <path class="shaft" d="M252 428C340 428 352 326 410 326"/><path class="head" d="M428 326L408 314V338Z"/>
+  <path class="shaft" d="M626 252C684 252 696 148 766 148"/><path class="head" d="M784 148L764 136V160Z"/>
+  <path class="shaft" d="M626 326C684 326 696 428 766 428"/><path class="head" d="M784 428L764 416V440Z"/>
+  <path class="shaft" d="M518 378V426"/><path class="head" d="M518 444L506 424H530Z"/>
+  <g transform="translate(24 70)"><rect class="card" width="228" height="156" rx="20"/><rect class="plate" x="18" y="40" width="66" height="66" rx="16"/><path class="icon" d="M34 58h34M34 71h26M34 84h32"/><path class="icon" d="M63 52l9 9"/><text class="name" x="102" y="64">작업 요청</text><text class="body" x="102" y="92"><tspan x="102">목적과 원하는</tspan><tspan x="102" dy="23">결과</tspan></text></g>
+  <g transform="translate(24 350)"><rect class="card" width="228" height="156" rx="20"/><rect class="plate" x="18" y="40" width="66" height="66" rx="16"/><path class="icon" d="M30 61h28l8 10h18v27H30zM30 72h54"/><circle class="accent" cx="72" cy="91" r="6"/><text class="name" x="102" y="64">프로젝트 문맥</text><text class="body" x="102" y="92"><tspan x="102">열린 파일·선택</tspan><tspan x="102" dy="23">영역·관련 파일</tspan></text></g>
+  <g transform="translate(428 200)"><rect class="agent" width="198" height="178" rx="28"/><rect class="plate" x="57" y="26" width="84" height="84" rx="22"/><rect class="icon" x="75" y="48" width="48" height="43" rx="12"/><path class="icon" d="M99 48V35M90 35h18M84 84h30"/><circle class="accent" cx="88" cy="67" r="5"/><circle class="accent" cx="110" cy="67" r="5"/><text class="name" x="99" y="143" text-anchor="middle">코딩 에이전트</text></g>
+  <g transform="translate(784 70)"><rect class="card" width="228" height="156" rx="20"/><rect class="plate" x="18" y="40" width="66" height="66" rx="16"/><path class="icon" d="M30 61h28l8 10h18v27H30zM30 72h54"/><rect x="47" y="82" width="25" height="9" rx="4" fill="#0B7A6A"/><text class="name" x="102" y="64">파일 도구</text><text class="body" x="102" y="92"><tspan x="102">찾기·읽기·</tspan><tspan x="102" dy="23">만들기·수정</tspan></text></g>
+  <g transform="translate(784 350)"><rect class="card" width="228" height="156" rx="20"/><rect class="plate" x="18" y="40" width="66" height="66" rx="16"/><rect class="icon" x="29" y="55" width="45" height="36" rx="8"/><path class="icon" d="M36 66l8 7-8 7M51 80h13"/><text class="name" x="102" y="64">명령 도구</text><text class="body" x="102" y="92"><tspan x="102">실행·검사·</tspan><tspan x="102" dy="23">오류 확인</tspan></text></g>
+  <g transform="translate(392 444)"><rect class="output" width="252" height="124" rx="20"/><rect class="plate" x="18" y="29" width="66" height="66" rx="16"/><path class="icon" d="M33 49h34M33 62h28M33 75h31"/><path class="icon" stroke="#0B7A6A" d="M56 82l8 8 14-18"/><text class="name" x="102" y="54">확인 가능한 결과</text><text class="body" x="102" y="82"><tspan x="102">파일·변경 내용·</tspan><tspan x="102" dy="23">실행 기록</tspan></text></g>
 </svg>

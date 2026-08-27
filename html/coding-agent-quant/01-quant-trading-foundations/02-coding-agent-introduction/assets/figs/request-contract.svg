@@ -1,44 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
-  <title id="title">확인 가능한 작업 요청의 다섯 요소</title>
-  <desc id="desc">목적, 문맥, 제약, 결과물, 확인 방법의 다섯 카드가 빠진 조건이 없는 작업 계획으로 모이는 구조다.</desc>
-  <defs>
-    <marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
-      <path d="M0 0L18 5L0 10Z" fill="context-stroke"/>
-    </marker>
-    <style>
-      text{font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif;fill:#0F172A;font-weight:400}
-      .card{fill:#FFFFFF;stroke:#0F2C59;stroke-width:2}
-      .card2{fill:#E7EEF9;stroke:#0F2C59;stroke-width:2}
-      .plan{fill:#E4F6F0;stroke:#0B7A6A;stroke-width:3}
-      .num{font-size:22px;font-weight:700;fill:#52606D}
-      .label{font-size:27px;font-weight:700}
-      .small{font-size:21px;fill:#52606D}
-      .bus{fill:none;stroke:#0F2C59;stroke-width:2}
-      .line{fill:none;stroke:#0B7A6A;stroke-width:3;marker-end:url(#arrow)}
-    </style>
-  </defs>
-  <rect width="1200" height="700" fill="#FFFFFF"/>
-
-  <rect class="card2" x="35" y="100" width="180" height="245" rx="13"/>
-  <rect class="card" x="260" y="100" width="180" height="245" rx="13"/>
-  <rect class="card2" x="485" y="100" width="180" height="245" rx="13"/>
-  <rect class="card" x="710" y="100" width="180" height="245" rx="13"/>
-  <rect class="card2" x="935" y="100" width="180" height="245" rx="13"/>
-
-  <text class="num" x="60" y="138">01</text><text class="label" x="125" y="190" text-anchor="middle">목적</text>
-  <text class="small" x="125" y="236" text-anchor="middle"><tspan x="125">무엇을</tspan><tspan x="125" dy="32">만들까</tspan></text>
-  <text class="num" x="285" y="138">02</text><text class="label" x="350" y="190" text-anchor="middle">문맥</text>
-  <text class="small" x="350" y="236" text-anchor="middle"><tspan x="350">어느 폴더와</tspan><tspan x="350" dy="32">파일을 볼까</tspan></text>
-  <text class="num" x="510" y="138">03</text><text class="label" x="575" y="190" text-anchor="middle">제약</text>
-  <text class="small" x="575" y="236" text-anchor="middle"><tspan x="575">하지 말아야</tspan><tspan x="575" dy="32">할 일은</tspan></text>
-  <text class="num" x="735" y="138">04</text><text class="label" x="800" y="190" text-anchor="middle">결과물</text>
-  <text class="small" x="800" y="236" text-anchor="middle"><tspan x="800">어떤 파일을</tspan><tspan x="800" dy="32">남길까</tspan></text>
-  <text class="num" x="960" y="138">05</text><text class="label" x="1025" y="190" text-anchor="middle">확인</text>
-  <text class="small" x="1025" y="236" text-anchor="middle"><tspan x="1025">무엇을 보면</tspan><tspan x="1025" dy="32">끝일까</tspan></text>
-
-  <path class="bus" d="M125 345V430M350 345V430M575 345V430M800 345V430M1025 345V430M125 430H1025"/>
-  <path class="line" d="M575 430V505"/>
-  <rect class="plan" x="285" y="505" width="580" height="120" rx="15"/>
-  <text class="label" x="575" y="555" text-anchor="middle">빠진 조건이 없는 작업 계획</text>
-  <text class="small" x="575" y="595" text-anchor="middle">할 일 · 만들 파일 · 실행 방법 · 완료 조건</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">좋은 작업 요청의 다섯 요소</title>
+  <desc id="desc">최종 영상 s12의 안정 화면을 바탕으로 목적, 문맥, 제약, 결과물, 확인 방법의 다섯 칸이 공통 레일을 거쳐 에이전트의 실행 계획으로 이어지는 구조를 옮겼다.</desc>
+  <metadata>HyperFrames s12 · final-video SHA256 c446fa42faf3cc41f831e02b9f49591cc7559b0485a24afa0938ac43684c1c11</metadata>
+  <defs><filter id="shadow" x="-16%" y="-16%" width="132%" height="148%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#0F2C59" flood-opacity=".10"/></filter><style>text{font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif}.card{fill:#fff;stroke:#CBD6E3;stroke-width:2;filter:url(#shadow)}.num{fill:#0B7A6A;font-size:15px;font-weight:700}.name{fill:#0F2C59;font-size:25px;font-weight:700}.body{fill:#52606D;font-size:17px}.shaft{fill:none;stroke:#0F2C59;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}.head{fill:#0F2C59}.output{fill:#E4F6F0}.glyph{fill:none;stroke:#0B7A6A;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}</style></defs>
+  <rect width="1200" height="430" fill="#fff"/>
+  <g transform="translate(24 30)"><rect class="card" width="204" height="230" rx="20"/><circle cx="102" cy="74" r="32" fill="#E4F6F0" stroke="#CBD6E3" stroke-width="1.5"/><circle class="glyph" cx="102" cy="74" r="20"/><circle class="glyph" cx="102" cy="74" r="7"/><path class="glyph" d="M125 51l-17 17"/><text class="num" x="24" y="30">01</text><text class="name" x="102" y="132" text-anchor="middle">목적</text><text class="body" x="102" y="166" text-anchor="middle"><tspan x="102">무엇을 위한</tspan><tspan x="102" dy="25">작업인가</tspan></text></g>
+  <g transform="translate(261 30)"><rect class="card" width="204" height="230" rx="20"/><circle cx="102" cy="74" r="32" fill="#E4F6F0" stroke="#CBD6E3" stroke-width="1.5"/><path class="glyph" d="M76 61h29l8 9h16v27H76zM76 71h53"/><text class="num" x="24" y="30">02</text><text class="name" x="102" y="132" text-anchor="middle">문맥</text><text class="body" x="102" y="166" text-anchor="middle"><tspan x="102">어떤 파일과</tspan><tspan x="102" dy="25">자료를 보는가</tspan></text></g>
+  <g transform="translate(498 30)"><rect class="card" width="204" height="230" rx="20"/><circle cx="102" cy="74" r="32" fill="#E4F6F0" stroke="#CBD6E3" stroke-width="1.5"/><rect class="glyph" x="78" y="55" width="48" height="38" rx="8"/><circle cx="91" cy="74" r="4" fill="#0B7A6A"/><circle cx="113" cy="74" r="4" fill="#0B7A6A"/><text class="num" x="24" y="30">03</text><text class="name" x="102" y="132" text-anchor="middle">제약</text><text class="body" x="102" y="166" text-anchor="middle"><tspan x="102">폴더·도구·</tspan><tspan x="102" dy="25">금지 범위</tspan></text></g>
+  <g transform="translate(735 30)"><rect class="card" width="204" height="230" rx="20"/><circle cx="102" cy="74" r="32" fill="#E4F6F0" stroke="#CBD6E3" stroke-width="1.5"/><rect class="glyph" x="76" y="55" width="52" height="38" rx="8"/><path class="glyph" d="M84 68l8 7-8 7M99 82h18"/><text class="num" x="24" y="30">04</text><text class="name" x="102" y="132" text-anchor="middle">결과물</text><text class="body" x="102" y="166" text-anchor="middle"><tspan x="102">어떤 파일과</tspan><tspan x="102" dy="25">화면을 만드는가</tspan></text></g>
+  <g transform="translate(972 30)"><rect class="card" width="204" height="230" rx="20"/><circle cx="102" cy="74" r="32" fill="#E4F6F0" stroke="#CBD6E3" stroke-width="1.5"/><path class="glyph" d="M82 59h40M82 72h30M82 85h34M105 86l7 7 14-18"/><text class="num" x="24" y="30">05</text><text class="name" x="102" y="132" text-anchor="middle">확인 방법</text><text class="body" x="102" y="166" text-anchor="middle"><tspan x="102">무엇으로 완료를</tspan><tspan x="102" dy="25">검증하는가</tspan></text></g>
+  <path class="shaft" d="M126 260V300H1074V260M363 260V300M600 260V300M837 260V300M600 300V340"/><path class="head" d="M600 358L588 338H612Z"/>
+  <rect class="output" x="430" y="358" width="340" height="52" rx="26"/><text x="600" y="391" text-anchor="middle" fill="#0B7A6A" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif" font-size="22" font-weight="700">에이전트의 실행 계획</text>
 </svg>

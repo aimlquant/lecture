@@ -1,57 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
-  <title id="title">코딩 에이전트가 일을 이어 가는 기본 순환</title>
-  <desc id="desc">사람이 작업을 요청하면 에이전트가 현재 상태를 확인하고 다음 작업을 정한다. 파일이나 명령 도구를 사용한 결과를 다시 확인하며, 할 일이 남았으면 순환을 반복하고 끝났으면 사람이 결과를 검토한다.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">코딩 에이전트가 확인하고 실행하는 순환</title>
+  <desc id="desc">최종 영상 s05의 안정 화면을 바탕으로 현재 상태, 다음 작업, 도구 사용, 실행 결과, 사람 검토가 시계 방향으로 이어지는 구조를 옮겼다.</desc>
+  <metadata>HyperFrames s05 · final-video SHA256 c446fa42faf3cc41f831e02b9f49591cc7559b0485a24afa0938ac43684c1c11</metadata>
   <defs>
-    <marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
-      <path d="M0 0L18 5L0 10Z" fill="context-stroke"/>
-    </marker>
-    <style>
-      text{font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif;fill:#0F172A;font-weight:400}
-      .state{fill:#E7EEF9;stroke:#0F2C59;stroke-width:2}
-      .act{fill:#E4F6F0;stroke:#0B7A6A;stroke-width:2}
-      .human{fill:#FFF0DF;stroke:#B45309;stroke-width:3}
-      .num{font-size:21px;font-weight:700;fill:#52606D}
-      .label{font-size:25px;font-weight:700}
-      .small{font-size:20px;fill:#52606D}
-      .line{fill:none;stroke:#0F2C59;stroke-width:3;marker-end:url(#arrow)}
-      .feedback{fill:none;stroke:#0B7A6A;stroke-width:3;marker-end:url(#arrow)}
-      .human-line{fill:none;stroke:#B45309;stroke-width:3;marker-end:url(#arrow)}
-    </style>
+    <filter id="shadow" x="-18%" y="-18%" width="136%" height="150%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#0F2C59" flood-opacity=".10"/></filter>
+    <style>text{font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif}.card{fill:#fff;stroke:#CBD6E3;stroke-width:2;filter:url(#shadow)}.core{fill:#E4F6F0;stroke:#78BEB2;stroke-width:2}.num,.eyebrow{fill:#0B7A6A;font-size:16px;font-weight:700;letter-spacing:1px}.name{fill:#0F2C59;font-size:23px;font-weight:700}.body{fill:#52606D;font-size:16px}.shaft{fill:none;stroke:#0F2C59;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}.head{fill:#0F2C59}.icon-box{fill:#F8FAFC;stroke:#CBD6E3;stroke-width:1.5}.icon{fill:none;stroke:#0F2C59;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.accent{stroke:#0B7A6A}</style>
   </defs>
-  <rect width="1200" height="650" fill="#FFFFFF"/>
-
-  <rect class="state" x="45" y="105" width="250" height="130" rx="13"/>
-  <rect class="state" x="335" y="105" width="250" height="130" rx="13"/>
-  <rect class="act" x="625" y="105" width="250" height="130" rx="13"/>
-  <rect class="act" x="905" y="105" width="250" height="130" rx="13"/>
-
-  <text class="num" x="65" y="137">01</text>
-  <text class="label" x="170" y="176" text-anchor="middle">현재 상태 확인</text>
-  <text class="small" x="170" y="209" text-anchor="middle">요청 · 파일 · 실행 결과</text>
-  <text class="num" x="355" y="137">02</text>
-  <text class="label" x="460" y="176" text-anchor="middle">다음 작업 정하기</text>
-  <text class="small" x="460" y="209" text-anchor="middle">무엇을 할지 판단</text>
-  <text class="num" x="645" y="137">03</text>
-  <text class="label" x="750" y="176" text-anchor="middle">도구 사용</text>
-  <text class="small" x="750" y="209" text-anchor="middle">파일 읽기·수정 · 명령 실행</text>
-  <text class="num" x="925" y="137">04</text>
-  <text class="label" x="1030" y="176" text-anchor="middle">결과 확인</text>
-  <text class="small" x="1030" y="209" text-anchor="middle">바뀐 파일 · 오류 · 검사 결과</text>
-
-  <path class="line" d="M295 170H335"/>
-  <path class="line" d="M585 170H625"/>
-  <path class="line" d="M875 170H905"/>
-  <path class="feedback" d="M965 235V355H460V235"/>
-  <text class="small" x="712" y="340" text-anchor="middle" fill="#0B7A6A">할 일이 남았으면 다시 판단한다</text>
-
-  <rect class="human" x="45" y="500" width="250" height="115" rx="14"/>
-  <text class="label" x="170" y="548" text-anchor="middle">사람의 작업 요청</text>
-  <text class="small" x="170" y="583" text-anchor="middle">목적 · 범위 · 완료 조건</text>
-  <path class="human-line" d="M170 500V235"/>
-
-  <rect class="human" x="905" y="500" width="250" height="115" rx="14"/>
-  <text class="label" x="1030" y="548" text-anchor="middle">사람의 결과 검토</text>
-  <text class="small" x="1030" y="583" text-anchor="middle">수락 · 수정 · 되돌리기</text>
-  <path class="human-line" d="M1030 235V500"/>
-  <text class="small" x="1015" y="420" text-anchor="end" fill="#B45309">끝났으면</text>
+  <rect width="1200" height="560" fill="#FFFFFF"/>
+  <path class="shaft" d="M280 278C302 278 302 116 312 116"/><path class="head" d="M330 116L312 105V127Z"/>
+  <path class="shaft" d="M550 116H642"/><path class="head" d="M660 116L640 104V128Z"/>
+  <path class="shaft" d="M880 116C986 116 1012 177 1012 207"/><path class="head" d="M1012 225L1000 205H1024Z"/>
+  <path class="shaft" d="M1012 363C1012 416 827 452 722 452"/><path class="head" d="M704 452L724 440V464Z"/>
+  <path class="shaft" d="M484 452C330 452 188 410 188 362"/><path class="head" d="M188 344L176 364H200Z"/>
+  <g transform="translate(60 225)"><rect class="card" width="220" height="138" rx="20"/><rect class="icon-box" x="18" y="31" width="68" height="68" rx="17"/><path class="icon" d="M32 55h40M32 68h30M32 81h38"/><path class="icon accent" d="M58 87l8 8 14-18"/><text class="num" x="104" y="34">01</text><text class="name" x="104" y="66">현재 상태</text><text class="body" x="104" y="94"><tspan x="104">요청·열린 파일·</tspan><tspan x="104" dy="23">앞선 실행 결과</tspan></text></g>
+  <g transform="translate(330 47)"><rect class="card" width="220" height="138" rx="20"/><rect class="icon-box" x="18" y="31" width="68" height="68" rx="17"/><path class="icon accent" d="M34 54l7 7 13-15M34 70l7 7 13-15M34 86l7 7 13-15"/><path class="icon" d="M61 54h14M61 70h14M61 86h14"/><text class="num" x="104" y="34">02</text><text class="name" x="104" y="66">다음 작업</text><text class="body" x="104" y="94"><tspan x="104">필요한 파일·명령</tspan><tspan x="104" dy="23">도구 선택</tspan></text></g>
+  <g transform="translate(660 47)"><rect class="card" width="220" height="138" rx="20"/><rect class="icon-box" x="18" y="31" width="68" height="68" rx="17"/><circle class="icon" cx="52" cy="65" r="22"/><path class="icon" d="M37 82l30-34M62 48l12 12-13 13"/><text class="num" x="104" y="34">03</text><text class="name" x="104" y="66">도구 사용</text><text class="body" x="104" y="94"><tspan x="104">파일 읽기·쓰기</tspan><tspan x="104" dy="23">또는 명령 실행</tspan></text></g>
+  <g transform="translate(920 225)"><rect class="card" width="220" height="138" rx="20"/><rect class="icon-box" x="18" y="31" width="68" height="68" rx="17"/><rect class="icon" x="29" y="46" width="46" height="38" rx="8"/><path class="icon" d="M36 58l8 7-8 7M51 72h14"/><path class="icon accent" d="M62 53l6 6 10-13"/><text class="num" x="104" y="34">04</text><text class="name" x="104" y="66">실행 결과</text><text class="body" x="104" y="94"><tspan x="104">성공·오류를</tspan><tspan x="104" dy="23">다시 관찰</tspan></text></g>
+  <g transform="translate(484 383)"><rect class="card" width="220" height="138" rx="20"/><rect class="icon-box" x="18" y="31" width="68" height="68" rx="17"/><circle class="icon" cx="52" cy="56" r="14"/><path class="icon" d="M30 91c3-18 12-26 22-26s19 8 22 26"/><circle cx="74" cy="48" r="10" fill="#E4F6F0"/><text x="74" y="53" text-anchor="middle" fill="#0B7A6A" font-size="14" font-weight="700">?</text><text class="num" x="104" y="34">05</text><text class="name" x="104" y="66">사람 검토</text><text class="body" x="104" y="94"><tspan x="104">변경 파일과</tspan><tspan x="104" dy="23">실행 결과 확인</tspan></text></g>
+  <g transform="translate(418 219)"><rect class="core" width="372" height="120" rx="25"/><text class="eyebrow" x="186" y="43" text-anchor="middle">AGENT LOOP</text><text class="name" x="186" y="82" text-anchor="middle">확인 → 실행 → 관찰</text></g>
 </svg>

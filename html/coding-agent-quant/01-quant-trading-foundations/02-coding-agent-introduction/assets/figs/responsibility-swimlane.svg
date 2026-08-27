@@ -1,46 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
-  <title id="title">사람과 코딩 에이전트가 일을 나누는 흐름</title>
-  <desc id="desc">사람이 목표와 범위를 정하면 코딩 에이전트가 계획을 세우고 파일과 명령을 다룬 뒤 결과를 정리한다. 마지막에는 사람이 결과를 검토하고 결정한다.</desc>
-  <defs>
-    <marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
-      <path d="M0 0L18 5L0 10Z" fill="context-stroke"/>
-    </marker>
-    <style>
-      text{font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif;fill:#0F172A;font-weight:400}
-      .lane-human{fill:#E7EEF9;stroke:#C7D2E1;stroke-width:2}
-      .lane-agent{fill:#E4F6F0;stroke:#C7D2E1;stroke-width:2}
-      .human{fill:#FFFFFF;stroke:#0F2C59;stroke-width:3}
-      .agent{fill:#FFFFFF;stroke:#0B7A6A;stroke-width:3}
-      .lane{font-size:24px;font-weight:700}
-      .label{font-size:27px;font-weight:700}
-      .small{font-size:21px;fill:#52606D}
-      .human-line{fill:none;stroke:#0F2C59;stroke-width:3;marker-end:url(#arrow)}
-      .agent-line{fill:none;stroke:#0B7A6A;stroke-width:3;marker-end:url(#arrow)}
-    </style>
-  </defs>
-  <rect width="1200" height="700" fill="#FFFFFF"/>
-  <rect class="lane-human" x="40" y="55" width="1120" height="265" rx="15"/>
-  <rect class="lane-agent" x="40" y="365" width="1120" height="265" rx="15"/>
-  <text class="lane" x="75" y="98" fill="#0F2C59">사람</text>
-  <text class="lane" x="75" y="408" fill="#0B7A6A">코딩 에이전트</text>
-
-  <rect class="human" x="105" y="140" width="320" height="125" rx="14"/>
-  <text class="label" x="265" y="189" text-anchor="middle">목표와 범위를 정한다</text>
-  <text class="small" x="265" y="229" text-anchor="middle">목적 · 범위 · 완료 조건</text>
-
-  <rect class="agent" x="105" y="450" width="250" height="125" rx="14"/>
-  <rect class="agent" x="475" y="450" width="250" height="125" rx="14"/>
-  <rect class="agent" x="845" y="450" width="250" height="125" rx="14"/>
-  <text class="label" x="230" y="499" text-anchor="middle">계획</text><text class="small" x="230" y="539" text-anchor="middle">단계와 필요한 도구</text>
-  <text class="label" x="600" y="499" text-anchor="middle">파일·명령</text><text class="small" x="600" y="539" text-anchor="middle">만들기 · 실행 · 수정</text>
-  <text class="label" x="970" y="499" text-anchor="middle">결과 정리</text><text class="small" x="970" y="539" text-anchor="middle">만든 파일 · 검사 · 남은 문제</text>
-
-  <rect class="human" x="775" y="140" width="320" height="125" rx="14"/>
-  <text class="label" x="935" y="189" text-anchor="middle">검토하고 결정한다</text>
-  <text class="small" x="935" y="229" text-anchor="middle">수락 · 수정 · 되돌리기 · 중단</text>
-
-  <path class="human-line" d="M265 265V400H230V450"/>
-  <path class="agent-line" d="M355 512.5H475"/>
-  <path class="agent-line" d="M725 512.5H845"/>
-  <path class="agent-line" d="M970 450V330H935V265"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">사람과 코딩 에이전트의 역할 분담</title>
+  <desc id="desc">최종 영상 s16의 안정 화면을 바탕으로 사람의 목표와 범위에서 시작해 에이전트의 계획, 파일과 명령, 결과 정리를 거친 뒤 사람의 검토와 결정으로 돌아오는 흐름을 옮겼다.</desc>
+  <metadata>HyperFrames s16 · final-video SHA256 c446fa42faf3cc41f831e02b9f49591cc7559b0485a24afa0938ac43684c1c11</metadata>
+  <defs><filter id="shadow" x="-16%" y="-16%" width="132%" height="148%"><feDropShadow dx="0" dy="7" stdDeviation="7" flood-color="#0F2C59" flood-opacity=".10"/></filter><style>text{font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif}.lane{stroke:#CBD6E3;stroke-width:2}.human-bg{fill:#E8EEF8}.agent-bg{fill:#E4F6F0}.card{fill:#fff;stroke:#CBD6E3;stroke-width:2;filter:url(#shadow)}.tag{fill:#0B7A6A;font-size:14px;font-weight:700}.name{fill:#0F2C59;font-size:22px;font-weight:700}.body{fill:#52606D;font-size:15px}.lane-name{fill:#0F2C59;font-size:18px;font-weight:700}.shaft{fill:none;stroke:#0F2C59;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}.head{fill:#0F2C59}</style></defs>
+  <rect width="1200" height="520" fill="#fff"/>
+  <rect class="lane human-bg" x="20" y="20" width="1160" height="215" rx="24"/><rect class="lane agent-bg" x="20" y="275" width="1160" height="225" rx="24"/>
+  <text class="lane-name" x="1144" y="50" text-anchor="end">사람</text><text class="lane-name" x="1144" y="306" text-anchor="end" fill="#0B7A6A">코딩 에이전트</text>
+  <path class="shaft" d="M220 130C242 130 242 385 266 385"/><path class="head" d="M284 385L264 373V397Z"/>
+  <path class="shaft" d="M456 385H486"/><path class="head" d="M504 385L484 373V397Z"/>
+  <path class="shaft" d="M676 385H706"/><path class="head" d="M724 385L704 373V397Z"/>
+  <path class="shaft" d="M896 385C920 385 920 130 942 130"/><path class="head" d="M960 130L940 118V142Z"/>
+  <g transform="translate(40 65)"><rect class="card" width="180" height="130" rx="18"/><text class="tag" x="20" y="30">01 · 사람</text><text class="name" x="20" y="64">목표와 범위</text><text class="body" x="20" y="91"><tspan x="20">목적·허용 범위·</tspan><tspan x="20" dy="21">완료 조건</tspan></text></g>
+  <g transform="translate(284 320)"><rect class="card" width="172" height="130" rx="18"/><text class="tag" x="18" y="30">02 · 에이전트</text><text class="name" x="18" y="64">계획</text><text class="body" x="18" y="91"><tspan x="18">단계와 필요한</tspan><tspan x="18" dy="21">도구</tspan></text></g>
+  <g transform="translate(504 320)"><rect class="card" width="172" height="130" rx="18"/><text class="tag" x="18" y="30">03 · 에이전트</text><text class="name" x="18" y="64">파일·명령</text><text class="body" x="18" y="91"><tspan x="18">만들기·실행·</tspan><tspan x="18" dy="21">수정</tspan></text></g>
+  <g transform="translate(724 320)"><rect class="card" width="172" height="130" rx="18"/><text class="tag" x="18" y="30">04 · 에이전트</text><text class="name" x="18" y="64">결과 정리</text><text class="body" x="18" y="91"><tspan x="18">변경 파일·검사·</tspan><tspan x="18" dy="21">남은 문제</tspan></text></g>
+  <g transform="translate(960 65)"><rect class="card" width="200" height="130" rx="18"/><text class="tag" x="20" y="30">05 · 사람</text><text class="name" x="20" y="64">검토와 결정</text><text class="body" x="20" y="91"><tspan x="20">수락·수정·되돌리기·</tspan><tspan x="20" dy="21">중단</tspan></text></g>
 </svg>
