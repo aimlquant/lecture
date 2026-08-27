@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=1280,height=720,initial-scale=1"><title>종목코드와 데이터 경로를 먼저 확정한다</title><link rel="stylesheet" href="assets/shared.css"><script src="assets/gsap.min.js"></script><script>window.__timelines=window.__timelines||{};</script></head><body>
+  <style>
+    @font-face { font-family:"Noto Sans CJK KR"; src:url("assets/fonts/NotoSansCJK-Regular-subset.ttf") format("truetype"); font-style:normal; font-weight:400; }
+    @font-face { font-family:"Noto Sans CJK KR"; src:url("assets/fonts/NotoSansCJK-Bold-subset.ttf") format("truetype"); font-style:normal; font-weight:700; }
+    @font-face { font-family:"Noto Sans KR"; src:url("assets/fonts/NotoSansCJK-Regular-subset.ttf") format("truetype"); font-style:normal; font-weight:400; }
+    @font-face { font-family:"Noto Sans KR"; src:url("assets/fonts/NotoSansCJK-Bold-subset.ttf") format("truetype"); font-style:normal; font-weight:700; }
+  </style>
+  <div id="root" data-composition-id="slide-s03" data-duration="9.600" data-width="1920" data-height="1080">
+    <div id="scene-s03" class="hf-scene"><div class="hf-grid" data-layout-ignore></div><div class="hf-orb" style="right:-170px;bottom:-230px" data-layout-ignore></div><div class="hf-topbar"><span class="hf-kicker">퀀트 트레이딩과 코딩 에이전트 입문</span><span class="hf-scene-no">03 / 19</span></div><header class="hf-header"><h1 class="hf-title">종목코드와 데이터 경로를 먼저 확정한다</h1><p class="hf-subtitle">KODEX 200은 069500이고, 이번 실습은 NAVER 경로를 명시합니다.</p></header><section class="hf-stage"><div class="figure-shell"><svg class="report-vector" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">KODEX 200 상품 확인 뒤 나뉘는 공식 데이터 경로와 첫 실습 경로</title>
+  <desc id="desc">공식 상품 페이지에서 KODEX 200과 종목코드 069500을 확인한 뒤, 인증 절차가 필요한 KRX OPEN API와 이번 영상에서 사용하는 FinanceDataReader NAVER 경로로 나뉜다.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#0F2C59" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
+      <path d="M0 0L18 5L0 10Z" fill="#0F2C59"/>
+    </marker>
+    <style>
+      text{font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif;fill:#0F172A}
+      .kicker{font-size:19px;font-weight:700;fill:#0F2C59}
+      .title{font-size:32px;font-weight:700}
+      .sub{font-size:19px;font-weight:400;fill:#52606D}
+      .tag{font-size:16px;font-weight:700}
+      .arrow{fill:none;stroke:#0F2C59;stroke-width:3;marker-end:url(#arrow)}
+      .icon{fill:none;stroke:#0F2C59;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+      .icon-warn{fill:none;stroke:#B45309;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+      .icon-ok{fill:none;stroke:#0B7A6A;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+    </style>
+  </defs>
+  <rect width="1200" height="640" fill="#FFFFFF"/>
+  <g id="diagram" transform="translate(0 -40)">
+
+  <g id="route-connectors" aria-hidden="true">
+    <path class="arrow" d="M375 360C455 360 465 190 545 190"/>
+    <path class="arrow" d="M375 360C455 360 465 530 545 530"/>
+    <rect x="410" y="182" width="104" height="30" rx="15" fill="#FFFFFF" stroke="#C7D2E1"/>
+    <text class="tag" x="462" y="203" text-anchor="middle" fill="#52606D">공식 경로</text>
+    <rect x="410" y="508" width="104" height="30" rx="15" fill="#FFFFFF" stroke="#C7D2E1"/>
+    <text class="tag" x="462" y="529" text-anchor="middle" fill="#52606D">첫 실습</text>
+  </g>
+
+  <g id="verified-product" filter="url(#shadow)">
+    <rect x="45" y="190" width="330" height="340" rx="22" fill="#E7EEF9" stroke="#0F2C59" stroke-width="2"/>
+    <rect x="75" y="222" width="82" height="82" rx="20" fill="#FFFFFF" stroke="#C7D2E1"/>
+    <g class="icon" transform="translate(91 239)">
+      <path d="M0 46V0M0 46H50"/><path d="M7 35L18 26L29 31L43 12"/>
+      <circle cx="7" cy="35" r="3" fill="#0B7A6A" stroke="none"/><circle cx="18" cy="26" r="3" fill="#0B7A6A" stroke="none"/><circle cx="29" cy="31" r="3" fill="#0B7A6A" stroke="none"/><circle cx="43" cy="12" r="3" fill="#0B7A6A" stroke="none"/>
+    </g>
+    <text class="kicker" x="177" y="246">공식 상품 페이지</text>
+    <text class="sub" x="177" y="273">이름과 코드를</text>
+    <text class="sub" x="177" y="299">먼저 맞춘다</text>
+    <text class="title" x="75" y="355">KODEX 200</text>
+    <text class="title" x="75" y="397">069500</text>
+    <text class="sub" x="75" y="443">KOSPI 200 추적 ETF</text>
+    <rect x="75" y="472" width="170" height="36" rx="18" fill="#FFFFFF" stroke="#0F2C59"/>
+    <text class="tag" x="160" y="496" text-anchor="middle" fill="#0F2C59">종목 정보 확인</text>
+  </g>
+
+  <g id="official-route" filter="url(#shadow)">
+    <rect x="545" y="70" width="610" height="240" rx="22" fill="#FFF0DF" stroke="#B45309" stroke-width="2"/>
+    <rect x="578" y="106" width="84" height="84" rx="20" fill="#FFFFFF" stroke="#B45309"/>
+    <g class="icon-warn" transform="translate(597 124)">
+      <rect x="3" y="20" width="42" height="35" rx="5"/><path d="M12 20V12A12 12 0 0 1 36 12V20"/>
+      <circle cx="24" cy="37" r="4"/><path d="M24 41V48"/>
+    </g>
+    <text class="kicker" x="696" y="120" fill="#B45309">공식 데이터 경로</text>
+    <text class="title" x="696" y="163">KRX OPEN API</text>
+    <text class="sub" x="696" y="207">ETF 일별매매정보</text>
+    <text class="sub" x="696" y="240">회원가입 · 인증키 · 서비스 승인 필요</text>
+    <rect x="964" y="257" width="156" height="32" rx="16" fill="#FFFFFF" stroke="#B45309"/>
+    <text class="tag" x="1042" y="279" text-anchor="middle" fill="#B45309">뒤에서 다룬다</text>
+  </g>
+
+  <g id="practice-route" filter="url(#shadow)">
+    <rect x="545" y="410" width="610" height="240" rx="22" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
+    <rect x="578" y="446" width="84" height="84" rx="20" fill="#FFFFFF" stroke="#0B7A6A"/>
+    <g class="icon-ok" transform="translate(596 463)">
+      <path d="M3 8H45V50H3Z"/><path d="M3 18H45"/><path d="M12 33H28M12 41H36"/><path d="M31 29L37 35L47 23"/>
+    </g>
+    <text class="kicker" x="696" y="460" fill="#0B7A6A">이번 영상의 실습 경로</text>
+    <text class="title" x="696" y="503">FinanceDataReader</text>
+    <text class="sub" x="696" y="547">NAVER:069500 · 버전 0.9.202</text>
+    <text class="sub" x="696" y="580">지정한 기간을 로컬 CSV로 저장</text>
+    <rect x="964" y="597" width="156" height="32" rx="16" fill="#FFFFFF" stroke="#0B7A6A"/>
+    <text class="tag" x="1042" y="619" text-anchor="middle" fill="#0B7A6A">이번에 사용</text>
+  </g>
+  </g>
+</svg></div></section></div>
+    <script>(function(){var root=document.getElementById("scene-s03"),q=function(s){return root.querySelector(s);},qa=function(s){return root.querySelectorAll(s);},duration=9.600,tl=gsap.timeline({paused:true});tl.fromTo(q(".hf-grid"),{x:-18,y:-12},{x:24,y:14,duration:duration,ease:"none"},0);tl.fromTo(q(".hf-orb"),{scale:.94,opacity:.28},{scale:1.05,opacity:.66,duration:duration,ease:"sine.inOut"},0);tl.fromTo(q(".hf-header"),{opacity:0,y:26},{opacity:1,y:0,duration:.55,ease:"power3.out"},.12);tl.fromTo(q(".figure-shell"),{opacity:0,y:20,scale:.992},{opacity:1,y:0,scale:1,duration:.52,ease:"power3.out"},.26);var groups=["#verified-product", "#official-route", "#practice-route", "#route-connectors"];groups.forEach(function(sel,i){var node=q(sel);if(!node)return;tl.fromTo(node,{opacity:0,y:18,transformOrigin:"50% 50%"},{opacity:1,y:0,duration:.46,ease:"power3.out"},.78+i*.48);});window.__timelines=window.__timelines||{};window.__timelines["slide-s03"]=tl;})();</script>
+  </div>
+<style id="presentation-mode">
+html, body { width:1280px !important; height:720px !important; margin:0; overflow:hidden; background:#fafaf9; }
+body > #root { width:1920px; height:1080px; transform:scale(0.6666666667); transform-origin:0 0; }
+video, audio { display:none !important; }
+</style>
+<script>
+(function() {
+  "use strict";
+  var slideId = "s03";
+  var times = [9.4];
+  var requested = Number(new URLSearchParams(window.location.search).get("step")) || 1;
+  function clamp(step) { return Math.max(1, Math.min(times.length, Number(step) || 1)); }
+  function apply(step) {
+    var current = clamp(step);
+    var timeline = window.__timelines && window.__timelines["slide-" + slideId];
+    if (!timeline) return false;
+    timeline.pause(times[current - 1], false);
+    document.documentElement.setAttribute("data-presentation-step", String(current));
+    document.documentElement.setAttribute("data-presentation-ready", "true");
+    if (window.parent !== window) window.parent.postMessage({
+      type:"aimlquant-hyperframes-ready", slideId:slideId, step:current
+    }, "*");
+    return true;
+  }
+  window.aimlquantHyperframesSetStep = apply;
+  function boot() {
+    var ready = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+    ready.then(function() {
+      requestAnimationFrame(function() { if (!apply(requested)) setTimeout(function() { apply(requested); }, 0); });
+    });
+  }
+  window.addEventListener("message", function(event) {
+    var data = event.data || {};
+    if (data.type === "aimlquant-hyperframes-step") { requested = clamp(data.step); apply(requested); }
+  });
+  window.addEventListener("beforeprint", function() { apply(times.length); });
+  window.addEventListener("keydown", function(event) {
+    if (event.metaKey || event.ctrlKey || event.altKey) return;
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight" && event.key.toLowerCase() !== "n") return;
+    event.preventDefault();
+    if (window.parent !== window) window.parent.postMessage({
+      type:"aimlquant-hyperframes-key", key:event.key, slideId:slideId
+    }, "*");
+  });
+  boot();
+})();
+</script></body></html>
