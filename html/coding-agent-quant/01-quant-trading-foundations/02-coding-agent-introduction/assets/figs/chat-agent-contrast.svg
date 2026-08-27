@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" role="img" aria-labelledby="title desc">
   <title id="title">대화형 응답과 코딩 에이전트 작업의 차이</title>
   <desc id="desc">최종 영상 s07의 안정 화면을 바탕으로 설명과 예시를 사용자가 옮겨 실행하는 흐름과 파일, 변경 내용, 실행 기록을 남기는 에이전트 흐름을 나란히 비교한다.</desc>
-  <metadata>HyperFrames s07 · final-video SHA256 c446fa42faf3cc41f831e02b9f49591cc7559b0485a24afa0938ac43684c1c11</metadata>
+  <metadata>HyperFrames s07 · final-video SHA256 b72a38f75ac25fe46dc6a2264530656f7ea3a609da455088fc7e97a36f7a8dde</metadata>
   <defs><filter id="shadow" x="-15%" y="-15%" width="130%" height="145%"><feDropShadow dx="0" dy="9" stdDeviation="10" flood-color="#0F2C59" flood-opacity=".11"/></filter><style>text{font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif}.card{stroke-width:2;filter:url(#shadow)}.left{fill:#E8EEF8;stroke:#CBD6E3}.right{fill:#E4F6F0;stroke:#78BEB2}.eyebrow{fill:#0B7A6A;font-size:18px;font-weight:700}.name{fill:#0F2C59;font-size:34px;font-weight:700}.body{fill:#52606D;font-size:22px}.plate{fill:#fff;stroke:#CBD6E3;stroke-width:2}.icon{fill:none;stroke:#0F2C59;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}.accent{fill:#0B7A6A}</style></defs>
   <rect width="1200" height="440" fill="#fff"/>
   <g transform="translate(40 40)"><rect class="card left" width="540" height="360" rx="28"/><rect class="plate" x="42" y="92" width="160" height="160" rx="36"/><path class="icon" d="M76 128h94v62h-47l-25 22v-22H76zM112 168h84v58h-42l-22 19v-19h-20z"/><path class="icon" d="M94 150h56M130 190h48"/><text class="eyebrow" x="238" y="112">구분</text><text class="name" x="238" y="162">대화형 응답</text><text class="body" x="238" y="208"><tspan x="238">설명·예시 코드를</tspan><tspan x="238" dy="34">사용자가 옮겨 실행</tspan></text></g>

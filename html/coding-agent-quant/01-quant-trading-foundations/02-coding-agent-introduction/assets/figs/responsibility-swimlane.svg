@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
   <title id="title">사람과 코딩 에이전트의 역할 분담</title>
   <desc id="desc">최종 영상 s16의 안정 화면을 바탕으로 사람의 목표와 범위에서 시작해 에이전트의 계획, 파일과 명령, 결과 정리를 거친 뒤 사람의 검토와 결정으로 돌아오는 흐름을 옮겼다.</desc>
-  <metadata>HyperFrames s16 · final-video SHA256 c446fa42faf3cc41f831e02b9f49591cc7559b0485a24afa0938ac43684c1c11</metadata>
+  <metadata>HyperFrames s16 · final-video SHA256 b72a38f75ac25fe46dc6a2264530656f7ea3a609da455088fc7e97a36f7a8dde</metadata>
   <defs><filter id="shadow" x="-16%" y="-16%" width="132%" height="148%"><feDropShadow dx="0" dy="7" stdDeviation="7" flood-color="#0F2C59" flood-opacity=".10"/></filter><style>text{font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif}.lane{stroke:#CBD6E3;stroke-width:2}.human-bg{fill:#E8EEF8}.agent-bg{fill:#E4F6F0}.card{fill:#fff;stroke:#CBD6E3;stroke-width:2;filter:url(#shadow)}.tag{fill:#0B7A6A;font-size:14px;font-weight:700}.name{fill:#0F2C59;font-size:22px;font-weight:700}.body{fill:#52606D;font-size:15px}.lane-name{fill:#0F2C59;font-size:18px;font-weight:700}.shaft{fill:none;stroke:#0F2C59;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}.head{fill:#0F2C59}</style></defs>
   <rect width="1200" height="520" fill="#fff"/>
   <rect class="lane human-bg" x="20" y="20" width="1160" height="215" rx="24"/><rect class="lane agent-bg" x="20" y="275" width="1160" height="225" rx="24"/>
