@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 510" role="img" aria-labelledby="title desc">
   <title id="title">데이터를 표시한 현재 단계와 백테스트에 아직 필요한 단계</title>
   <desc id="desc">데이터 수집과 표 및 그래프 표시는 완료됐지만, 매매 규칙 앞의 정지 지점 뒤로 거래 기록, 비용 반영, 성과와 위험 평가가 남아 있어 현재 결과는 백테스트가 아니다.</desc>
   <defs>
@@ -31,10 +31,8 @@
       .icon-wait{fill:none;stroke:#52606D;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
     </style>
   </defs>
-  <rect width="1200" height="680" fill="#FFFFFF"/>
-  <g id="background" aria-hidden="true">
-    <text class="meta" x="25" y="48">SCOPE CHECK</text>
-    <path d="M25 62H1175" stroke="#E7EEF9" stroke-width="2"/>
+  <rect width="1200" height="510" fill="#FFFFFF"/>
+  <g id="phase-labels" aria-hidden="true">
     <rect x="25" y="78" width="355" height="42" rx="21" fill="#E4F6F0" stroke="#0B7A6A"/>
     <text class="phase" x="202" y="106" text-anchor="middle" fill="#0B7A6A">이번 차시에서 완료</text>
     <rect x="500" y="78" width="675" height="42" rx="21" fill="#FFF1F4" stroke="#BE123C"/>
@@ -116,9 +114,4 @@
     <rect x="1029" y="412" width="82" height="31" rx="15" fill="#FFFFFF" stroke="#52606D"/><text class="status" x="1070" y="434" text-anchor="middle" fill="#52606D">없음</text>
   </g>
 
-  <g id="scope-verdict" filter="url(#shadow)">
-    <rect x="175" y="535" width="850" height="105" rx="20" fill="#FFF1F4" stroke="#BE123C" stroke-width="2"/>
-    <text class="status" x="600" y="580" text-anchor="middle" fill="#BE123C">현재 결과는 데이터 파일과 확인 그래프까지다</text>
-    <text class="sub" x="600" y="613" text-anchor="middle">규칙·거래·비용·평가가 없으므로 백테스트 결과가 아니다</text>
-  </g>
 </svg>

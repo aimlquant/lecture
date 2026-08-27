@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" role="img" aria-labelledby="title desc">
   <title id="title">기존 커널의 부분 실행과 새 커널의 전체 실행 비교</title>
   <desc id="desc">위쪽 경로는 기존 메모리가 남은 커널에서 일부 셀만 실행해 표가 보이더라도 처음부터 실행되는지 알 수 없는 경우다. 아래쪽 경로는 새 커널에서 Run All을 눌러 저장된 노트북과 CSV만으로 같은 표와 그래프를 다시 만드는 경우다.</desc>
   <defs>
@@ -25,10 +25,9 @@
       .icon-ok{fill:none;stroke:#0B7A6A;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
     </style>
   </defs>
-  <rect width="1200" height="760" fill="#FFFFFF"/>
-  <g id="background" aria-hidden="true">
-    <text class="meta" x="25" y="38">RESTART + RUN ALL</text>
-    <path d="M25 52H1175" stroke="#E7EEF9" stroke-width="2"/>
+  <rect width="1200" height="660" fill="#FFFFFF"/>
+  <g id="diagram" transform="translate(0 -50)">
+  <g id="lane-backgrounds" aria-hidden="true">
     <rect x="25" y="70" width="1150" height="280" rx="24" fill="#FFF0DF" stroke="#B45309"/>
     <rect x="25" y="410" width="1150" height="280" rx="24" fill="#E4F6F0" stroke="#0B7A6A"/>
   </g>
@@ -98,5 +97,6 @@
     <text class="main" x="873" y="541">같은 표 · 같은 선 그래프</text>
     <text class="sub" x="873" y="579">오류 없이 끝까지 실행</text>
     <rect x="873" y="593" width="164" height="30" rx="15" fill="#E4F6F0" stroke="#0B7A6A"/><text class="kicker" x="955" y="614" text-anchor="middle" fill="#0B7A6A">처음부터 확인</text>
+  </g>
   </g>
 </svg>
