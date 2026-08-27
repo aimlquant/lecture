@@ -51,13 +51,18 @@
       var section = target.closest('.report-section, .report-appendix') || target;
       var report = section.closest('.report');
       if (report) {
-        Array.from(report.children).forEach(function (child) {
-          if (child === section || child.compareDocumentPosition(section) & Node.DOCUMENT_POSITION_CONTAINED_BY) return;
-          if (child.compareDocumentPosition(section) & Node.DOCUMENT_POSITION_FOLLOWING) child.style.display = 'none';
+        var reportChildren = Array.from(report.children);
+        var sectionIndex = reportChildren.indexOf(section);
+        reportChildren.slice(0, Math.max(0, sectionIndex)).forEach(function (child) {
+          child.style.display = 'none';
         });
       }
       document.documentElement.classList.add('report-fragment-capture');
-      window.scrollTo(0, 0);
+      var alignTarget = function () {
+        window.scrollTo(0, Math.max(0, target.getBoundingClientRect().top + window.scrollY - 16));
+      };
+      alignTarget();
+      window.requestAnimationFrame(alignTarget);
       return;
     }
     target.scrollIntoView({ block: 'start', inline: 'nearest' });
@@ -65,6 +70,16 @@
       window.requestAnimationFrame(function () {
         target.scrollIntoView({ block: 'start', inline: 'nearest' });
       });
+    });
+  }
+
+  // Mobile visual QA can capture the far edge of every horizontally scrollable
+  // figure without changing the normal reader state.
+  function setFigureCaptureEdge() {
+    var edge = new URLSearchParams(window.location.search).get('figure-edge');
+    if (edge !== 'right') return;
+    document.querySelectorAll('.report-figure').forEach(function (figure) {
+      figure.scrollLeft = figure.scrollWidth;
     });
   }
 
@@ -887,5 +902,7 @@
     window.buildCharts();
     restoreFragmentPosition();
     window.setTimeout(restoreFragmentPosition, 100);
+    setFigureCaptureEdge();
+    window.setTimeout(setFigureCaptureEdge, 100);
   });
 })();

@@ -31,6 +31,17 @@
   var narrationNotes = narrationPanel
     ? Array.prototype.slice.call(narrationPanel.querySelectorAll("[data-narration-slide]"))
     : [];
+  var videoFrameDeck = Boolean(stage.querySelector("[data-frame-pattern]"));
+  var printFramePreloads = [];
+  if (videoFrameDeck) {
+    slides.forEach(function (slide) {
+      var frame = slide.querySelector("[data-frame-final]");
+      if (!frame) return;
+      var preload = new Image();
+      preload.src = frame.getAttribute("data-frame-final");
+      printFramePreloads.push(preload);
+    });
+  }
 
   function maxStep(slide) {
     var marked = slide.querySelectorAll("[data-reveal]");
@@ -44,6 +55,13 @@
 
   function paint(slide) {
     var current = steps.get(slide) || 1;
+    var top = maxStep(slide);
+    var frame = slide.querySelector("[data-frame-pattern]");
+    if (frame) {
+      var frameStep = enabled ? current : top;
+      var pattern = frame.getAttribute("data-frame-pattern") || "";
+      frame.src = pattern.replace("{step}", String(frameStep).padStart(2, "0"));
+    }
     var marked = slide.querySelectorAll("[data-reveal]");
     for (var i = 0; i < marked.length; i += 1) {
       var node = marked[i];
@@ -148,14 +166,27 @@
 
   var toggle = document.getElementById("stepToggle");
   if (toggle) {
+    if (videoFrameDeck) toggle.textContent = "문장 따라가기 켬";
     toggle.addEventListener("click", function () {
       enabled = !enabled;
       document.documentElement.classList.toggle("stepping", enabled);
       toggle.setAttribute("aria-pressed", String(enabled));
-      toggle.textContent = enabled ? "드러내기 켬" : "드러내기 끔";
+      toggle.textContent = videoFrameDeck
+        ? (enabled ? "문장 따라가기 켬" : "최종 화면 고정")
+        : (enabled ? "드러내기 켬" : "드러내기 끔");
       slides.forEach(paint);
     });
   }
+
+  window.addEventListener("beforeprint", function () {
+    slides.forEach(function (slide) {
+      var frame = slide.querySelector("[data-frame-final]");
+      if (frame) frame.src = frame.getAttribute("data-frame-final");
+    });
+  });
+  window.addEventListener("afterprint", function () {
+    slides.forEach(paint);
+  });
 
   function savedNarrationOpen() {
     var requested = new URLSearchParams(window.location.search).get("narration");

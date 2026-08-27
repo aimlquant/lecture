@@ -171,14 +171,16 @@
     const narrationPanel = document.getElementById("narrationPanel");
     const narrationOpen = narrationPanel &&
       document.body.classList.contains("narration-open");
-    const narrationSpace = narrationOpen && window.innerWidth >= 1100
+    const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
+    const viewportHeight = document.documentElement.clientHeight || window.innerHeight;
+    const narrationSpace = narrationOpen && viewportWidth >= 1100
       ? narrationPanel.offsetWidth + 32
       : 0;
-    const narrationHeight = narrationOpen && window.innerWidth < 1100
+    const narrationHeight = narrationOpen && viewportWidth < 1100
       ? narrationPanel.offsetHeight + 16
       : 0;
-    const availableWidth = Math.max(320, window.innerWidth - narrationSpace);
-    const availableHeight = Math.max(180, window.innerHeight - narrationHeight);
+    const availableWidth = Math.max(320, viewportWidth - narrationSpace);
+    const availableHeight = Math.max(180, viewportHeight - narrationHeight);
     const scale = Math.min(availableWidth / 1280, availableHeight / 720);
     document.documentElement.style.setProperty("--deck-scale", String(scale));
     document.documentElement.style.setProperty(
