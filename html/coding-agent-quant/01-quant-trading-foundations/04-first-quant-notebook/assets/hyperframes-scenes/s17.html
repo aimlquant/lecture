@@ -1,130 +1,14 @@
 <!doctype html>
-<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=1280,height=720,initial-scale=1"><title>그래프가 나왔어도 아직 백테스트는 아니다</title><link rel="stylesheet" href="assets/shared.css"><script src="assets/gsap.min.js"></script><script>window.__timelines=window.__timelines||{};</script></head><body>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=1280,height=720,initial-scale=1"><title>Run All로 첫 셀부터 마지막 셀까지 실행한다</title><link rel="stylesheet" href="assets/shared.css"><script src="assets/gsap.min.js"></script><script>window.__timelines=window.__timelines||{};</script></head><body>
   <style>
     @font-face { font-family:"Noto Sans CJK KR"; src:url("assets/fonts/NotoSansCJK-Regular-subset.ttf") format("truetype"); font-style:normal; font-weight:400; }
     @font-face { font-family:"Noto Sans CJK KR"; src:url("assets/fonts/NotoSansCJK-Bold-subset.ttf") format("truetype"); font-style:normal; font-weight:700; }
     @font-face { font-family:"Noto Sans KR"; src:url("assets/fonts/NotoSansCJK-Regular-subset.ttf") format("truetype"); font-style:normal; font-weight:400; }
     @font-face { font-family:"Noto Sans KR"; src:url("assets/fonts/NotoSansCJK-Bold-subset.ttf") format("truetype"); font-style:normal; font-weight:700; }
   </style>
-  <div id="root" data-composition-id="slide-s17" data-duration="9.600" data-width="1920" data-height="1080">
-    <div id="scene-s17" class="hf-scene"><div class="hf-grid" data-layout-ignore></div><div class="hf-orb" style="right:-170px;bottom:-230px" data-layout-ignore></div><div class="hf-topbar"><span class="hf-kicker">퀀트 트레이딩과 코딩 에이전트 입문</span><span class="hf-scene-no">17 / 19</span></div><header class="hf-header"><h1 class="hf-title">그래프가 나왔어도 아직 백테스트는 아니다</h1><p class="hf-subtitle">이번 실습은 데이터 수집·저장·표시에서 멈춥니다.</p></header><section class="hf-stage"><div class="figure-shell"><svg class="report-vector" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 510" role="img" aria-labelledby="title desc">
-  <title id="title">데이터를 표시한 현재 단계와 백테스트에 아직 필요한 단계</title>
-  <desc id="desc">데이터 수집과 표 및 그래프 표시는 완료됐지만, 매매 규칙 앞의 정지 지점 뒤로 거래 기록, 비용 반영, 성과와 위험 평가가 남아 있어 현재 결과는 백테스트가 아니다.</desc>
-  <defs>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#0F2C59" flood-opacity="0.12"/>
-    </filter>
-    <marker id="arrow-ok" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
-      <path d="M0 0L18 5L0 10Z" fill="#0B7A6A"/>
-    </marker>
-    <marker id="arrow-stop" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
-      <path d="M0 0L18 5L0 10Z" fill="#BE123C"/>
-    </marker>
-    <marker id="arrow-wait" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
-      <path d="M0 0L18 5L0 10Z" fill="#52606D"/>
-    </marker>
-    <style>
-      text{font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif;fill:#0F172A}
-      .meta{font-size:16px;font-weight:700;letter-spacing:1.1px;fill:#52606D}
-      .phase{font-size:17px;font-weight:700}
-      .num{font-size:16px;font-weight:700}
-      .main{font-size:23px;font-weight:700}
-      .sub{font-size:15px;font-weight:400;fill:#52606D}
-      .status{font-size:17px;font-weight:700}
-      .reverse{fill:#FFFFFF}
-      .ok{fill:none;stroke:#0B7A6A;stroke-width:3;marker-end:url(#arrow-ok)}
-      .stop{fill:none;stroke:#BE123C;stroke-width:3;stroke-dasharray:8 7;marker-end:url(#arrow-stop)}
-      .wait{fill:none;stroke:#52606D;stroke-width:2.5;stroke-dasharray:7 7;marker-end:url(#arrow-wait)}
-      .icon{fill:none;stroke:#0F2C59;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
-      .icon-ok{fill:none;stroke:#0B7A6A;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
-      .icon-wait{fill:none;stroke:#52606D;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
-    </style>
-  </defs>
-  <rect width="1200" height="510" fill="#FFFFFF"/>
-  <g id="phase-labels" aria-hidden="true">
-    <rect x="25" y="78" width="355" height="42" rx="21" fill="#E4F6F0" stroke="#0B7A6A"/>
-    <text class="phase" x="202" y="106" text-anchor="middle" fill="#0B7A6A">이번 차시에서 완료</text>
-    <rect x="500" y="78" width="675" height="42" rx="21" fill="#FFF1F4" stroke="#BE123C"/>
-    <text class="phase" x="837" y="106" text-anchor="middle" fill="#BE123C">백테스트에 필요한 단계</text>
-  </g>
-
-  <g id="stage-connectors" aria-hidden="true">
-    <path class="ok" d="M170 305H220"/>
-    <path class="stop" d="M365 305H402"/>
-    <path class="wait" d="M478 305H500"/>
-    <path class="wait" d="M635 305H670"/>
-    <path class="wait" d="M805 305H840"/>
-    <path class="wait" d="M975 305H1010"/>
-  </g>
-
-  <g id="stage-01-data" filter="url(#shadow)">
-    <rect x="25" y="140" width="145" height="335" rx="18" fill="#E7EEF9" stroke="#0F2C59" stroke-width="2"/>
-    <text class="num" x="45" y="172" fill="#0F2C59">01</text>
-    <rect x="45" y="190" width="58" height="58" rx="16" fill="#FFFFFF" stroke="#C7D2E1"/>
-    <g class="icon" transform="translate(55 201)"><ellipse cx="19" cy="7" rx="17" ry="6"/><path d="M2 7V35C2 39 10 42 19 42S36 39 36 35V7M2 21C2 25 10 28 19 28S36 25 36 21"/></g>
-    <text class="main" x="45" y="294">데이터</text><text class="main" x="45" y="326">수집</text>
-    <text class="sub" x="45" y="370">가격 CSV</text>
-    <rect x="45" y="412" width="86" height="31" rx="15" fill="#FFFFFF" stroke="#0B7A6A"/><text class="status" x="88" y="434" text-anchor="middle" fill="#0B7A6A">완료</text>
-  </g>
-
-  <g id="stage-02-display" filter="url(#shadow)">
-    <rect x="220" y="140" width="145" height="335" rx="18" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
-    <text class="num" x="240" y="172" fill="#0B7A6A">02</text>
-    <rect x="240" y="190" width="58" height="58" rx="16" fill="#FFFFFF" stroke="#0B7A6A"/>
-    <g class="icon-ok" transform="translate(250 201)"><path d="M1 41V2M1 41H40"/><path d="M7 31L16 23L24 27L37 9"/></g>
-    <text class="main" x="240" y="294">표·그래프</text><text class="main" x="240" y="326">표시</text>
-    <text class="sub" x="240" y="370">Close 선</text>
-    <rect x="240" y="412" width="86" height="31" rx="15" fill="#FFFFFF" stroke="#0B7A6A"/><text class="status" x="283" y="434" text-anchor="middle" fill="#0B7A6A">완료</text>
-  </g>
-
-  <g id="scope-stop" filter="url(#shadow)">
-    <circle cx="440" cy="305" r="38" fill="#BE123C" stroke="#FFFFFF" stroke-width="6"/>
-    <text class="reverse" x="440" y="312" text-anchor="middle" font-size="17" font-weight="700">STOP</text>
-    <text class="meta" x="440" y="373" text-anchor="middle" fill="#BE123C">규칙 없음</text>
-  </g>
-
-  <g id="stage-03-rule" filter="url(#shadow)">
-    <rect x="500" y="140" width="135" height="335" rx="18" fill="#FFF1F4" stroke="#BE123C" stroke-width="2"/>
-    <text class="num" x="519" y="172" fill="#BE123C">03</text>
-    <rect x="519" y="190" width="58" height="58" rx="16" fill="#FFFFFF" stroke="#BE123C"/>
-    <g class="icon-wait" transform="translate(530 202)"><path d="M1 7H36M1 18H28M1 29H22"/><circle cx="35" cy="32" r="7"/><path d="M35 27V33M35 37V38"/></g>
-    <text class="main" x="519" y="294">매매</text><text class="main" x="519" y="326">규칙</text>
-    <text class="sub" x="519" y="370">진입·청산</text>
-    <rect x="519" y="412" width="82" height="31" rx="15" fill="#FFFFFF" stroke="#BE123C"/><text class="status" x="560" y="434" text-anchor="middle" fill="#BE123C">없음</text>
-  </g>
-
-  <g id="stage-04-trades" filter="url(#shadow)">
-    <rect x="670" y="140" width="135" height="335" rx="18" fill="#FFFFFF" stroke="#52606D" stroke-width="2"/>
-    <text class="num" x="689" y="172" fill="#52606D">04</text>
-    <rect x="689" y="190" width="58" height="58" rx="16" fill="#E7EEF9" stroke="#C7D2E1"/>
-    <g class="icon-wait" transform="translate(700 201)"><path d="M2 3H37V42H2Z"/><path d="M9 13H30M9 22H30M9 31H23"/></g>
-    <text class="main" x="689" y="294">거래</text><text class="main" x="689" y="326">기록</text>
-    <text class="sub" x="689" y="370">포지션·체결</text>
-    <rect x="689" y="412" width="82" height="31" rx="15" fill="#FFFFFF" stroke="#52606D"/><text class="status" x="730" y="434" text-anchor="middle" fill="#52606D">없음</text>
-  </g>
-
-  <g id="stage-05-costs" filter="url(#shadow)">
-    <rect x="840" y="140" width="135" height="335" rx="18" fill="#FFFFFF" stroke="#52606D" stroke-width="2"/>
-    <text class="num" x="859" y="172" fill="#52606D">05</text>
-    <rect x="859" y="190" width="58" height="58" rx="16" fill="#E7EEF9" stroke="#C7D2E1"/>
-    <g class="icon-wait" transform="translate(870 201)"><circle cx="19" cy="21" r="18"/><path d="M19 7V35M12 12H24A6 6 0 0 1 24 24H14A6 6 0 0 0 14 36H26"/></g>
-    <text class="main" x="859" y="294">비용</text><text class="main" x="859" y="326">반영</text>
-    <text class="sub" x="859" y="370">수수료·슬리피지</text>
-    <rect x="859" y="412" width="82" height="31" rx="15" fill="#FFFFFF" stroke="#52606D"/><text class="status" x="900" y="434" text-anchor="middle" fill="#52606D">없음</text>
-  </g>
-
-  <g id="stage-06-evaluation" filter="url(#shadow)">
-    <rect x="1010" y="140" width="165" height="335" rx="18" fill="#FFFFFF" stroke="#52606D" stroke-width="2"/>
-    <text class="num" x="1029" y="172" fill="#52606D">06</text>
-    <rect x="1029" y="190" width="58" height="58" rx="16" fill="#E7EEF9" stroke="#C7D2E1"/>
-    <g class="icon-wait" transform="translate(1040 201)"><path d="M1 41V3M1 41H42"/><path d="M7 31L16 23L25 28L38 9"/><path d="M31 9H38V16"/></g>
-    <text class="main" x="1029" y="294">성과·위험</text><text class="main" x="1029" y="326">평가</text>
-    <text class="sub" x="1029" y="370">수익률·낙폭</text>
-    <rect x="1029" y="412" width="82" height="31" rx="15" fill="#FFFFFF" stroke="#52606D"/><text class="status" x="1070" y="434" text-anchor="middle" fill="#52606D">없음</text>
-  </g>
-
-</svg></div></section></div>
-    <script>(function(){var root=document.getElementById("scene-s17"),q=function(s){return root.querySelector(s);},qa=function(s){return root.querySelectorAll(s);},duration=9.600,tl=gsap.timeline({paused:true});tl.fromTo(q(".hf-grid"),{x:-18,y:-12},{x:24,y:14,duration:duration,ease:"none"},0);tl.fromTo(q(".hf-orb"),{scale:.94,opacity:.28},{scale:1.05,opacity:.66,duration:duration,ease:"sine.inOut"},0);tl.fromTo(q(".hf-header"),{opacity:0,y:26},{opacity:1,y:0,duration:.55,ease:"power3.out"},.12);tl.fromTo(q(".figure-shell"),{opacity:0,y:20,scale:.992},{opacity:1,y:0,scale:1,duration:.52,ease:"power3.out"},.26);var groups=["#phase-labels", "#stage-01-data", "#stage-02-display", "#scope-stop", "#stage-03-rule", "#stage-04-trades", "#stage-05-costs", "#stage-06-evaluation", "#stage-connectors"];groups.forEach(function(sel,i){var node=q(sel);if(!node)return;tl.fromTo(node,{opacity:0,y:18,transformOrigin:"50% 50%"},{opacity:1,y:0,duration:.46,ease:"power3.out"},.78+i*.48);});window.__timelines=window.__timelines||{};window.__timelines["slide-s17"]=tl;})();</script>
+  <div id="root" data-composition-id="slide-s17" data-duration="32.700" data-width="1920" data-height="1080">
+    <div id="scene-s17" class="hf-scene"><div class="hf-grid" data-layout-ignore></div><div class="hf-orb" style="right:-170px;bottom:-230px" data-layout-ignore></div><div class="hf-topbar"><span class="hf-kicker">퀀트 트레이딩과 코딩 에이전트 입문</span><span class="hf-scene-no">17 / 21</span></div><header class="hf-header"><h1 class="hf-title">Run All로 첫 셀부터 마지막 셀까지 실행한다</h1><p class="hf-subtitle">모든 셀이 끝난 뒤 표와 종가 그래프가 다시 나타나는지 봅니다.</p></header><section class="hf-stage"><div class="demo-layout"><div class="demo-media"><img src="assets/ui/run-all-motion.webp" alt="" aria-hidden="true"><span class="demo-badge">ACTUAL DEMO</span></div><div class="demo-notes" style="--note-count:4"><article class="demo-note hf-card"><span>실행</span><strong>Run All</strong><p>첫 셀부터 순서대로 실행</p></article><article class="demo-note hf-card"><span>진행</span><strong>셀별 실행 표시</strong><p>중간 셀 하나로 끝내지 않음</p></article><article class="demo-note hf-card"><span>완료</span><strong>빨간 오류 없음</strong><p>마지막 셀까지 실행됐는지 확인</p></article><article class="demo-note hf-card"><span>결과</span><strong>표와 그래프 재현</strong><p>대기 구간은 2배속 편집</p></article></div></div></section></div>
+    <script>(function(){var root=document.getElementById("scene-s17"),q=function(s){return root.querySelector(s);},qa=function(s){return root.querySelectorAll(s);},duration=32.700,tl=gsap.timeline({paused:true});tl.fromTo(q(".hf-grid"),{x:-18,y:-12},{x:24,y:14,duration:duration,ease:"none"},0);tl.fromTo(q(".hf-orb"),{scale:.94,opacity:.28},{scale:1.05,opacity:.66,duration:duration,ease:"sine.inOut"},0);tl.fromTo(q(".hf-header"),{opacity:0,y:26},{opacity:1,y:0,duration:.55,ease:"power3.out"},.12);tl.fromTo(q(".demo-media"),{opacity:0,x:-30,scale:.99},{opacity:1,x:0,scale:1,duration:.58,ease:"power3.out"},.28);tl.fromTo(q(".demo-badge"),{opacity:0,y:12},{opacity:1,y:0,duration:.4,ease:"power3.out"},.62);Array.prototype.forEach.call(qa(".demo-note"),function(card,i){tl.fromTo(card,{opacity:0,x:28},{opacity:1,x:0,duration:.44,ease:"power3.out"},.8+i*.46);});window.__timelines=window.__timelines||{};window.__timelines["slide-s17"]=tl;})();</script>
   </div>
 <style id="presentation-mode">
 html, body { width:1280px !important; height:720px !important; margin:0; overflow:hidden; background:#fafaf9; }
@@ -135,7 +19,7 @@ video, audio { display:none !important; }
 (function() {
   "use strict";
   var slideId = "s17";
-  var times = [9.4];
+  var times = [32.5];
   var requested = Number(new URLSearchParams(window.location.search).get("step")) || 1;
   function clamp(step) { return Math.max(1, Math.min(times.length, Number(step) || 1)); }
   function apply(step) {

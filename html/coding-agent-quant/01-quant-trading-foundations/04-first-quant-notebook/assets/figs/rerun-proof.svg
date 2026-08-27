@@ -15,6 +15,7 @@
       text{font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif;fill:#0F172A}
       .meta{font-size:16px;font-weight:700;letter-spacing:1.1px;fill:#52606D}
       .lane{font-size:25px;font-weight:700}
+      .kernel-title{font-size:22px;font-weight:700}
       .kicker{font-size:16px;font-weight:700}
       .main{font-size:25px;font-weight:700}
       .sub{font-size:16px;font-weight:400;fill:#52606D}
@@ -39,10 +40,10 @@
 
   <g id="old-kernel" filter="url(#shadow)">
     <rect x="45" y="120" width="190" height="180" rx="18" fill="#FFFFFF" stroke="#B45309" stroke-width="2"/>
-    <circle cx="95" cy="173" r="29" fill="#FFF0DF" stroke="#B45309"/>
-    <path class="icon-warn" d="M95 154V178M95 190V191"/>
-    <text class="lane" x="140" y="166" fill="#B45309">기존 커널</text>
-    <text class="sub" x="140" y="194">앞 셀의 변수가</text><text class="sub" x="140" y="220">메모리에 남음</text>
+    <circle cx="84" cy="173" r="27" fill="#FFF0DF" stroke="#B45309"/>
+    <path class="icon-warn" d="M84 155V177M84 188V189"/>
+    <text class="kernel-title" x="122" y="166" fill="#B45309">기존 커널</text>
+    <text class="sub" x="122" y="194">앞 셀의 변수가</text><text class="sub" x="122" y="220">메모리에 남음</text>
     <rect x="71" y="253" width="138" height="30" rx="15" fill="#FFF0DF" stroke="#B45309"/><text class="kicker" x="140" y="274" text-anchor="middle" fill="#B45309">숨은 상태</text>
   </g>
 
@@ -72,10 +73,10 @@
 
   <g id="fresh-kernel" filter="url(#shadow)">
     <rect x="45" y="460" width="190" height="180" rx="18" fill="#FFFFFF" stroke="#0B7A6A" stroke-width="2"/>
-    <circle cx="95" cy="513" r="29" fill="#E4F6F0" stroke="#0B7A6A"/>
-    <path class="icon-ok" d="M80 513L91 524L111 502"/>
-    <text class="lane" x="140" y="506" fill="#0B7A6A">새 커널</text>
-    <text class="sub" x="140" y="534">이전 변수를</text><text class="sub" x="140" y="560">모두 지움</text>
+    <circle cx="84" cy="513" r="27" fill="#E4F6F0" stroke="#0B7A6A"/>
+    <path class="icon-ok" d="M70 513L80 523L100 502"/>
+    <text class="kernel-title" x="122" y="506" fill="#0B7A6A">새 커널</text>
+    <text class="sub" x="122" y="534">이전 변수를</text><text class="sub" x="122" y="560">모두 지움</text>
     <rect x="71" y="593" width="138" height="30" rx="15" fill="#E4F6F0" stroke="#0B7A6A"/><text class="kicker" x="140" y="614" text-anchor="middle" fill="#0B7A6A">빈 메모리</text>
   </g>
 

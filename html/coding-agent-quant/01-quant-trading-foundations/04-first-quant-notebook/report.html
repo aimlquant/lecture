@@ -343,13 +343,63 @@ plt.show()
 <p>위 코드는 설명용 예시로 끝나지 않는다. 실제 데모 노트북에서 셀을 실행하면
 <code>display(prices.head())</code>와 <code>display(prices.tail())</code>의 표가 코드 바로 아래에 나타나고,
 마지막 셀 아래에는 Matplotlib 그래프가 표시된다.</p>
+<p>표를 보기 전에 각 열이 무엇을 뜻하는지 먼저 알아 두자.</p>
+<table class="cmp-table" id="table-5"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 5</span><span class="asset-caption__title">FinanceDataReader 0.9.202로 저장한 CSV와 실제 노트북 화면을 맞춰 본 결과.</span></div></caption>
+<thead>
+<tr>
+<th>열</th>
+<th>뜻</th>
+<th>이 실습에서 읽는 방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Date</code></td>
+<td>거래일</td>
+<td>가격이 기록된 날짜</td>
+</tr>
+<tr>
+<td><code>Open</code></td>
+<td>시가</td>
+<td>그날 거래가 시작될 때의 가격</td>
+</tr>
+<tr>
+<td><code>High</code></td>
+<td>고가</td>
+<td>그날 거래된 가격 가운데 가장 높은 값</td>
+</tr>
+<tr>
+<td><code>Low</code></td>
+<td>저가</td>
+<td>그날 거래된 가격 가운데 가장 낮은 값</td>
+</tr>
+<tr>
+<td><code>Close</code></td>
+<td>종가</td>
+<td>그날 거래가 끝날 때의 가격</td>
+</tr>
+<tr>
+<td><code>Volume</code></td>
+<td>거래량</td>
+<td>그날 거래된 수량</td>
+</tr>
+<tr>
+<td><code>Change</code></td>
+<td>등락률</td>
+<td>전일 종가와 비교한 변화율</td>
+</tr>
+</tbody>
+</table>
+<p>이 표는 열 이름의 기본 뜻을 정리한 것이다. <code>Close</code>가 수정주가인지와 같은 공급자별
+조정 방식은 이번 차시에서 단정하지 않는다. 이번 실습에서는 표의 <code>Close</code> 열을 날짜
+순서대로 연결해 종가 흐름을 확인한다.</p>
 <figure class="report-figure" id="fig-6"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 6</span><span class="asset-caption__title">실제 실행이 끝난 VS Code 노트북 화면. 위쪽에는 가격표의 처음과 마지막 다섯 행, 아래쪽에는 같은 CSV의 <code>Close</code> 열을 그린 그래프가 보인다.</span></figcaption><img alt="실제로 실행한 Jupyter 노트북에 가격표의 처음과 마지막 행 및 KODEX 200 Close 그래프가 표시된 화면" src="assets/figs/demo-notebook-output.webp"></figure>
 <h2>2026년 8월 27일에 직접 실행해 확인한 결과</h2>
 <p>Python 3.12.3 가상환경에서 실행했을 때 2024년 1월 2일부터 3월 29일까지 61행이 저장됐다.
 열은 <code>Date</code>, <code>Open</code>, <code>High</code>, <code>Low</code>, <code>Close</code>, <code>Volume</code>, <code>Change</code>였고, 첫 행의 <code>Close</code>는
 34,541, 마지막 행은 36,123이었다.</p>
 <figure class="report-figure" id="fig-7"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 7</span><span class="asset-caption__title">실제 노트북에서 사용한 61개 <code>Close</code> 값을 리포트에서 크게 볼 수 있도록 같은 값으로 다시 그린 벡터 그래프. 노트북 실행 여부는 그림 6의 실제 화면에서 확인한다.</span></figcaption><img alt="2024년 1월 2일부터 3월 29일까지 저장된 KODEX 200 Close 61개 값을 크게 다시 그린 선 그래프" src="assets/figs/kodex200-close.svg"></figure>
-<table class="cmp-table" id="table-5"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 5</span><span class="asset-caption__title">FinanceDataReader 0.9.202로 저장한 CSV와 실제 노트북 화면을 맞춰 본 결과.</span></div></caption>
+<table class="cmp-table">
 <thead>
 <tr>
 <th>확인 항목</th>
