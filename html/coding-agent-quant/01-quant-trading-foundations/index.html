@@ -3,48 +3,95 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="퀀트 트레이딩의 판단 기준과 코딩 에이전트의 역할을 차례로 이해합니다. VS Code에 Codex 확장 기능과 CLI, Python·Jupyter 실습 환경을 마련한 뒤, 에이전트에게 KODEX 200 가격 파일과 노트북을 만들게 하고 직접 실행해 결과와 한계를 확인합니다.">
+  <meta name="description" content="퀀트 트레이딩의 기준부터 코딩 에이전트의 역할, VS Code 실습 환경, 첫 가격 데이터 노트북까지 한 번에 이어지는 입문 과정입니다. 네 편을 마치면 투자 아이디어를 컴퓨터가 확인할 수 있는 규칙으로 정리하고, Codex에 구체적으로 요청해 KODEX 200 데이터를 저장·실행·확인할 수 있습니다.">
   <title>퀀트 트레이딩과 코딩 에이전트 입문 · 코딩 에이전트로 시작하는 퀀트 트레이딩 · AI·ML·Quant</title>
   <link rel="canonical" href="https://aimlquant.github.io/lecture/coding-agent-quant/01-quant-trading-foundations/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="퀀트 트레이딩과 코딩 에이전트 입문">
+  <meta property="og:description" content="퀀트 트레이딩의 기준부터 코딩 에이전트의 역할, VS Code 실습 환경, 첫 가격 데이터 노트북까지 한 번에 이어지는 입문 과정입니다. 네 편을 마치면 투자 아이디어를 컴퓨터가 확인할 수 있는 규칙으로 정리하고, Codex에 구체적으로 요청해 KODEX 200 데이터를 저장·실행·확인할 수 있습니다.">
+  <meta property="og:image" content="https://i.ytimg.com/vi/SEN_GTMdv9U/maxresdefault.jpg">
   <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/course-roadmap.css">
 </head>
-<body>
-  <main class="shell">
-    <div class="brand">
-      <span class="brand-name">AIML Quant</span>
-      <span class="brand-sub">LECTURE</span>
-    </div>
-    <a class="back" href="../">← 강의 소개</a>
+<body class="course-page course-page--showcase">
+  <main class="shell course-shell">
+    <header class="course-header">
+      <div class="brand">
+        <span class="brand-name">AIML Quant</span>
+        <span class="brand-sub">LECTURE</span>
+      </div>
+      <a class="back" href="../">← 강의 소개</a>
+    </header>
 
-    <p class="eyebrow">COURSE 01 / 17</p>
-    <h1>퀀트 트레이딩과 코딩 에이전트 입문</h1>
-    <p class="lead">퀀트 트레이딩의 판단 기준과 코딩 에이전트의 역할을 차례로 이해합니다. VS Code에 Codex 확장 기능과 CLI, Python·Jupyter 실습 환경을 마련한 뒤, 에이전트에게 KODEX 200 가격 파일과 노트북을 만들게 하고 직접 실행해 결과와 한계를 확인합니다.</p>
-    <div class="actions">
-      <a class="button" href="https://www.youtube.com/playlist?list=PLepv4UmxYdjE" target="_blank" rel="noopener noreferrer">과정 1 전체 영상 보기 ↗</a>
-    </div>
+    <section class="course-hero">
+      <div class="course-hero__copy">
+        <p class="eyebrow">COURSE 01 / 17</p>
+        <h1>퀀트 트레이딩과 코딩 에이전트 입문</h1>
+        <p class="lead">퀀트 트레이딩의 기준부터 코딩 에이전트의 역할, VS Code 실습 환경, 첫 가격 데이터 노트북까지 한 번에 이어지는 입문 과정입니다. 네 편을 마치면 투자 아이디어를 컴퓨터가 확인할 수 있는 규칙으로 정리하고, Codex에 구체적으로 요청해 KODEX 200 데이터를 저장·실행·확인할 수 있습니다.</p>
+        <div class="actions course-hero__actions">
+      <a class="button" href="https://www.youtube.com/playlist?list=PLepv4UmxYdjE" target="_blank" rel="noopener noreferrer">과정 1 전체 영상 이어보기 <span aria-hidden="true">↗</span></a>
+          <a class="button button--secondary" href="#video-roadmap">영상별 내용 살펴보기 <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="course-preview" aria-label="과정 1 공개 영상 미리보기">
+
+        <a class="course-preview__item course-preview__item--1"
+           href="https://www.youtube.com/watch?v=SEN_GTMdv9U" target="_blank"
+           rel="noopener noreferrer" aria-label="영상 1 보기: 퀀트 트레이딩이란 무엇이고 기술적 분석과 무엇이 다른가">
+          <img src="https://i.ytimg.com/vi/SEN_GTMdv9U/maxresdefault.jpg"
+               alt="" decoding="async" fetchpriority="high">
+          <span class="course-preview__index">01</span>
+          <span class="course-preview__duration">7:36</span>
+        </a>
+        <a class="course-preview__item course-preview__item--2"
+           href="https://www.youtube.com/watch?v=IZp7ivozOlc" target="_blank"
+           rel="noopener noreferrer" aria-label="영상 2 보기: 코딩 에이전트란 무엇이고 퀀트 작업에서 무엇을 할 수 있는가">
+          <img src="https://i.ytimg.com/vi/IZp7ivozOlc/maxresdefault.jpg"
+               alt="" decoding="async">
+          <span class="course-preview__index">02</span>
+          <span class="course-preview__duration">7:35</span>
+        </a>
+        <a class="course-preview__item course-preview__item--3"
+           href="https://www.youtube.com/watch?v=K1NfnHRrKEI" target="_blank"
+           rel="noopener noreferrer" aria-label="영상 3 보기: VS Code에 Codex 확장 기능을 설치하고 실습 환경을 만든다">
+          <img src="https://i.ytimg.com/vi/K1NfnHRrKEI/maxresdefault.jpg"
+               alt="" decoding="async">
+          <span class="course-preview__index">03</span>
+          <span class="course-preview__duration">7:56</span>
+        </a>
+        <a class="course-preview__item course-preview__item--4"
+           href="https://www.youtube.com/watch?v=Y_ooJpc1O8Q" target="_blank"
+           rel="noopener noreferrer" aria-label="영상 4 보기: 코딩 에이전트로 KODEX 200 가격을 불러와 노트북에 표시한다">
+          <img src="https://i.ytimg.com/vi/Y_ooJpc1O8Q/maxresdefault.jpg"
+               alt="" decoding="async">
+          <span class="course-preview__index">04</span>
+          <span class="course-preview__duration">6:45</span>
+        </a>
+      </div>
+    </section>
 
     <ul class="course-stats">
-      <li><strong>4</strong><span>구성 영상</span></li>
-      <li><strong>15분</strong><span>영상당 최대 길이</span></li>
+      <li><strong>4편</strong><span>공개 영상</span></li>
+      <li><strong>29분 52초</strong><span>전체 재생 시간</span></li>
+      <li><strong>2편</strong><span>설정·실습 영상</span></li>
       <li><strong>없음</strong><span>선행 과정</span></li>
     </ul>
     <section class="course-overview" aria-labelledby="course-overview-title">
-      <p class="eyebrow">COURSE OUTCOME</p>
-      <h2 id="course-overview-title">퀀트의 기준을 이해하고 코딩 에이전트와 첫 작업을 완성합니다</h2>
-      <p class="course-overview__lead">첫 영상에서 퀀트 규칙의 기준을 세우고, 두 번째 영상에서 코딩 에이전트가 파일과 명령을 다루는 방식을 배웁니다. 이어 VS Code 실습 환경을 완성한 뒤, 같은 폴더에서 KODEX 200 가격을 저장하고 노트북에 표와 그래프로 표시합니다.</p>
+      <p class="eyebrow">LEARNING PATH</p>
+      <h2 id="course-overview-title">퀀트 규칙을 이해하고 Codex와 첫 데이터 노트북을 완성합니다</h2>
+      <p class="course-overview__lead">첫 영상에서 퀀트 규칙의 기준을 세우고, 두 번째 영상에서 코딩 에이전트가 파일과 명령을 다루는 방식을 배웁니다. 세 번째 영상의 실제 VS Code 설정을 따라 한 뒤, 마지막 영상에서 Codex에게 작업을 요청하고 KODEX 200 가격 표와 그래프를 직접 확인합니다.</p>
 
       <div class="course-boundary">
         <article>
-          <span>출발점</span>
-          <h3>투자는 알지만 코딩은 처음인 사람</h3>
-          <p>주식·ETF와 매수·매도 같은 투자 용어는 알지만 Python 문법, VS Code, 노트북 사용 경험은 전제하지 않습니다.</p>
+          <span>이런 분께 맞습니다</span>
+          <h3>투자는 익숙하지만 코딩은 처음인 분</h3>
+          <p>주식·ETF와 매수·매도 같은 투자 용어만 알면 됩니다. Python 문법이나 VS Code, Jupyter 노트북 사용 경험은 없어도 괜찮습니다.</p>
         </article>
         <article>
-          <span>도착점</span>
-          <h3>코딩 에이전트와 첫 퀀트 작업을 끝낸 사람</h3>
-          <p>퀀트 규칙과 코딩 에이전트의 역할을 구분하고, VS Code에서 KODEX 200 가격 파일과 노트북을 만들어 다시 실행하며, 이 결과가 아직 백테스트는 아니라고 설명합니다.</p>
+          <span>과정을 마치면</span>
+          <h3>첫 퀀트 데이터 작업을 직접 확인할 수 있습니다</h3>
+          <p>퀀트 규칙과 코딩 에이전트의 역할을 구분하고, VS Code에서 KODEX 200 가격 파일과 노트북을 만든 뒤 처음부터 다시 실행해 결과를 확인합니다.</p>
         </article>
       </div>
 
@@ -52,96 +99,152 @@
         <li class="course-flow__step">
           <span class="course-flow__number">01</span>
           <strong>퀀트의 판단 기준을 이해한다</strong>
-          <p>입력·판단 기준·행동·과거 검증의 네 관문과 최종 점검표</p><span class="course-flow__connector" aria-hidden="true"></span>
+          <p>입력·판단 기준·행동·과거 검증으로 투자 아이디어를 점검합니다</p>
         </li>
         <li class="course-flow__step">
           <span class="course-flow__number">02</span>
           <strong>코딩 에이전트의 역할과 한계를 구분한다</strong>
-          <p>파일·코드·명령을 다루는 작업 흐름과 사람의 확인 책임</p><span class="course-flow__connector" aria-hidden="true"></span>
+          <p>파일·코드·명령을 다루는 흐름과 사람이 확인할 부분을 나눕니다</p>
         </li>
         <li class="course-flow__step">
           <span class="course-flow__number">03</span>
           <strong>VS Code 실습 환경을 완성한다</strong>
-          <p>Codex 확장 기능과 CLI·Python·Jupyter·강의 전용 작업 폴더</p><span class="course-flow__connector" aria-hidden="true"></span>
+          <p>Codex 확장 기능과 CLI, Python, Jupyter를 한 작업 폴더에 준비합니다</p>
         </li>
         <li class="course-flow__step">
           <span class="course-flow__number">04</span>
           <strong>첫 퀀트 작업을 맡기고 실행한다</strong>
-          <p>로컬 가격 파일과 다시 실행되는 KODEX 200 노트북</p>
+          <p>KODEX 200 가격 파일과 다시 실행되는 노트북을 직접 확인합니다</p>
         </li>
       </ol>
     </section>
 
     <div class="notice course-notice">
-      <p><strong>네 편의 영상과 학습 자료를 모두 공개했습니다.</strong> 처음 학습한다면
-      영상 1부터 차례로 보고, 복습할 때는 각 카드에서 영상·상세 리포트·발표자료를
-      필요한 순서로 골라 볼 수 있습니다.</p>
+      <p><strong>처음 학습한다면 영상 1부터 순서대로 보세요.</strong> 개념을 먼저 잡고
+      환경 설정과 실제 노트북 실습으로 이어집니다. 복습할 때는 아래 카드에서 영상,
+      상세 리포트, 발표자료를 필요한 순서로 골라 볼 수 있습니다.</p>
     </div>
 
-    <div class="section-head">
+    <div class="section-head" id="video-roadmap">
       <div>
-        <p class="eyebrow">VIDEO ROADMAP</p>
-        <h2>영상 구성</h2>
+        <p class="eyebrow">WATCH &amp; LEARN</p>
+        <h2>네 편에서 배우는 내용</h2>
       </div>
-      <p>총 4편</p>
+      <p>총 4편 · 29분 52초</p>
     </div>
     <ol class="video-list">
 
         <li class="video-card" id="video-1">
-          <div class="video-head">
-            <span class="badge">영상·자료 공개</span>
-            <span class="video-index">영상 1</span>
+          <a class="video-thumb" href="https://www.youtube.com/watch?v=SEN_GTMdv9U"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="영상 1 재생: 퀀트 트레이딩이란 무엇이고 기술적 분석과 무엇이 다른가">
+            <img src="https://i.ytimg.com/vi/SEN_GTMdv9U/maxresdefault.jpg"
+                 alt="영상 1 썸네일: 퀀트 트레이딩이란 무엇이고 기술적 분석과 무엇이 다른가" loading="lazy" decoding="async">
+            <span class="video-thumb__play" aria-hidden="true">▶</span>
+            <span class="video-duration">7:36</span>
+          </a>
+          <div class="video-card__body">
+            <div class="video-head">
+              <span class="video-index">VIDEO 01</span>
+              <span class="video-head__labels"><span class="video-format">개념</span><span class="badge">영상·자료 공개</span></span>
+            </div>
+            <h2>퀀트 트레이딩이란 무엇이고 기술적 분석과 무엇이 다른가</h2>
+            <p class="video-summary">퀀트는 차트를 보느냐보다 같은 입력에서 같은 판단이 나오도록 규칙을 정하고, 그 규칙을 과거 데이터로 확인하는 방식에 가깝습니다.</p>
+          <ul class="video-topics" aria-label="영상 1 핵심 주제"><li>퀀트 규칙의 네 요소</li><li>기술적 분석과의 차이</li><li>검증 가능한 전략 후보</li></ul>
+          <div class="video-outcome"><span>보고 나면</span><p>투자 아이디어가 퀀트 규칙인지 입력·판단 기준·행동·과거 검증의 네 가지 질문으로 점검할 수 있습니다.</p></div>
+            <details class="video-basis">
+              <summary>교재 범위와 보강 내용</summary>
+              <dl class="video-meta">
+                <div><dt>교재 범위</dt><dd>1권 1장 2.1~2.2</dd></div>
+                <div><dt>함께 다루는 내용</dt><dd>—</dd></div>
+              </dl>
+            </details>
+          <div class="actions"><a class="button button--video" href="https://www.youtube.com/watch?v=SEN_GTMdv9U" target="_blank" rel="noopener noreferrer">영상 1 바로 보기 <span aria-hidden="true">↗</span></a><a class="button" href="01-quant-trading-definition/report.html">상세 리포트 읽기</a><a class="button button--secondary" href="01-quant-trading-definition/slides.html">발표 슬라이드 보기</a></div>
           </div>
-          <h2>퀀트 트레이딩이란 무엇이고 기술적 분석과 무엇이 다른가</h2>
-          <p class="video-role">퀀트의 판단 기준을 이해한다</p>
-          <dl class="video-meta">
-            <div><dt>책 근거</dt><dd>1권 1장 2.1~2.2</dd></div>
-            <div><dt>보강</dt><dd>—</dd></div>
-            <div><dt>이어지는 것</dt><dd>입력·<wbr>판단 기준·<wbr>행동·<wbr>과거 검증의 네 관문과 최종 점검표</dd></div>
-          </dl>
-          <div class="actions"><a class="button" href="https://www.youtube.com/watch?v=SEN_GTMdv9U" target="_blank" rel="noopener noreferrer">영상 1 보기 ↗</a><a class="button" href="01-quant-trading-definition/report.html">상세 리포트 읽기</a><a class="button button--secondary" href="01-quant-trading-definition/slides.html">발표 슬라이드 보기</a></div>
         </li>
         <li class="video-card" id="video-2">
-          <div class="video-head">
-            <span class="badge">영상·자료 공개</span>
-            <span class="video-index">영상 2</span>
+          <a class="video-thumb" href="https://www.youtube.com/watch?v=IZp7ivozOlc"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="영상 2 재생: 코딩 에이전트란 무엇이고 퀀트 작업에서 무엇을 할 수 있는가">
+            <img src="https://i.ytimg.com/vi/IZp7ivozOlc/maxresdefault.jpg"
+                 alt="영상 2 썸네일: 코딩 에이전트란 무엇이고 퀀트 작업에서 무엇을 할 수 있는가" loading="lazy" decoding="async">
+            <span class="video-thumb__play" aria-hidden="true">▶</span>
+            <span class="video-duration">7:35</span>
+          </a>
+          <div class="video-card__body">
+            <div class="video-head">
+              <span class="video-index">VIDEO 02</span>
+              <span class="video-head__labels"><span class="video-format">개념</span><span class="badge">영상·자료 공개</span></span>
+            </div>
+            <h2>코딩 에이전트란 무엇이고 퀀트 작업에서 무엇을 할 수 있는가</h2>
+            <p class="video-summary">코딩 에이전트는 답만 제시하는 데서 그치지 않고 작업 폴더의 파일을 읽고 고치며, 명령을 실행해 실제 결과까지 확인합니다.</p>
+          <ul class="video-topics" aria-label="영상 2 핵심 주제"><li>대화형 AI와의 차이</li><li>좋은 작업 요청</li><li>사람의 확인 책임</li></ul>
+          <div class="video-outcome"><span>보고 나면</span><p>에이전트에게 목적·범위·결과물·확인 방법을 분명히 요청하고, 완료 보고를 파일과 실행 결과로 확인할 수 있습니다.</p></div>
+            <details class="video-basis">
+              <summary>교재 범위와 보강 내용</summary>
+              <dl class="video-meta">
+                <div><dt>교재 범위</dt><dd>—</dd></div>
+                <div><dt>함께 다루는 내용</dt><dd>코딩 에이전트</dd></div>
+              </dl>
+            </details>
+          <div class="actions"><a class="button button--video" href="https://www.youtube.com/watch?v=IZp7ivozOlc" target="_blank" rel="noopener noreferrer">영상 2 바로 보기 <span aria-hidden="true">↗</span></a><a class="button" href="02-coding-agent-introduction/report.html">상세 리포트 읽기</a><a class="button button--secondary" href="02-coding-agent-introduction/slides.html">발표 슬라이드 보기</a></div>
           </div>
-          <h2>코딩 에이전트란 무엇이고 퀀트 작업에서 무엇을 할 수 있는가</h2>
-          <p class="video-role">코딩 에이전트의 역할과 한계를 구분한다</p>
-          <dl class="video-meta">
-            <div><dt>책 근거</dt><dd>—</dd></div>
-            <div><dt>보강</dt><dd>코딩 에이전트</dd></div>
-            <div><dt>이어지는 것</dt><dd>파일·<wbr>코드·<wbr>명령을 다루는 작업 흐름과 사람의 확인 책임</dd></div>
-          </dl>
-          <div class="actions"><a class="button" href="https://www.youtube.com/watch?v=IZp7ivozOlc" target="_blank" rel="noopener noreferrer">영상 2 보기 ↗</a><a class="button" href="02-coding-agent-introduction/report.html">상세 리포트 읽기</a><a class="button button--secondary" href="02-coding-agent-introduction/slides.html">발표 슬라이드 보기</a></div>
         </li>
         <li class="video-card" id="video-3">
-          <div class="video-head">
-            <span class="badge">영상·자료 공개</span>
-            <span class="video-index">영상 3</span>
+          <a class="video-thumb" href="https://www.youtube.com/watch?v=K1NfnHRrKEI"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="영상 3 재생: VS Code에 Codex 확장 기능을 설치하고 실습 환경을 만든다">
+            <img src="https://i.ytimg.com/vi/K1NfnHRrKEI/maxresdefault.jpg"
+                 alt="영상 3 썸네일: VS Code에 Codex 확장 기능을 설치하고 실습 환경을 만든다" loading="lazy" decoding="async">
+            <span class="video-thumb__play" aria-hidden="true">▶</span>
+            <span class="video-duration">7:56</span>
+          </a>
+          <div class="video-card__body">
+            <div class="video-head">
+              <span class="video-index">VIDEO 03</span>
+              <span class="video-head__labels"><span class="video-format">설정 실습</span><span class="badge">영상·자료 공개</span></span>
+            </div>
+            <h2>VS Code에 Codex 확장 기능을 설치하고 실습 환경을 만든다</h2>
+            <p class="video-summary">실제 VS Code 화면을 따라가며 OpenAI의 Codex 확장 기능과 CLI, Python·Jupyter 확장 기능, 작업 폴더 전용 가상 환경을 준비합니다.</p>
+          <ul class="video-topics" aria-label="영상 3 핵심 주제"><li>Codex 확장 기능과 CLI</li><li>Python 가상 환경</li><li>Jupyter 셀과 커널</li></ul>
+          <div class="video-outcome"><span>보고 나면</span><p>강의 전용 폴더에서 올바른 Python 커널을 선택하고 짧은 코드를 실행해 실습 환경이 제대로 연결됐는지 확인할 수 있습니다.</p></div>
+            <details class="video-basis">
+              <summary>교재 범위와 보강 내용</summary>
+              <dl class="video-meta">
+                <div><dt>교재 범위</dt><dd>—</dd></div>
+                <div><dt>함께 다루는 내용</dt><dd>VS Code·<wbr>Codex 확장 기능과 CLI·<wbr>Python·<wbr>Jupyter</dd></div>
+              </dl>
+            </details>
+          <div class="actions"><a class="button button--video" href="https://www.youtube.com/watch?v=K1NfnHRrKEI" target="_blank" rel="noopener noreferrer">영상 3 바로 보기 <span aria-hidden="true">↗</span></a><a class="button" href="03-coding-agent-setup/report.html">상세 리포트 읽기</a><a class="button button--secondary" href="03-coding-agent-setup/slides.html">발표 슬라이드 보기</a></div>
           </div>
-          <h2>VS Code에 Codex 확장 기능을 설치하고 실습 환경을 만든다</h2>
-          <p class="video-role">VS Code 실습 환경을 완성한다</p>
-          <dl class="video-meta">
-            <div><dt>책 근거</dt><dd>—</dd></div>
-            <div><dt>보강</dt><dd>VS Code·<wbr>Codex 확장 기능과 CLI·<wbr>Python·<wbr>Jupyter</dd></div>
-            <div><dt>이어지는 것</dt><dd>Codex 확장 기능과 CLI·<wbr>Python·<wbr>Jupyter·<wbr>강의 전용 작업 폴더</dd></div>
-          </dl>
-          <div class="actions"><a class="button" href="https://www.youtube.com/watch?v=K1NfnHRrKEI" target="_blank" rel="noopener noreferrer">영상 3 보기 ↗</a><a class="button" href="03-coding-agent-setup/report.html">상세 리포트 읽기</a><a class="button button--secondary" href="03-coding-agent-setup/slides.html">발표 슬라이드 보기</a></div>
         </li>
         <li class="video-card" id="video-4">
-          <div class="video-head">
-            <span class="badge">영상·자료 공개</span>
-            <span class="video-index">영상 4</span>
+          <a class="video-thumb" href="https://www.youtube.com/watch?v=Y_ooJpc1O8Q"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="영상 4 재생: 코딩 에이전트로 KODEX 200 가격을 불러와 노트북에 표시한다">
+            <img src="https://i.ytimg.com/vi/Y_ooJpc1O8Q/maxresdefault.jpg"
+                 alt="영상 4 썸네일: 코딩 에이전트로 KODEX 200 가격을 불러와 노트북에 표시한다" loading="lazy" decoding="async">
+            <span class="video-thumb__play" aria-hidden="true">▶</span>
+            <span class="video-duration">6:45</span>
+          </a>
+          <div class="video-card__body">
+            <div class="video-head">
+              <span class="video-index">VIDEO 04</span>
+              <span class="video-head__labels"><span class="video-format">실습·데모</span><span class="badge">영상·자료 공개</span></span>
+            </div>
+            <h2>코딩 에이전트로 KODEX 200 가격을 불러와 노트북에 표시한다</h2>
+            <p class="video-summary">Codex에 종목·기간·작업 위치·만들 파일·확인 방법을 요청하고, 실제로 생성된 CSV와 Jupyter 노트북을 처음부터 다시 실행합니다.</p>
+          <ul class="video-topics" aria-label="영상 4 핵심 주제"><li>실습 프롬프트</li><li>CSV와 노트북</li><li>Restart Kernel·Run All</li></ul>
+          <div class="video-outcome"><span>보고 나면</span><p>KODEX 200 가격 표와 종가 그래프를 확인하고, 데이터 수집·저장·표시와 전략 백테스트의 차이를 설명할 수 있습니다.</p></div>
+            <details class="video-basis">
+              <summary>교재 범위와 보강 내용</summary>
+              <dl class="video-meta">
+                <div><dt>교재 범위</dt><dd>—</dd></div>
+                <div><dt>함께 다루는 내용</dt><dd>전부</dd></div>
+              </dl>
+            </details>
+          <div class="actions"><a class="button button--video" href="https://www.youtube.com/watch?v=Y_ooJpc1O8Q" target="_blank" rel="noopener noreferrer">영상 4 바로 보기 <span aria-hidden="true">↗</span></a><a class="button" href="04-first-quant-notebook/report.html">상세 리포트 읽기</a><a class="button button--secondary" href="04-first-quant-notebook/slides.html">발표 슬라이드 보기</a></div>
           </div>
-          <h2>코딩 에이전트로 KODEX 200 가격을 불러와 노트북에 표시한다</h2>
-          <p class="video-role">첫 퀀트 작업을 맡기고 실행한다</p>
-          <dl class="video-meta">
-            <div><dt>책 근거</dt><dd>—</dd></div>
-            <div><dt>보강</dt><dd>전부</dd></div>
-            <div><dt>이어지는 것</dt><dd>로컬 가격 파일과 다시 실행되는 KODEX 200 노트북</dd></div>
-          </dl>
-          <div class="actions"><a class="button" href="https://www.youtube.com/watch?v=Y_ooJpc1O8Q" target="_blank" rel="noopener noreferrer">영상 4 보기 ↗</a><a class="button" href="04-first-quant-notebook/report.html">상세 리포트 읽기</a><a class="button button--secondary" href="04-first-quant-notebook/slides.html">발표 슬라이드 보기</a></div>
         </li>
     </ol>
 
