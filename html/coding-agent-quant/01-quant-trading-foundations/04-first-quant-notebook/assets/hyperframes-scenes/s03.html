@@ -26,7 +26,7 @@
       .arrow{fill:none;stroke:#0F2C59;stroke-width:3;marker-end:url(#arrow)}
       .icon{fill:none;stroke:#0F2C59;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
       .icon-warn{fill:none;stroke:#B45309;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
-      .icon-ok{fill:none;stroke:#0B7A6A;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+      .icon-ok{fill:none;stroke:#0B7868;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
     </style>
   </defs>
   <rect width="1200" height="640" fill="#FFFFFF"/>
@@ -46,7 +46,7 @@
     <rect x="75" y="222" width="82" height="82" rx="20" fill="#FFFFFF" stroke="#C7D2E1"/>
     <g class="icon" transform="translate(91 239)">
       <path d="M0 46V0M0 46H50"/><path d="M7 35L18 26L29 31L43 12"/>
-      <circle cx="7" cy="35" r="3" fill="#0B7A6A" stroke="none"/><circle cx="18" cy="26" r="3" fill="#0B7A6A" stroke="none"/><circle cx="29" cy="31" r="3" fill="#0B7A6A" stroke="none"/><circle cx="43" cy="12" r="3" fill="#0B7A6A" stroke="none"/>
+      <circle cx="7" cy="35" r="3" fill="#0B7868" stroke="none"/><circle cx="18" cy="26" r="3" fill="#0B7868" stroke="none"/><circle cx="29" cy="31" r="3" fill="#0B7868" stroke="none"/><circle cx="43" cy="12" r="3" fill="#0B7868" stroke="none"/>
     </g>
     <text class="kicker" x="177" y="246">공식 상품 페이지</text>
     <text class="sub" x="177" y="273">이름과 코드를</text>
@@ -74,21 +74,159 @@
   </g>
 
   <g id="practice-route" filter="url(#shadow)">
-    <rect x="545" y="410" width="610" height="240" rx="22" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
-    <rect x="578" y="446" width="84" height="84" rx="20" fill="#FFFFFF" stroke="#0B7A6A"/>
+    <rect x="545" y="410" width="610" height="240" rx="22" fill="#E4F6F0" stroke="#0B7868" stroke-width="2"/>
+    <rect x="578" y="446" width="84" height="84" rx="20" fill="#FFFFFF" stroke="#0B7868"/>
     <g class="icon-ok" transform="translate(596 463)">
       <path d="M3 8H45V50H3Z"/><path d="M3 18H45"/><path d="M12 33H28M12 41H36"/><path d="M31 29L37 35L47 23"/>
     </g>
-    <text class="kicker" x="696" y="460" fill="#0B7A6A">이번 영상의 실습 경로</text>
+    <text class="kicker" x="696" y="460" fill="#0B7868">이번 영상의 실습 경로</text>
     <text class="title" x="696" y="503">FinanceDataReader</text>
     <text class="sub" x="696" y="547">NAVER:069500 · 버전 0.9.202</text>
     <text class="sub" x="696" y="580">지정한 기간을 로컬 CSV로 저장</text>
-    <rect x="964" y="597" width="156" height="32" rx="16" fill="#FFFFFF" stroke="#0B7A6A"/>
-    <text class="tag" x="1042" y="619" text-anchor="middle" fill="#0B7A6A">이번에 사용</text>
+    <rect x="964" y="597" width="156" height="32" rx="16" fill="#FFFFFF" stroke="#0B7868"/>
+    <text class="tag" x="1042" y="619" text-anchor="middle" fill="#0B7868">이번에 사용</text>
   </g>
   </g>
 </svg></div></section></div>
-    <script>(function(){var root=document.getElementById("scene-s03"),q=function(s){return root.querySelector(s);},qa=function(s){return root.querySelectorAll(s);},duration=21.760,tl=gsap.timeline({paused:true});tl.fromTo(q(".hf-grid"),{x:-18,y:-12},{x:24,y:14,duration:duration,ease:"none"},0);tl.fromTo(q(".hf-orb"),{scale:.94,opacity:.28},{scale:1.05,opacity:.66,duration:duration,ease:"sine.inOut"},0);tl.fromTo(q(".hf-header"),{opacity:0,y:26},{opacity:1,y:0,duration:.55,ease:"power3.out"},.12);tl.fromTo(q(".figure-shell"),{opacity:0,y:20,scale:.992},{opacity:1,y:0,scale:1,duration:.52,ease:"power3.out"},.26);var groups=["#verified-product", "#official-route", "#practice-route", "#route-connectors"],groupAt=[0.32, 3.09, 8.72, 16.59];groups.forEach(function(sel,i){var node=q(sel);if(!node)return;tl.fromTo(node,{opacity:0,y:18,transformOrigin:"50% 50%"},{opacity:1,y:0,duration:.46,ease:"power3.out"},groupAt[i]);});window.__timelines=window.__timelines||{};window.__timelines["slide-s03"]=tl;})();</script>
+    <script>(function(){
+var root=document.getElementById("scene-s03");
+var q=function(s){return root.querySelector(s);};
+var duration=21.760;
+var tl=gsap.timeline({paused:true});
+
+var NS="http://www.w3.org/2000/svg",wipeSeq=0;
+function A(sel,scope){return Array.prototype.slice.call((scope||root).querySelectorAll(sel));}
+function isDashed(shape){
+  var dash=window.getComputedStyle(shape).strokeDasharray;
+  return !!(dash&&dash!=="none"&&dash!=="0px"&&dash!=="0"&&dash.indexOf(",")!==-1||
+            dash&&dash!=="none"&&dash!=="0px"&&dash!=="0"&&dash.indexOf(" ")!==-1);
+}
+function markerAfter(shape,at){
+  var marker=window.getComputedStyle(shape).markerEnd;
+  if(!marker||marker==="none")return;
+  gsap.set(shape,{markerEnd:"none"});
+  tl.set(shape,{markerEnd:marker},at);
+}
+/* Solid connector: the shaft draws, and only then does the arrowhead exist. */
+function draw(shape,at,dur,ease){
+  var len=0;try{len=shape.getTotalLength();}catch(e){return;}
+  if(!len)return;
+  markerAfter(shape,at+dur+0.06);
+  shape.style.strokeDasharray=len;shape.style.strokeDashoffset=len;
+  tl.to(shape,{strokeDashoffset:0,duration:dur,ease:ease||"power2.out"},at);
+}
+/* Dashed connector: keep the dash pattern (it means "not done yet") and slide it
+   in from its own start point instead of overwriting stroke-dasharray. */
+function slideStroke(shape,at,dur,dx,dy){
+  markerAfter(shape,at+dur*0.82);
+  tl.fromTo(shape,{opacity:0,x:dx||-14,y:dy||0},
+    {opacity:1,x:0,y:0,duration:dur,ease:"power2.out"},at);
+}
+function drawOrSlide(shape,at,dur,dx){
+  if(isDashed(shape))slideStroke(shape,at,dur,dx);else draw(shape,at,dur);
+}
+function strokesOf(node){return A("path,line,polyline",node);}
+/* A data token that rides a connector so the hand-off is visible, not implied. */
+function travel(shape,at,dur,color,radius){
+  var len=0;try{len=shape.getTotalLength();}catch(e){return;}
+  if(!len)return;
+  var dot=document.createElementNS(NS,"circle");
+  dot.setAttribute("class","flow-token");
+  dot.setAttribute("r",radius||7);
+  dot.setAttribute("fill",color||"#0F2C59");
+  dot.setAttribute("opacity","0");
+  shape.parentNode.appendChild(dot);
+  var p0=shape.getPointAtLength(0);
+  dot.setAttribute("cx",p0.x);dot.setAttribute("cy",p0.y);
+  var st={t:0};
+  tl.to(dot,{opacity:1,duration:.12,ease:"none"},at);
+  tl.to(st,{t:1,duration:dur,ease:"power1.inOut",onUpdate:function(){
+    var p=shape.getPointAtLength(st.t*len);
+    dot.setAttribute("cx",p.x);dot.setAttribute("cy",p.y);
+  }},at);
+  tl.to(dot,{opacity:0,duration:.16,ease:"none"},at+dur-0.06);
+}
+/* Left-to-right reveal that preserves the artwork instead of fading it. */
+function clipWipe(el,at,dur,ease){
+  var svg=el.ownerSVGElement;if(!svg)return;
+  var box;try{box=el.getBBox();}catch(e){return;}
+  var defs=svg.querySelector("defs");
+  if(!defs){defs=document.createElementNS(NS,"defs");svg.insertBefore(defs,svg.firstChild);}
+  var id="hf-wipe-"+(++wipeSeq);
+  var clip=document.createElementNS(NS,"clipPath");
+  clip.setAttribute("id",id);clip.setAttribute("clipPathUnits","userSpaceOnUse");
+  var rect=document.createElementNS(NS,"rect");
+  rect.setAttribute("x",box.x-3);rect.setAttribute("y",box.y-3);
+  rect.setAttribute("height",box.height+6);rect.setAttribute("width",0);
+  clip.appendChild(rect);defs.appendChild(clip);
+  el.setAttribute("clip-path","url(#"+id+")");
+  tl.to(rect,{attr:{width:box.width+6},duration:dur,ease:ease||"power2.out"},at);
+}
+/* Card entrance vocabulary. Each scene picks verbs that match its own logic. */
+var ENTRANCE={
+  riseLeft:{x:-52,y:0,scale:.955,ease:"power3.out",duration:.52},
+  riseRight:{x:52,y:0,scale:.955,ease:"power3.out",duration:.52},
+  riseUp:{x:0,y:34,scale:.955,ease:"power3.out",duration:.5},
+  riseUpRight:{x:34,y:-30,scale:.95,ease:"power3.out",duration:.54},
+  riseDownRight:{x:34,y:30,scale:.95,ease:"power3.out",duration:.54},
+  settle:{x:0,y:16,scale:.985,ease:"power2.out",duration:.44},
+  land:{x:0,y:-26,scale:1.35,ease:"power4.out",duration:.5}
+};
+function enter(node,at,verb,ghost){
+  var p=ENTRANCE[verb]||ENTRANCE.riseUp;
+  if(ghost){
+    /* The slot is already on screen as a ghost, so it fills in place. */
+    tl.fromTo(node,{opacity:ghost,scale:.985,transformOrigin:"50% 50%"},
+      {opacity:1,scale:1,duration:p.duration,ease:p.ease},at);
+    return;
+  }
+  tl.fromTo(node,{opacity:0,x:p.x,y:p.y,scale:p.scale,transformOrigin:"50% 50%"},
+    {opacity:1,x:0,y:0,scale:1,duration:p.duration,ease:p.ease},at);
+}
+/* Icon-internal beats: outline strokes draw, then dots and chips resolve. */
+function iconDetail(node,at){
+  var strokes=A(".icon path,.icon line,.icon polyline,.icon-ok path,.icon-ok line,"+
+    ".icon-ok polyline,.icon-warn path,.icon-warn line,.icon-wait path,.icon-wait line,"+
+    "path.icon-ok,path.icon-warn,path.icon-wait",node);
+  strokes.forEach(function(shape,i){draw(shape,at+0.16+i*0.06,0.42);});
+  var pops=A(".icon circle,.icon ellipse,.icon rect,.icon-ok circle,.icon-ok ellipse,"+
+    ".icon-ok rect,.icon-warn circle,.icon-warn ellipse,.icon-warn rect,"+
+    ".icon-wait circle,.icon-wait ellipse,.icon-wait rect",node);
+  pops.forEach(function(part,i){
+    tl.fromTo(part,{opacity:0,scale:.7,transformBox:"fill-box",transformOrigin:"50% 50%"},
+      {opacity:1,scale:1,duration:.3,ease:"back.out(1.5)"},at+0.24+i*0.05);
+  });
+}
+/* The small status pill is the conclusion of a card, so it lands last. */
+function statusChip(node,at){
+  var chips=A("rect[rx='15'],rect[rx='16'],rect[rx='18'],rect[rx='19']",node);
+  var labels=A("text.tag,text.chip,text.status,text.kicker,text.meta",node);
+  chips.slice(-1).forEach(function(part){
+    tl.fromTo(part,{opacity:0,scale:.86,transformBox:"fill-box",transformOrigin:"50% 50%"},
+      {opacity:1,scale:1,duration:.34,ease:"back.out(1.4)"},at);
+  });
+  labels.slice(-1).forEach(function(part){
+    tl.fromTo(part,{opacity:0,y:5},{opacity:1,y:0,duration:.28,ease:"power3.out"},at+.06);
+  });
+}
+function ambient(seedX,seedY,orbEase){
+  tl.fromTo(q(".hf-grid"),{x:seedX,y:seedY},
+    {x:-seedX,y:-seedY,duration:duration,ease:"none"},0);
+  tl.fromTo(q(".hf-orb"),{scale:.93,opacity:.26},
+    {scale:1.06,opacity:.62,duration:duration,ease:orbEase||"sine.inOut"},0);
+}
+function headerIn(at){
+  tl.fromTo(q(".hf-header"),{opacity:0,y:26},{opacity:1,y:0,duration:.55,ease:"power3.out"},at||.12);
+}
+function shellIn(at){
+  tl.fromTo(q(".figure-shell"),{opacity:0,y:18,scale:.994},
+    {opacity:1,y:0,scale:1,duration:.52,ease:"power3.out"},at||.24);
+}
+
+ambient(-18,-12,"sine.inOut");headerIn();shellIn();var plan=[{"sel": "#verified-product", "at": 2.95, "verb": "riseLeft"}, {"sel": "#official-route", "at": 8.58, "verb": "riseUpRight"}, {"sel": "#practice-route", "at": 11.68, "verb": "riseDownRight"}],ghost=0;plan.forEach(function(step){var node=q(step.sel);if(!node)return;enter(node,step.at,step.verb,ghost);iconDetail(node,step.at);statusChip(node,step.at+.42);});var conn=q("#route-connectors");if(conn){gsap.set(conn,{opacity:1});var paths=A("path",conn),tags=A("rect,text",conn);draw(paths[0],8.22,.62);draw(paths[1],11.32,.62);tl.fromTo(tags[0],{opacity:0,scale:.86,transformBox:"fill-box",transformOrigin:"50% 50%"},{opacity:1,scale:1,duration:.3,ease:"back.out(1.4)"},8.92);tl.fromTo(tags[1],{opacity:0,y:6},{opacity:1,y:0,duration:.28,ease:"power3.out"},9.0);tl.fromTo(tags[2],{opacity:0,scale:.86,transformBox:"fill-box",transformOrigin:"50% 50%"},{opacity:1,scale:1,duration:.3,ease:"back.out(1.4)"},12.02);tl.fromTo(tags[3],{opacity:0,y:6},{opacity:1,y:0,duration:.28,ease:"power3.out"},12.1);travel(paths[1],16.57,1.15,"#0B7868",8);}
+window.__timelines=window.__timelines||{};
+window.__timelines["slide-s03"]=tl;
+})();</script>
   </div>
 <style id="presentation-mode">
 html, body { width:1280px !important; height:720px !important; margin:0; overflow:hidden; background:#fafaf9; }

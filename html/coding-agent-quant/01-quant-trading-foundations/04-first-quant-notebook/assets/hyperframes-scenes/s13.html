@@ -18,7 +18,7 @@
       text{font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif;fill:#0F172A}
       .axis{font-size:18px;font-weight:400;fill:#52606D}
       .label{font-size:19px;font-weight:700;fill:#0F2C59}
-      .value{font-size:18px;font-weight:700;fill:#0B7A6A}
+      .value{font-size:18px;font-weight:700;fill:#0B7868}
       .grid{stroke:#C7D2E1;stroke-width:1}
     </style>
   </defs>
@@ -68,14 +68,152 @@
     <text x="422" y="654" text-anchor="middle" font-size="18" font-weight="700" fill="#BE123C">최저 · 1/17 · 31,248</text>
   </g>
   <g id="annotation-final">
-    <circle cx="1120" cy="213.3" r="7" fill="#0B7A6A"/>
-    <path d="M1120 199V165H930" fill="none" stroke="#0B7A6A" stroke-width="2"/>
-    <rect x="930" y="139" width="190" height="38" rx="19" fill="#FFFFFF" stroke="#0B7A6A"/>
+    <circle cx="1120" cy="213.3" r="7" fill="#0B7868"/>
+    <path d="M1120 199V165H930" fill="none" stroke="#0B7868" stroke-width="2"/>
+    <rect x="930" y="139" width="190" height="38" rx="19" fill="#FFFFFF" stroke="#0B7868"/>
     <text class="value" x="1025" y="164" text-anchor="middle">마지막 · 3/29 · 36,123</text>
   </g>
   </g>
 </svg></div></section></div>
-    <script>(function(){var root=document.getElementById("scene-s13"),q=function(s){return root.querySelector(s);},qa=function(s){return root.querySelectorAll(s);},duration=15.840,tl=gsap.timeline({paused:true});tl.fromTo(q(".hf-grid"),{x:-18,y:-12},{x:24,y:14,duration:duration,ease:"none"},0);tl.fromTo(q(".hf-orb"),{scale:.94,opacity:.28},{scale:1.05,opacity:.66,duration:duration,ease:"sine.inOut"},0);tl.fromTo(q(".hf-header"),{opacity:0,y:26},{opacity:1,y:0,duration:.55,ease:"power3.out"},.12);tl.fromTo(q(".figure-shell"),{opacity:0,y:20,scale:.992},{opacity:1,y:0,scale:1,duration:.52,ease:"power3.out"},.26);var groups=["#plot-panel", "#axes-and-grid", "#series-close", "#annotation-start", "#annotation-minimum", "#annotation-final"],groupAt=[0.32, 1.02, 0.96, 2.83, 3.63, 9.07];groups.forEach(function(sel,i){var node=q(sel);if(!node)return;tl.fromTo(node,{opacity:0,y:18,transformOrigin:"50% 50%"},{opacity:1,y:0,duration:.46,ease:"power3.out"},groupAt[i]);});var series=q("#series-close"),seriesAt=1.06;if(series){Array.prototype.forEach.call(series.querySelectorAll("path,polyline"),function(path,i){var len=path.getTotalLength();path.style.strokeDasharray=len;path.style.strokeDashoffset=len;tl.to(path,{strokeDashoffset:0,duration:1.4,ease:"power2.out"},seriesAt+i*.08);});}window.__timelines=window.__timelines||{};window.__timelines["slide-s13"]=tl;})();</script>
+    <script>(function(){
+var root=document.getElementById("scene-s13");
+var q=function(s){return root.querySelector(s);};
+var duration=15.840;
+var tl=gsap.timeline({paused:true});
+
+var NS="http://www.w3.org/2000/svg",wipeSeq=0;
+function A(sel,scope){return Array.prototype.slice.call((scope||root).querySelectorAll(sel));}
+function isDashed(shape){
+  var dash=window.getComputedStyle(shape).strokeDasharray;
+  return !!(dash&&dash!=="none"&&dash!=="0px"&&dash!=="0"&&dash.indexOf(",")!==-1||
+            dash&&dash!=="none"&&dash!=="0px"&&dash!=="0"&&dash.indexOf(" ")!==-1);
+}
+function markerAfter(shape,at){
+  var marker=window.getComputedStyle(shape).markerEnd;
+  if(!marker||marker==="none")return;
+  gsap.set(shape,{markerEnd:"none"});
+  tl.set(shape,{markerEnd:marker},at);
+}
+/* Solid connector: the shaft draws, and only then does the arrowhead exist. */
+function draw(shape,at,dur,ease){
+  var len=0;try{len=shape.getTotalLength();}catch(e){return;}
+  if(!len)return;
+  markerAfter(shape,at+dur+0.06);
+  shape.style.strokeDasharray=len;shape.style.strokeDashoffset=len;
+  tl.to(shape,{strokeDashoffset:0,duration:dur,ease:ease||"power2.out"},at);
+}
+/* Dashed connector: keep the dash pattern (it means "not done yet") and slide it
+   in from its own start point instead of overwriting stroke-dasharray. */
+function slideStroke(shape,at,dur,dx,dy){
+  markerAfter(shape,at+dur*0.82);
+  tl.fromTo(shape,{opacity:0,x:dx||-14,y:dy||0},
+    {opacity:1,x:0,y:0,duration:dur,ease:"power2.out"},at);
+}
+function drawOrSlide(shape,at,dur,dx){
+  if(isDashed(shape))slideStroke(shape,at,dur,dx);else draw(shape,at,dur);
+}
+function strokesOf(node){return A("path,line,polyline",node);}
+/* A data token that rides a connector so the hand-off is visible, not implied. */
+function travel(shape,at,dur,color,radius){
+  var len=0;try{len=shape.getTotalLength();}catch(e){return;}
+  if(!len)return;
+  var dot=document.createElementNS(NS,"circle");
+  dot.setAttribute("class","flow-token");
+  dot.setAttribute("r",radius||7);
+  dot.setAttribute("fill",color||"#0F2C59");
+  dot.setAttribute("opacity","0");
+  shape.parentNode.appendChild(dot);
+  var p0=shape.getPointAtLength(0);
+  dot.setAttribute("cx",p0.x);dot.setAttribute("cy",p0.y);
+  var st={t:0};
+  tl.to(dot,{opacity:1,duration:.12,ease:"none"},at);
+  tl.to(st,{t:1,duration:dur,ease:"power1.inOut",onUpdate:function(){
+    var p=shape.getPointAtLength(st.t*len);
+    dot.setAttribute("cx",p.x);dot.setAttribute("cy",p.y);
+  }},at);
+  tl.to(dot,{opacity:0,duration:.16,ease:"none"},at+dur-0.06);
+}
+/* Left-to-right reveal that preserves the artwork instead of fading it. */
+function clipWipe(el,at,dur,ease){
+  var svg=el.ownerSVGElement;if(!svg)return;
+  var box;try{box=el.getBBox();}catch(e){return;}
+  var defs=svg.querySelector("defs");
+  if(!defs){defs=document.createElementNS(NS,"defs");svg.insertBefore(defs,svg.firstChild);}
+  var id="hf-wipe-"+(++wipeSeq);
+  var clip=document.createElementNS(NS,"clipPath");
+  clip.setAttribute("id",id);clip.setAttribute("clipPathUnits","userSpaceOnUse");
+  var rect=document.createElementNS(NS,"rect");
+  rect.setAttribute("x",box.x-3);rect.setAttribute("y",box.y-3);
+  rect.setAttribute("height",box.height+6);rect.setAttribute("width",0);
+  clip.appendChild(rect);defs.appendChild(clip);
+  el.setAttribute("clip-path","url(#"+id+")");
+  tl.to(rect,{attr:{width:box.width+6},duration:dur,ease:ease||"power2.out"},at);
+}
+/* Card entrance vocabulary. Each scene picks verbs that match its own logic. */
+var ENTRANCE={
+  riseLeft:{x:-52,y:0,scale:.955,ease:"power3.out",duration:.52},
+  riseRight:{x:52,y:0,scale:.955,ease:"power3.out",duration:.52},
+  riseUp:{x:0,y:34,scale:.955,ease:"power3.out",duration:.5},
+  riseUpRight:{x:34,y:-30,scale:.95,ease:"power3.out",duration:.54},
+  riseDownRight:{x:34,y:30,scale:.95,ease:"power3.out",duration:.54},
+  settle:{x:0,y:16,scale:.985,ease:"power2.out",duration:.44},
+  land:{x:0,y:-26,scale:1.35,ease:"power4.out",duration:.5}
+};
+function enter(node,at,verb,ghost){
+  var p=ENTRANCE[verb]||ENTRANCE.riseUp;
+  if(ghost){
+    /* The slot is already on screen as a ghost, so it fills in place. */
+    tl.fromTo(node,{opacity:ghost,scale:.985,transformOrigin:"50% 50%"},
+      {opacity:1,scale:1,duration:p.duration,ease:p.ease},at);
+    return;
+  }
+  tl.fromTo(node,{opacity:0,x:p.x,y:p.y,scale:p.scale,transformOrigin:"50% 50%"},
+    {opacity:1,x:0,y:0,scale:1,duration:p.duration,ease:p.ease},at);
+}
+/* Icon-internal beats: outline strokes draw, then dots and chips resolve. */
+function iconDetail(node,at){
+  var strokes=A(".icon path,.icon line,.icon polyline,.icon-ok path,.icon-ok line,"+
+    ".icon-ok polyline,.icon-warn path,.icon-warn line,.icon-wait path,.icon-wait line,"+
+    "path.icon-ok,path.icon-warn,path.icon-wait",node);
+  strokes.forEach(function(shape,i){draw(shape,at+0.16+i*0.06,0.42);});
+  var pops=A(".icon circle,.icon ellipse,.icon rect,.icon-ok circle,.icon-ok ellipse,"+
+    ".icon-ok rect,.icon-warn circle,.icon-warn ellipse,.icon-warn rect,"+
+    ".icon-wait circle,.icon-wait ellipse,.icon-wait rect",node);
+  pops.forEach(function(part,i){
+    tl.fromTo(part,{opacity:0,scale:.7,transformBox:"fill-box",transformOrigin:"50% 50%"},
+      {opacity:1,scale:1,duration:.3,ease:"back.out(1.5)"},at+0.24+i*0.05);
+  });
+}
+/* The small status pill is the conclusion of a card, so it lands last. */
+function statusChip(node,at){
+  var chips=A("rect[rx='15'],rect[rx='16'],rect[rx='18'],rect[rx='19']",node);
+  var labels=A("text.tag,text.chip,text.status,text.kicker,text.meta",node);
+  chips.slice(-1).forEach(function(part){
+    tl.fromTo(part,{opacity:0,scale:.86,transformBox:"fill-box",transformOrigin:"50% 50%"},
+      {opacity:1,scale:1,duration:.34,ease:"back.out(1.4)"},at);
+  });
+  labels.slice(-1).forEach(function(part){
+    tl.fromTo(part,{opacity:0,y:5},{opacity:1,y:0,duration:.28,ease:"power3.out"},at+.06);
+  });
+}
+function ambient(seedX,seedY,orbEase){
+  tl.fromTo(q(".hf-grid"),{x:seedX,y:seedY},
+    {x:-seedX,y:-seedY,duration:duration,ease:"none"},0);
+  tl.fromTo(q(".hf-orb"),{scale:.93,opacity:.26},
+    {scale:1.06,opacity:.62,duration:duration,ease:orbEase||"sine.inOut"},0);
+}
+function headerIn(at){
+  tl.fromTo(q(".hf-header"),{opacity:0,y:26},{opacity:1,y:0,duration:.55,ease:"power3.out"},at||.12);
+}
+function shellIn(at){
+  tl.fromTo(q(".figure-shell"),{opacity:0,y:18,scale:.994},
+    {opacity:1,y:0,scale:1,duration:.52,ease:"power3.out"},at||.24);
+}
+
+ambient(-14,-16,"sine.inOut");headerIn();shellIn();var panel=q("#plot-panel");if(panel){tl.fromTo(panel,{opacity:0,scale:.985,transformBox:"fill-box",transformOrigin:"50% 50%"},{opacity:1,scale:1,duration:.5,ease:"power3.out"},0.05);}var axes=q("#axes-and-grid");if(axes){gsap.set(axes,{opacity:1});A("line",axes).forEach(function(line,i){draw(line,0.25+i*0.035,.5);});A("text",axes).forEach(function(part,i){tl.fromTo(part,{opacity:0,x:-6},{opacity:1,x:0,duration:.3,ease:"power3.out"},0.25+.3+i*0.03);});}var series=q("#series-close");if(series){gsap.set(series,{opacity:1});var area=series.querySelector("polygon"),line=series.querySelector("polyline");if(area)clipWipe(area,1.96,2.35,"none");if(line){draw(line,1.96,2.35,"none");travel(line,1.96,2.35,"#0B7868",9);}}var noteAt=[9.05, 10.55, 12.05],notes=["#annotation-start","#annotation-minimum","#annotation-final"];notes.forEach(function(sel,i){var node=q(sel);if(!node)return;var a=noteAt[i];gsap.set(node,{opacity:1});A("circle",node).forEach(function(dot){tl.fromTo(dot,{opacity:0,scale:.3,transformBox:"fill-box",transformOrigin:"50% 50%"},{opacity:1,scale:1,duration:.32,ease:"back.out(2)"},a);});A("path",node).forEach(function(leader){draw(leader,a+.22,.34);});A("rect",node).forEach(function(chip){tl.fromTo(chip,{opacity:0,scale:.85,transformBox:"fill-box",transformOrigin:"50% 50%"},{opacity:1,scale:1,duration:.34,ease:"back.out(1.5)"},a+.44);});A("text",node).forEach(function(label){tl.fromTo(label,{opacity:0},{opacity:1,duration:.28},a+.56);});});
+window.__timelines=window.__timelines||{};
+window.__timelines["slide-s13"]=tl;
+})();</script>
   </div>
 <style id="presentation-mode">
 html, body { width:1280px !important; height:720px !important; margin:0; overflow:hidden; background:#fafaf9; }

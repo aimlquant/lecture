@@ -7,8 +7,146 @@
     @font-face { font-family:"Noto Sans KR"; src:url("assets/fonts/NotoSansCJK-Bold-subset.ttf") format("truetype"); font-style:normal; font-weight:700; }
   </style>
   <div id="root" data-composition-id="slide-s11" data-duration="20.480" data-width="1920" data-height="1080">
-    <div id="scene-s11" class="hf-scene"><div class="hf-grid" data-layout-ignore></div><div class="hf-orb" style="right:-170px;bottom:-230px" data-layout-ignore></div><div class="hf-topbar"><span class="hf-kicker">퀀트 트레이딩과 코딩 에이전트 입문</span><span class="hf-scene-no">11 / 21</span></div><header class="hf-header"><h1 class="hf-title">실행 결과는 코드 바로 아래에서 확인한다</h1><p class="hf-subtitle">표의 처음과 마지막 행, 같은 CSV로 그린 종가 그래프를 함께 봅니다.</p></header><section class="hf-stage"><div class="demo-layout"><div class="demo-media"><img src="assets/ui/notebook-output-motion.webp" alt="" aria-hidden="true"><span class="demo-badge">ACTUAL DEMO</span></div><div class="demo-notes" style="--note-count:3"><article class="demo-note hf-card"><span>표</span><strong>처음·마지막 다섯 행</strong><p>정확한 날짜와 값을 읽기 쉬움</p></article><article class="demo-note hf-card"><span>그래프</span><strong>종가 선 그래프</strong><p>날짜 순서와 흐름을 빠르게 확인</p></article><article class="demo-note hf-card"><span>입력 파일</span><strong>같은 로컬 CSV</strong><p>화면 값과 파일 값을 맞춰 봄</p></article></div></div></section></div>
-    <script>(function(){var root=document.getElementById("scene-s11"),q=function(s){return root.querySelector(s);},qa=function(s){return root.querySelectorAll(s);},duration=20.480,tl=gsap.timeline({paused:true});tl.fromTo(q(".hf-grid"),{x:-18,y:-12},{x:24,y:14,duration:duration,ease:"none"},0);tl.fromTo(q(".hf-orb"),{scale:.94,opacity:.28},{scale:1.05,opacity:.66,duration:duration,ease:"sine.inOut"},0);tl.fromTo(q(".hf-header"),{opacity:0,y:26},{opacity:1,y:0,duration:.55,ease:"power3.out"},.12);tl.fromTo(q(".demo-media"),{opacity:0,x:-30,scale:.99},{opacity:1,x:0,scale:1,duration:.58,ease:"power3.out"},.28);tl.fromTo(q(".demo-badge"),{opacity:0,y:12},{opacity:1,y:0,duration:.4,ease:"power3.out"},.62);var noteAt=[4.53, 9.87, 16.05];Array.prototype.forEach.call(qa(".demo-note"),function(card,i){tl.fromTo(card,{opacity:0,x:28},{opacity:1,x:0,duration:.44,ease:"power3.out"},noteAt[i]);});window.__timelines=window.__timelines||{};window.__timelines["slide-s11"]=tl;})();</script>
+    <div id="scene-s11" class="hf-scene"><div class="hf-grid" data-layout-ignore></div><div class="hf-orb" style="right:-170px;bottom:-230px" data-layout-ignore></div><div class="hf-topbar"><span class="hf-kicker">퀀트 트레이딩과 코딩 에이전트 입문</span><span class="hf-scene-no">11 / 21</span></div><header class="hf-header demo-header"><h1 class="hf-title">실행 결과는 코드 바로 아래에서 확인한다</h1><div class="demo-caption-rail"><span class="demo-badge">실제 데모</span><div class="demo-caption-stack"><p class="demo-caption-base">표의 처음과 마지막 행, 같은 CSV로 그린 종가 그래프를 함께 봅니다.</p><p class="demo-caption-card"><strong>표</strong><span>처음·마지막 다섯 행 · 정확한 날짜와 값을 읽기 쉬움</span></p><p class="demo-caption-card"><strong>그래프</strong><span>종가 선 그래프 · 날짜 순서와 흐름을 빠르게 확인</span></p><p class="demo-caption-card"><strong>입력 파일</strong><span>같은 로컬 CSV · 화면 값과 파일 값을 맞춰 봄</span></p></div></div></header><section class="hf-stage demo-stage"><div class="demo-layout"><div class="media-shell" data-source-width="1920" data-source-height="1080"><div class="media-zoom-outer" data-layout-allow-overflow><div class="media-zoom-inner"><div class="media-visual"><img src="assets/ui/notebook-output-v3-poster.png" alt="실행 결과는 코드 바로 아래에서 확인한다 화면"></div></div></div><span class="media-focus-box" data-focus-index="1" data-source-x="395" data-source-y="138" data-source-w="505" data-source-h="330" data-scale="1.72" data-focus-mode="zoom" data-reset-after=""></span><span class="media-focus-box" data-focus-index="2" data-source-x="486" data-source-y="676" data-source-w="790" data-source-h="362" data-scale="1.58" data-focus-mode="zoom" data-reset-after="1.45"></span><span class="media-focus-box" data-focus-index="3" data-source-x="48" data-source-y="84" data-source-w="304" data-source-h="126" data-scale="2.06" data-focus-mode="zoom" data-reset-after=""></span></div></div></section></div>
+    <script>(function(){
+var root=document.getElementById("scene-s11");
+var q=function(s){return root.querySelector(s);};
+var duration=20.480;
+var tl=gsap.timeline({paused:true});
+
+var NS="http://www.w3.org/2000/svg",wipeSeq=0;
+function A(sel,scope){return Array.prototype.slice.call((scope||root).querySelectorAll(sel));}
+function isDashed(shape){
+  var dash=window.getComputedStyle(shape).strokeDasharray;
+  return !!(dash&&dash!=="none"&&dash!=="0px"&&dash!=="0"&&dash.indexOf(",")!==-1||
+            dash&&dash!=="none"&&dash!=="0px"&&dash!=="0"&&dash.indexOf(" ")!==-1);
+}
+function markerAfter(shape,at){
+  var marker=window.getComputedStyle(shape).markerEnd;
+  if(!marker||marker==="none")return;
+  gsap.set(shape,{markerEnd:"none"});
+  tl.set(shape,{markerEnd:marker},at);
+}
+/* Solid connector: the shaft draws, and only then does the arrowhead exist. */
+function draw(shape,at,dur,ease){
+  var len=0;try{len=shape.getTotalLength();}catch(e){return;}
+  if(!len)return;
+  markerAfter(shape,at+dur+0.06);
+  shape.style.strokeDasharray=len;shape.style.strokeDashoffset=len;
+  tl.to(shape,{strokeDashoffset:0,duration:dur,ease:ease||"power2.out"},at);
+}
+/* Dashed connector: keep the dash pattern (it means "not done yet") and slide it
+   in from its own start point instead of overwriting stroke-dasharray. */
+function slideStroke(shape,at,dur,dx,dy){
+  markerAfter(shape,at+dur*0.82);
+  tl.fromTo(shape,{opacity:0,x:dx||-14,y:dy||0},
+    {opacity:1,x:0,y:0,duration:dur,ease:"power2.out"},at);
+}
+function drawOrSlide(shape,at,dur,dx){
+  if(isDashed(shape))slideStroke(shape,at,dur,dx);else draw(shape,at,dur);
+}
+function strokesOf(node){return A("path,line,polyline",node);}
+/* A data token that rides a connector so the hand-off is visible, not implied. */
+function travel(shape,at,dur,color,radius){
+  var len=0;try{len=shape.getTotalLength();}catch(e){return;}
+  if(!len)return;
+  var dot=document.createElementNS(NS,"circle");
+  dot.setAttribute("class","flow-token");
+  dot.setAttribute("r",radius||7);
+  dot.setAttribute("fill",color||"#0F2C59");
+  dot.setAttribute("opacity","0");
+  shape.parentNode.appendChild(dot);
+  var p0=shape.getPointAtLength(0);
+  dot.setAttribute("cx",p0.x);dot.setAttribute("cy",p0.y);
+  var st={t:0};
+  tl.to(dot,{opacity:1,duration:.12,ease:"none"},at);
+  tl.to(st,{t:1,duration:dur,ease:"power1.inOut",onUpdate:function(){
+    var p=shape.getPointAtLength(st.t*len);
+    dot.setAttribute("cx",p.x);dot.setAttribute("cy",p.y);
+  }},at);
+  tl.to(dot,{opacity:0,duration:.16,ease:"none"},at+dur-0.06);
+}
+/* Left-to-right reveal that preserves the artwork instead of fading it. */
+function clipWipe(el,at,dur,ease){
+  var svg=el.ownerSVGElement;if(!svg)return;
+  var box;try{box=el.getBBox();}catch(e){return;}
+  var defs=svg.querySelector("defs");
+  if(!defs){defs=document.createElementNS(NS,"defs");svg.insertBefore(defs,svg.firstChild);}
+  var id="hf-wipe-"+(++wipeSeq);
+  var clip=document.createElementNS(NS,"clipPath");
+  clip.setAttribute("id",id);clip.setAttribute("clipPathUnits","userSpaceOnUse");
+  var rect=document.createElementNS(NS,"rect");
+  rect.setAttribute("x",box.x-3);rect.setAttribute("y",box.y-3);
+  rect.setAttribute("height",box.height+6);rect.setAttribute("width",0);
+  clip.appendChild(rect);defs.appendChild(clip);
+  el.setAttribute("clip-path","url(#"+id+")");
+  tl.to(rect,{attr:{width:box.width+6},duration:dur,ease:ease||"power2.out"},at);
+}
+/* Card entrance vocabulary. Each scene picks verbs that match its own logic. */
+var ENTRANCE={
+  riseLeft:{x:-52,y:0,scale:.955,ease:"power3.out",duration:.52},
+  riseRight:{x:52,y:0,scale:.955,ease:"power3.out",duration:.52},
+  riseUp:{x:0,y:34,scale:.955,ease:"power3.out",duration:.5},
+  riseUpRight:{x:34,y:-30,scale:.95,ease:"power3.out",duration:.54},
+  riseDownRight:{x:34,y:30,scale:.95,ease:"power3.out",duration:.54},
+  settle:{x:0,y:16,scale:.985,ease:"power2.out",duration:.44},
+  land:{x:0,y:-26,scale:1.35,ease:"power4.out",duration:.5}
+};
+function enter(node,at,verb,ghost){
+  var p=ENTRANCE[verb]||ENTRANCE.riseUp;
+  if(ghost){
+    /* The slot is already on screen as a ghost, so it fills in place. */
+    tl.fromTo(node,{opacity:ghost,scale:.985,transformOrigin:"50% 50%"},
+      {opacity:1,scale:1,duration:p.duration,ease:p.ease},at);
+    return;
+  }
+  tl.fromTo(node,{opacity:0,x:p.x,y:p.y,scale:p.scale,transformOrigin:"50% 50%"},
+    {opacity:1,x:0,y:0,scale:1,duration:p.duration,ease:p.ease},at);
+}
+/* Icon-internal beats: outline strokes draw, then dots and chips resolve. */
+function iconDetail(node,at){
+  var strokes=A(".icon path,.icon line,.icon polyline,.icon-ok path,.icon-ok line,"+
+    ".icon-ok polyline,.icon-warn path,.icon-warn line,.icon-wait path,.icon-wait line,"+
+    "path.icon-ok,path.icon-warn,path.icon-wait",node);
+  strokes.forEach(function(shape,i){draw(shape,at+0.16+i*0.06,0.42);});
+  var pops=A(".icon circle,.icon ellipse,.icon rect,.icon-ok circle,.icon-ok ellipse,"+
+    ".icon-ok rect,.icon-warn circle,.icon-warn ellipse,.icon-warn rect,"+
+    ".icon-wait circle,.icon-wait ellipse,.icon-wait rect",node);
+  pops.forEach(function(part,i){
+    tl.fromTo(part,{opacity:0,scale:.7,transformBox:"fill-box",transformOrigin:"50% 50%"},
+      {opacity:1,scale:1,duration:.3,ease:"back.out(1.5)"},at+0.24+i*0.05);
+  });
+}
+/* The small status pill is the conclusion of a card, so it lands last. */
+function statusChip(node,at){
+  var chips=A("rect[rx='15'],rect[rx='16'],rect[rx='18'],rect[rx='19']",node);
+  var labels=A("text.tag,text.chip,text.status,text.kicker,text.meta",node);
+  chips.slice(-1).forEach(function(part){
+    tl.fromTo(part,{opacity:0,scale:.86,transformBox:"fill-box",transformOrigin:"50% 50%"},
+      {opacity:1,scale:1,duration:.34,ease:"back.out(1.4)"},at);
+  });
+  labels.slice(-1).forEach(function(part){
+    tl.fromTo(part,{opacity:0,y:5},{opacity:1,y:0,duration:.28,ease:"power3.out"},at+.06);
+  });
+}
+function ambient(seedX,seedY,orbEase){
+  tl.fromTo(q(".hf-grid"),{x:seedX,y:seedY},
+    {x:-seedX,y:-seedY,duration:duration,ease:"none"},0);
+  tl.fromTo(q(".hf-orb"),{scale:.93,opacity:.26},
+    {scale:1.06,opacity:.62,duration:duration,ease:orbEase||"sine.inOut"},0);
+}
+function headerIn(at){
+  tl.fromTo(q(".hf-header"),{opacity:0,y:26},{opacity:1,y:0,duration:.55,ease:"power3.out"},at||.12);
+}
+function shellIn(at){
+  tl.fromTo(q(".figure-shell"),{opacity:0,y:18,scale:.994},
+    {opacity:1,y:0,scale:1,duration:.52,ease:"power3.out"},at||.24);
+}
+
+ambient(-14,-14,"sine.inOut");tl.fromTo(q(".hf-header"),{opacity:0,y:26},{opacity:1,y:0,duration:.55,ease:"power3.out"},.12);tl.fromTo(q(".media-shell"),{opacity:0,y:22,scale:.988},{opacity:1,y:0,scale:1,duration:.58,ease:"power3.out"},.24);tl.fromTo(q(".demo-badge"),{opacity:0,y:10},{opacity:1,y:0,duration:.38,ease:"power3.out"},.32);var noteAt=[4.53, 9.87, 16.05],captions=A(".demo-caption-card"),captionBase=q(".demo-caption-base");captions.forEach(function(card,i){var at=noteAt[i],outAt=Math.max(.12,at-.2);if(i===0){tl.to(captionBase,{opacity:0,y:-8,duration:.18,ease:"power1.out"},outAt);}else{tl.to(captions[i-1],{opacity:0,y:-8,duration:.18,ease:"power1.out"},outAt);}tl.fromTo(card,{opacity:0,y:9},{opacity:1,y:0,duration:.34,ease:"power3.out"},at);});var shell=q(".media-shell"),outer=q(".media-zoom-outer"),inner=q(".media-zoom-inner"),boxes=A(".media-focus-box"),focusTargets=[5.01, 10.35, 16.53];function targetGeometry(box){var sw=Number(shell.dataset.sourceWidth),sh=Number(shell.dataset.sourceHeight),shellW=shell.clientWidth,shellH=shell.clientHeight,fit=Math.min(shellW/sw,shellH/sh),mediaW=sw*fit,mediaH=sh*fit,mediaLeft=(shellW-mediaW)/2,mediaTop=(shellH-mediaH)/2,x=mediaLeft+Number(box.dataset.sourceX)*fit,y=mediaTop+Number(box.dataset.sourceY)*fit,w=Number(box.dataset.sourceW)*fit,h=Number(box.dataset.sourceH)*fit;return{x:x,y:y,w:w,h:h,cx:x+w/2,cy:y+h/2,mediaW:mediaW,mediaH:mediaH,mediaLeft:mediaLeft,mediaTop:mediaTop};}function placeBox(box){var g=targetGeometry(box);gsap.set(box,{left:g.x,top:g.y,width:g.w,height:g.h});return g;}boxes.forEach(placeBox);function resetView(at){tl.to(outer,{scale:1,duration:0.32,ease:"power2.inOut"},at);tl.to(inner,{x:0,y:0,duration:0.32,ease:"power2.inOut"},at);}function addFocus(box,target){var at=Math.max(.12,target-0.10),boxOutAt=target+0.95,boxClearAt=boxOutAt+0.20,zoomAt=boxClearAt+0.22,g=placeBox(box),mode=box.dataset.focusMode||"zoom",resetAfter=Number(box.dataset.resetAfter),desired=Number(box.dataset.scale),fitScale=Math.min(shell.clientWidth*.84/g.w,shell.clientHeight*.78/g.h),scale=Math.max(1,Math.min(desired,fitScale)),offsetX=g.cx-shell.clientWidth/2,offsetY=g.cy-shell.clientHeight/2,maxPanX=Math.max(0,shell.clientWidth/2*(1-1/scale)-Math.max(0,g.mediaLeft)/scale),maxPanY=Math.max(0,shell.clientHeight/2*(1-1/scale)-Math.max(0,g.mediaTop)/scale),panX=Math.max(-maxPanX,Math.min(maxPanX,-offsetX)),panY=Math.max(-maxPanY,Math.min(maxPanY,-offsetY));tl.fromTo(box,{opacity:0,scale:.96},{opacity:1,scale:1,duration:0.24,ease:"power3.out"},at);tl.to(box,{opacity:0,duration:0.20,ease:"power1.out"},boxOutAt);if(mode==="zoom"){tl.to(outer,{scale:scale,duration:0.78,ease:"power3.inOut"},zoomAt);tl.to(inner,{x:panX,y:panY,duration:0.78,ease:"power3.inOut"},zoomAt);if(Number.isFinite(resetAfter)&&resetAfter>0)resetView(zoomAt+0.78+resetAfter);}}boxes.forEach(function(box,i){if(i>0)resetView(Math.max(.12,focusTargets[i]-0.52));addFocus(box,focusTargets[i]);});var finalReset=19.33;if(focusTargets.length&&finalReset>focusTargets[focusTargets.length-1]+1.35)resetView(finalReset);
+window.__timelines=window.__timelines||{};
+window.__timelines["slide-s11"]=tl;
+})();</script>
   </div>
 <style id="presentation-mode">
 html, body { width:1280px !important; height:720px !important; margin:0; overflow:hidden; background:#fafaf9; }

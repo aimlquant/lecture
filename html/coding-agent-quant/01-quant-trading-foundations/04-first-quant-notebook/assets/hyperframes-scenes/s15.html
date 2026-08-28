@@ -18,7 +18,7 @@
       <path d="M0 0L18 5L0 10Z" fill="#B45309"/>
     </marker>
     <marker id="arrow-ok" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
-      <path d="M0 0L18 5L0 10Z" fill="#0B7A6A"/>
+      <path d="M0 0L18 5L0 10Z" fill="#0B7868"/>
     </marker>
     <style>
       text{font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif;fill:#0F172A}
@@ -30,16 +30,16 @@
       .sub{font-size:16px;font-weight:400;fill:#52606D}
       .reverse{fill:#FFFFFF}
       .warn{fill:none;stroke:#B45309;stroke-width:3;marker-end:url(#arrow-warn)}
-      .ok{fill:none;stroke:#0B7A6A;stroke-width:3;marker-end:url(#arrow-ok)}
+      .ok{fill:none;stroke:#0B7868;stroke-width:3;marker-end:url(#arrow-ok)}
       .icon-warn{fill:none;stroke:#B45309;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
-      .icon-ok{fill:none;stroke:#0B7A6A;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+      .icon-ok{fill:none;stroke:#0B7868;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
     </style>
   </defs>
   <rect width="1200" height="660" fill="#FFFFFF"/>
   <g id="diagram" transform="translate(0 -50)">
   <g id="lane-backgrounds" aria-hidden="true">
     <rect x="25" y="70" width="1150" height="280" rx="24" fill="#FFF0DF" stroke="#B45309"/>
-    <rect x="25" y="410" width="1150" height="280" rx="24" fill="#E4F6F0" stroke="#0B7A6A"/>
+    <rect x="25" y="410" width="1150" height="280" rx="24" fill="#E4F6F0" stroke="#0B7868"/>
   </g>
 
   <g id="lane-connectors" aria-hidden="true">
@@ -81,17 +81,17 @@
   </g>
 
   <g id="fresh-kernel" filter="url(#shadow)">
-    <rect x="45" y="460" width="190" height="180" rx="18" fill="#FFFFFF" stroke="#0B7A6A" stroke-width="2"/>
-    <circle cx="84" cy="513" r="27" fill="#E4F6F0" stroke="#0B7A6A"/>
+    <rect x="45" y="460" width="190" height="180" rx="18" fill="#FFFFFF" stroke="#0B7868" stroke-width="2"/>
+    <circle cx="84" cy="513" r="27" fill="#E4F6F0" stroke="#0B7868"/>
     <path class="icon-ok" d="M70 513L80 523L100 502"/>
-    <text class="kernel-title" x="122" y="506" fill="#0B7A6A">새 커널</text>
+    <text class="kernel-title" x="122" y="506" fill="#0B7868">새 커널</text>
     <text class="sub" x="122" y="534">이전 변수를</text><text class="sub" x="122" y="560">모두 지움</text>
-    <rect x="71" y="593" width="138" height="30" rx="15" fill="#E4F6F0" stroke="#0B7A6A"/><text class="kicker" x="140" y="614" text-anchor="middle" fill="#0B7A6A">빈 메모리</text>
+    <rect x="71" y="593" width="138" height="30" rx="15" fill="#E4F6F0" stroke="#0B7868"/><text class="kicker" x="140" y="614" text-anchor="middle" fill="#0B7868">빈 메모리</text>
   </g>
 
   <g id="run-all" filter="url(#shadow)">
-    <rect x="285" y="460" width="230" height="180" rx="18" fill="#FFFFFF" stroke="#0B7A6A" stroke-width="2"/>
-    <text class="kicker" x="311" y="495" fill="#0B7A6A">01 · 전체 실행</text>
+    <rect x="285" y="460" width="230" height="180" rx="18" fill="#FFFFFF" stroke="#0B7868" stroke-width="2"/>
+    <text class="kicker" x="311" y="495" fill="#0B7868">01 · 전체 실행</text>
     <text class="main" x="311" y="541">Run All</text>
     <text class="sub" x="311" y="579">첫 셀부터 마지막 셀</text><text class="sub" x="311" y="609">정해진 순서로 실행</text>
   </g>
@@ -102,15 +102,153 @@
     <text class="sub" x="591" y="579">코드와 로컬 파일만 사용</text><text class="sub" x="591" y="609">날짜·필수 열 검사</text>
   </g>
   <g id="reproduced-output" filter="url(#shadow)">
-    <rect x="845" y="460" width="290" height="180" rx="18" fill="#FFFFFF" stroke="#0B7A6A" stroke-width="2"/>
-    <text class="kicker" x="873" y="495" fill="#0B7A6A">03 · 다시 확인한 결과</text>
+    <rect x="845" y="460" width="290" height="180" rx="18" fill="#FFFFFF" stroke="#0B7868" stroke-width="2"/>
+    <text class="kicker" x="873" y="495" fill="#0B7868">03 · 다시 확인한 결과</text>
     <text class="main" x="873" y="541">같은 표 · 같은 선 그래프</text>
     <text class="sub" x="873" y="579">오류 없이 끝까지 실행</text>
-    <rect x="873" y="593" width="164" height="30" rx="15" fill="#E4F6F0" stroke="#0B7A6A"/><text class="kicker" x="955" y="614" text-anchor="middle" fill="#0B7A6A">처음부터 확인</text>
+    <rect x="873" y="593" width="164" height="30" rx="15" fill="#E4F6F0" stroke="#0B7868"/><text class="kicker" x="955" y="614" text-anchor="middle" fill="#0B7868">처음부터 확인</text>
   </g>
   </g>
 </svg></div></section></div>
-    <script>(function(){var root=document.getElementById("scene-s15"),q=function(s){return root.querySelector(s);},qa=function(s){return root.querySelectorAll(s);},duration=20.640,tl=gsap.timeline({paused:true});tl.fromTo(q(".hf-grid"),{x:-18,y:-12},{x:24,y:14,duration:duration,ease:"none"},0);tl.fromTo(q(".hf-orb"),{scale:.94,opacity:.28},{scale:1.05,opacity:.66,duration:duration,ease:"sine.inOut"},0);tl.fromTo(q(".hf-header"),{opacity:0,y:26},{opacity:1,y:0,duration:.55,ease:"power3.out"},.12);tl.fromTo(q(".figure-shell"),{opacity:0,y:20,scale:.992},{opacity:1,y:0,scale:1,duration:.52,ease:"power3.out"},.26);var groups=["#lane-backgrounds", "#old-kernel", "#partial-run", "#apparent-success", "#uncertain-result", "#fresh-kernel", "#run-all", "#saved-inputs", "#reproduced-output", "#comparison-rule", "#lane-connectors"],groupAt=[0.32, 0.92, 4.36, 5.06, 5.76, 11.64, 12.24, 12.84, 13.44, 14.04, 14.64];groups.forEach(function(sel,i){var node=q(sel);if(!node)return;tl.fromTo(node,{opacity:0,y:18,transformOrigin:"50% 50%"},{opacity:1,y:0,duration:.46,ease:"power3.out"},groupAt[i]);});window.__timelines=window.__timelines||{};window.__timelines["slide-s15"]=tl;})();</script>
+    <script>(function(){
+var root=document.getElementById("scene-s15");
+var q=function(s){return root.querySelector(s);};
+var duration=20.640;
+var tl=gsap.timeline({paused:true});
+
+var NS="http://www.w3.org/2000/svg",wipeSeq=0;
+function A(sel,scope){return Array.prototype.slice.call((scope||root).querySelectorAll(sel));}
+function isDashed(shape){
+  var dash=window.getComputedStyle(shape).strokeDasharray;
+  return !!(dash&&dash!=="none"&&dash!=="0px"&&dash!=="0"&&dash.indexOf(",")!==-1||
+            dash&&dash!=="none"&&dash!=="0px"&&dash!=="0"&&dash.indexOf(" ")!==-1);
+}
+function markerAfter(shape,at){
+  var marker=window.getComputedStyle(shape).markerEnd;
+  if(!marker||marker==="none")return;
+  gsap.set(shape,{markerEnd:"none"});
+  tl.set(shape,{markerEnd:marker},at);
+}
+/* Solid connector: the shaft draws, and only then does the arrowhead exist. */
+function draw(shape,at,dur,ease){
+  var len=0;try{len=shape.getTotalLength();}catch(e){return;}
+  if(!len)return;
+  markerAfter(shape,at+dur+0.06);
+  shape.style.strokeDasharray=len;shape.style.strokeDashoffset=len;
+  tl.to(shape,{strokeDashoffset:0,duration:dur,ease:ease||"power2.out"},at);
+}
+/* Dashed connector: keep the dash pattern (it means "not done yet") and slide it
+   in from its own start point instead of overwriting stroke-dasharray. */
+function slideStroke(shape,at,dur,dx,dy){
+  markerAfter(shape,at+dur*0.82);
+  tl.fromTo(shape,{opacity:0,x:dx||-14,y:dy||0},
+    {opacity:1,x:0,y:0,duration:dur,ease:"power2.out"},at);
+}
+function drawOrSlide(shape,at,dur,dx){
+  if(isDashed(shape))slideStroke(shape,at,dur,dx);else draw(shape,at,dur);
+}
+function strokesOf(node){return A("path,line,polyline",node);}
+/* A data token that rides a connector so the hand-off is visible, not implied. */
+function travel(shape,at,dur,color,radius){
+  var len=0;try{len=shape.getTotalLength();}catch(e){return;}
+  if(!len)return;
+  var dot=document.createElementNS(NS,"circle");
+  dot.setAttribute("class","flow-token");
+  dot.setAttribute("r",radius||7);
+  dot.setAttribute("fill",color||"#0F2C59");
+  dot.setAttribute("opacity","0");
+  shape.parentNode.appendChild(dot);
+  var p0=shape.getPointAtLength(0);
+  dot.setAttribute("cx",p0.x);dot.setAttribute("cy",p0.y);
+  var st={t:0};
+  tl.to(dot,{opacity:1,duration:.12,ease:"none"},at);
+  tl.to(st,{t:1,duration:dur,ease:"power1.inOut",onUpdate:function(){
+    var p=shape.getPointAtLength(st.t*len);
+    dot.setAttribute("cx",p.x);dot.setAttribute("cy",p.y);
+  }},at);
+  tl.to(dot,{opacity:0,duration:.16,ease:"none"},at+dur-0.06);
+}
+/* Left-to-right reveal that preserves the artwork instead of fading it. */
+function clipWipe(el,at,dur,ease){
+  var svg=el.ownerSVGElement;if(!svg)return;
+  var box;try{box=el.getBBox();}catch(e){return;}
+  var defs=svg.querySelector("defs");
+  if(!defs){defs=document.createElementNS(NS,"defs");svg.insertBefore(defs,svg.firstChild);}
+  var id="hf-wipe-"+(++wipeSeq);
+  var clip=document.createElementNS(NS,"clipPath");
+  clip.setAttribute("id",id);clip.setAttribute("clipPathUnits","userSpaceOnUse");
+  var rect=document.createElementNS(NS,"rect");
+  rect.setAttribute("x",box.x-3);rect.setAttribute("y",box.y-3);
+  rect.setAttribute("height",box.height+6);rect.setAttribute("width",0);
+  clip.appendChild(rect);defs.appendChild(clip);
+  el.setAttribute("clip-path","url(#"+id+")");
+  tl.to(rect,{attr:{width:box.width+6},duration:dur,ease:ease||"power2.out"},at);
+}
+/* Card entrance vocabulary. Each scene picks verbs that match its own logic. */
+var ENTRANCE={
+  riseLeft:{x:-52,y:0,scale:.955,ease:"power3.out",duration:.52},
+  riseRight:{x:52,y:0,scale:.955,ease:"power3.out",duration:.52},
+  riseUp:{x:0,y:34,scale:.955,ease:"power3.out",duration:.5},
+  riseUpRight:{x:34,y:-30,scale:.95,ease:"power3.out",duration:.54},
+  riseDownRight:{x:34,y:30,scale:.95,ease:"power3.out",duration:.54},
+  settle:{x:0,y:16,scale:.985,ease:"power2.out",duration:.44},
+  land:{x:0,y:-26,scale:1.35,ease:"power4.out",duration:.5}
+};
+function enter(node,at,verb,ghost){
+  var p=ENTRANCE[verb]||ENTRANCE.riseUp;
+  if(ghost){
+    /* The slot is already on screen as a ghost, so it fills in place. */
+    tl.fromTo(node,{opacity:ghost,scale:.985,transformOrigin:"50% 50%"},
+      {opacity:1,scale:1,duration:p.duration,ease:p.ease},at);
+    return;
+  }
+  tl.fromTo(node,{opacity:0,x:p.x,y:p.y,scale:p.scale,transformOrigin:"50% 50%"},
+    {opacity:1,x:0,y:0,scale:1,duration:p.duration,ease:p.ease},at);
+}
+/* Icon-internal beats: outline strokes draw, then dots and chips resolve. */
+function iconDetail(node,at){
+  var strokes=A(".icon path,.icon line,.icon polyline,.icon-ok path,.icon-ok line,"+
+    ".icon-ok polyline,.icon-warn path,.icon-warn line,.icon-wait path,.icon-wait line,"+
+    "path.icon-ok,path.icon-warn,path.icon-wait",node);
+  strokes.forEach(function(shape,i){draw(shape,at+0.16+i*0.06,0.42);});
+  var pops=A(".icon circle,.icon ellipse,.icon rect,.icon-ok circle,.icon-ok ellipse,"+
+    ".icon-ok rect,.icon-warn circle,.icon-warn ellipse,.icon-warn rect,"+
+    ".icon-wait circle,.icon-wait ellipse,.icon-wait rect",node);
+  pops.forEach(function(part,i){
+    tl.fromTo(part,{opacity:0,scale:.7,transformBox:"fill-box",transformOrigin:"50% 50%"},
+      {opacity:1,scale:1,duration:.3,ease:"back.out(1.5)"},at+0.24+i*0.05);
+  });
+}
+/* The small status pill is the conclusion of a card, so it lands last. */
+function statusChip(node,at){
+  var chips=A("rect[rx='15'],rect[rx='16'],rect[rx='18'],rect[rx='19']",node);
+  var labels=A("text.tag,text.chip,text.status,text.kicker,text.meta",node);
+  chips.slice(-1).forEach(function(part){
+    tl.fromTo(part,{opacity:0,scale:.86,transformBox:"fill-box",transformOrigin:"50% 50%"},
+      {opacity:1,scale:1,duration:.34,ease:"back.out(1.4)"},at);
+  });
+  labels.slice(-1).forEach(function(part){
+    tl.fromTo(part,{opacity:0,y:5},{opacity:1,y:0,duration:.28,ease:"power3.out"},at+.06);
+  });
+}
+function ambient(seedX,seedY,orbEase){
+  tl.fromTo(q(".hf-grid"),{x:seedX,y:seedY},
+    {x:-seedX,y:-seedY,duration:duration,ease:"none"},0);
+  tl.fromTo(q(".hf-orb"),{scale:.93,opacity:.26},
+    {scale:1.06,opacity:.62,duration:duration,ease:orbEase||"sine.inOut"},0);
+}
+function headerIn(at){
+  tl.fromTo(q(".hf-header"),{opacity:0,y:26},{opacity:1,y:0,duration:.55,ease:"power3.out"},at||.12);
+}
+function shellIn(at){
+  tl.fromTo(q(".figure-shell"),{opacity:0,y:18,scale:.994},
+    {opacity:1,y:0,scale:1,duration:.52,ease:"power3.out"},at||.24);
+}
+
+ambient(-18,-12,"sine.inOut");headerIn();shellIn();var plan=[{"sel": "#old-kernel", "at": 1.08, "verb": "riseLeft"}, {"sel": "#partial-run", "at": 2.48, "verb": "riseUp"}, {"sel": "#apparent-success", "at": 4.22, "verb": "riseUp"}, {"sel": "#uncertain-result", "at": 6.42, "verb": "riseRight"}, {"sel": "#fresh-kernel", "at": 11.5, "verb": "riseLeft"}, {"sel": "#run-all", "at": 13.0, "verb": "riseUp"}, {"sel": "#saved-inputs", "at": 14.5, "verb": "riseUp"}, {"sel": "#reproduced-output", "at": 16.0, "verb": "riseRight"}],ghost=0;plan.forEach(function(step){var node=q(step.sel);if(!node)return;enter(node,step.at,step.verb,ghost);iconDetail(node,step.at);statusChip(node,step.at+.42);});var lanes=q("#lane-backgrounds");var laneAt=[0.2, 11.52];if(lanes){gsap.set(lanes,{opacity:1});A("rect",lanes).forEach(function(rect,i){tl.fromTo(rect,{opacity:0,scaleY:.9,transformBox:"fill-box",transformOrigin:"50% 50%"},{opacity:1,scaleY:1,duration:.5,ease:"power3.out"},laneAt[i]);});}var conn=q("#lane-connectors");if(conn){gsap.set(conn,{opacity:1});var cp=A("path",conn);var warnAt=[2.16, 3.9, 6.1],okAt=[12.68, 14.18, 15.68];for(var i=0;i<3;i++){draw(cp[i],warnAt[i],.6,"power1.out");}for(var j=0;j<3;j++){draw(cp[3+j],okAt[j],.42);travel(cp[3+j],okAt[j]+.46,.5,"#0B7868",7);}}var doubt=q("#apparent-success");if(doubt){tl.to(doubt,{y:-5,duration:.9,yoyo:true,repeat:3,ease:"sine.inOut"},4.82);}var rule=q("#comparison-rule");if(rule){tl.fromTo(rule,{opacity:0,scaleX:.72,transformOrigin:"50% 50%"},{opacity:1,scaleX:1,duration:.55,ease:"power3.out"},17.82);}
+window.__timelines=window.__timelines||{};
+window.__timelines["slide-s15"]=tl;
+})();</script>
   </div>
 <style id="presentation-mode">
 html, body { width:1280px !important; height:720px !important; margin:0; overflow:hidden; background:#fafaf9; }

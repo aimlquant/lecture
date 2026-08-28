@@ -6,9 +6,147 @@
     @font-face { font-family:"Noto Sans KR"; src:url("assets/fonts/NotoSansCJK-Regular-subset.ttf") format("truetype"); font-style:normal; font-weight:400; }
     @font-face { font-family:"Noto Sans KR"; src:url("assets/fonts/NotoSansCJK-Bold-subset.ttf") format("truetype"); font-style:normal; font-weight:700; }
   </style>
-  <div id="root" data-composition-id="slide-s21" data-duration="29.280" data-width="1920" data-height="1080">
-    <div id="scene-s21" class="hf-scene"><div class="hf-grid" data-layout-ignore></div><div class="hf-orb" style="right:-170px;bottom:-230px" data-layout-ignore></div><div class="hf-topbar"><span class="hf-kicker">퀀트 트레이딩과 코딩 에이전트 입문</span><span class="hf-scene-no">21 / 21</span></div><div class="close-lockup"><p class="close-kicker">과정 1 · 영상 4</p><h1 class="close-title">파일을 직접 열고 처음부터 다시 실행하면 된다</h1><span class="close-rule"></span><div class="close-summary"><article class="close-card hf-card"><span>CHECK 01</span><strong>CSV와 노트북을 직접 확인했다</strong></article><article class="close-card hf-card"><span>CHECK 02</span><strong>새 커널에서 Run All을 마쳤다</strong></article><article class="close-card hf-card"><span>CHECK 03</span><strong>아직 백테스트가 아님을 구분했다</strong></article></div><p class="close-note">실습 파일은 상세 리포트 맨 아래에서 내려받을 수 있습니다.</p></div></div>
-    <script>(function(){var root=document.getElementById("scene-s21"),q=function(s){return root.querySelector(s);},qa=function(s){return root.querySelectorAll(s);},duration=29.280,tl=gsap.timeline({paused:true});tl.fromTo(q(".hf-grid"),{x:-18,y:-12},{x:24,y:14,duration:duration,ease:"none"},0);tl.fromTo(q(".hf-orb"),{scale:.94,opacity:.28},{scale:1.05,opacity:.66,duration:duration,ease:"sine.inOut"},0);tl.fromTo(q(".close-kicker"),{opacity:0,y:18},{opacity:1,y:0,duration:.45,ease:"power3.out"},.16);tl.fromTo(q(".close-title"),{opacity:0,y:42},{opacity:1,y:0,duration:.68,ease:"power4.out"},.38);tl.fromTo(q(".close-rule"),{scaleX:0},{scaleX:1,duration:.68,ease:"power2.out"},.8);var closeAt=[3.04, 10.69, 12.69];Array.prototype.forEach.call(qa(".close-card"),function(card,i){tl.fromTo(card,{opacity:0,y:24,scale:.97},{opacity:1,y:0,scale:1,duration:.48,ease:"power3.out"},closeAt[i]);});tl.fromTo(q(".close-note"),{opacity:0,y:16},{opacity:1,y:0,duration:.45,ease:"power3.out"},20.26);window.__timelines=window.__timelines||{};window.__timelines["slide-s21"]=tl;})();</script>
+  <div id="root" data-composition-id="slide-s21" data-duration="27.840" data-width="1920" data-height="1080">
+    <div id="scene-s21" class="hf-scene"><div class="hf-grid" data-layout-ignore></div><div class="hf-orb" style="right:-170px;bottom:-230px" data-layout-ignore></div><div class="hf-topbar"><span class="hf-kicker">퀀트 트레이딩과 코딩 에이전트 입문</span><span class="hf-scene-no">21 / 21</span></div><div class="close-lockup"><p class="close-kicker">과정 1 · 영상 4</p><h1 class="close-title">파일을 직접 열고 처음부터 다시 실행하면 된다</h1><span class="close-rule"></span><div class="close-summary"><article class="close-card hf-card"><span>CHECK 01</span><strong>CSV와 노트북을 직접 확인했다</strong><svg class="close-mark" viewBox="0 0 46 46" aria-hidden="true"><path d="M8 24l10 10L38 12"/></svg></article><article class="close-card hf-card"><span>CHECK 02</span><strong>새 커널에서 Run All을 마쳤다</strong><svg class="close-mark" viewBox="0 0 46 46" aria-hidden="true"><path d="M8 24l10 10L38 12"/></svg></article><article class="close-card hf-card"><span>CHECK 03</span><strong>아직 백테스트가 아님을 구분했다</strong><svg class="close-mark" viewBox="0 0 46 46" aria-hidden="true"><path d="M8 24l10 10L38 12"/></svg></article></div><p class="close-note">실습 파일은 상세 리포트 맨 아래에서 내려받을 수 있습니다.</p><p class="close-farewell"><span>수고하셨습니다</span></p></div></div>
+    <script>(function(){
+var root=document.getElementById("scene-s21");
+var q=function(s){return root.querySelector(s);};
+var duration=27.840;
+var tl=gsap.timeline({paused:true});
+
+var NS="http://www.w3.org/2000/svg",wipeSeq=0;
+function A(sel,scope){return Array.prototype.slice.call((scope||root).querySelectorAll(sel));}
+function isDashed(shape){
+  var dash=window.getComputedStyle(shape).strokeDasharray;
+  return !!(dash&&dash!=="none"&&dash!=="0px"&&dash!=="0"&&dash.indexOf(",")!==-1||
+            dash&&dash!=="none"&&dash!=="0px"&&dash!=="0"&&dash.indexOf(" ")!==-1);
+}
+function markerAfter(shape,at){
+  var marker=window.getComputedStyle(shape).markerEnd;
+  if(!marker||marker==="none")return;
+  gsap.set(shape,{markerEnd:"none"});
+  tl.set(shape,{markerEnd:marker},at);
+}
+/* Solid connector: the shaft draws, and only then does the arrowhead exist. */
+function draw(shape,at,dur,ease){
+  var len=0;try{len=shape.getTotalLength();}catch(e){return;}
+  if(!len)return;
+  markerAfter(shape,at+dur+0.06);
+  shape.style.strokeDasharray=len;shape.style.strokeDashoffset=len;
+  tl.to(shape,{strokeDashoffset:0,duration:dur,ease:ease||"power2.out"},at);
+}
+/* Dashed connector: keep the dash pattern (it means "not done yet") and slide it
+   in from its own start point instead of overwriting stroke-dasharray. */
+function slideStroke(shape,at,dur,dx,dy){
+  markerAfter(shape,at+dur*0.82);
+  tl.fromTo(shape,{opacity:0,x:dx||-14,y:dy||0},
+    {opacity:1,x:0,y:0,duration:dur,ease:"power2.out"},at);
+}
+function drawOrSlide(shape,at,dur,dx){
+  if(isDashed(shape))slideStroke(shape,at,dur,dx);else draw(shape,at,dur);
+}
+function strokesOf(node){return A("path,line,polyline",node);}
+/* A data token that rides a connector so the hand-off is visible, not implied. */
+function travel(shape,at,dur,color,radius){
+  var len=0;try{len=shape.getTotalLength();}catch(e){return;}
+  if(!len)return;
+  var dot=document.createElementNS(NS,"circle");
+  dot.setAttribute("class","flow-token");
+  dot.setAttribute("r",radius||7);
+  dot.setAttribute("fill",color||"#0F2C59");
+  dot.setAttribute("opacity","0");
+  shape.parentNode.appendChild(dot);
+  var p0=shape.getPointAtLength(0);
+  dot.setAttribute("cx",p0.x);dot.setAttribute("cy",p0.y);
+  var st={t:0};
+  tl.to(dot,{opacity:1,duration:.12,ease:"none"},at);
+  tl.to(st,{t:1,duration:dur,ease:"power1.inOut",onUpdate:function(){
+    var p=shape.getPointAtLength(st.t*len);
+    dot.setAttribute("cx",p.x);dot.setAttribute("cy",p.y);
+  }},at);
+  tl.to(dot,{opacity:0,duration:.16,ease:"none"},at+dur-0.06);
+}
+/* Left-to-right reveal that preserves the artwork instead of fading it. */
+function clipWipe(el,at,dur,ease){
+  var svg=el.ownerSVGElement;if(!svg)return;
+  var box;try{box=el.getBBox();}catch(e){return;}
+  var defs=svg.querySelector("defs");
+  if(!defs){defs=document.createElementNS(NS,"defs");svg.insertBefore(defs,svg.firstChild);}
+  var id="hf-wipe-"+(++wipeSeq);
+  var clip=document.createElementNS(NS,"clipPath");
+  clip.setAttribute("id",id);clip.setAttribute("clipPathUnits","userSpaceOnUse");
+  var rect=document.createElementNS(NS,"rect");
+  rect.setAttribute("x",box.x-3);rect.setAttribute("y",box.y-3);
+  rect.setAttribute("height",box.height+6);rect.setAttribute("width",0);
+  clip.appendChild(rect);defs.appendChild(clip);
+  el.setAttribute("clip-path","url(#"+id+")");
+  tl.to(rect,{attr:{width:box.width+6},duration:dur,ease:ease||"power2.out"},at);
+}
+/* Card entrance vocabulary. Each scene picks verbs that match its own logic. */
+var ENTRANCE={
+  riseLeft:{x:-52,y:0,scale:.955,ease:"power3.out",duration:.52},
+  riseRight:{x:52,y:0,scale:.955,ease:"power3.out",duration:.52},
+  riseUp:{x:0,y:34,scale:.955,ease:"power3.out",duration:.5},
+  riseUpRight:{x:34,y:-30,scale:.95,ease:"power3.out",duration:.54},
+  riseDownRight:{x:34,y:30,scale:.95,ease:"power3.out",duration:.54},
+  settle:{x:0,y:16,scale:.985,ease:"power2.out",duration:.44},
+  land:{x:0,y:-26,scale:1.35,ease:"power4.out",duration:.5}
+};
+function enter(node,at,verb,ghost){
+  var p=ENTRANCE[verb]||ENTRANCE.riseUp;
+  if(ghost){
+    /* The slot is already on screen as a ghost, so it fills in place. */
+    tl.fromTo(node,{opacity:ghost,scale:.985,transformOrigin:"50% 50%"},
+      {opacity:1,scale:1,duration:p.duration,ease:p.ease},at);
+    return;
+  }
+  tl.fromTo(node,{opacity:0,x:p.x,y:p.y,scale:p.scale,transformOrigin:"50% 50%"},
+    {opacity:1,x:0,y:0,scale:1,duration:p.duration,ease:p.ease},at);
+}
+/* Icon-internal beats: outline strokes draw, then dots and chips resolve. */
+function iconDetail(node,at){
+  var strokes=A(".icon path,.icon line,.icon polyline,.icon-ok path,.icon-ok line,"+
+    ".icon-ok polyline,.icon-warn path,.icon-warn line,.icon-wait path,.icon-wait line,"+
+    "path.icon-ok,path.icon-warn,path.icon-wait",node);
+  strokes.forEach(function(shape,i){draw(shape,at+0.16+i*0.06,0.42);});
+  var pops=A(".icon circle,.icon ellipse,.icon rect,.icon-ok circle,.icon-ok ellipse,"+
+    ".icon-ok rect,.icon-warn circle,.icon-warn ellipse,.icon-warn rect,"+
+    ".icon-wait circle,.icon-wait ellipse,.icon-wait rect",node);
+  pops.forEach(function(part,i){
+    tl.fromTo(part,{opacity:0,scale:.7,transformBox:"fill-box",transformOrigin:"50% 50%"},
+      {opacity:1,scale:1,duration:.3,ease:"back.out(1.5)"},at+0.24+i*0.05);
+  });
+}
+/* The small status pill is the conclusion of a card, so it lands last. */
+function statusChip(node,at){
+  var chips=A("rect[rx='15'],rect[rx='16'],rect[rx='18'],rect[rx='19']",node);
+  var labels=A("text.tag,text.chip,text.status,text.kicker,text.meta",node);
+  chips.slice(-1).forEach(function(part){
+    tl.fromTo(part,{opacity:0,scale:.86,transformBox:"fill-box",transformOrigin:"50% 50%"},
+      {opacity:1,scale:1,duration:.34,ease:"back.out(1.4)"},at);
+  });
+  labels.slice(-1).forEach(function(part){
+    tl.fromTo(part,{opacity:0,y:5},{opacity:1,y:0,duration:.28,ease:"power3.out"},at+.06);
+  });
+}
+function ambient(seedX,seedY,orbEase){
+  tl.fromTo(q(".hf-grid"),{x:seedX,y:seedY},
+    {x:-seedX,y:-seedY,duration:duration,ease:"none"},0);
+  tl.fromTo(q(".hf-orb"),{scale:.93,opacity:.26},
+    {scale:1.06,opacity:.62,duration:duration,ease:orbEase||"sine.inOut"},0);
+}
+function headerIn(at){
+  tl.fromTo(q(".hf-header"),{opacity:0,y:26},{opacity:1,y:0,duration:.55,ease:"power3.out"},at||.12);
+}
+function shellIn(at){
+  tl.fromTo(q(".figure-shell"),{opacity:0,y:18,scale:.994},
+    {opacity:1,y:0,scale:1,duration:.52,ease:"power3.out"},at||.24);
+}
+
+ambient(16,12,"sine.inOut");tl.fromTo(q(".close-kicker"),{opacity:0,y:18},{opacity:1,y:0,duration:.45,ease:"power3.out"},.16);tl.fromTo(q(".close-title"),{opacity:0,y:42},{opacity:1,y:0,duration:.68,ease:"power4.out"},.38);tl.fromTo(q(".close-rule"),{scaleX:0},{scaleX:1,duration:.68,ease:"power2.out"},.8);var closeAt=[2.43, 9.24, 14.84];A(".close-card").forEach(function(card,i){var at=closeAt[i];tl.fromTo(card,{opacity:0,y:24,scale:.97},{opacity:1,y:0,scale:1,duration:.48,ease:"power3.out"},at);draw(card.querySelector(".close-mark path"),at+.3,.4);});tl.fromTo(q(".close-note"),{opacity:0,y:16},{opacity:1,y:0,duration:.45,ease:"power3.out"},18.24);tl.to(q(".close-rule"),{backgroundColor:"#0b7a6a",duration:.6,ease:"power2.inOut"},22.79);tl.fromTo(q(".close-farewell span"),{opacity:0,y:18,scale:.965},{opacity:1,y:0,scale:1,duration:.52,ease:"power3.out"},24.52);
+window.__timelines=window.__timelines||{};
+window.__timelines["slide-s21"]=tl;
+})();</script>
   </div>
 <style id="presentation-mode">
 html, body { width:1280px !important; height:720px !important; margin:0; overflow:hidden; background:#fafaf9; }
@@ -19,7 +157,7 @@ video, audio { display:none !important; }
 (function() {
   "use strict";
   var slideId = "s21";
-  var times = [3.84,11.49,21.04,26.04,29.16];
+  var times = [3.23,10.04,19.02,23.49,25.42,27.72];
   var requested = Number(new URLSearchParams(window.location.search).get("step")) || 1;
   function clamp(step) { return Math.max(1, Math.min(times.length, Number(step) || 1)); }
   function apply(step) {

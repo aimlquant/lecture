@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="VS Code에 Codex 확장 기능을 설치하고 실습 환경을 만든다 — 다음 실습을 위해 프로그램을 설치하고 작업 폴더를 준비하는 방법">
-  <meta name="robots" content="noindex, nofollow">
   <title>VS Code에 Codex 확장 기능을 설치하고 실습 환경을 만든다 · 상세 리포트</title>
   <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/report.css">
@@ -18,7 +17,7 @@
     <div id="settingsPanel" class="report-settings-panel" aria-hidden="true">
       <div class="report-settings-panel__group"><span class="report-settings-panel__label">화면</span><button id="themeToggle" type="button" onclick="cycleTheme()" aria-label="나이트 모드 전환">☀</button></div>
       <div class="report-settings-panel__group"><span class="report-settings-panel__label">출력</span><button class="report-settings-action" type="button" onclick="window.print()">Print / PDF</button></div>
-      <div class="report-settings-panel__group"><span class="report-settings-panel__label">이동</span><nav class="report-quick-links" aria-label="차시 링크"><a href="report.html" aria-current="page">상세 리포트</a><a href="slides.html">발표자료</a><a href="../">과정 개요</a></nav></div>
+      <div class="report-settings-panel__group"><span class="report-settings-panel__label">이동</span><nav class="report-quick-links" aria-label="차시 링크"><a href="./">차시 정보</a><a href="report.html" aria-current="page">상세 리포트</a><a href="slides.html">발표자료</a><a href="../">코스 소개</a></nav></div>
     </div>
   </div>
   <div id="tocBackdrop" class="report-toc-backdrop" hidden></div>
@@ -29,7 +28,6 @@
 
   <main id="top">
     <article class="report continuous-mode">
-      <div class="callout--hero"><span class="callout__kicker">초안</span><span class="callout__body">검토 중인 초안입니다. 내용이 바뀔 수 있습니다.</span></div>
       <section class="report-cover">
       <div class="report-cover__wordmark"><span class="report-cover__wordmark-name">AIML Quant</span><span class="report-cover__wordmark-sub">LECTURE</span></div>
       <p class="report-cover__kicker">강의 상세 리포트</p>
@@ -451,6 +449,22 @@ Jupyter가 제대로 연결된 것이다.</p>
 </table>
 <p>제품 화면과 버전 번호는 업데이트에 따라 달라질 수 있다. 버튼 이름이 이 리포트와 조금 다르면
 위 공식 문서의 최신 화면을 함께 확인한다.</p>
+<hr>
+    </section>
+    <section class="report-appendix page-break" id="downloads">
+      <div class="report-section__kicker">부록 B</div>
+      <h1>실습 파일 내려받기</h1>
+<p>실습은 빈 <code>course-01-practice</code> 폴더를 직접 만들고 진행하는 것이 기본이다. 아래 노트북은
+영상에서 실행한 것과 같은 환경 확인 코드를 담은 비교용 파일이며, 실행 결과는 지워 두었다.
+직접 만든 파일과 나란히 보거나 막힌 부분을 확인할 때 사용한다.</p>
+<ul>
+<li><a href="assets/downloads/report.pdf">상세 리포트 PDF 내려받기</a></li>
+<li><a href="assets/downloads/slides.pdf">발표자료 PDF 내려받기</a></li>
+<li><a href="assets/downloads/setup-checklist.md">VS Code 실습 환경 준비 체크리스트 내려받기</a></li>
+<li><a href="assets/downloads/environment-check.ipynb">환경 확인 노트북 내려받기 — environment-check.ipynb</a></li>
+</ul>
+<p>노트북은 <code>course-01-practice/notebooks/environment-check.ipynb</code>에 놓고, 작업 폴더의
+<code>.venv</code>를 커널로 선택한 뒤 <strong>Run All</strong>을 누른다.</p>
     </section>
     </article>
   </main>

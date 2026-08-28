@@ -15,7 +15,7 @@
       <feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#0F2C59" flood-opacity="0.12"/>
     </filter>
     <marker id="arrow-ok" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
-      <path d="M0 0L18 5L0 10Z" fill="#0B7A6A"/>
+      <path d="M0 0L18 5L0 10Z" fill="#0B7868"/>
     </marker>
     <marker id="arrow-stop" markerUnits="userSpaceOnUse" viewBox="0 0 18 10" refX="17" refY="5" markerWidth="18" markerHeight="10" orient="auto">
       <path d="M0 0L18 5L0 10Z" fill="#BE123C"/>
@@ -32,18 +32,18 @@
       .sub{font-size:15px;font-weight:400;fill:#52606D}
       .status{font-size:17px;font-weight:700}
       .reverse{fill:#FFFFFF}
-      .ok{fill:none;stroke:#0B7A6A;stroke-width:3;marker-end:url(#arrow-ok)}
+      .ok{fill:none;stroke:#0B7868;stroke-width:3;marker-end:url(#arrow-ok)}
       .stop{fill:none;stroke:#BE123C;stroke-width:3;stroke-dasharray:8 7;marker-end:url(#arrow-stop)}
       .wait{fill:none;stroke:#52606D;stroke-width:2.5;stroke-dasharray:7 7;marker-end:url(#arrow-wait)}
       .icon{fill:none;stroke:#0F2C59;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
-      .icon-ok{fill:none;stroke:#0B7A6A;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+      .icon-ok{fill:none;stroke:#0B7868;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
       .icon-wait{fill:none;stroke:#52606D;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
     </style>
   </defs>
   <rect width="1200" height="510" fill="#FFFFFF"/>
   <g id="phase-labels" aria-hidden="true">
-    <rect x="25" y="78" width="355" height="42" rx="21" fill="#E4F6F0" stroke="#0B7A6A"/>
-    <text class="phase" x="202" y="106" text-anchor="middle" fill="#0B7A6A">이번 차시에서 완료</text>
+    <rect x="25" y="78" width="355" height="42" rx="21" fill="#E4F6F0" stroke="#0B7868"/>
+    <text class="phase" x="202" y="106" text-anchor="middle" fill="#0B7868">이번 차시에서 완료</text>
     <rect x="500" y="78" width="675" height="42" rx="21" fill="#FFF1F4" stroke="#BE123C"/>
     <text class="phase" x="837" y="106" text-anchor="middle" fill="#BE123C">백테스트에 필요한 단계</text>
   </g>
@@ -64,17 +64,17 @@
     <g class="icon" transform="translate(55 201)"><ellipse cx="19" cy="7" rx="17" ry="6"/><path d="M2 7V35C2 39 10 42 19 42S36 39 36 35V7M2 21C2 25 10 28 19 28S36 25 36 21"/></g>
     <text class="main" x="45" y="294">데이터</text><text class="main" x="45" y="326">수집</text>
     <text class="sub" x="45" y="370">가격 CSV</text>
-    <rect x="45" y="412" width="86" height="31" rx="15" fill="#FFFFFF" stroke="#0B7A6A"/><text class="status" x="88" y="434" text-anchor="middle" fill="#0B7A6A">완료</text>
+    <rect x="45" y="412" width="86" height="31" rx="15" fill="#FFFFFF" stroke="#0B7868"/><text class="status" x="88" y="434" text-anchor="middle" fill="#0B7868">완료</text>
   </g>
 
   <g id="stage-02-display" filter="url(#shadow)">
-    <rect x="220" y="140" width="145" height="335" rx="18" fill="#E4F6F0" stroke="#0B7A6A" stroke-width="2"/>
-    <text class="num" x="240" y="172" fill="#0B7A6A">02</text>
-    <rect x="240" y="190" width="58" height="58" rx="16" fill="#FFFFFF" stroke="#0B7A6A"/>
+    <rect x="220" y="140" width="145" height="335" rx="18" fill="#E4F6F0" stroke="#0B7868" stroke-width="2"/>
+    <text class="num" x="240" y="172" fill="#0B7868">02</text>
+    <rect x="240" y="190" width="58" height="58" rx="16" fill="#FFFFFF" stroke="#0B7868"/>
     <g class="icon-ok" transform="translate(250 201)"><path d="M1 41V2M1 41H40"/><path d="M7 31L16 23L24 27L37 9"/></g>
     <text class="main" x="240" y="294">표·그래프</text><text class="main" x="240" y="326">표시</text>
     <text class="sub" x="240" y="370">Close 선</text>
-    <rect x="240" y="412" width="86" height="31" rx="15" fill="#FFFFFF" stroke="#0B7A6A"/><text class="status" x="283" y="434" text-anchor="middle" fill="#0B7A6A">완료</text>
+    <rect x="240" y="412" width="86" height="31" rx="15" fill="#FFFFFF" stroke="#0B7868"/><text class="status" x="283" y="434" text-anchor="middle" fill="#0B7868">완료</text>
   </g>
 
   <g id="scope-stop" filter="url(#shadow)">
@@ -124,7 +124,145 @@
   </g>
 
 </svg></div></section></div>
-    <script>(function(){var root=document.getElementById("scene-s19"),q=function(s){return root.querySelector(s);},qa=function(s){return root.querySelectorAll(s);},duration=15.680,tl=gsap.timeline({paused:true});tl.fromTo(q(".hf-grid"),{x:-18,y:-12},{x:24,y:14,duration:duration,ease:"none"},0);tl.fromTo(q(".hf-orb"),{scale:.94,opacity:.28},{scale:1.05,opacity:.66,duration:duration,ease:"sine.inOut"},0);tl.fromTo(q(".hf-header"),{opacity:0,y:26},{opacity:1,y:0,duration:.55,ease:"power3.out"},.12);tl.fromTo(q(".figure-shell"),{opacity:0,y:20,scale:.992},{opacity:1,y:0,scale:1,duration:.52,ease:"power3.out"},.26);var groups=["#phase-labels", "#stage-01-data", "#stage-02-display", "#scope-stop", "#stage-03-rule", "#stage-04-trades", "#stage-05-costs", "#stage-06-evaluation", "#stage-connectors"],groupAt=[0.32, 0.92, 1.52, 4.28, 4.98, 5.68, 6.38, 7.08, 10.09];groups.forEach(function(sel,i){var node=q(sel);if(!node)return;tl.fromTo(node,{opacity:0,y:18,transformOrigin:"50% 50%"},{opacity:1,y:0,duration:.46,ease:"power3.out"},groupAt[i]);});window.__timelines=window.__timelines||{};window.__timelines["slide-s19"]=tl;})();</script>
+    <script>(function(){
+var root=document.getElementById("scene-s19");
+var q=function(s){return root.querySelector(s);};
+var duration=15.680;
+var tl=gsap.timeline({paused:true});
+
+var NS="http://www.w3.org/2000/svg",wipeSeq=0;
+function A(sel,scope){return Array.prototype.slice.call((scope||root).querySelectorAll(sel));}
+function isDashed(shape){
+  var dash=window.getComputedStyle(shape).strokeDasharray;
+  return !!(dash&&dash!=="none"&&dash!=="0px"&&dash!=="0"&&dash.indexOf(",")!==-1||
+            dash&&dash!=="none"&&dash!=="0px"&&dash!=="0"&&dash.indexOf(" ")!==-1);
+}
+function markerAfter(shape,at){
+  var marker=window.getComputedStyle(shape).markerEnd;
+  if(!marker||marker==="none")return;
+  gsap.set(shape,{markerEnd:"none"});
+  tl.set(shape,{markerEnd:marker},at);
+}
+/* Solid connector: the shaft draws, and only then does the arrowhead exist. */
+function draw(shape,at,dur,ease){
+  var len=0;try{len=shape.getTotalLength();}catch(e){return;}
+  if(!len)return;
+  markerAfter(shape,at+dur+0.06);
+  shape.style.strokeDasharray=len;shape.style.strokeDashoffset=len;
+  tl.to(shape,{strokeDashoffset:0,duration:dur,ease:ease||"power2.out"},at);
+}
+/* Dashed connector: keep the dash pattern (it means "not done yet") and slide it
+   in from its own start point instead of overwriting stroke-dasharray. */
+function slideStroke(shape,at,dur,dx,dy){
+  markerAfter(shape,at+dur*0.82);
+  tl.fromTo(shape,{opacity:0,x:dx||-14,y:dy||0},
+    {opacity:1,x:0,y:0,duration:dur,ease:"power2.out"},at);
+}
+function drawOrSlide(shape,at,dur,dx){
+  if(isDashed(shape))slideStroke(shape,at,dur,dx);else draw(shape,at,dur);
+}
+function strokesOf(node){return A("path,line,polyline",node);}
+/* A data token that rides a connector so the hand-off is visible, not implied. */
+function travel(shape,at,dur,color,radius){
+  var len=0;try{len=shape.getTotalLength();}catch(e){return;}
+  if(!len)return;
+  var dot=document.createElementNS(NS,"circle");
+  dot.setAttribute("class","flow-token");
+  dot.setAttribute("r",radius||7);
+  dot.setAttribute("fill",color||"#0F2C59");
+  dot.setAttribute("opacity","0");
+  shape.parentNode.appendChild(dot);
+  var p0=shape.getPointAtLength(0);
+  dot.setAttribute("cx",p0.x);dot.setAttribute("cy",p0.y);
+  var st={t:0};
+  tl.to(dot,{opacity:1,duration:.12,ease:"none"},at);
+  tl.to(st,{t:1,duration:dur,ease:"power1.inOut",onUpdate:function(){
+    var p=shape.getPointAtLength(st.t*len);
+    dot.setAttribute("cx",p.x);dot.setAttribute("cy",p.y);
+  }},at);
+  tl.to(dot,{opacity:0,duration:.16,ease:"none"},at+dur-0.06);
+}
+/* Left-to-right reveal that preserves the artwork instead of fading it. */
+function clipWipe(el,at,dur,ease){
+  var svg=el.ownerSVGElement;if(!svg)return;
+  var box;try{box=el.getBBox();}catch(e){return;}
+  var defs=svg.querySelector("defs");
+  if(!defs){defs=document.createElementNS(NS,"defs");svg.insertBefore(defs,svg.firstChild);}
+  var id="hf-wipe-"+(++wipeSeq);
+  var clip=document.createElementNS(NS,"clipPath");
+  clip.setAttribute("id",id);clip.setAttribute("clipPathUnits","userSpaceOnUse");
+  var rect=document.createElementNS(NS,"rect");
+  rect.setAttribute("x",box.x-3);rect.setAttribute("y",box.y-3);
+  rect.setAttribute("height",box.height+6);rect.setAttribute("width",0);
+  clip.appendChild(rect);defs.appendChild(clip);
+  el.setAttribute("clip-path","url(#"+id+")");
+  tl.to(rect,{attr:{width:box.width+6},duration:dur,ease:ease||"power2.out"},at);
+}
+/* Card entrance vocabulary. Each scene picks verbs that match its own logic. */
+var ENTRANCE={
+  riseLeft:{x:-52,y:0,scale:.955,ease:"power3.out",duration:.52},
+  riseRight:{x:52,y:0,scale:.955,ease:"power3.out",duration:.52},
+  riseUp:{x:0,y:34,scale:.955,ease:"power3.out",duration:.5},
+  riseUpRight:{x:34,y:-30,scale:.95,ease:"power3.out",duration:.54},
+  riseDownRight:{x:34,y:30,scale:.95,ease:"power3.out",duration:.54},
+  settle:{x:0,y:16,scale:.985,ease:"power2.out",duration:.44},
+  land:{x:0,y:-26,scale:1.35,ease:"power4.out",duration:.5}
+};
+function enter(node,at,verb,ghost){
+  var p=ENTRANCE[verb]||ENTRANCE.riseUp;
+  if(ghost){
+    /* The slot is already on screen as a ghost, so it fills in place. */
+    tl.fromTo(node,{opacity:ghost,scale:.985,transformOrigin:"50% 50%"},
+      {opacity:1,scale:1,duration:p.duration,ease:p.ease},at);
+    return;
+  }
+  tl.fromTo(node,{opacity:0,x:p.x,y:p.y,scale:p.scale,transformOrigin:"50% 50%"},
+    {opacity:1,x:0,y:0,scale:1,duration:p.duration,ease:p.ease},at);
+}
+/* Icon-internal beats: outline strokes draw, then dots and chips resolve. */
+function iconDetail(node,at){
+  var strokes=A(".icon path,.icon line,.icon polyline,.icon-ok path,.icon-ok line,"+
+    ".icon-ok polyline,.icon-warn path,.icon-warn line,.icon-wait path,.icon-wait line,"+
+    "path.icon-ok,path.icon-warn,path.icon-wait",node);
+  strokes.forEach(function(shape,i){draw(shape,at+0.16+i*0.06,0.42);});
+  var pops=A(".icon circle,.icon ellipse,.icon rect,.icon-ok circle,.icon-ok ellipse,"+
+    ".icon-ok rect,.icon-warn circle,.icon-warn ellipse,.icon-warn rect,"+
+    ".icon-wait circle,.icon-wait ellipse,.icon-wait rect",node);
+  pops.forEach(function(part,i){
+    tl.fromTo(part,{opacity:0,scale:.7,transformBox:"fill-box",transformOrigin:"50% 50%"},
+      {opacity:1,scale:1,duration:.3,ease:"back.out(1.5)"},at+0.24+i*0.05);
+  });
+}
+/* The small status pill is the conclusion of a card, so it lands last. */
+function statusChip(node,at){
+  var chips=A("rect[rx='15'],rect[rx='16'],rect[rx='18'],rect[rx='19']",node);
+  var labels=A("text.tag,text.chip,text.status,text.kicker,text.meta",node);
+  chips.slice(-1).forEach(function(part){
+    tl.fromTo(part,{opacity:0,scale:.86,transformBox:"fill-box",transformOrigin:"50% 50%"},
+      {opacity:1,scale:1,duration:.34,ease:"back.out(1.4)"},at);
+  });
+  labels.slice(-1).forEach(function(part){
+    tl.fromTo(part,{opacity:0,y:5},{opacity:1,y:0,duration:.28,ease:"power3.out"},at+.06);
+  });
+}
+function ambient(seedX,seedY,orbEase){
+  tl.fromTo(q(".hf-grid"),{x:seedX,y:seedY},
+    {x:-seedX,y:-seedY,duration:duration,ease:"none"},0);
+  tl.fromTo(q(".hf-orb"),{scale:.93,opacity:.26},
+    {scale:1.06,opacity:.62,duration:duration,ease:orbEase||"sine.inOut"},0);
+}
+function headerIn(at){
+  tl.fromTo(q(".hf-header"),{opacity:0,y:26},{opacity:1,y:0,duration:.55,ease:"power3.out"},at||.12);
+}
+function shellIn(at){
+  tl.fromTo(q(".figure-shell"),{opacity:0,y:18,scale:.994},
+    {opacity:1,y:0,scale:1,duration:.52,ease:"power3.out"},at||.24);
+}
+
+ambient(-18,-12,"sine.inOut");headerIn();shellIn();var plan=[{"sel": "#stage-01-data", "at": 1.08, "verb": "riseLeft"}, {"sel": "#stage-02-display", "at": 2.38, "verb": "riseUp"}, {"sel": "#stage-03-rule", "at": 5.14, "verb": "settle"}, {"sel": "#stage-04-trades", "at": 5.94, "verb": "settle"}, {"sel": "#stage-05-costs", "at": 6.74, "verb": "settle"}, {"sel": "#stage-06-evaluation", "at": 7.54, "verb": "settle"}],ghost=0;plan.forEach(function(step){var node=q(step.sel);if(!node)return;enter(node,step.at,step.verb,ghost);iconDetail(node,step.at);statusChip(node,step.at+.42);});var labels=q("#phase-labels"),labelAt=[0.2, 4.16];if(labels){gsap.set(labels,{opacity:1});var lrect=A("rect",labels),ltext=A("text",labels);lrect.forEach(function(rect,i){tl.fromTo(rect,{opacity:0,scaleX:.8,transformBox:"fill-box",transformOrigin:"0% 50%"},{opacity:1,scaleX:1,duration:.46,ease:"power3.out"},labelAt[i]);});ltext.forEach(function(part,i){tl.fromTo(part,{opacity:0},{opacity:1,duration:.3},labelAt[i]+.24);});}var conn=q("#stage-connectors");if(conn){gsap.set(conn,{opacity:1});var cp=A("path",conn),waitAt=[4.84, 5.64, 6.44, 7.24];draw(cp[0],1.58,.42);travel(cp[0],2.04,.46,"#0B7868",7);drawOrSlide(cp[1],4.76,.46,-16);for(var i=0;i<4;i++){drawOrSlide(cp[2+i],waitAt[i],.42,-14);}}var stop=q("#scope-stop");if(stop){tl.fromTo(stop,{opacity:0,scale:1.5,transformBox:"fill-box",transformOrigin:"50% 50%"},{opacity:1,scale:1,duration:.46,ease:"power4.out"},4.34);tl.fromTo(A("circle",stop),{strokeWidth:14},{strokeWidth:6,duration:.5,ease:"power3.out"},4.34);}
+window.__timelines=window.__timelines||{};
+window.__timelines["slide-s19"]=tl;
+})();</script>
   </div>
 <style id="presentation-mode">
 html, body { width:1280px !important; height:720px !important; margin:0; overflow:hidden; background:#fafaf9; }
