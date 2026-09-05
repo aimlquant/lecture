@@ -10,21 +10,84 @@
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/course-roadmap.css">
 </head>
-<body class="course-page course-page--planned">
-  <main class="shell">
-    <div class="brand">
-      <span class="brand-name">AIML Quant</span>
-      <span class="brand-sub">LECTURE</span>
-    </div>
-    <a class="back" href="../">← 강의 소개</a>
+<body class="course-page course-page--showcase course-page--planned">
+  <main class="shell course-shell">
+    <header class="course-header">
+      <div class="brand">
+        <span class="brand-name">AIML Quant</span>
+        <span class="brand-sub">LECTURE</span>
+      </div>
+      <a class="back" href="../">← 강의 소개</a>
+    </header>
 
-    <p class="eyebrow">COURSE 02 / 17</p>
-    <h1>노트북과 데이터 문해력</h1>
-    <p class="lead">과정 1에서 만든 KODEX 200 가격표를 이어 받아 노트북 실행 상태, 데이터 출처, 날짜와 공개 시각, 가격 조정, 수급 자료를 차례로 확인합니다. 다섯 편을 마치면 백테스트 입력으로 사용할 준비가 됐는지 데이터 감사표로 설명할 수 있습니다.</p>
+    <section class="course-hero">
+      <div class="course-hero__copy">
+        <p class="eyebrow">COURSE 02 / 17</p>
+        <h1>노트북과 데이터 문해력</h1>
+        <p class="lead">과정 1에서 만든 KODEX 200 가격표를 이어 받아 노트북 실행 상태, 데이터 출처, 날짜와 공개 시각, 가격 조정, 수급 자료를 차례로 확인합니다. 다섯 편을 마치면 백테스트 입력으로 사용할 준비가 됐는지 데이터 감사표로 설명할 수 있습니다.</p>
+        <div class="actions course-hero__actions">
+          <a class="button" href="#video-roadmap">영상별 내용 살펴보기 <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="course-preview" aria-label="과정 2 영상 구성 미리보기">
+
+        <a class="course-preview__item course-preview__item--1"
+           href="#video-1" aria-label="영상 1 기획 내용: 노트북을 운용한다 — 셀 실행 순서, 표의 행·열, 에러 메시지 읽기">
+          <div class="planned-poster">
+              <span class="planned-poster__eyebrow">과정 2 · 영상 01</span>
+              <strong class="planned-poster__title">노트북과 표 읽기</strong>
+              <span class="planned-poster__artifact">표 구조 점검표</span>
+              <span class="planned-poster__status">영상 제작 예정</span>
+            </div>
+          <span class="course-preview__index">01</span>
+        </a>
+        <a class="course-preview__item course-preview__item--2"
+           href="#video-2" aria-label="영상 2 기획 내용: 데이터를 어디서 얻나 — pykrx·FinanceDataReader·DART·ECOS">
+          <div class="planned-poster">
+              <span class="planned-poster__eyebrow">과정 2 · 영상 02</span>
+              <strong class="planned-poster__title">데이터 출처 선택</strong>
+              <span class="planned-poster__artifact">데이터 출처 선택표</span>
+              <span class="planned-poster__status">영상 제작 예정</span>
+            </div>
+          <span class="course-preview__index">02</span>
+        </a>
+        <a class="course-preview__item course-preview__item--3"
+           href="#video-3" aria-label="영상 3 기획 내용: 인덱스와 시각 — 시차·타임존·휴장일·결측치">
+          <div class="planned-poster">
+              <span class="planned-poster__eyebrow">과정 2 · 영상 03</span>
+              <strong class="planned-poster__title">날짜와 시각 정렬</strong>
+              <span class="planned-poster__artifact">시각 정렬표</span>
+              <span class="planned-poster__status">영상 제작 예정</span>
+            </div>
+          <span class="course-preview__index">03</span>
+        </a>
+        <a class="course-preview__item course-preview__item--4"
+           href="#video-4" aria-label="영상 4 기획 내용: 수정주가·배당·액면분할">
+          <div class="planned-poster">
+              <span class="planned-poster__eyebrow">과정 2 · 영상 04</span>
+              <strong class="planned-poster__title">가격 조정 판독</strong>
+              <span class="planned-poster__artifact">기업행동 비교표</span>
+              <span class="planned-poster__status">영상 제작 예정</span>
+            </div>
+          <span class="course-preview__index">04</span>
+        </a>
+        <a class="course-preview__item course-preview__item--5"
+           href="#video-5" aria-label="영상 5 기획 내용: 투자자별 매매동향과 공매도 잔고 — 무료로 공개되는 수급 데이터">
+          <div class="planned-poster">
+              <span class="planned-poster__eyebrow">과정 2 · 영상 05</span>
+              <strong class="planned-poster__title">수급 자료 결합</strong>
+              <span class="planned-poster__artifact">데이터 감사표</span>
+              <span class="planned-poster__status">영상 제작 예정</span>
+            </div>
+          <span class="course-preview__index">05</span>
+        </a>
+      </div>
+    </section>
 
     <ul class="course-stats">
-      <li><strong>5</strong><span>구성 영상</span></li>
+      <li><strong>5편</strong><span>구성 영상</span></li>
       <li><strong>15분 미만</strong><span>영상당 목표 길이</span></li>
+      <li><strong>4편</strong><span>노트북 실습</span></li>
       <li><strong>퀀트 트레이딩과 코딩 에이전트 입문</strong><span>선행 과정</span></li>
     </ul>
     <section class="course-overview" aria-labelledby="course-overview-title">
@@ -80,106 +143,151 @@
       각 영상의 자료는 공개할 준비가 되면 연결합니다.</p>
     </div>
 
-    <div class="section-head">
+    <div class="section-head" id="video-roadmap">
       <div>
-        <p class="eyebrow">VIDEO ROADMAP</p>
-        <h2>영상 구성</h2>
+        <p class="eyebrow">WATCH &amp; LEARN</p>
+        <h2>다섯 편에서 배우는 내용</h2>
       </div>
       <p>총 5편</p>
     </div>
     <ol class="video-list">
 
         <li class="video-card" id="video-1">
+          <div class="video-thumb video-thumb--planned" role="img"
+               aria-label="영상 1 제작 예정: 노트북을 운용한다 — 셀 실행 순서, 표의 행·열, 에러 메시지 읽기">
+            <div class="planned-poster">
+              <span class="planned-poster__eyebrow">과정 2 · 영상 01</span>
+              <strong class="planned-poster__title">노트북과 표 읽기</strong>
+              <span class="planned-poster__artifact">표 구조 점검표</span>
+              <span class="planned-poster__status">영상 제작 예정</span>
+            </div>
+          </div>
           <div class="video-card__body">
             <div class="video-head">
-              <span class="video-index">영상 1</span>
-              <span class="badge badge--soon">리포트 준비됨 · 영상 제작 예정</span>
+              <span class="video-index">VIDEO 01</span>
+              <span class="video-head__labels"><span class="video-format">노트북</span><span class="badge badge--soon">리포트 준비됨 · 영상 제작 예정</span></span>
             </div>
             <h2>노트북을 운용한다 — 셀 실행 순서, 표의 행·<wbr>열, 에러 메시지 읽기</h2>
             <p class="video-summary">저장된 출력과 커널 상태를 구분하고, 오류를 복구한 뒤 표 구조를 읽습니다.</p>
             <ul class="video-topics" aria-label="영상 1 핵심 주제"><li>셀 실행 순서와 커널</li><li>에러 메시지와 최소 복구</li><li>표 구조 점검</li></ul>
-            <div class="video-outcome"><span>학습 결과물 · 노트북</span><p>처음부터 다시 실행되는 노트북과 행·열·인덱스·자료형·결측·중복·정렬·날짜 범위 점검표</p></div>
+            <div class="video-outcome"><span>학습 결과물</span><p>처음부터 다시 실행되는 노트북과 행·열·인덱스·자료형·결측·중복·정렬·날짜 범위 점검표</p></div>
             <details class="video-basis">
               <summary>교재 범위와 보강 내용</summary>
               <dl class="video-meta">
                 <div><dt>교재 범위</dt><dd>—</dd></div>
-                <div><dt>보강</dt><dd>전부</dd></div>
+                <div><dt>함께 다루는 내용</dt><dd>전부</dd></div>
               </dl>
             </details>
           </div>
         </li>
         <li class="video-card" id="video-2">
+          <div class="video-thumb video-thumb--planned" role="img"
+               aria-label="영상 2 제작 예정: 데이터를 어디서 얻나 — pykrx·FinanceDataReader·DART·ECOS">
+            <div class="planned-poster">
+              <span class="planned-poster__eyebrow">과정 2 · 영상 02</span>
+              <strong class="planned-poster__title">데이터 출처 선택</strong>
+              <span class="planned-poster__artifact">데이터 출처 선택표</span>
+              <span class="planned-poster__status">영상 제작 예정</span>
+            </div>
+          </div>
           <div class="video-card__body">
             <div class="video-head">
-              <span class="video-index">영상 2</span>
-              <span class="badge badge--soon">제작 예정</span>
+              <span class="video-index">VIDEO 02</span>
+              <span class="video-head__labels"><span class="video-format">워크시트</span><span class="badge badge--soon">제작 예정</span></span>
             </div>
             <h2>데이터를 어디서 얻나 — pykrx·<wbr>FinanceDataReader·<wbr>DART·<wbr>ECOS</h2>
             <p class="video-summary">값을 만든 원천, 공식 접근 경로, 수집 도구를 구분해 필요한 데이터를 고릅니다.</p>
             <ul class="video-topics" aria-label="영상 2 핵심 주제"><li>KRX·OpenDART·ECOS</li><li>pykrx·FinanceDataReader</li><li>인증과 이용 조건</li></ul>
-            <div class="video-outcome"><span>학습 결과물 · 워크시트</span><p>가격·재무·금리 자료의 원천·접근 경로·도구·인증·이용 조건을 정리한 데이터 출처 선택표</p></div>
+            <div class="video-outcome"><span>학습 결과물</span><p>가격·재무·금리 자료의 원천·접근 경로·도구·인증·이용 조건을 정리한 데이터 출처 선택표</p></div>
             <details class="video-basis">
               <summary>교재 범위와 보강 내용</summary>
               <dl class="video-meta">
                 <div><dt>교재 범위</dt><dd>1권 2장 2.1, 1권 3장 B</dd></div>
-                <div><dt>보강</dt><dd>한국 무료 경로</dd></div>
+                <div><dt>함께 다루는 내용</dt><dd>한국 무료 경로</dd></div>
               </dl>
             </details>
           </div>
         </li>
         <li class="video-card" id="video-3">
+          <div class="video-thumb video-thumb--planned" role="img"
+               aria-label="영상 3 제작 예정: 인덱스와 시각 — 시차·타임존·휴장일·결측치">
+            <div class="planned-poster">
+              <span class="planned-poster__eyebrow">과정 2 · 영상 03</span>
+              <strong class="planned-poster__title">날짜와 시각 정렬</strong>
+              <span class="planned-poster__artifact">시각 정렬표</span>
+              <span class="planned-poster__status">영상 제작 예정</span>
+            </div>
+          </div>
           <div class="video-card__body">
             <div class="video-head">
-              <span class="video-index">영상 3</span>
-              <span class="badge badge--soon">제작 예정</span>
+              <span class="video-index">VIDEO 03</span>
+              <span class="video-head__labels"><span class="video-format">노트북</span><span class="badge badge--soon">제작 예정</span></span>
             </div>
             <h2>인덱스와 시각 — 시차·<wbr>타임존·<wbr>휴장일·<wbr>결측치</h2>
             <p class="video-summary">같은 날짜와 같은 정보 시점을 구분하고, 판단 전에 알려진 값만 붙입니다.</p>
             <ul class="video-topics" aria-label="영상 3 핵심 주제"><li>휴장·누락·빈 값</li><li>시간대와 네 시각</li><li>공개 시각 기준 결합</li></ul>
-            <div class="video-outcome"><span>학습 결과물 · 노트북</span><p>휴장·결측·시간대를 구분하고 관측·공개·취득·판단 시각을 표시한 시각 정렬표</p></div>
+            <div class="video-outcome"><span>학습 결과물</span><p>휴장·결측·시간대를 구분하고 관측·공개·취득·판단 시각을 표시한 시각 정렬표</p></div>
             <details class="video-basis">
               <summary>교재 범위와 보강 내용</summary>
               <dl class="video-meta">
                 <div><dt>교재 범위</dt><dd>3권 1장</dd></div>
-                <div><dt>보강</dt><dd>as-of join</dd></div>
+                <div><dt>함께 다루는 내용</dt><dd>as-of join</dd></div>
               </dl>
             </details>
           </div>
         </li>
         <li class="video-card" id="video-4">
+          <div class="video-thumb video-thumb--planned" role="img"
+               aria-label="영상 4 제작 예정: 수정주가·배당·액면분할">
+            <div class="planned-poster">
+              <span class="planned-poster__eyebrow">과정 2 · 영상 04</span>
+              <strong class="planned-poster__title">가격 조정 판독</strong>
+              <span class="planned-poster__artifact">기업행동 비교표</span>
+              <span class="planned-poster__status">영상 제작 예정</span>
+            </div>
+          </div>
           <div class="video-card__body">
             <div class="video-head">
-              <span class="video-index">영상 4</span>
-              <span class="badge badge--soon">제작 예정</span>
+              <span class="video-index">VIDEO 04</span>
+              <span class="video-head__labels"><span class="video-format">노트북</span><span class="badge badge--soon">제작 예정</span></span>
             </div>
             <h2>수정주가·<wbr>배당·<wbr>액면분할</h2>
             <p class="video-summary">가격 변화가 손익인지 기업행동의 결과인지 판독하고, 목적에 맞는 가격 계열을 고릅니다.</p>
             <ul class="video-topics" aria-label="영상 4 핵심 주제"><li>원가격과 수정주가</li><li>배당·분할 전후 비교</li><li>생존편향의 원인</li></ul>
-            <div class="video-outcome"><span>학습 결과물 · 노트북</span><p>원가격·조정가격·배당·분할의 차이와 선택 근거를 설명한 기업행동 비교표</p></div>
+            <div class="video-outcome"><span>학습 결과물</span><p>원가격·조정가격·배당·분할의 차이와 선택 근거를 설명한 기업행동 비교표</p></div>
             <details class="video-basis">
               <summary>교재 범위와 보강 내용</summary>
               <dl class="video-meta">
                 <div><dt>교재 범위</dt><dd>1권 3장 B, 3권 1장</dd></div>
-                <div><dt>보강</dt><dd>—</dd></div>
+                <div><dt>함께 다루는 내용</dt><dd>—</dd></div>
               </dl>
             </details>
           </div>
         </li>
         <li class="video-card" id="video-5">
+          <div class="video-thumb video-thumb--planned" role="img"
+               aria-label="영상 5 제작 예정: 투자자별 매매동향과 공매도 잔고 — 무료로 공개되는 수급 데이터">
+            <div class="planned-poster">
+              <span class="planned-poster__eyebrow">과정 2 · 영상 05</span>
+              <strong class="planned-poster__title">수급 자료 결합</strong>
+              <span class="planned-poster__artifact">데이터 감사표</span>
+              <span class="planned-poster__status">영상 제작 예정</span>
+            </div>
+          </div>
           <div class="video-card__body">
             <div class="video-head">
-              <span class="video-index">영상 5</span>
-              <span class="badge badge--soon">제작 예정</span>
+              <span class="video-index">VIDEO 05</span>
+              <span class="video-head__labels"><span class="video-format">노트북</span><span class="badge badge--soon">제작 예정</span></span>
             </div>
             <h2>투자자별 매매동향과 공매도 잔고 — 무료로 공개되는 수급 데이터</h2>
             <p class="video-summary">투자자별 매매와 공매도 거래·잔고를 구분하고, 각 자료의 공개 시점을 반영합니다.</p>
             <ul class="video-topics" aria-label="영상 5 핵심 주제"><li>순매수·거래·잔고 구분</li><li>공개 지연과 정정</li><li>데이터 감사표 완성</li></ul>
-            <div class="video-outcome"><span>학습 결과물 · 노트북</span><p>다섯 영상의 점검 결과를 합쳐 과정 3에 넘길 데이터 감사표와 가격·수급 결합 노트북</p></div>
+            <div class="video-outcome"><span>학습 결과물</span><p>다섯 영상의 점검 결과를 합쳐 과정 3에 넘길 데이터 감사표와 가격·수급 결합 노트북</p></div>
             <details class="video-basis">
               <summary>교재 범위와 보강 내용</summary>
               <dl class="video-meta">
                 <div><dt>교재 범위</dt><dd>—</dd></div>
-                <div><dt>보강</dt><dd>전부</dd></div>
+                <div><dt>함께 다루는 내용</dt><dd>전부</dd></div>
               </dl>
             </details>
           </div>
