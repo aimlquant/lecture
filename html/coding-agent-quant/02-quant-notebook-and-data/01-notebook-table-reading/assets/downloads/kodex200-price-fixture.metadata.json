@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "asset_id": "kodex200-price-fixture",
+  "description": "과정 2 영상 1의 노트북 상태·표 구조 점검을 위한 고정 입력",
+  "origin": {
+    "lesson_id": "first-quant-notebook",
+    "asset_name": "kodex200_price.csv",
+    "source_sha256": "99daaa462e9c2daa8ea963f8a117cff9195a2686ec000705f2411f2d1a034cbb"
+  },
+  "selection": {
+    "method": "머리글과 첫 12개 데이터 행을 순서대로 발췌",
+    "rows": 12,
+    "date_start": "2024-01-02",
+    "date_end": "2024-01-17"
+  },
+  "fixture_sha256": "f2914729b9dfd0f7a9fd84d790f10f7c0b46038957a62d6c7bb2262c566e1dbf",
+  "prepared_on": "2026-09-04",
+  "notes": [
+    "과정 1에서 이미 공개한 학습자용 CSV의 작은 고정 발췌본이다.",
+    "영상 1에서는 데이터 공급자 비교나 가격 조정 의미를 판정하지 않는다.",
+    "라이브 호출 없이 셀 순서와 표 구조 점검을 반복 재현하기 위한 입력이다."
+  ]
+}
