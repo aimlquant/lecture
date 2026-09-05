@@ -292,6 +292,96 @@
   .course-flow__connector { display: none; }
 }
 
+/* 과정 개요만 공개할 때도 다섯 단계와 학습 결과물을 같은 격자로 읽는다. */
+.course-page--planned .course-flow {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.course-page--planned .course-flow__step {
+  min-height: 150px;
+  padding: 18px 14px;
+}
+
+.course-page--planned .video-list { grid-template-columns: 1fr; }
+
+.course-page--planned .video-card { padding: 26px 28px; }
+
+.course-page--planned .video-card__body {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 14px 28px;
+}
+
+.course-page--planned .video-head,
+.course-page--planned .video-card h2,
+.course-page--planned .video-basis { grid-column: 1 / -1; }
+
+.course-page--planned .video-head { flex-wrap: wrap; }
+.course-page--planned .video-card h2 { margin: 0; font-size: 1.2rem; overflow-wrap: anywhere; }
+.course-page--planned .video-summary { margin: 0; color: var(--muted); }
+
+.course-page--planned .video-topics {
+  grid-column: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: start;
+  gap: 6px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.course-page--planned .video-topics li {
+  padding: 4px 9px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.78rem;
+}
+
+.course-page--planned .video-outcome {
+  grid-column: 2;
+  grid-row: 3 / 5;
+  padding: 16px 18px;
+  border-left: 3px solid var(--primary);
+  background: var(--bg);
+}
+
+.course-page--planned .video-outcome span {
+  color: var(--primary);
+  font-size: 0.76rem;
+  font-weight: 750;
+}
+
+.course-page--planned .video-outcome p { margin: 6px 0 0; font-size: 0.9rem; }
+.course-page--planned .video-basis { border-top: 1px solid var(--border); padding-top: 12px; }
+.course-page--planned .video-basis summary { cursor: pointer; color: var(--muted); font-size: 0.8rem; }
+.course-page--planned .video-meta { margin-top: 10px; }
+
+@media (max-width: 920px) {
+  .course-page--planned .course-flow { grid-template-columns: 1fr; }
+  .course-page--planned .course-flow__step {
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr) minmax(0, 1fr);
+    gap: 10px;
+    align-items: center;
+    min-height: 0;
+  }
+  .course-page--planned .course-flow__step strong,
+  .course-page--planned .course-flow__step p { margin: 0; }
+}
+
+@media (max-width: 680px) {
+  .course-page--planned .course-flow__step { grid-template-columns: 28px minmax(0, 1fr); }
+  .course-page--planned .course-flow__step p { grid-column: 2; }
+  .course-page--planned .video-card { padding: 20px; }
+  .course-page--planned .video-card__body { grid-template-columns: 1fr; gap: 14px; }
+  .course-page--planned .video-card h2 { font-size: 1.08rem; }
+  .course-page--planned .video-outcome { grid-column: 1; grid-row: auto; }
+  .course-page--planned .video-head .badge { font-size: 0.7rem; }
+}
+
 /* 공개를 마친 과정의 랜딩 페이지. 실제 영상 썸네일과 최종 러닝타임을 사용해
    계획표가 아니라 지금 바로 볼 수 있는 하나의 과정처럼 보이게 한다. */
 .course-page--showcase .course-shell {
