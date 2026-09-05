@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=1280,height=720,initial-scale=1"><title>익숙해지면 추가 표 점검을 해 봅니다</title><link rel="stylesheet" href="assets/shared.css"><script src="assets/gsap.min.js"></script><script>window.__timelines=window.__timelines||{};</script></head><body>
+<div id="root-s33" class="scene downloads" data-composition-id="slide-s33" data-duration="5" data-width="1920" data-height="1080"><div class="kicker">노트북과 데이터 문해력 · 직접 확인하기</div><header class="header"><h1>익숙해지면 추가 표 점검을 해 봅니다</h1><p class="lead">여덟 항목 점검은 입문 실습을 마친 뒤 선택해서 진행합니다.</p></header><main class="content"><div class="downloads"><a class="download-row" href="../../assets/downloads/notebook-intro-results.csv" download="notebook-intro-results.csv"><div><strong>입문 실험 결과 CSV</strong><div><code>notebook-intro-results.csv</code></div></div><span>내려받기 ↓</span></a><a class="download-row" href="../../assets/downloads/notebook-table-reading.ipynb" download="notebook-table-reading.ipynb"><div><strong>추가 표 점검 노트북</strong><div><code>notebook-table-reading.ipynb</code></div></div><span>내려받기 ↓</span></a><a class="download-row" href="../../assets/downloads/table-check-cases.ipynb" download="table-check-cases.ipynb"><div><strong>추가 변형 실험 노트북</strong><div><code>table-check-cases.ipynb</code></div></div><span>내려받기 ↓</span></a><a class="download-row" href="../../assets/downloads/experiment-results.csv" download="experiment-results.csv"><div><strong>추가 실험 결과 CSV</strong><div><code>experiment-results.csv</code></div></div><span>내려받기 ↓</span></a></div></main><footer class="foot"><span>과정 2 · 노트북과 데이터 문해력</span><a href="../../report.html#s7" target="_blank" rel="noopener">리포트 근거</a><span>33 / 35</span></footer></div>
+<script>(function(){var tl=gsap.timeline({paused:true});tl.fromTo("#root-s33 .content",{opacity:0.72},{opacity:1,duration:0.35,ease:"power1.out"},0.1);window.__timelines["slide-s33"]=tl;})();</script>
+<style id="presentation-mode">
+html, body { width:1280px !important; height:720px !important; margin:0; overflow:hidden; background:#fafaf9; }
+body > [data-composition-id] { width:1920px; height:1080px; transform:scale(0.6666666667); transform-origin:0 0; }
+body > [data-composition-id]:has(> video[data-presentation-media]) { width:1280px; height:720px; transform:none; }
+body > [data-composition-id] > video[data-presentation-media], body > [data-composition-id]:has(> video[data-presentation-media]) > .presentation-poster { width:1280px; height:720px; }
+video:not([data-presentation-media]), audio { display:none !important; }
+.presentation-poster { display:none; }
+@media print {
+  video[data-presentation-media] { display:none !important; }
+  .presentation-poster { display:block !important; }
+}
+</style>
+<script>
+(function() {
+  "use strict";
+  var slideId = "s33";
+  var times = [1.0];
+  var requested = Number(new URLSearchParams(window.location.search).get("step")) || 1;
+  function clamp(step) { return Math.max(1, Math.min(times.length, Number(step) || 1)); }
+  function apply(step) {
+    var current = clamp(step);
+    var timeline = window.__timelines && window.__timelines["slide-" + slideId];
+    if (!timeline) return false;
+    timeline.pause(times[current - 1], false);
+    document.documentElement.setAttribute("data-presentation-step", String(current));
+    document.documentElement.setAttribute("data-presentation-ready", "true");
+    if (window.parent !== window) window.parent.postMessage({
+      type:"aimlquant-hyperframes-ready", slideId:slideId, step:current
+    }, "*");
+    return true;
+  }
+  window.aimlquantHyperframesSetStep = apply;
+  function boot() {
+    var ready = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+    ready.then(function() {
+      requestAnimationFrame(function() { if (!apply(requested)) setTimeout(function() { apply(requested); }, 0); });
+    });
+  }
+  window.addEventListener("message", function(event) {
+    var data = event.data || {};
+    if (data.type === "aimlquant-hyperframes-step") { requested = clamp(data.step); apply(requested); }
+    if (data.type === "aimlquant-hyperframes-active" && !data.active) {
+      document.querySelectorAll("video[data-presentation-media]").forEach(function(video) { video.pause(); });
+    }
+  });
+  window.addEventListener("beforeprint", function() { apply(times.length); });
+  window.addEventListener("keydown", function(event) {
+    if (event.metaKey || event.ctrlKey || event.altKey) return;
+    if (event.target.closest && event.target.closest("video, audio, input, textarea, select, button, a")) return;
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight" && event.key.toLowerCase() !== "n") return;
+    event.preventDefault();
+    if (window.parent !== window) window.parent.postMessage({
+      type:"aimlquant-hyperframes-key", key:event.key, slideId:slideId
+    }, "*");
+  });
+  if (window.frameElement) {
+    var lastPointer = 0;
+    window.addEventListener("pointermove", function() {
+      var now = performance.now();
+      if (now - lastPointer > 200) {
+        window.parent.document.dispatchEvent(new MouseEvent("mousemove"));
+        lastPointer = now;
+      }
+    }, {passive:true});
+  }
+  var media = document.querySelector("video[data-presentation-media]");
+  if (media && window.frameElement) {
+    window.frameElement.allowFullscreen = true;
+    window.frameElement.dataset.hasPracticeMedia = "true";
+    if (!window.parent.document.getElementById("practice-media-controls")) {
+      var controlsStyle = window.parent.document.createElement("style");
+      controlsStyle.id = "practice-media-controls";
+      controlsStyle.textContent = "@media(min-width:800px){body:has(.slide.is-active [data-has-practice-media]) .deck-controls{bottom:76px}}";
+      window.parent.document.head.appendChild(controlsStyle);
+    }
+  }
+  if (window.frameElement) {
+    var parentSlide = window.frameElement.closest(".slide");
+    if (parentSlide) new MutationObserver(function() {
+      if (!parentSlide.classList.contains("is-active")) {
+        if (media) media.pause();
+        if (window.parent.document.activeElement === window.frameElement) {
+          window.frameElement.blur();
+          window.parent.focus();
+        }
+      }
+    }).observe(parentSlide, {attributes:true, attributeFilter:["class"]});
+  }
+  boot();
+})();
+</script></body></html>

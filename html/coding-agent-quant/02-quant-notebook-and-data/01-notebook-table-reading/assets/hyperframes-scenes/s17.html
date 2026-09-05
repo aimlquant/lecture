@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=1280,height=720,initial-scale=1"><title>105를 103으로 고치면 출력도 바로 바뀔까요?</title><link rel="stylesheet" href="assets/shared.css"><script src="assets/gsap.min.js"></script><script>window.__timelines=window.__timelines||{};</script></head><body>
+<div id="root-s17" class="scene questions" data-composition-id="slide-s17" data-duration="5" data-width="1920" data-height="1080"><div class="kicker">노트북과 데이터 문해력 · 직접 확인하기</div><header class="header"><h1>105를 103으로 고치면 출력도 바로 바뀔까요?</h1><p class="lead">숫자를 수정한 직후, 셀 아래의 값부터 관찰합니다.</p></header><main class="content"><pre class="question-code">비교가격 = 103</pre><div class="cards questions" style="--count:2"><article class="card"><h2>코드</h2><p>문서에는 새 숫자가 적혀 있습니다.</p></article><article class="card"><h2>출력</h2><p>아직 예전 실행 결과일 수 있습니다.</p></article></div></main><footer class="foot"><span>과정 2 · 노트북과 데이터 문해력</span><a href="../../report.html#s3" target="_blank" rel="noopener">리포트 근거</a><span>17 / 35</span></footer></div>
+<script>(function(){var tl=gsap.timeline({paused:true});tl.fromTo("#root-s17 .content",{opacity:0.72},{opacity:1,duration:0.35,ease:"power1.out"},0.1);window.__timelines["slide-s17"]=tl;})();</script>
+<style id="presentation-mode">
+html, body { width:1280px !important; height:720px !important; margin:0; overflow:hidden; background:#fafaf9; }
+body > [data-composition-id] { width:1920px; height:1080px; transform:scale(0.6666666667); transform-origin:0 0; }
+body > [data-composition-id]:has(> video[data-presentation-media]) { width:1280px; height:720px; transform:none; }
+body > [data-composition-id] > video[data-presentation-media], body > [data-composition-id]:has(> video[data-presentation-media]) > .presentation-poster { width:1280px; height:720px; }
+video:not([data-presentation-media]), audio { display:none !important; }
+.presentation-poster { display:none; }
+@media print {
+  video[data-presentation-media] { display:none !important; }
+  .presentation-poster { display:block !important; }
+}
+</style>
+<script>
+(function() {
+  "use strict";
+  var slideId = "s17";
+  var times = [1.0];
+  var requested = Number(new URLSearchParams(window.location.search).get("step")) || 1;
+  function clamp(step) { return Math.max(1, Math.min(times.length, Number(step) || 1)); }
+  function apply(step) {
+    var current = clamp(step);
+    var timeline = window.__timelines && window.__timelines["slide-" + slideId];
+    if (!timeline) return false;
+    timeline.pause(times[current - 1], false);
+    document.documentElement.setAttribute("data-presentation-step", String(current));
+    document.documentElement.setAttribute("data-presentation-ready", "true");
+    if (window.parent !== window) window.parent.postMessage({
+      type:"aimlquant-hyperframes-ready", slideId:slideId, step:current
+    }, "*");
+    return true;
+  }
+  window.aimlquantHyperframesSetStep = apply;
+  function boot() {
+    var ready = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+    ready.then(function() {
+      requestAnimationFrame(function() { if (!apply(requested)) setTimeout(function() { apply(requested); }, 0); });
+    });
+  }
+  window.addEventListener("message", function(event) {
+    var data = event.data || {};
+    if (data.type === "aimlquant-hyperframes-step") { requested = clamp(data.step); apply(requested); }
+    if (data.type === "aimlquant-hyperframes-active" && !data.active) {
+      document.querySelectorAll("video[data-presentation-media]").forEach(function(video) { video.pause(); });
+    }
+  });
+  window.addEventListener("beforeprint", function() { apply(times.length); });
+  window.addEventListener("keydown", function(event) {
+    if (event.metaKey || event.ctrlKey || event.altKey) return;
+    if (event.target.closest && event.target.closest("video, audio, input, textarea, select, button, a")) return;
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight" && event.key.toLowerCase() !== "n") return;
+    event.preventDefault();
+    if (window.parent !== window) window.parent.postMessage({
+      type:"aimlquant-hyperframes-key", key:event.key, slideId:slideId
+    }, "*");
+  });
+  if (window.frameElement) {
+    var lastPointer = 0;
+    window.addEventListener("pointermove", function() {
+      var now = performance.now();
+      if (now - lastPointer > 200) {
+        window.parent.document.dispatchEvent(new MouseEvent("mousemove"));
+        lastPointer = now;
+      }
+    }, {passive:true});
+  }
+  var media = document.querySelector("video[data-presentation-media]");
+  if (media && window.frameElement) {
+    window.frameElement.allowFullscreen = true;
+    window.frameElement.dataset.hasPracticeMedia = "true";
+    if (!window.parent.document.getElementById("practice-media-controls")) {
+      var controlsStyle = window.parent.document.createElement("style");
+      controlsStyle.id = "practice-media-controls";
+      controlsStyle.textContent = "@media(min-width:800px){body:has(.slide.is-active [data-has-practice-media]) .deck-controls{bottom:76px}}";
+      window.parent.document.head.appendChild(controlsStyle);
+    }
+  }
+  if (window.frameElement) {
+    var parentSlide = window.frameElement.closest(".slide");
+    if (parentSlide) new MutationObserver(function() {
+      if (!parentSlide.classList.contains("is-active")) {
+        if (media) media.pause();
+        if (window.parent.document.activeElement === window.frameElement) {
+          window.frameElement.blur();
+          window.parent.focus();
+        }
+      }
+    }).observe(parentSlide, {attributes:true, attributeFilter:["class"]});
+  }
+  boot();
+})();
+</script></body></html>

@@ -105,10 +105,13 @@ Pages 루트는 `/` 가 아니라 `/lecture/` 다. 생성물에서 `/assets/...`
    중간물을 이 저장소에 넣지 않는다. 공개 영상은 YouTube 임베드로만 참조한다.
    **2026-09-05 사용자 승인 예외:**
    `html/coding-agent-quant/02-quant-notebook-and-data/01-notebook-table-reading/assets/media/`
-   아래 리포트용 편집 MP4 여섯 개와 한국어 안내 VTT·포스터를 직접 제공한다. 파일 이름은
+   아래 입문 리포트·발표자료용 MP4 일곱 개, 기존 URL 보존용 여섯 개, 한국어 안내
+   VTT·포스터를 직접 제공한다. 파일 이름은
    `stored-output-nameerror`, `table-index-and-date`, `recover-cell-order`, `restart-run-all`,
-   `duplicate-is-still-sorted`, `string-date-cannot-check`다. 클립별 30초·10 MiB 이내로
-   정본의 해시 검증을 통과해야 한다. 해당 차시의 `report` 단계에만 적용하며 원본 녹화나
+   `duplicate-is-still-sorted`, `string-date-cannot-check`, `intro-codex-create`,
+   `intro-kernel-hello`, `intro-edit-rerun`, `intro-csv-preview`, `intro-nameerror`,
+   `intro-codex-recovery`, `intro-restart-run-all`이다. 클립별 30초·10 MiB 이내로
+   정본의 해시 검증을 통과해야 한다. 해당 차시의 `report`와 사용자가 요청한 `slides` 단계에만 적용하며 원본 녹화나
    완성 강의 영상이 공개된 것으로 표시하지 않는다.
 5. **사내 색 토큰 `#A50034` · `#6E0022` 을 어떤 파일에도 남기지 않는다.** 사내 트랙에서
    온 원자료는 옮기기 전에 전수 치환한다.

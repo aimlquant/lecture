@@ -1,85 +1,107 @@
-# 과정 2 영상 1 · 실습 시작 안내
+# Codex와 시작하는 주피터 노트북 · 실습 시작 안내
 
-저장된 출력과 현재 커널을 구분하고, 가격표의 구조를 확인하는 실습입니다.
-과정 1에서 준비한 VS Code·Python·Jupyter 환경을 사용합니다.
+## 처음 준비할 것
 
-## 파일 배치
+과정 1에서 설치한 VS Code, Python, Python 확장, Jupyter 확장과 로그인된 Codex CLI를 사용합니다.
+처음 실행하는 환경이라면 과정 1의 설치 실습을 먼저 마치세요. Python 문법을 외울 필요는 없습니다.
+
+1. `notebook-intro-starter.zip`을 내려받아 압축을 풉니다.
+2. VS Code의 파일 → 폴더 열기로 `course-02-practice` 폴더를 엽니다.
+3. 압축을 풀었을 때의 배치는 아래와 같습니다. notebooks 폴더는 비어 있습니다.
 
 ```text
 course-02-practice/
-├── data/
-│   └── kodex200-price-fixture.csv
-├── metadata/
-│   └── kodex200-price-fixture.metadata.json
+├── data/kodex200-price-fixture.csv
 ├── notebooks/
-│   ├── notebook-table-reading.ipynb
-│   └── table-check-cases.ipynb
+├── 만들기-요청.txt
+├── 복구-요청.txt
 ├── requirements.txt
-├── experiment-results.csv
 └── README.md
 ```
 
-VS Code에서 `course-02-practice` 폴더를 엽니다. 과정 1에서 만든 가상 환경을
-사용하거나 이 폴더에 `.venv`를 준비하고, 해당 환경의 터미널에서 패키지를 설치합니다.
+이번 검증 환경: Linux, VS Code 1.135.0, Codex CLI 0.153.3, Python 3.13.5,
+pandas 2.3.3, ipykernel 7.3.0, Python 확장 2026.4.0, Jupyter 확장 2025.9.1.
+운영체제에 따라 버튼 위치와 메뉴 번역은 조금 다를 수 있습니다.
 
-```bash
+## Python 환경이 아직 없을 때
+
+VS Code 명령 팔레트에서 `Python: Create Environment` → `Venv` → 설치된 Python을 고릅니다.
+패키지 목록으로 이 폴더의 `requirements.txt`를 선택합니다. 과정 1에서 이미 만든 환경이 있으면
+그 환경을 사용해도 됩니다. 터미널 메뉴 → 새 터미널에서 아래 명령으로 필요한 패키지를 설치할 수도 있습니다.
+
+```text
 python -m pip install -r requirements.txt
 ```
 
-검증한 버전은 Python 3.13.5, pandas 2.3.3, ipykernel 7.3.0입니다.
-노트북 오른쪽 위의 커널 선택에서 이 패키지를 설치한 Python 환경을 고릅니다.
-기존 가상 환경을 사용할 경우 먼저 그 환경의 버전과 패키지 구성을 확인합니다.
-실습 실행 중에는 가격 다운로드나 API 키가 필요하지 않습니다.
+이 명령은 해당 터미널에서 선택한 Python에 설치합니다. 노트북에서도 같은 환경을 커널로 고릅니다.
 
-## 먼저 주 실습을 실행합니다
+## 1. Codex로 노트북 만들기
 
-1. `notebook-table-reading.ipynb`를 엽니다. 저장된 표는 이전 출력입니다.
-2. 커널을 선택한 뒤 **Restart**로 재시작하고 확인합니다.
-3. 두 번째 코드 셀 `display(prices.head(4))`만 실행합니다.
-4. `NameError: name 'prices' is not defined`를 확인합니다.
-5. 첫 코드 셀에서 CSV를 읽고, 두 번째 셀을 다시 실행합니다.
-6. 세 번째 코드 셀에서 표 구조 점검표를 확인합니다.
-7. 다시 **Restart → Run All**을 수행하고 결과를 확인한 뒤 저장합니다.
+`만들기-요청.txt`를 열어 요청 내용을 읽습니다. 파일 이름, 코드 셀 네 개, 출력은 비우기라는 조건을 확인합니다.
+VS Code의 터미널 메뉴 → 새 터미널에서 아래 명령을 실행합니다. 현재 폴더가 `course-02-practice`인지 확인합니다.
 
-셀 입력이 접혀 있으면 셀의 짧은 코드 미리 보기를 두 번 눌러 펼칠 수 있습니다.
-처음부터 정상 실행만 확인하려면 3~6을 건너뛰고 재시작 후 전체 실행을 합니다.
+```text
+codex exec --skip-git-repo-check --sandbox workspace-write - < 만들기-요청.txt
+```
 
-## 기대 결과
+위의 `<` 명령은 Bash·zsh용입니다. Windows PowerShell에서는 아래를 사용합니다.
 
-| 항목 | 이 파일의 기대 상태 |
-|---|---|
-| 행 × 열 | 12 × 7 |
-| 열 이름 | Date, Open, High, Low, Close, Volume, Change |
-| 인덱스 | 0부터 시작하는 기본 RangeIndex |
-| Date 자료형 | datetime64[ns] |
-| 전체 결측 | 0개 |
-| 중복 날짜 | 0개 |
-| 날짜 정렬 | 오름차순 |
-| 날짜 범위 | 2024-01-02 ~ 2024-01-17 |
+```powershell
+Get-Content -Raw -Encoding UTF8 .\만들기-요청.txt | codex exec --skip-git-repo-check --sandbox workspace-write -
+```
 
-새 커널의 코드 셀 세 개가 정상 완료되고 마지막에 **표 구조 점검 통과**가 나와야 합니다.
-이 결과는 표 구조와 실행 재현을 확인합니다. 가격의 정확성이나 백테스트 타당성을
-보장하는 기준은 아닙니다.
+`exec`는 요청 하나를 처리하고 끝내는 Codex 실행 방식입니다. `--skip-git-repo-check`는 Git 저장소가 아닌
+실습 폴더에서도 시작하게 합니다. `workspace-write`는 작업 폴더 안에서 파일을 만들게 하는 설정입니다.
+이미 Codex 대화 화면을 쓰고 있다면 같은 실습 폴더에서 요청문 전체를 붙여 넣어도 됩니다.
 
-## 변형 실험은 그다음에 합니다
+생성이 끝나면 탐색기의 `notebooks/first-jupyter-notebook.ipynb`를 클릭합니다.
+생성 결과가 매번 글자 단위로 같을 필요는 없지만, 설명 셀과 코드 셀 네 개가 있어야 합니다.
+아직 출력이 없어야 합니다. 생성이 막히면 별도 제공한 `first-jupyter-notebook.ipynb`를 notebooks 폴더에 넣어 실행부터 따라갈 수 있습니다.
 
-`table-check-cases.ipynb`를 같은 `notebooks/`에 놓고 커널을 선택합니다.
-첫 코드 셀로 실험을 준비한 뒤 각 사례의 결과를 예상하고 실행합니다.
-각 사례는 정상 원본의 복사본을 사용하며 CSV 원본을 덮어쓰지 않습니다.
+## 2. 커널 선택과 첫 실행
 
-- 결측·중복·행 순서·날짜 자료형·깨진 날짜·필수 열·행 수·인덱스를 각각 바꿉니다.
-- **확인 필요**는 기대 조건과 다른 항목입니다.
-- **확인 불가**는 계산할 선행 조건이 없는 항목입니다.
-- 변형 실험은 예상한 문제를 찾으면 성공입니다. 안내된 RuntimeError는 보조 함수가
-  잡아서 표 아래에 표시하므로 여러 사례를 전체 실행으로 비교할 수도 있습니다.
-- `experiment-results.csv`에서 제작 실험의 관측 결과와 비교합니다.
+오른쪽 위 Select Kernel → Python Environments에서 프로젝트의 `.venv`를 선택합니다.
+커널은 노트북의 Python 코드를 실행하는 프로그램입니다. 선택 목록에서 환경의 이름과 경로를 확인합니다.
+첫 코드 셀 왼쪽 ▶를 누릅니다. 셀 아래에 `첫 주피터 노트북 실행에 성공했습니다.`가 나타나야 합니다.
+설명 셀은 읽고, 코드 셀은 실행합니다. 코드 셀에서 Shift+Enter로 실행하고 다음 셀로 이동할 수도 있습니다.
 
-## 막혔을 때
+## 3. 네 셀을 순서대로 실행
 
-- **파일을 찾을 수 없음:** CSV가 `data/`, 노트북이 `notebooks/`에 있는지 확인합니다.
-- **pandas를 불러올 수 없음:** 노트북이 패키지를 설치한 환경을 선택했는지 확인합니다.
-- **NameError:** 메시지의 정확한 이름, 그 이름을 만드는 앞 셀의 성공 여부, 철자를 확인합니다.
-- **Date 관련 ValueError:** CSV 열 이름과 제공한 원본 파일이 같은지 확인합니다.
-- **점검 실패:** 통과 문구 대신 항목별 결과를 읽고, 정상 원본으로 돌아가 다시 실행합니다.
+1. 인사말 출력 → 성공 문장
+2. 가격 입력 → 기준가격 100, 비교가격 105 (학습용 가상 가격)
+3. 변화율 계산 → `가격 변화: 5.0%`
+4. CSV 읽기 → `전체 행 수: 12, 전체 열 수: 7`, Date·Close 두 열의 첫 네 행
 
-입력의 유래·발췌 범위·SHA-256은 `metadata/kodex200-price-fixture.metadata.json`에 있습니다.
+네 번째 셀의 첫 행: 인덱스 0, Date 2024-01-02, Close 34541.
+표는 전체 12행이지만 화면에는 앞 네 행과 두 열만 표시합니다. CSV의 내용을 바꾸지 않습니다.
+
+## 4. 숫자 수정과 재실행
+
+두 번째 코드 셀의 비교가격만 105에서 103으로 고칩니다. 바로 밑 출력은 아직 105일 수 있습니다.
+두 번째 코드 셀을 실행하고, 세 번째 코드 셀도 실행합니다. `가격 변화: 3.0%`가 나타나야 합니다.
+비교 답안 노트북은 기본값 105의 결과를 담고 있습니다. 따라서 수정 실습의 3.0%와 값이 다릅니다.
+
+## 5. 오류를 Codex와 읽기
+
+Restart로 커널을 재시작한 뒤 세 번째 코드 셀부터 실행해 봅니다.
+`NameError: name '비교가격' is not defined`가 예상된 오류입니다. 앞 셀을 실행하지 않아 값이 없습니다.
+`복구-요청.txt`에는 실패한 코드, 오류 마지막 줄, 직전 행동이 함께 들어 있습니다.
+
+```text
+codex exec --skip-git-repo-check --sandbox read-only - < 복구-요청.txt
+```
+
+PowerShell에서는 앞의 예처럼 Get-Content로 요청문을 전달합니다. Codex의 설명을 읽고,
+가격 입력 셀 → 변화율 셀 순서로 직접 실행해 3.0%를 확인합니다. 제공한 복구 답변 파일은 이번 실제 응답입니다.
+
+## 6. 마무리
+
+Restart → Run All → 마지막 표 확인 → 저장 순서로 마칩니다. 코드 셀의 실행 번호는 1, 2, 3, 4입니다.
+이미 표시된 출력이 있어도 커널 재시작 뒤 변수까지 되살아나는 것은 아닙니다.
+답안은 정답 확인용입니다. 자신의 노트북을 새 커널에서 다시 실행해 보세요.
+
+## 추가 실습
+
+notebook-table-reading.ipynb와 table-check-cases.ipynb는 표의 여덟 항목 점검용입니다.
+입문 실습을 마친 뒤 선택해서 사용하며 두 파일도 notebooks 폴더에 놓습니다.
+메타데이터와 기존 experiment-results.csv는 이 추가 실습을 위한 자료입니다.
