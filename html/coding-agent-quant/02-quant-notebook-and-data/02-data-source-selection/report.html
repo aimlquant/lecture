@@ -49,6 +49,7 @@
 <p>이번 실습에서는 코딩 에이전트가 만든 노트북으로 KODEX 200의 일별 가격을 조회했다. 2024년 1월 2일부터 17일까지 <strong>12행·7열</strong>을 받았고, 파일명을 일부러 잘못 쓴 오류를 관찰한 뒤 수정했다. 커널을 재시작하고 저장본으로 다시 실행해 같은 입력인지도 확인했다. 이 리포트의 실습 화면은 2026년 9월 6일 실제 실행 녹화에서 뽑았다.</p>
 <p>완료하면 가격표 한 장과 <strong>데이터 출처 선택표</strong>가 남는다. 선택표에는 어디서 받았는지뿐 아니라, 어떤 접근 조건을 확인했고 어떤 대조를 아직 하지 못했는지도 적는다. 재무제표와 금리는 같은 선택 기준을 적용해 찾을 곳을 정한다.</p>
 <div class="callout--insight"><span class="callout__kicker">읽기 포인트</span><div class="callout__body"><p><strong>실습 파일 안내:</strong> 맨 아래 <a href="#downloads">실습 파일 내려받기</a>에서 시작 묶음 ZIP, 한국어 요청문, 노트북, 가격 CSV, 메타데이터와 실험 결과를 받을 수 있다. 처음 따라 한다면 <strong>시작 묶음 ZIP</strong>부터 받는다. 본문의 실제 화면은 그림의 확대 버튼으로 자세히 볼 수 있다.</p></div></div>
+<p>실습 설명 옆에 실제 녹화를 편집한 <strong>무음 영상 여섯 개</strong>가 있습니다. 재생 버튼을 누르면 한국어 안내와 함께 볼 수 있고, 필요한 부분은 전체 화면으로 확대하거나 MP4·자막을 내려받을 수 있습니다. 대기·화면 이동을 생략한 곳과 정지 화면은 영상 안에 표시했습니다.</p>
 <h2>시작 전에 준비할 것</h2>
 <p>과정 1과 <a href="../01-notebook-table-reading/report.html">과정 2 영상 1의 주피터 노트북 실습</a>에서 사용한 VS Code·Python·Jupyter 환경을 이어 쓴다. <strong>코딩 에이전트</strong>는 현재 작업 폴더에서 파일을 만들고 수정할 수 있는 도구를 사용한다. 이 녹화에서는 Codex CLI를 사용했지만, 이 차시가 요구하는 작업은 한국어 요청을 받아 표준 <code>.ipynb</code> 파일을 만들고 수정하는 것이다.</p>
 <p>같은 폴더를 여는 방식이나 실행 권한을 확인하는 화면은 제품에 따라 다를 수 있다. 사용하는 도구에서 <strong>현재 작업 폴더, 만들 파일, 실행할 명령</strong>을 확인한다. 실제로 검증한 환경은 VS Code 1.135.0, Jupyter 확장 2025.9.1, Python 3.12.3, Codex CLI 0.153.3이다. Claude Code에서의 실행 검증은 이번 기록에 포함하지 않았다.</p>
@@ -168,6 +169,16 @@ FinanceDataReader의 NAVER:069500 경로를 명시하고,
 </code></pre>
 <p>에이전트가 파일을 만들었다는 답변 뒤에는 실제 파일을 연다. 설명 셀에 대상과 요청 기간이 있는지, <code>MODE</code>가 <code>"조회"</code>인지, 수집 경로가 <code>NAVER:069500</code>인지 확인한다. 이 실습의 마지막 셀에는 <strong>파일명을 일부러 잘못 쓴 오류 연습</strong>이 있다. 예고된 오류와 예상하지 못한 수집 실패를 구분하기 위해서다.</p>
 <figure class="report-figure" id="fig-3"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 3</span><span class="asset-caption__title">에이전트가 만든 파일을 VS Code에서 열어 실행한다. 위쪽 Run All과 오른쪽 Python 커널은 영상 1에서 사용한 것과 같은 역할이다.</span></figcaption><img alt="VS Code에서 코딩 에이전트가 만든 투자 데이터 출처 선택 노트북을 열고 커널과 Run All을 확인한 실제 화면" src="assets/figs/notebook-open.webp"></figure>
+<div class="experiment-video" role="group" aria-label="실습 영상 1: 만든 노트북을 열고 실행한다">
+<video controls playsinline preload="none" poster="assets/media/source-notebook-run.webp" aria-label="만든 노트북을 열고 실행한다, 20초, 한국어 안내, 무음">
+<source src="assets/media/source-notebook-run.mp4" type="video/mp4">
+<track kind="captions" src="assets/media/source-notebook-run.ko.vtt" srclang="ko" label="한국어 실습 안내">
+동영상을 재생할 수 없으면 아래 MP4 파일을 내려받아 확인하세요.
+</video>
+<p class="experiment-video__caption">실습 영상 1 · 만든 노트북을 열고 실행한다 · 20초</p>
+<p class="experiment-video__download">한국어 안내 · 무음 · <a href="assets/media/source-notebook-run.mp4" download="source-notebook-run.mp4">MP4 내려받기</a> · <a href="assets/media/source-notebook-run.ko.vtt" download="source-notebook-run.ko.vtt">안내 자막 내려받기</a></p>
+</div>
+
 <p>이번 파일은 준비·출처 설정·조회/저장본 선택·표 확인·값 하나 확인·출처 선택표·실행 기록·오류 연습 순서로 구성됐다. 처음부터 긴 코드를 모두 이해할 필요는 없다. 설명을 읽고 실행한 뒤, <strong>무슨 파일이 생겼고 어떤 결과가 나왔는지</strong>를 먼저 확인한다.</p>
 <hr>
     </section>
@@ -183,6 +194,16 @@ FinanceDataReader의 NAVER:069500 경로를 명시하고,
 </code></pre>
 <p><strong>실제 실행 결과는 12행·7열</strong>이었다. FinanceDataReader가 처음 돌려준 표에서는 날짜가 왼쪽 인덱스에 있고 값 열은 여섯 개다. <code>reset_index()</code>로 날짜를 <code>Date</code> 열로 옮기면 일곱 열이 된다. 행이나 가격이 추가된 것이 아니라 날짜의 자리가 바뀐 것이다.</p>
 <figure class="report-figure" id="fig-4"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 4</span><span class="asset-caption__title">받은 표에서 확인한 구조와 기간. 12행은 이번 고정 기간의 관측값이며 모든 거래일이 빠짐없이 있다는 보증은 아니다.</span></figcaption><img alt="실제 조회 뒤 12행 7열, 시작일과 종료일, 열 이름, 열별 빈 값 수, 중복 날짜 수와 정렬 여부를 출력한 노트북 화면" src="assets/figs/table-check.webp"></figure>
+<div class="experiment-video" role="group" aria-label="실습 영상 2: 받은 표의 기간과 행·열을 확인한다">
+<video controls playsinline preload="none" poster="assets/media/source-table-check.webp" aria-label="받은 표의 기간과 행·열을 확인한다, 18초, 한국어 안내, 무음">
+<source src="assets/media/source-table-check.mp4" type="video/mp4">
+<track kind="captions" src="assets/media/source-table-check.ko.vtt" srclang="ko" label="한국어 실습 안내">
+동영상을 재생할 수 없으면 아래 MP4 파일을 내려받아 확인하세요.
+</video>
+<p class="experiment-video__caption">실습 영상 2 · 받은 표의 기간과 행·열을 확인한다 · 18초</p>
+<p class="experiment-video__download">한국어 안내 · 무음 · <a href="assets/media/source-table-check.mp4" download="source-table-check.mp4">MP4 내려받기</a> · <a href="assets/media/source-table-check.ko.vtt" download="source-table-check.ko.vtt">안내 자막 내려받기</a></p>
+</div>
+
 <table class="cmp-table" id="table-3"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 3</span><span class="asset-caption__title">2026년 9월 6일 실제 조회에서 확인한 항목</span></div></caption>
 <thead>
 <tr>
@@ -234,6 +255,16 @@ FinanceDataReader의 NAVER:069500 경로를 명시하고,
 <p>표의 구조를 확인한 다음에는 실제 값 하나를 읽는다. 이 실행에서 <strong>2024년 1월 2일의 <code>Close</code>는 34,541</strong>이었다. 정확한 설명은 “2026년 9월 6일 네이버 경로에서 받은 표에 그 날짜의 Close가 34,541로 들어 있었다”이다. 현재 가격이나 투자 판단을 제시하는 숫자가 아니다.</p>
 <p>노트북은 값 바로 아래에 <strong>공식 가격 대조: 보류</strong>라고 출력한다. 조회가 성공했지만 같은 날짜·같은 가격 정의의 공식 원본을 확보하지 못했기 때문이다. KRX의 공식 API 안내를 읽었다는 사실과 실제 가격을 호출해 대조했다는 사실을 나누어 기록한다.</p>
 <figure class="report-figure" id="fig-5"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 5</span><span class="asset-caption__title">값 조회와 공식 대조의 상태를 함께 읽는다. 이 화면은 저장본 재실행에서 같은 값과 보류 사유가 유지된 장면이다.</span></figcaption><img alt="2024년 1월 2일 Close 34541과 공식 가격 대조 보류 상태가 같은 출력에 표시된 실제 화면" src="assets/figs/price-value.webp"></figure>
+<div class="experiment-video" role="group" aria-label="실습 영상 3: 종가 하나와 검증 상태를 함께 읽는다">
+<video controls playsinline preload="none" poster="assets/media/source-price-check.webp" aria-label="종가 하나와 검증 상태를 함께 읽는다, 16초, 한국어 안내, 무음">
+<source src="assets/media/source-price-check.mp4" type="video/mp4">
+<track kind="captions" src="assets/media/source-price-check.ko.vtt" srclang="ko" label="한국어 실습 안내">
+동영상을 재생할 수 없으면 아래 MP4 파일을 내려받아 확인하세요.
+</video>
+<p class="experiment-video__caption">실습 영상 3 · 종가 하나와 검증 상태를 함께 읽는다 · 16초</p>
+<p class="experiment-video__download">한국어 안내 · 무음 · <a href="assets/media/source-price-check.mp4" download="source-price-check.mp4">MP4 내려받기</a> · <a href="assets/media/source-price-check.ko.vtt" download="source-price-check.ko.vtt">안내 자막 내려받기</a></p>
+</div>
+
 <p>공식 원본을 구했더라도 숫자를 비교하기 전에 조건을 맞춰야 한다. 종목은 같아도 날짜가 다를 수 있고, 같은 날의 ETF 자료에도 거래 가격과 <strong>NAV</strong>가 함께 있을 수 있다. NAV는 펀드의 순자산가치에 관한 값이므로 거래소에서 체결된 종가와 곧바로 같은 것으로 취급하지 않는다. 원가격과 조정된 가격인지도 확인해야 한다.</p>
 <table class="cmp-table" id="table-4"><caption class="cmp-table__caption asset-caption asset-caption--table"><div class="asset-caption__inner"><span class="asset-caption__chip">표 4</span><span class="asset-caption__title">가격 한 값을 대조하기 전에 맞출 조건</span></div></caption>
 <thead>
@@ -334,6 +365,16 @@ FinanceDataReader의 NAVER:069500 경로를 명시하고,
 <h2>일부러 만든 오류를 먼저 읽는다</h2>
 <p>첫 노트북의 마지막 셀은 <code>data/price-snapsho.csv</code>를 읽도록 되어 있다. 올바른 파일명 <code>price-snapshot.csv</code>에서 마지막 <code>t</code>를 뺀 것이다. 셀을 실행하면 <strong>FileNotFoundError</strong>가 출력됐다. “지정한 경로에서 파일을 찾지 못했다”는 뜻이다. 이 셀은 오류를 잡아 이름과 상대 경로만 보여 주므로 앞선 조회 결과는 유지된다.</p>
 <figure class="report-figure" id="fig-6"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 6</span><span class="asset-caption__title">파일명 오류를 의도적으로 만든 실험. 네트워크 조회가 실패한 장면과 구분해서 읽는다.</span></figcaption><img alt="잘못된 상대 파일명 price-snapsho.csv와 FileNotFoundError를 출력하고 앞선 조회 결과가 보존됐다고 알리는 실제 화면" src="assets/figs/intentional-error.webp"></figure>
+<div class="experiment-video" role="group" aria-label="실습 영상 4: 파일을 찾지 못한 이유를 읽는다">
+<video controls playsinline preload="none" poster="assets/media/source-file-error.webp" aria-label="파일을 찾지 못한 이유를 읽는다, 18초, 한국어 안내, 무음">
+<source src="assets/media/source-file-error.mp4" type="video/mp4">
+<track kind="captions" src="assets/media/source-file-error.ko.vtt" srclang="ko" label="한국어 실습 안내">
+동영상을 재생할 수 없으면 아래 MP4 파일을 내려받아 확인하세요.
+</video>
+<p class="experiment-video__caption">실습 영상 4 · 파일을 찾지 못한 이유를 읽는다 · 18초</p>
+<p class="experiment-video__download">한국어 안내 · 무음 · <a href="assets/media/source-file-error.mp4" download="source-file-error.mp4">MP4 내려받기</a> · <a href="assets/media/source-file-error.ko.vtt" download="source-file-error.ko.vtt">안내 자막 내려받기</a></p>
+</div>
+
 <p>이때 에이전트에 “알아서 고쳐 줘”라고만 요청하면 비슷한 새 파일을 만들거나 다른 경로를 읽게 할 수 있다. 우리가 원하는 복구는 <strong>실제 파일 이름을 확인하고 그 파일을 읽도록 고치는 것</strong>이다. 입력의 내용을 바꾸는 작업은 필요하지 않다.</p>
 <p>다음은 실제 <a href="assets/downloads/복구-요청.txt" download="복구-요청.txt">복구-요청.txt</a>의 주요 요구다. 전체 문구에는 준비 셀을 저장본 모드로 바꾸고 기존 출력에 관한 설명을 고치는 요청도 들어 있다.</p>
 <pre><code class="language-text">마지막 셀의 FileNotFoundError는 파일명 오류를 의도적으로 만든 실험입니다.
@@ -346,10 +387,30 @@ data/price-snapsho.csv를 data/price-snapshot.csv로 고쳐 주세요.
 </code></pre>
 <p>에이전트는 실제 파일명을 확인하고 마지막 셀을 수정했다. 답변에서는 <strong>코드를 아직 실행하지 않았고 해시 일치도 실행으로 확인하지 않았다</strong>고 구분했다. 이 답변을 읽는 데서 멈추지 않고, 수정된 파일을 열어 실행한다.</p>
 <figure class="report-figure" id="fig-7"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 7</span><span class="asset-caption__title">실제 수정 응답. 파일 수정 완료와 수정한 코드의 실행 확인은 다른 단계다.</span></figcaption><img alt="코딩 에이전트가 파일명과 저장본 모드를 수정했으며 코드는 실행하지 않았다고 설명한 실제 응답" src="assets/figs/agent-repair.webp"></figure>
+<div class="experiment-video" role="group" aria-label="실습 영상 5: 오류와 제약을 전달하고 수정 내용을 읽는다">
+<video controls playsinline preload="none" poster="assets/media/source-agent-repair.webp" aria-label="오류와 제약을 전달하고 수정 내용을 읽는다, 20초, 한국어 안내, 무음">
+<source src="assets/media/source-agent-repair.mp4" type="video/mp4">
+<track kind="captions" src="assets/media/source-agent-repair.ko.vtt" srclang="ko" label="한국어 실습 안내">
+동영상을 재생할 수 없으면 아래 MP4 파일을 내려받아 확인하세요.
+</video>
+<p class="experiment-video__caption">실습 영상 5 · 오류와 제약을 전달하고 수정 내용을 읽는다 · 20초</p>
+<p class="experiment-video__download">한국어 안내 · 무음 · <a href="assets/media/source-agent-repair.mp4" download="source-agent-repair.mp4">MP4 내려받기</a> · <a href="assets/media/source-agent-repair.ko.vtt" download="source-agent-repair.ko.vtt">안내 자막 내려받기</a> 요청·응답을 발췌했고 읽기 위한 정지 화면을 표시했습니다.</p>
+</div>
+
 <h2>커널을 재시작하고 모두 실행한다</h2>
 <p>수정 뒤에는 <strong>커널 재시작 → 모두 실행 → 저장</strong> 순서로 확인한다. VS Code 명령 팔레트의 <code>Jupyter: Restart Kernel and Run All Cells</code>를 사용하거나, 재시작 버튼을 누른 뒤 Run All을 눌러도 된다. 커널을 재시작하면 앞서 만든 메모리의 변수가 사라지므로 파일과 코드만으로 다시 되는지 확인할 수 있다.</p>
 <p>이번 재실행에서는 “저장본 SHA-256 일치 확인 완료”, “행 수: 12”, “열 수: 7”, “첫날: 2024-01-02”, “마지막날: 2024-01-17”이 출력됐다. 원래 입력 파일은 바뀌지 않았다. 수정된 노트북과 이 출력은 답안 묶음에 함께 보존했다.</p>
 <figure class="report-figure" id="fig-8"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 8</span><span class="asset-caption__title">에이전트 수정 후 직접 실행해 확인한 결과. 조회를 새로 한 결과가 아니라 보존한 입력을 읽은 결과다.</span></figcaption><img alt="커널 재시작 후 마지막 셀에서 저장본 해시 일치와 12행 7열, 동일한 기간을 확인한 실제 출력" src="assets/figs/recovery-success.webp"></figure>
+<div class="experiment-video" role="group" aria-label="실습 영상 6: 커널을 재시작하고 저장본으로 검증한다">
+<video controls playsinline preload="none" poster="assets/media/source-restart-replay.webp" aria-label="커널을 재시작하고 저장본으로 검증한다, 22초, 한국어 안내, 무음">
+<source src="assets/media/source-restart-replay.mp4" type="video/mp4">
+<track kind="captions" src="assets/media/source-restart-replay.ko.vtt" srclang="ko" label="한국어 실습 안내">
+동영상을 재생할 수 없으면 아래 MP4 파일을 내려받아 확인하세요.
+</video>
+<p class="experiment-video__caption">실습 영상 6 · 커널을 재시작하고 저장본으로 검증한다 · 22초</p>
+<p class="experiment-video__download">한국어 안내 · 무음 · <a href="assets/media/source-restart-replay.mp4" download="source-restart-replay.mp4">MP4 내려받기</a> · <a href="assets/media/source-restart-replay.ko.vtt" download="source-restart-replay.ko.vtt">안내 자막 내려받기</a></p>
+</div>
+
 <hr>
     </section>
     <section class="report-section s8 page-break" id="s8" data-tier="deep">

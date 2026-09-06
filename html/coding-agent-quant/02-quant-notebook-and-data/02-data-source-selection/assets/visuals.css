@@ -232,3 +232,14 @@
     word-break: break-word;
   }
 }
+
+/* 과정 2 영상 1과 같은 리포트 실습 영상 컴포넌트 */
+.experiment-video { margin: 24px 0; }
+.experiment-video video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #0f172a; border: 1px solid #c7d2e1; border-radius: 10px; }
+.experiment-video__caption { font-weight: 700; line-height: 1.6; }
+.experiment-video__download { font-size: .9em; }
+@media print {
+  .experiment-video { break-inside: avoid; }
+  .experiment-video video { display: none; }
+  .experiment-video__caption::after { content: " · 온라인 리포트에서 재생"; }
+}
