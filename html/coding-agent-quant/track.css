@@ -43,6 +43,16 @@
 
 .stage .lessons { margin-top: 18px; }
 
+.course-card-art { display: block; margin: 16px 0; }
+.course-card-art img {
+  display: block;
+  width: 320px;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
 .stage .lesson-meta span {
   word-break: keep-all;
   overflow-wrap: break-word;

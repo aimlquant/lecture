@@ -30,3 +30,20 @@
 .media-video,.presentation-poster{position:absolute;inset:0;width:1920px;height:1080px;object-fit:contain;background:#fafbf9}.presentation-poster{display:none}.media-video{display:block}
 .code .cards .card{min-height:230px;padding:24px 30px}.code .cards h2{font-size:36px}.code .cards p{font-size:31px}.card p{white-space:pre-line;word-break:keep-all}
 @media print{.media-video{display:none!important}.presentation-poster{display:block!important}}
+
+.inline-flow{width:100%;height:540px;display:block}.file-row{display:contents}
+.flow .card:before,.flow .card:after{opacity:var(--edge-opacity,1)}
+.scene .note{z-index:2}.card,.lesson-code,.question-code{transition:none}
+.video .demo-top{position:absolute;left:96px;right:96px;top:25px;display:flex;justify-content:space-between;font-size:23px;color:#102e57;font-weight:700}
+.video h1{position:absolute;left:96px;right:96px;top:66px;margin:0;font-size:52px;line-height:1.25;letter-spacing:-1px;color:#102e57}
+.demo-rail{position:absolute;left:96px;right:96px;top:139px;height:52px;display:flex;align-items:center;gap:25px}.demo-badge{font-size:25px;font-weight:700;padding:8px 22px;background:#e3f1ef;border-radius:24px;color:#09696d}
+.demo-notes{position:relative;flex:1;height:48px}.demo-note{position:absolute;inset:0;margin:0;display:flex;align-items:center;font-size:30px;color:#344d60;line-height:1.4;opacity:0}
+.media-shell{position:absolute;left:192px;top:207px;width:1536px;height:864px;overflow:hidden;border-radius:16px;background:#fff;box-shadow:0 0 0 2px #bacbd0}
+.zoom-outer,.zoom-inner{position:absolute;inset:0;width:1536px;height:864px;transform-origin:50% 50%}
+.demo-media{position:absolute;inset:0;width:1536px;height:864px;object-fit:contain;display:block}
+.focus-box{position:absolute;border:4px solid #c98209;border-radius:7px;box-shadow:0 0 0 2px #fff;opacity:0;pointer-events:none}
+.demo-still{opacity:0}.presentation-replay,.replay-button{display:none}
+html[data-presentation-ready] .demo-badge{visibility:hidden}html[data-presentation-ready] .replay-button{display:block;position:absolute;left:96px;top:140px;z-index:9;font:700 25px Lecture;border:2px solid #126b6f;border-radius:10px;background:#fff;color:#126b6f;padding:8px 18px}
+.presentation-replay{position:absolute;inset:0;z-index:20;width:1920px;height:1080px;background:#fff}
+.presentation-replay video{width:1920px;height:1080px;object-fit:contain}.replay-close{position:absolute;right:25px;top:20px;z-index:21;font:700 28px Lecture;padding:10px 20px}
+@media print{.replay-button,.presentation-replay{display:none!important}}

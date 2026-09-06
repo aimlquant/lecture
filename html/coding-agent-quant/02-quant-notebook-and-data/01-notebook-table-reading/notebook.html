@@ -1,0 +1,31 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>첫 주피터 노트북 실습 · AIML Quant</title><link rel="canonical" href="https://aimlquant.github.io/lecture/coding-agent-quant/02-quant-notebook-and-data/01-notebook-table-reading/notebook.html"><link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../../../assets/site.css"></head><body><main class="shell"><div class="brand"><span class="brand-name">AIML Quant</span><span class="brand-sub">LECTURE</span></div><a class="back" href="../">← 과정 2 소개</a><h1>첫 주피터 노트북 실습</h1><p class="lead">시작 묶음으로 직접 만들어 실행한 뒤, 아래 기본값 답안과 비교하세요.</p><div class="notice"><p>답안은 기준가격 100·비교가격 105로 실행한 <strong>5.0%</strong> 결과입니다. 영상에서 103으로 수정한 뒤 재실행하면 <strong>3.0%</strong>가 됩니다. 저장된 출력은 현재 커널의 상태와 다를 수 있으므로 재시작·모두 실행으로 확인하세요.</p><p>압축을 푼 실습 폴더의 <code>notebooks/</code> 안에 노트북을 놓습니다. <code>data/</code>의 CSV와 폴더 관계를 유지하세요.</p></div><div class="actions"><a class="button" href="assets/downloads/notebook-intro-starter.zip" download>실습 시작 묶음 내려받기</a><a class="button button--secondary" href="notebook.ipynb" download="first-jupyter-notebook-answers.ipynb">실행된 답안 내려받기</a><a class="button button--secondary" href="report.html#downloads">모든 실습 파일</a><a class="button button--secondary" href="./">영상 강의 보기</a></div><section class="notice"><p class="eyebrow">설명</p><h1>처음 만드는 주피터 노트북</h1>
+<p>노트북은 설명을 읽는 <strong>설명 셀</strong>과 파이썬 명령을 실행하는 <strong>코드 셀</strong>로 이루어져 있습니다.</p>
+<p>시작하기 전에 화면 위쪽의 커널 선택 메뉴에서 <strong>Python 3</strong>를 선택하세요. 커널은 코드를 실행하고 변수의 값을 기억하는 실행 엔진입니다. 여러 환경이 보이면 수업에서 사용하는 Python 3 환경을 선택하세요.</p>
+<p>코드 셀을 선택한 뒤 <strong>셀 왼쪽의 실행 버튼(▶)</strong>을 누르면 그 셀을 실행할 수 있습니다. 실행 버튼이 보이지 않으면 셀 위에 마우스를 올려 보세요. <code>Shift + Enter</code>로 실행하고 다음 셀로 이동할 수도 있습니다.</p>
+<p>셀은 <strong>위에서 아래로 차례대로</strong> 실행하세요. 뒤쪽 셀은 앞쪽 셀에서 정한 값을 사용하기 때문입니다. 커널을 다시 시작하면 기억하던 값이 사라지므로 첫 코드 셀부터 다시 실행하세요. 이 파일은 검증 결과를 저장한 비교 답안입니다. 내 노트북을 먼저 실행한 뒤 비교하세요.</p></section><section class="notice"><p class="eyebrow">설명</p><h2>1. 첫 문장 출력하기</h2>
+<p><code>print()</code>는 괄호 안의 내용을 화면에 보여 줍니다. 아래 코드 셀 왼쪽의 실행 버튼을 누르면 셀 아래에 성공 문장이 나타납니다.</p></section><section class="notice"><p class="eyebrow">코드</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere">print(&quot;첫 주피터 노트북 실행에 성공했습니다.&quot;)
+</pre><p><strong>저장된 실행 결과</strong></p><pre style="white-space:pre-wrap;overflow-wrap:anywhere">첫 주피터 노트북 실행에 성공했습니다.
+</pre></section><section class="notice"><p class="eyebrow">설명</p><h2>2. 두 가격을 변수에 저장하기</h2>
+<p>변수는 값을 이름표에 담아 기억하는 방법입니다. <code>=</code>는 오른쪽 값을 왼쪽 이름에 저장한다는 뜻입니다.</p>
+<p>기준가격은 100, 비교가격은 105로 정합니다. 이 값은 <strong>학습용 가상 가격</strong>이며 실제 시장 가격이 아닙니다. 두 값을 저장하고 각각 출력해 봅니다.</p></section><section class="notice"><p class="eyebrow">코드</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere">기준가격 = 100
+비교가격 = 105
+print(&quot;기준가격:&quot;, 기준가격)
+print(&quot;비교가격:&quot;, 비교가격)
+</pre><p><strong>저장된 실행 결과</strong></p><pre style="white-space:pre-wrap;overflow-wrap:anywhere">기준가격: 100
+비교가격: 105
+</pre></section><section class="notice"><p class="eyebrow">설명</p><h2>3. 가격 변화율 계산하기</h2>
+<p><code>(비교가격 / 기준가격 - 1) * 100</code>으로 기준가격에 비해 가격이 몇 퍼센트 변했는지 계산하고, 결과를 <code>변화율</code>에 저장합니다.</p>
+<p>먼저 2단계 셀을 실행해야 두 가격을 사용할 수 있습니다. 출력 코드의 <code>:.1f</code>는 소수점 아래 한 자리까지 표시하라는 뜻입니다. 실행하면 <code>가격 변화: 5.0%</code> 형식으로 나타납니다.</p></section><section class="notice"><p class="eyebrow">코드</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere">변화율 = (비교가격 / 기준가격 - 1) * 100
+print(f&quot;가격 변화: {변화율:.1f}%&quot;)
+</pre><p><strong>저장된 실행 결과</strong></p><pre style="white-space:pre-wrap;overflow-wrap:anywhere">가격 변화: 5.0%
+</pre></section><section class="notice"><p class="eyebrow">설명</p><h2>4. 기존 CSV 파일을 pandas로 읽기</h2>
+<p><code>pandas</code>는 표 형태의 데이터를 다루는 도구입니다. <code>pd.read_csv()</code>로 기존 CSV를 읽어 <code>가격표</code>에 담습니다. 선택한 Python 3 환경에 pandas가 준비되어 있어야 합니다.</p>
+<p>경로 <code>../data/kodex200-price-fixture.csv</code>의 <code>..</code>는 한 단계 위 폴더를 뜻합니다. 이 노트북이 있는 <code>notebooks</code> 폴더를 기준으로, 상위 폴더의 <code>data</code> 안에 있는 파일을 읽습니다.</p>
+<p><code>shape</code>는 표 전체의 행 수와 열 수를 알려 줍니다. <code>[["Date", "Close"]]</code>로 날짜와 종가 열을 고르고, <code>head(4)</code>로 앞 네 행을 보여 줍니다. 마지막 줄의 표는 노트북에서 자동으로 표시됩니다. CSV는 읽기만 하며 변경하지 않습니다.</p></section><section class="notice"><p class="eyebrow">코드</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere">import pandas as pd
+
+가격표 = pd.read_csv(&quot;../data/kodex200-price-fixture.csv&quot;)
+print(f&quot;전체 행 수: {가격표.shape[0]}, 전체 열 수: {가격표.shape[1]}&quot;)
+가격표[[&quot;Date&quot;, &quot;Close&quot;]].head(4)
+</pre><p><strong>저장된 실행 결과</strong></p><pre style="white-space:pre-wrap;overflow-wrap:anywhere">전체 행 수: 12, 전체 열 수: 7
+
+</pre></section></main></body></html>

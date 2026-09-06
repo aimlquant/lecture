@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=1280,height=720,initial-scale=1"><title>설명은 읽고, 코드는 실행하고, 출력은 확인합니다</title><link rel="stylesheet" href="assets/shared.css"><script src="assets/gsap.min.js"></script><script>window.__timelines=window.__timelines||{};</script></head><body>
-<div id="root-s11" class="scene table" data-composition-id="slide-s11" data-duration="5" data-width="1920" data-height="1080"><div class="kicker">노트북과 데이터 문해력 · 첫 노트북을 만드는 연습</div><header class="header"><h1>설명은 읽고, 코드는 실행하고, 출력은 확인합니다</h1><p class="lead">첫 셀부터 이 세 영역을 구분해 봅니다.</p></header><main class="content"><table class="grid-table "><thead><tr><th>영역</th><th>첫 실습에서 볼 것</th><th>내가 할 일</th></tr></thead><tbody><tr><td>설명 셀</td><td>첫 문장 출력하기</td><td>안내를 먼저 읽기</td></tr><tr><td>코드 셀</td><td>print(...)</td><td>셀 왼쪽 ▶ 누르기</td></tr><tr><td>출력</td><td>성공 문장</td><td>예상한 내용과 비교</td></tr></tbody></table></main><footer class="foot"><span>과정 2 · 노트북과 데이터 문해력</span><a href="../../report.html#s2" target="_blank" rel="noopener">리포트 근거</a><span>11 / 35</span></footer></div>
-<script>(function(){var tl=gsap.timeline({paused:true});tl.fromTo("#root-s11 .content",{opacity:0.72},{opacity:1,duration:0.35,ease:"power1.out"},0.1);window.__timelines["slide-s11"]=tl;})();</script>
+<div id="root-s11" class="scene table" data-composition-id="slide-s11" data-duration="19.360000" data-width="1920" data-height="1080"><div class="kicker">노트북과 데이터 문해력 · 첫 노트북을 만드는 연습</div><header class="header"><h1>설명은 읽고, 코드는 실행하고, 출력은 확인합니다</h1><p class="lead">첫 셀부터 이 세 영역을 구분해 봅니다.</p></header><main class="content"><table class="grid-table "><thead><tr><th>영역</th><th>첫 실습에서 볼 것</th><th>내가 할 일</th></tr></thead><tbody><tr><td>설명 셀</td><td>첫 문장 출력하기</td><td>안내를 먼저 읽기</td></tr><tr><td>코드 셀</td><td>print(...)</td><td>셀 왼쪽 ▶ 누르기</td></tr><tr><td>출력</td><td>성공 문장</td><td>예상한 내용과 비교</td></tr></tbody></table></main><footer class="foot"><span>과정 2 · 노트북과 데이터 문해력</span><a href="../../report.html#s2" target="_blank" rel="noopener">리포트 근거</a><span>11 / 35</span></footer></div>
+<script>(function(){var root=document.getElementById("root-s11");var tl=gsap.timeline({paused:true});var q=function(s){return root.querySelector(s);};if(q(".header")){tl.fromTo(q(".header"),{y:14},{y:0,duration:.44,ease:"power3.out"},.08);}Array.from(root.querySelectorAll("tbody tr:nth-child(1)")).forEach(function(n){tl.fromTo(n,{backgroundColor:"#ffffff"},{backgroundColor:"#e3f1ef",duration:.4,ease:"power2.out"},3.72);});Array.from(root.querySelectorAll("tbody tr:nth-child(2)")).forEach(function(n){tl.fromTo(n,{backgroundColor:"#ffffff"},{backgroundColor:"#e3f1ef",duration:.4,ease:"power2.out"},7.1);});Array.from(root.querySelectorAll("tbody tr:nth-child(3)")).forEach(function(n){tl.fromTo(n,{backgroundColor:"#ffffff"},{backgroundColor:"#e3f1ef",duration:.4,ease:"power2.out"},11.66);});window.__timelines=window.__timelines||{};window.__timelines["slide-s11"]=tl;})();</script>
 <style id="presentation-mode">
 html, body { width:1280px !important; height:720px !important; margin:0; overflow:hidden; background:#fafaf9; }
 body > [data-composition-id] { width:1920px; height:1080px; transform:scale(0.6666666667); transform-origin:0 0; }
@@ -18,7 +18,7 @@ video:not([data-presentation-media]), audio { display:none !important; }
 (function() {
   "use strict";
   var slideId = "s11";
-  var times = [1.0];
+  var times = [3.29,6.7,11.39,15.63,19.24];
   var requested = Number(new URLSearchParams(window.location.search).get("step")) || 1;
   function clamp(step) { return Math.max(1, Math.min(times.length, Number(step) || 1)); }
   function apply(step) {
