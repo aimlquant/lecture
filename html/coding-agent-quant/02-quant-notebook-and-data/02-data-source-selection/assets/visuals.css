@@ -243,3 +243,31 @@
   .experiment-video video { display: none; }
   .experiment-video__caption::after { content: " · 온라인 리포트에서 재생"; }
 }
+
+/* 첫 EDA 인쇄본: 짧은 코드·표의 머리와 본문을 같은 지면에서 읽는다. */
+@media print {
+  .report-section pre, .report-section table, .report-section .experiment-video {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  .report-section pre, .report-section pre code {
+    white-space: pre-wrap !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+    overflow: visible !important;
+  }
+}
+@media print {
+  .report-section.s7 table.cmp-table {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  .report-section h2 {
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+}
+@media print {
+  .report-section p:has(+ pre) { break-after: avoid !important; page-break-after: avoid !important; }
+  #downloads { break-inside: avoid !important; page-break-inside: avoid !important; }
+}

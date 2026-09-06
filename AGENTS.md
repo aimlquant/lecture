@@ -117,6 +117,10 @@ Pages 루트는 `/` 가 아니라 `/lecture/` 다. 생성물에서 `/assets/...`
    `source-notebook-run`, `source-table-check`, `source-price-check`, `source-file-error`,
    `source-agent-repair`, `source-restart-replay` MP4 여섯 개와 한국어 VTT·포스터도 같은
    리포트 첨부 기준으로 제공한다. 파일별 30초·10 MiB 상한 및 정본 해시 검증을 유지한다.
+   **2026-09-07 VS Code v4 게시 요청:** 같은 차시의 `eda-agent-request`, `eda-table-read`,
+   `eda-check-data`, `eda-price-read`, `eda-volume-read`, `eda-extra-compare` MP4 여섯 개와
+   한국어 VTT·포스터도 공개 번들의 실습 첨부물로 제공한다. 기존 여섯 URL은 보존하며,
+   정본의 `experiments/vscode-v4/delivery-manifest.json`으로 같은 크기·길이·해시를 검증한다.
 5. **사내 색 토큰 `#A50034` · `#6E0022` 을 어떤 파일에도 남기지 않는다.** 사내 트랙에서
    온 원자료는 옮기기 전에 전수 치환한다.
 6. 사내 조직명·내부 제품 식별자·비공개 데모 계정을 공개 산출물에 남기지 않는다.
