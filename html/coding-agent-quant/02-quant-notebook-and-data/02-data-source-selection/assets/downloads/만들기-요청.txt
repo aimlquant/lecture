@@ -1,0 +1,17 @@
+투자 데이터를 처음 수집합니다. 이 작업 폴더에 data-source-selection.ipynb를 만들어 주세요.
+설명·주석·표 제목·마지막 답변은 한국어로 작성해 주세요. 기존 입력은 덮어쓰지 마세요.
+먼저 어떤 일을 할지 간단히 설명하고 실제 파일을 만들어 주세요. 패키지는 이미 설치되어 있으므로 설치하지 마세요.
+코드는 실행하지 말고, Python 3 커널과 빈 출력으로 저장해 주세요.
+
+노트북은 다음 흐름으로 구성해 주세요.
+1. 준비: pathlib, pandas, FinanceDataReader, json, hashlib, importlib.metadata. 버전을 출력합니다. 기본 실행 모드는 "조회"이고, 다른 선택은 "저장본"입니다.
+2. 출처: KODEX 200 종목코드 069500, 요청 기간 2024-01-02~2024-01-17입니다. FinanceDataReader는 도구이고 이번 직접 제공처는 네이버 금융, 거래 시장은 KRX입니다. 공식 KRX OPEN API를 직접 호출했다고 쓰지 마세요.
+3. 조회: fdr.DataReader("NAVER:069500", "2024-01-02", "2024-01-17").reset_index()로 받습니다. requests에 연결 10초·읽기 30초 제한을 적용하고 작업 후 원래 함수를 복원하세요. 각 실행은 outputs 아래 UUID가 붙은 새 폴더에 저장합니다. 가격 CSV와 요청·수집시각·실제 기간·제공처·버전·SHA-256을 담은 metadata.json을 저장합니다. 0행이면 실패로 기록합니다. 네트워크 실패 시 failure.json을 남기고 실제 예외명과 간결한 메시지를 보여 주세요. 가상 자료나 저장본으로 자동 전환하지 마세요. 실패 메시지에 개인 절대 경로를 넣지 마세요.
+4. 저장본 모드: data/price-snapshot.csv와 data/snapshot-metadata.json에서 파일 해시가 일치하는지 검사한 뒤 읽습니다. 언제 조회한 자료인지 보여 주고 재조회가 아님을 명시하세요. 날짜 해석과 열 이름이 조회 모드와 같아야 합니다.
+5. 표 확인: 전체 12행 7열, 첫날·마지막날, 열 이름, 빈 값 수, 중복 날짜 수, 정렬 여부를 출력하고 Date·Close·Volume 전 행을 display합니다. 행 개수는 관찰값이며 거래일 완전성 보증은 아님을 적어 주세요. 이 기간을 고정한 실습의 기대값 12행·7열과 비교하세요.
+6. 값 하나 확인: 2024-01-02 Close를 보여 주고 sources.csv에 공식 가격 대조 상태를 "보류 — 같은 날짜·가격 정의의 공식 원본 미확보"로 남깁니다. 값을 조회한 성공과 공식 대조 성공을 구분하세요. 최신 가격이나 NAV로 대신 비교하지 마세요.
+7. 출처 선택표 sources.csv를 생성: price_naver(이번 조회 경로), price_krx(회원·인증키·서비스 승인 필요, 이번 미호출), financials_dart(금융감독원 OpenDART, 기업이 제출한 재무제표, 인증키 필요·미호출), rates_ecos(한국은행 ECOS, 통계표·항목·주기·단위를 선택, 인증키 확인 후 사용·미호출). 열은 data_kind, source_owner, access_path, collector, access_status, verification_status, reuse_note, verified_on. 공식 URL은 https://openapi.krx.co.kr/contents/OPP/INFO/OPPINFO003.jsp / https://opendart.fss.or.kr/guide/main.do?apiGrpCd=DS003 / https://ecos.bok.or.kr/api/ 입니다. 가격의 collector_version도 기록해 주세요. 무료 조회와 데이터 공개 재배포 허가는 다르므로 재배포 조건을 확인했다고 쓰지 마세요.
+8. data-source-selection.md에 이번 파일·관측값·출처·보류 사유·다음 확인을 한국어로 적습니다. 결과 파일은 해당 실행 폴더 안에 저장하세요.
+9. 의도적 오류 실험: 없는 파일 data/price-snapsho.csv를 읽는 별도 셀을 맨 마지막에 둡니다. FileNotFoundError를 잡아 오류 이름과 잘못된 상대 파일명을 출력하고, 앞선 조회 결과는 보존합니다. "파일명 오류를 의도적으로 만든 실험"이라고 명시하세요. 이 셀은 이후 수정 요청에 사용합니다.
+
+모든 동작을 이 작업 폴더 안에서 수행하는 수강생 실습용으로 작성해 주세요. 단순하고 읽을 수 있는 코드가 좋습니다. API 키·계정·비밀값을 읽지 마세요.

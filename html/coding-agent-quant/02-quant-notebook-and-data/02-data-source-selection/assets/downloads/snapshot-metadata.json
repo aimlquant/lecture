@@ -1,0 +1,42 @@
+{
+  "status": "성공",
+  "mode": "조회",
+  "request": {
+    "name": "KODEX 200",
+    "symbol": "069500",
+    "reader_symbol": "NAVER:069500",
+    "start": "2024-01-02",
+    "end": "2024-01-17"
+  },
+  "started_at": "2026-09-06T01:59:56.205256+00:00",
+  "collected_at": "2026-09-06T01:59:56.271405+00:00",
+  "processed_at": "2026-09-06T01:59:56.273002+00:00",
+  "actual_period": {
+    "start": "2024-01-02",
+    "end": "2024-01-17"
+  },
+  "provider": "네이버 금융",
+  "market": "KRX",
+  "collector": "FinanceDataReader",
+  "collector_version": "0.9.202",
+  "versions": {
+    "Python": "3.12.3",
+    "pandas": "3.0.5",
+    "FinanceDataReader": "0.9.202",
+    "requests": "2.34.2"
+  },
+  "rows": 12,
+  "columns": [
+    "Date",
+    "Open",
+    "High",
+    "Low",
+    "Close",
+    "Volume",
+    "Change"
+  ],
+  "price_file": "prices.csv",
+  "sha256": "f2914729b9dfd0f7a9fd84d790f10f7c0b46038957a62d6c7bb2262c566e1dbf",
+  "snapshot_input": null,
+  "official_verification": "보류 — 같은 날짜·가격 정의의 공식 원본 미확보"
+}

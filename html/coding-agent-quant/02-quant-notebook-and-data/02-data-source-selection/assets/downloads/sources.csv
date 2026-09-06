@@ -1,0 +1,5 @@
+data_kind,source_owner,access_path,collector,access_status,verification_status,reuse_note,verified_on,collector_version
+price_naver,네이버 금융; 거래 시장 KRX,NAVER:069500; https://finance.naver.com/item/main.naver?code=069500,FinanceDataReader,조회 성공,보류 — 같은 날짜·가격 정의의 공식 원본 미확보,재배포 조건 미확인; 무료 조회와 공개 재배포 허가는 별개,,0.9.202
+price_krx,한국거래소 KRX,https://openapi.krx.co.kr/contents/OPP/INFO/OPPINFO003.jsp,미사용,회원·인증키·서비스 승인 필요; 이번 미호출,보류 — 같은 날짜·가격 정의의 공식 원본 미확보,재배포 조건 미확인; 무료 조회와 공개 재배포 허가는 별개,,해당 없음; 미호출
+financials_dart,금융감독원 OpenDART; 기업이 제출한 재무제표,https://opendart.fss.or.kr/guide/main.do?apiGrpCd=DS003,미사용,인증키 필요; 이번 미호출,미검증 — 재무제표 미수집,재배포 조건 미확인; 무료 조회와 공개 재배포 허가는 별개,,해당 없음
+rates_ecos,한국은행 ECOS,https://ecos.bok.or.kr/api/,미사용,통계표·항목·주기·단위를 선택; 인증키 확인 후 사용; 이번 미호출,미검증 — 통계 미수집,재배포 조건 미확인; 무료 조회와 공개 재배포 허가는 별개,,해당 없음
