@@ -155,3 +155,27 @@
 
 .figure picture { display: block; }
 .figure picture img { display: block; width: 100%; height: auto; }
+
+.publication-progress { display: grid; gap: 14px; margin: 18px 0; padding: 0; list-style: none; }
+.publication-progress li { display: grid; gap: 4px; }
+.publication-progress a { font-weight: 700; }
+.publication-progress span { color: var(--muted); font-size: 0.88rem; }
+
+.reference-books { margin-top: 48px; }
+.reference-books__intro, .reference-books__note { color: var(--muted); line-height: 1.8; }
+.reference-books__grid { display: grid; gap: 18px; margin: 24px 0 0; padding: 0; list-style: none; }
+.reference-book { display: flex; flex-direction: column; min-width: 0; padding: 24px; background: var(--surface); border: 1px solid var(--border); border-top: 3px solid var(--primary); border-radius: 5px; }
+.reference-book__topic { margin: 0 0 16px; color: var(--primary); font-size: 0.78rem; font-weight: 700; }
+.reference-book h3 { margin: 0; font-size: 1.18rem; line-height: 1.4; }
+.reference-book__subtitle { margin: 8px 0 0; color: var(--muted); font-size: 0.84rem; line-height: 1.5; }
+.reference-book__edition { margin: 16px 0 0; color: var(--muted); font-size: 0.78rem; }
+.reference-book__description { flex: 1; margin: 18px 0 22px; line-height: 1.8; word-break: keep-all; overflow-wrap: anywhere; }
+.reference-book__links { display: grid; gap: 10px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 0.85rem; font-weight: 650; }
+.reference-books__note { margin-top: 18px; font-size: 0.83rem; }
+@media (min-width: 1000px) {
+  .reference-books__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .reference-book__subtitle { min-height: 4.5em; }
+}
+@media (max-width: 600px) {
+  .reference-book { padding: 20px; }
+}
