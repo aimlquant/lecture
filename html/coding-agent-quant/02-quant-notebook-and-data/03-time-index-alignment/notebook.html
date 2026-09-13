@@ -1,0 +1,747 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>거래일과 공개 시각 실습 · AIML Quant</title><link rel="canonical" href="https://aimlquant.github.io/lecture/coding-agent-quant/02-quant-notebook-and-data/03-time-index-alignment/notebook.html"><link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../../../assets/site.css"><style>.notebook-cell{margin:28px 0;padding:24px;border:1px solid #dce5e1;border-radius:10px;background:#fff;min-width:0}.notebook-cell pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f4f7f6;padding:16px;border-radius:6px;font-size:14px;line-height:1.65}.notebook-cell h2{font-size:24px}.notebook-cell h3{font-size:20px}.notebook-cell figure{margin:20px 0}.notebook-cell img{display:block;max-width:100%;height:auto}.notebook-cell figcaption{font-size:14px;color:#52625b;line-height:1.6}.table-scroll{max-width:100%;overflow-x:auto}.table-scroll table{border-collapse:collapse;font-size:14px;white-space:nowrap}.table-scroll th,.table-scroll td{padding:8px 12px;border:1px solid #dce5e1;text-align:right}.table-scroll thead{background:#f4f7f6}@media(max-width:600px){.notebook-cell{padding:16px}.notebook-cell pre{padding:12px;font-size:13px}}</style></head><body><main class="shell"><div class="brand"><span class="brand-name">AIML Quant</span><span class="brand-sub">LECTURE</span></div><a class="back" href="../">← 과정 2 소개</a><h1>거래일과 공개 시각 실습</h1><p class="lead">선택한 값과 남긴 공란의 이유를 설명하는 결과표를 만들어 봅니다.</p><div class="notice"><p>시작 묶음을 풀어 VS Code에서 폴더를 열고 <code>practice-guide.md</code>를 읽습니다. <code>요청-1.txt</code>로 입력 상태와 오류 표를 만든 뒤, <code>요청-2.txt</code>로 시각 조건에 맞게 고칩니다. 원본 자료는 보존하세요.</p><p>아래는 실제 실행해 저장한 답안입니다. 먼저 직접 실행하고 선택 ID·미래 정보 0건·판단 7행·공란 사유를 비교하세요. 예제의 달력과 가격은 학습용 합성 자료입니다.</p></div><div class="actions"><a class="button" href="assets/downloads/time-alignment-starter.zip" download>실습 시작 묶음</a><a class="button button--secondary" href="assets/downloads/time-alignment-answer.zip" download>답안 묶음</a><a class="button button--secondary" href="notebook.ipynb" download="time-alignment.ipynb">실행된 노트북</a><a class="button button--secondary" href="report.html#downloads">모든 실습 파일</a><a class="button button--secondary" href="./">영상 강의 보기</a></div><section class="notebook-cell"><h2>날짜가 같으면 같은 시점의 정보일까요?</h2>
+<p>이 실습은 이 폴더의 <strong>합성 CSV 네 개</strong>만 사용합니다. 실제 시장의 휴장일이나 누락 원인을 설명하는 자료가 아닙니다.</p>
+<ol>
+<li>달력과 가격표를 비교해 주말, 설정 휴장, 거래일 행 누락, 행의 가격 빈값을 구분합니다.</li>
+<li>종목·계열·날짜만 맞추는 <strong>의도적으로 잘못된 결합</strong>을 만들고, 판단 이후에 알려진 정보가 붙었는지 확인합니다.</li>
+<li>
+<p>오전 판단에 관측 B를 사용할 수 있을지 예상과 이유를 적습니다.</p>
+</li>
+<li>
+<p>사용 가능 시각을 기준으로 올바르게 결합하고, 공개 지연 실험과 시간대 변환을 확인합니다.</p>
+</li>
+</ol>
+<p>원본 CSV는 수정하거나 빈 가격을 채우지 않습니다. 결과만 별도 CSV로 저장합니다.</p></section><section class="notebook-cell"><h3>준비: 원본 읽기</h3>
+<p>노트북이 있는 폴더에서 실행하세요. 날짜와 시각은 CSV의 한국 시간대(<code>+09:00</code>)를 유지합니다. 화면에 보이는 표만 한국어 열 이름과 짧은 시각 표기를 사용합니다.</p></section><section class="notebook-cell"><p class="eyebrow">코드</p><pre><code>from pathlib import Path
+import pandas as pd
+
+pd.set_option(&quot;display.max_columns&quot;, 10)
+pd.set_option(&quot;display.width&quot;, 100)
+pd.set_option(&quot;display.max_rows&quot;, 30)
+base = Path(&quot;.&quot;)</code></pre></section><section class="notebook-cell"><p class="eyebrow">코드</p><pre><code>calendar = pd.read_csv(base / &quot;market-calendar.csv&quot;, parse_dates=[&quot;date&quot;])
+prices = pd.read_csv(base / &quot;market-observations.csv&quot;, parse_dates=[&quot;date&quot;])
+observations = pd.read_csv(base / &quot;delayed-observations.csv&quot;)
+decisions = pd.read_csv(base / &quot;decisions.csv&quot;)</code></pre></section><section class="notebook-cell"><h3>1. 달력과 가격표의 빈자리 구분</h3>
+<p>가격표에 있는 <code>SYNTH-A</code>를 대상으로 달력의 모든 날짜를 남깁니다. 가격이 비었는지만 보면 <strong>행 자체가 없는 경우</strong>와 <strong>행은 있지만 가격이 빈 경우</strong>를 구별할 수 없습니다. 결합 표시(<code>_merge</code>)로 행 존재 여부를 따로 확인합니다.</p>
+<p>주말과 설정 휴장은 달력의 <code>is_trading_day</code>, <code>calendar_reason</code>을 근거로 구분합니다. 설정 휴장은 CSV의 ‘예제 휴장’이며 실제 공휴일로 해석하지 않습니다.</p></section><section class="notebook-cell"><p class="eyebrow">코드</p><pre><code>price_calendar = calendar.merge(
+    prices.loc[prices[&quot;symbol&quot;].eq(&quot;SYNTH-A&quot;), [&quot;date&quot;, &quot;close&quot;]],
+    on=&quot;date&quot;, how=&quot;left&quot;, indicator=True, validate=&quot;one_to_one&quot;,
+)
+price_calendar[&quot;row_present&quot;] = price_calendar[&quot;_merge&quot;].eq(&quot;both&quot;)</code></pre></section><section class="notebook-cell"><p class="eyebrow">코드</p><pre><code>def classify(row):
+    if row[&quot;is_trading_day&quot;] == 0:
+        return &quot;주말&quot; if row[&quot;calendar_reason&quot;] == &quot;주말&quot; else &quot;설정 휴장&quot;
+    if not row[&quot;row_present&quot;]:
+        return &quot;거래일 행 누락&quot;
+    if pd.isna(row[&quot;close&quot;]):
+        return &quot;행의 가격 빈값&quot;
+    return &quot;가격 있음&quot;
+
+price_calendar[&quot;구분&quot;] = price_calendar.apply(classify, axis=1)</code></pre></section><section class="notebook-cell"><h4>표 1. SYNTH-A의 달력과 가격 행 상태</h4>
+<p>‘가격 표시’의 빈값은 원본 행이 존재할 때만 가격 빈값으로 분류합니다. 행 누락과 가격 빈값의 원인은 이 파일들만으로 알 수 없습니다.</p></section><section class="notebook-cell"><p class="eyebrow">코드</p><pre><code>calendar_view = pd.DataFrame({
+    &quot;날짜&quot;: price_calendar[&quot;date&quot;].dt.strftime(&quot;%Y-%m-%d&quot;),
+    &quot;달력 근거&quot;: price_calendar[&quot;calendar_reason&quot;],
+    &quot;가격 행&quot;: price_calendar[&quot;row_present&quot;].map({True: &quot;있음&quot;, False: &quot;없음&quot;}),
+    &quot;가격 표시&quot;: price_calendar[&quot;close&quot;].map(
+        lambda value: &quot;—&quot; if pd.isna(value) else f&quot;{value:g}&quot;
+    ),
+    &quot;구분&quot;: price_calendar[&quot;구분&quot;],
+})
+display(calendar_view.style.hide(axis=&quot;index&quot;))</code></pre><p><strong>저장된 실행 결과</strong></p><div class="table-scroll" tabindex="0" role="region" aria-label="노트북 실행 결과 표">
+<table id="T_b6bed">
+  <thead>
+    <tr>
+      <th id="T_b6bed_level0_col0" class="col_heading level0 col0" >날짜</th>
+      <th id="T_b6bed_level0_col1" class="col_heading level0 col1" >달력 근거</th>
+      <th id="T_b6bed_level0_col2" class="col_heading level0 col2" >가격 행</th>
+      <th id="T_b6bed_level0_col3" class="col_heading level0 col3" >가격 표시</th>
+      <th id="T_b6bed_level0_col4" class="col_heading level0 col4" >구분</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_b6bed_row0_col0" class="data row0 col0" >2026-09-01</td>
+      <td id="T_b6bed_row0_col1" class="data row0 col1" >거래일</td>
+      <td id="T_b6bed_row0_col2" class="data row0 col2" >있음</td>
+      <td id="T_b6bed_row0_col3" class="data row0 col3" >100</td>
+      <td id="T_b6bed_row0_col4" class="data row0 col4" >가격 있음</td>
+    </tr>
+    <tr>
+      <td id="T_b6bed_row1_col0" class="data row1 col0" >2026-09-02</td>
+      <td id="T_b6bed_row1_col1" class="data row1 col1" >거래일</td>
+      <td id="T_b6bed_row1_col2" class="data row1 col2" >있음</td>
+      <td id="T_b6bed_row1_col3" class="data row1 col3" >101</td>
+      <td id="T_b6bed_row1_col4" class="data row1 col4" >가격 있음</td>
+    </tr>
+    <tr>
+      <td id="T_b6bed_row2_col0" class="data row2 col0" >2026-09-03</td>
+      <td id="T_b6bed_row2_col1" class="data row2 col1" >거래일</td>
+      <td id="T_b6bed_row2_col2" class="data row2 col2" >없음</td>
+      <td id="T_b6bed_row2_col3" class="data row2 col3" >—</td>
+      <td id="T_b6bed_row2_col4" class="data row2 col4" >거래일 행 누락</td>
+    </tr>
+    <tr>
+      <td id="T_b6bed_row3_col0" class="data row3 col0" >2026-09-04</td>
+      <td id="T_b6bed_row3_col1" class="data row3 col1" >예제 휴장</td>
+      <td id="T_b6bed_row3_col2" class="data row3 col2" >없음</td>
+      <td id="T_b6bed_row3_col3" class="data row3 col3" >—</td>
+      <td id="T_b6bed_row3_col4" class="data row3 col4" >설정 휴장</td>
+    </tr>
+    <tr>
+      <td id="T_b6bed_row4_col0" class="data row4 col0" >2026-09-05</td>
+      <td id="T_b6bed_row4_col1" class="data row4 col1" >주말</td>
+      <td id="T_b6bed_row4_col2" class="data row4 col2" >없음</td>
+      <td id="T_b6bed_row4_col3" class="data row4 col3" >—</td>
+      <td id="T_b6bed_row4_col4" class="data row4 col4" >주말</td>
+    </tr>
+    <tr>
+      <td id="T_b6bed_row5_col0" class="data row5 col0" >2026-09-06</td>
+      <td id="T_b6bed_row5_col1" class="data row5 col1" >주말</td>
+      <td id="T_b6bed_row5_col2" class="data row5 col2" >없음</td>
+      <td id="T_b6bed_row5_col3" class="data row5 col3" >—</td>
+      <td id="T_b6bed_row5_col4" class="data row5 col4" >주말</td>
+    </tr>
+    <tr>
+      <td id="T_b6bed_row6_col0" class="data row6 col0" >2026-09-07</td>
+      <td id="T_b6bed_row6_col1" class="data row6 col1" >거래일</td>
+      <td id="T_b6bed_row6_col2" class="data row6 col2" >있음</td>
+      <td id="T_b6bed_row6_col3" class="data row6 col3" >106</td>
+      <td id="T_b6bed_row6_col4" class="data row6 col4" >가격 있음</td>
+    </tr>
+    <tr>
+      <td id="T_b6bed_row7_col0" class="data row7 col0" >2026-09-08</td>
+      <td id="T_b6bed_row7_col1" class="data row7 col1" >거래일</td>
+      <td id="T_b6bed_row7_col2" class="data row7 col2" >있음</td>
+      <td id="T_b6bed_row7_col3" class="data row7 col3" >107</td>
+      <td id="T_b6bed_row7_col4" class="data row7 col4" >가격 있음</td>
+    </tr>
+    <tr>
+      <td id="T_b6bed_row8_col0" class="data row8 col0" >2026-09-09</td>
+      <td id="T_b6bed_row8_col1" class="data row8 col1" >거래일</td>
+      <td id="T_b6bed_row8_col2" class="data row8 col2" >있음</td>
+      <td id="T_b6bed_row8_col3" class="data row8 col3" >—</td>
+      <td id="T_b6bed_row8_col4" class="data row8 col4" >행의 가격 빈값</td>
+    </tr>
+    <tr>
+      <td id="T_b6bed_row9_col0" class="data row9 col0" >2026-09-10</td>
+      <td id="T_b6bed_row9_col1" class="data row9 col1" >거래일</td>
+      <td id="T_b6bed_row9_col2" class="data row9 col2" >있음</td>
+      <td id="T_b6bed_row9_col3" class="data row9 col3" >109</td>
+      <td id="T_b6bed_row9_col4" class="data row9 col4" >가격 있음</td>
+    </tr>
+    <tr>
+      <td id="T_b6bed_row10_col0" class="data row10 col0" >2026-09-11</td>
+      <td id="T_b6bed_row10_col1" class="data row10 col1" >거래일</td>
+      <td id="T_b6bed_row10_col2" class="data row10 col2" >있음</td>
+      <td id="T_b6bed_row10_col3" class="data row10 col3" >110</td>
+      <td id="T_b6bed_row10_col4" class="data row10 col4" >가격 있음</td>
+    </tr>
+    <tr>
+      <td id="T_b6bed_row11_col0" class="data row11 col0" >2026-09-12</td>
+      <td id="T_b6bed_row11_col1" class="data row11 col1" >주말</td>
+      <td id="T_b6bed_row11_col2" class="data row11 col2" >없음</td>
+      <td id="T_b6bed_row11_col3" class="data row11 col3" >—</td>
+      <td id="T_b6bed_row11_col4" class="data row11 col4" >주말</td>
+    </tr>
+    <tr>
+      <td id="T_b6bed_row12_col0" class="data row12 col0" >2026-09-13</td>
+      <td id="T_b6bed_row12_col1" class="data row12 col1" >주말</td>
+      <td id="T_b6bed_row12_col2" class="data row12 col2" >없음</td>
+      <td id="T_b6bed_row12_col3" class="data row12 col3" >—</td>
+      <td id="T_b6bed_row12_col4" class="data row12 col4" >주말</td>
+    </tr>
+    <tr>
+      <td id="T_b6bed_row13_col0" class="data row13 col0" >2026-09-14</td>
+      <td id="T_b6bed_row13_col1" class="data row13 col1" >거래일</td>
+      <td id="T_b6bed_row13_col2" class="data row13 col2" >있음</td>
+      <td id="T_b6bed_row13_col3" class="data row13 col3" >113</td>
+      <td id="T_b6bed_row13_col4" class="data row13 col4" >가격 있음</td>
+    </tr>
+  </tbody>
+</table>
+</div></section><section class="notebook-cell"><h3>2. 의도적으로 잘못된 결합: 종목·계열·날짜만 일치시키기</h3>
+<p><code>observed_at</code>은 관측 시각, <code>published_at</code>은 공개 시각, <code>known_at</code>은 알려진 시각, <code>retrieved_at</code>은 가져온 시각입니다. <code>decision_at</code>은 판단 시각입니다. 이 실습에서는 <strong>알려진 시각이 판단 시각보다 늦은지</strong>를 검사합니다. <code>known_at</code>이 비어 있으면 가용 여부를 확정하지 않습니다.</p>
+<p>잘못된 예에서는 판단 시각의 날짜를 관측 날짜에 맞춥니다. 종목과 계열도 같아야 하지만, 날짜 안의 시간 순서는 결합 조건에서 무시합니다. 아래 코드는 잘못된 결과를 관찰하기 위한 것으로 실제 분석에 사용하면 안 됩니다.</p></section><section class="notebook-cell"><p class="eyebrow">코드</p><pre><code># 원본 문자열에서 시간대 유무부터 검사합니다. UTC 변환으로 시간대를 추정하지 않습니다.
+TIME_COLUMNS = [&quot;observed_at&quot;, &quot;published_at&quot;, &quot;known_at&quot;, &quot;retrieved_at&quot;]
+
+def checked_times(frame, columns, id_column):
+    result = frame.copy(deep=True)
+    for column in columns:
+        converted = []
+        for row_id, value in zip(result[id_column], result[column]):
+            if pd.isna(value) or str(value).strip() == &quot;&quot;:
+                converted.append(pd.NaT)
+                continue
+            try:
+                stamp = pd.Timestamp(value)
+            except (ValueError, TypeError) as exc:
+                raise ValueError(f&quot;{row_id}: {column} 시각 형식 오류&quot;) from exc
+            if pd.isna(stamp) or stamp.tzinfo is None or stamp.utcoffset() is None:
+                raise ValueError(f&quot;{row_id}: {column} 시간대 없는 시각 또는 잘못된 시각&quot;)
+            converted.append(stamp.tz_convert(&quot;UTC&quot;))
+        result[column] = pd.Series(converted, index=result.index, dtype=&quot;datetime64[ns, UTC]&quot;)
+    return result
+
+def validate_inputs(observation_input, decision_input):
+    obs = checked_times(observation_input, TIME_COLUMNS, &quot;observation_id&quot;)
+    dec = checked_times(decision_input, [&quot;decision_at&quot;], &quot;decision_id&quot;)
+    for frame, id_column in [(obs, &quot;observation_id&quot;), (dec, &quot;decision_id&quot;)]:
+        if frame[[id_column, &quot;symbol&quot;, &quot;series&quot;]].isna().any().any():
+            raise ValueError(f&quot;{id_column}: ID 또는 종목·계열 누락&quot;)
+        if frame[id_column].duplicated().any():
+            raise ValueError(f&quot;{id_column}: ID 중복&quot;)
+    if obs[&quot;observed_at&quot;].isna().any() or dec[&quot;decision_at&quot;].isna().any():
+        raise ValueError(&quot;관측 시각 또는 판단 시각 누락&quot;)
+    # 중간 시각이 미상이어도 확인 가능한 두 시각의 역전은 허용하지 않습니다.
+    for earlier, later in [(&quot;observed_at&quot;, &quot;published_at&quot;),
+                           (&quot;published_at&quot;, &quot;known_at&quot;), (&quot;observed_at&quot;, &quot;known_at&quot;)]:
+        bad = obs[earlier].notna() &amp; obs[later].notna() &amp; obs[earlier].gt(obs[later])
+        if bad.any():
+            raise ValueError(f&quot;{earlier} → {later} 역전: {obs.loc[bad, &#x27;observation_id&#x27;].tolist()}&quot;)
+    known = obs.loc[obs[&quot;known_at&quot;].notna()]
+    conflict = known.duplicated([&quot;symbol&quot;, &quot;series&quot;, &quot;known_at&quot;], keep=False)
+    if conflict.any():
+        raise ValueError(f&quot;known_at 충돌: {known.loc[conflict, &#x27;observation_id&#x27;].tolist()}&quot;)
+    return obs, dec
+
+# 기존 의도적 오류도 잘못된 입력을 통과시키지 않도록 먼저 검증합니다.
+validate_inputs(observations, decisions)</code></pre><p><strong>저장된 실행 결과</strong></p><pre>(  observation_id   symbol   series               observed_at              published_at  \
+ 0              A  SYNTH-A   signal 2026-09-07 06:00:00+00:00 2026-09-07 09:00:00+00:00   
+ 1              B  SYNTH-A   signal 2026-09-08 06:00:00+00:00 2026-09-08 09:00:00+00:00   
+ 2              C  SYNTH-A  unknown 2026-09-08 06:00:00+00:00                       NaT   
+ 3              F  SYNTH-A    first 2026-09-08 06:00:00+00:00 2026-09-08 09:00:00+00:00   
+ 4              Z  SYNTH-Z   signal 2026-09-07 22:00:00+00:00 2026-09-07 23:00:00+00:00   
+ 
+                    known_at              retrieved_at  value  
+ 0 2026-09-07 09:00:00+00:00 2026-09-13 03:00:00+00:00     10  
+ 1 2026-09-08 09:00:00+00:00 2026-09-13 03:00:00+00:00     20  
+ 2                       NaT 2026-09-13 03:00:00+00:00     30  
+ 3 2026-09-08 09:00:00+00:00 2026-09-13 03:00:00+00:00     40  
+ 4 2026-09-07 23:00:00+00:00 2026-09-13 03:00:00+00:00    900  ,
+   decision_id   symbol   series               decision_at
+ 0          d1  SYNTH-A   signal 2026-09-08 00:00:00+00:00
+ 1          d2  SYNTH-A   signal 2026-09-08 10:00:00+00:00
+ 2          d3  SYNTH-A    first 2026-09-08 00:00:00+00:00
+ 3          d4  SYNTH-A  unknown 2026-09-08 10:00:00+00:00
+ 4          d5  SYNTH-A   signal 2026-09-08 09:00:00+00:00
+ 5          d6  SYNTH-Z   signal 2026-09-08 00:00:00+00:00
+ 6          d7  SYNTH-A   signal 2026-09-06 00:00:00+00:00)</pre></section><section class="notebook-cell"><p class="eyebrow">코드</p><pre><code>for column in [&quot;observed_at&quot;, &quot;published_at&quot;, &quot;known_at&quot;, &quot;retrieved_at&quot;]:
+    observations[column] = pd.to_datetime(observations[column])
+decisions[&quot;decision_at&quot;] = pd.to_datetime(decisions[&quot;decision_at&quot;])
+observations[&quot;join_date&quot;] = observations[&quot;observed_at&quot;].dt.date
+decisions[&quot;join_date&quot;] = decisions[&quot;decision_at&quot;].dt.date</code></pre></section><section class="notebook-cell"><h4>표 2. 날짜 결합 전 관측 정보</h4>
+<p>표의 모든 시각은 한국 시간입니다. <code>미상</code>은 CSV의 빈값이며 다른 시각으로 대체하지 않습니다. 공개·수집 시각은 데이터에 보존하되 이 표에서는 핵심 비교 열만 표시합니다.</p></section><section class="notebook-cell"><p class="eyebrow">코드</p><pre><code>def short_time(series):
+    return series.dt.strftime(&quot;%m-%d %H:%M&quot;).fillna(&quot;미상&quot;)
+
+observation_view = observations[[&quot;observation_id&quot;, &quot;symbol&quot;, &quot;series&quot;, &quot;value&quot;]].rename(
+    columns={&quot;observation_id&quot;: &quot;관측&quot;, &quot;symbol&quot;: &quot;종목&quot;, &quot;series&quot;: &quot;계열&quot;, &quot;value&quot;: &quot;값&quot;}
+)
+observation_view[&quot;관측 시각&quot;] = short_time(observations[&quot;observed_at&quot;])
+observation_view[&quot;알려진 시각&quot;] = short_time(observations[&quot;known_at&quot;])
+display(observation_view.style.hide(axis=&quot;index&quot;))</code></pre><p><strong>저장된 실행 결과</strong></p><div class="table-scroll" tabindex="0" role="region" aria-label="노트북 실행 결과 표">
+<table id="T_9d38e">
+  <thead>
+    <tr>
+      <th id="T_9d38e_level0_col0" class="col_heading level0 col0" >관측</th>
+      <th id="T_9d38e_level0_col1" class="col_heading level0 col1" >종목</th>
+      <th id="T_9d38e_level0_col2" class="col_heading level0 col2" >계열</th>
+      <th id="T_9d38e_level0_col3" class="col_heading level0 col3" >값</th>
+      <th id="T_9d38e_level0_col4" class="col_heading level0 col4" >관측 시각</th>
+      <th id="T_9d38e_level0_col5" class="col_heading level0 col5" >알려진 시각</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_9d38e_row0_col0" class="data row0 col0" >A</td>
+      <td id="T_9d38e_row0_col1" class="data row0 col1" >SYNTH-A</td>
+      <td id="T_9d38e_row0_col2" class="data row0 col2" >signal</td>
+      <td id="T_9d38e_row0_col3" class="data row0 col3" >10</td>
+      <td id="T_9d38e_row0_col4" class="data row0 col4" >09-07 15:00</td>
+      <td id="T_9d38e_row0_col5" class="data row0 col5" >09-07 18:00</td>
+    </tr>
+    <tr>
+      <td id="T_9d38e_row1_col0" class="data row1 col0" >B</td>
+      <td id="T_9d38e_row1_col1" class="data row1 col1" >SYNTH-A</td>
+      <td id="T_9d38e_row1_col2" class="data row1 col2" >signal</td>
+      <td id="T_9d38e_row1_col3" class="data row1 col3" >20</td>
+      <td id="T_9d38e_row1_col4" class="data row1 col4" >09-08 15:00</td>
+      <td id="T_9d38e_row1_col5" class="data row1 col5" >09-08 18:00</td>
+    </tr>
+    <tr>
+      <td id="T_9d38e_row2_col0" class="data row2 col0" >C</td>
+      <td id="T_9d38e_row2_col1" class="data row2 col1" >SYNTH-A</td>
+      <td id="T_9d38e_row2_col2" class="data row2 col2" >unknown</td>
+      <td id="T_9d38e_row2_col3" class="data row2 col3" >30</td>
+      <td id="T_9d38e_row2_col4" class="data row2 col4" >09-08 15:00</td>
+      <td id="T_9d38e_row2_col5" class="data row2 col5" >미상</td>
+    </tr>
+    <tr>
+      <td id="T_9d38e_row3_col0" class="data row3 col0" >F</td>
+      <td id="T_9d38e_row3_col1" class="data row3 col1" >SYNTH-A</td>
+      <td id="T_9d38e_row3_col2" class="data row3 col2" >first</td>
+      <td id="T_9d38e_row3_col3" class="data row3 col3" >40</td>
+      <td id="T_9d38e_row3_col4" class="data row3 col4" >09-08 15:00</td>
+      <td id="T_9d38e_row3_col5" class="data row3 col5" >09-08 18:00</td>
+    </tr>
+    <tr>
+      <td id="T_9d38e_row4_col0" class="data row4 col0" >Z</td>
+      <td id="T_9d38e_row4_col1" class="data row4 col1" >SYNTH-Z</td>
+      <td id="T_9d38e_row4_col2" class="data row4 col2" >signal</td>
+      <td id="T_9d38e_row4_col3" class="data row4 col3" >900</td>
+      <td id="T_9d38e_row4_col4" class="data row4 col4" >09-08 07:00</td>
+      <td id="T_9d38e_row4_col5" class="data row4 col5" >09-08 08:00</td>
+    </tr>
+  </tbody>
+</table>
+</div></section><section class="notebook-cell"><p class="eyebrow">코드</p><pre><code># 의도적 오류: known_at과 decision_at의 선후 관계를 결합 조건에서 제외합니다.
+wrong_join = decisions.merge(
+    observations,
+    on=[&quot;symbol&quot;, &quot;series&quot;, &quot;join_date&quot;],
+    how=&quot;left&quot;, indicator=True, validate=&quot;many_to_one&quot;,
+)
+late = wrong_join[&quot;known_at&quot;].gt(wrong_join[&quot;decision_at&quot;])
+matched = wrong_join[&quot;_merge&quot;].eq(&quot;both&quot;)</code></pre></section><section class="notebook-cell"><p class="eyebrow">코드</p><pre><code>wrong_join[&quot;점검&quot;] = &quot;늦지 않음&quot;
+wrong_join.loc[late, &quot;점검&quot;] = &quot;판단 이후 알려짐&quot;
+wrong_join.loc[matched &amp; wrong_join[&quot;known_at&quot;].isna(), &quot;점검&quot;] = &quot;알려진 시각 미상&quot;
+wrong_join.loc[~matched, &quot;점검&quot;] = &quot;같은 날짜 관측 없음&quot;
+
+wrong_view = pd.DataFrame({
+    &quot;판단&quot;: wrong_join[&quot;decision_id&quot;],
+    &quot;관측&quot;: wrong_join[&quot;observation_id&quot;].fillna(&quot;—&quot;),
+    &quot;판단 시각&quot;: short_time(wrong_join[&quot;decision_at&quot;]),
+    &quot;알려진 시각&quot;: short_time(wrong_join[&quot;known_at&quot;]),
+    &quot;점검&quot;: wrong_join[&quot;점검&quot;],
+})
+wrong_view.loc[~matched, &quot;알려진 시각&quot;] = &quot;—&quot;</code></pre></section><section class="notebook-cell"><h4>표 3. 잘못된 날짜 결합 결과와 시간 점검</h4>
+<p>‘늦지 않음’은 이 표의 <code>known_at &gt; decision_at</code> 검사에 걸리지 않았다는 뜻입니다. 올바른 결합의 정답을 뜻하지 않습니다. 같은 날짜 관측이 없다는 표시 역시 사용할 정보가 전혀 없다는 뜻은 아닙니다.</p></section><section class="notebook-cell"><p class="eyebrow">코드</p><pre><code>display(wrong_view.style.hide(axis=&quot;index&quot;))</code></pre><p><strong>저장된 실행 결과</strong></p><div class="table-scroll" tabindex="0" role="region" aria-label="노트북 실행 결과 표">
+<table id="T_165c6">
+  <thead>
+    <tr>
+      <th id="T_165c6_level0_col0" class="col_heading level0 col0" >판단</th>
+      <th id="T_165c6_level0_col1" class="col_heading level0 col1" >관측</th>
+      <th id="T_165c6_level0_col2" class="col_heading level0 col2" >판단 시각</th>
+      <th id="T_165c6_level0_col3" class="col_heading level0 col3" >알려진 시각</th>
+      <th id="T_165c6_level0_col4" class="col_heading level0 col4" >점검</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_165c6_row0_col0" class="data row0 col0" >d1</td>
+      <td id="T_165c6_row0_col1" class="data row0 col1" >B</td>
+      <td id="T_165c6_row0_col2" class="data row0 col2" >09-08 09:00</td>
+      <td id="T_165c6_row0_col3" class="data row0 col3" >09-08 18:00</td>
+      <td id="T_165c6_row0_col4" class="data row0 col4" >판단 이후 알려짐</td>
+    </tr>
+    <tr>
+      <td id="T_165c6_row1_col0" class="data row1 col0" >d2</td>
+      <td id="T_165c6_row1_col1" class="data row1 col1" >B</td>
+      <td id="T_165c6_row1_col2" class="data row1 col2" >09-08 19:00</td>
+      <td id="T_165c6_row1_col3" class="data row1 col3" >09-08 18:00</td>
+      <td id="T_165c6_row1_col4" class="data row1 col4" >늦지 않음</td>
+    </tr>
+    <tr>
+      <td id="T_165c6_row2_col0" class="data row2 col0" >d3</td>
+      <td id="T_165c6_row2_col1" class="data row2 col1" >F</td>
+      <td id="T_165c6_row2_col2" class="data row2 col2" >09-08 09:00</td>
+      <td id="T_165c6_row2_col3" class="data row2 col3" >09-08 18:00</td>
+      <td id="T_165c6_row2_col4" class="data row2 col4" >판단 이후 알려짐</td>
+    </tr>
+    <tr>
+      <td id="T_165c6_row3_col0" class="data row3 col0" >d4</td>
+      <td id="T_165c6_row3_col1" class="data row3 col1" >C</td>
+      <td id="T_165c6_row3_col2" class="data row3 col2" >09-08 19:00</td>
+      <td id="T_165c6_row3_col3" class="data row3 col3" >미상</td>
+      <td id="T_165c6_row3_col4" class="data row3 col4" >알려진 시각 미상</td>
+    </tr>
+    <tr>
+      <td id="T_165c6_row4_col0" class="data row4 col0" >d5</td>
+      <td id="T_165c6_row4_col1" class="data row4 col1" >B</td>
+      <td id="T_165c6_row4_col2" class="data row4 col2" >09-08 18:00</td>
+      <td id="T_165c6_row4_col3" class="data row4 col3" >09-08 18:00</td>
+      <td id="T_165c6_row4_col4" class="data row4 col4" >늦지 않음</td>
+    </tr>
+    <tr>
+      <td id="T_165c6_row5_col0" class="data row5 col0" >d6</td>
+      <td id="T_165c6_row5_col1" class="data row5 col1" >Z</td>
+      <td id="T_165c6_row5_col2" class="data row5 col2" >09-08 09:00</td>
+      <td id="T_165c6_row5_col3" class="data row5 col3" >09-08 08:00</td>
+      <td id="T_165c6_row5_col4" class="data row5 col4" >늦지 않음</td>
+    </tr>
+    <tr>
+      <td id="T_165c6_row6_col0" class="data row6 col0" >d7</td>
+      <td id="T_165c6_row6_col1" class="data row6 col1" >—</td>
+      <td id="T_165c6_row6_col2" class="data row6 col2" >09-06 09:00</td>
+      <td id="T_165c6_row6_col3" class="data row6 col3" >—</td>
+      <td id="T_165c6_row6_col4" class="data row6 col4" >같은 날짜 관측 없음</td>
+    </tr>
+  </tbody>
+</table>
+</div></section><section class="notebook-cell"><h4>표 4. 판단 시각보다 늦게 알려진 행</h4>
+<p>아래 표는 잘못 붙은 행 중 <code>known_at &gt; decision_at</code>인 행만 골라냅니다. ‘얼마나 늦음’은 두 시각의 차이일 뿐, 지연의 원인을 설명하지 않습니다. 같은 종목·계열·날짜라는 조건만으로는 판단 당시 알려져 있었음을 보장할 수 없습니다.</p></section><section class="notebook-cell"><p class="eyebrow">코드</p><pre><code>late_view = wrong_view.loc[late].drop(columns=&quot;점검&quot;).copy()
+late_view[&quot;얼마나 늦음&quot;] = (
+    (wrong_join.loc[late, &quot;known_at&quot;] - wrong_join.loc[late, &quot;decision_at&quot;])
+    .dt.total_seconds().div(3600).map(lambda hours: f&quot;{hours:g}시간&quot;)
+)
+display(late_view.style.hide(axis=&quot;index&quot;))</code></pre><p><strong>저장된 실행 결과</strong></p><div class="table-scroll" tabindex="0" role="region" aria-label="노트북 실행 결과 표">
+<table id="T_30ecb">
+  <thead>
+    <tr>
+      <th id="T_30ecb_level0_col0" class="col_heading level0 col0" >판단</th>
+      <th id="T_30ecb_level0_col1" class="col_heading level0 col1" >관측</th>
+      <th id="T_30ecb_level0_col2" class="col_heading level0 col2" >판단 시각</th>
+      <th id="T_30ecb_level0_col3" class="col_heading level0 col3" >알려진 시각</th>
+      <th id="T_30ecb_level0_col4" class="col_heading level0 col4" >얼마나 늦음</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_30ecb_row0_col0" class="data row0 col0" >d1</td>
+      <td id="T_30ecb_row0_col1" class="data row0 col1" >B</td>
+      <td id="T_30ecb_row0_col2" class="data row0 col2" >09-08 09:00</td>
+      <td id="T_30ecb_row0_col3" class="data row0 col3" >09-08 18:00</td>
+      <td id="T_30ecb_row0_col4" class="data row0 col4" >9시간</td>
+    </tr>
+    <tr>
+      <td id="T_30ecb_row1_col0" class="data row1 col0" >d3</td>
+      <td id="T_30ecb_row1_col1" class="data row1 col1" >F</td>
+      <td id="T_30ecb_row1_col2" class="data row1 col2" >09-08 09:00</td>
+      <td id="T_30ecb_row1_col3" class="data row1 col3" >09-08 18:00</td>
+      <td id="T_30ecb_row1_col4" class="data row1 col4" >9시간</td>
+    </tr>
+  </tbody>
+</table>
+</div></section><section class="notebook-cell"><h3>3. 학습자 예상: 오전 판단에 B를 사용할 수 있을까요?</h3>
+<p>2026년 9월 8일 오전 09:00의 <code>d1</code> 판단(<code>SYNTH-A</code>, <code>signal</code>)을 생각해 보세요. 위의 관측표와 잘못된 결합 결과를 근거로 아래 Markdown 셀을 직접 채우세요. 예상을 먼저 적은 뒤 아래 올바른 결합 결과와 비교하세요.</p></section><section class="notebook-cell"><h4>내 예상과 이유</h4>
+<ul>
+<li><strong>오전 판단에서 B를 사용할 수 있는가?</strong>: [예상 작성]</li>
+<li><strong>비교한 시각과 그 의미</strong>: [판단 시각, 관측 시각, 알려진 시각을 비교해 작성]</li>
+<li><strong>그렇게 예상한 이유</strong>: [같은 날짜로 붙은 결과만 믿어도 되는지 설명]</li>
+<li><strong>아직 확인해야 할 점</strong>: [남은 질문 작성]</li>
+</ul></section><section class="notebook-cell"><h3>4. 올바른 시각 결합</h3>
+<p>같은 종목·계열에서 <code>known_at &lt;= decision_at</code>인 관측 중 <code>known_at</code>이 가장 늦은 것을 선택합니다. 관측 날짜가 전날이어도 후보이며, 판단과 정확히 같은 시각도 포함합니다. 날짜나 수집 시각으로 가용 시각을 대신하지 않습니다.</p>
+<p>모든 판단 행과 순서를 보존합니다. 미선택 값은 공란으로 저장하고 사유를 별도 열에 둡니다. <code>known_at</code> 미확인 관측은 별도 제외 표에 원본 열·ID·사유를 보존하고, 해당 종목·계열의 판단 결과에도 제외 ID와 사유를 기록합니다. 화면은 한국 시간, 저장 파일은 UTC 오프셋을 포함합니다.</p></section><section class="notebook-cell"><p class="eyebrow">코드</p><pre><code># 원본 파일을 다시 읽어 복사본에서만 작업합니다.
+raw_observations = pd.read_csv(base / &quot;delayed-observations.csv&quot;)
+raw_decisions = pd.read_csv(base / &quot;decisions.csv&quot;)
+
+def align_observations(observation_input, decision_input):
+    obs, dec = validate_inputs(observation_input, decision_input)
+    excluded = obs.loc[obs[&quot;known_at&quot;].isna()].copy()
+    excluded[&quot;exclusion_reason&quot;] = &quot;known_at 미확인: 추정하지 않고 제외&quot;
+    usable = obs.loc[obs[&quot;known_at&quot;].notna()]
+    rows = []
+    for _, decision in dec.iterrows():
+        same = usable.loc[usable[&quot;symbol&quot;].eq(decision[&quot;symbol&quot;])
+                          &amp; usable[&quot;series&quot;].eq(decision[&quot;series&quot;])]
+        candidates = same.loc[same[&quot;known_at&quot;].le(decision[&quot;decision_at&quot;])]
+        unknown = excluded.loc[excluded[&quot;symbol&quot;].eq(decision[&quot;symbol&quot;])
+                               &amp; excluded[&quot;series&quot;].eq(decision[&quot;series&quot;])]
+        row = decision.to_dict()
+        row.update(selected_id=pd.NA, value=pd.NA, known_at=pd.NaT,
+                   excluded_ids=&quot;|&quot;.join(unknown[&quot;observation_id&quot;].astype(str)),
+                   exclusion_reason=&quot;known_at 미확인: 추정하지 않고 제외&quot; if len(unknown) else &quot;&quot;)
+        if len(candidates):
+            selected = candidates.loc[candidates[&quot;known_at&quot;].idxmax()]
+            row.update(selected_id=selected[&quot;observation_id&quot;], value=selected[&quot;value&quot;],
+                       known_at=selected[&quot;known_at&quot;], reason=&quot;조건 충족: 가장 늦은 사용 가능 관측&quot;)
+        elif len(same):
+            row[&quot;reason&quot;] = &quot;판단 시각까지 사용 가능한 관측 없음&quot;
+        elif len(unknown):
+            row[&quot;reason&quot;] = &quot;known_at 미확인 관측만 있어 선택 불가&quot;
+        else:
+            row[&quot;reason&quot;] = &quot;같은 종목·계열의 관측 없음&quot;
+        rows.append(row)
+    aligned = pd.DataFrame(rows, columns=[
+        &quot;decision_id&quot;, &quot;symbol&quot;, &quot;series&quot;, &quot;decision_at&quot;, &quot;selected_id&quot;, &quot;value&quot;,
+        &quot;known_at&quot;, &quot;reason&quot;, &quot;excluded_ids&quot;, &quot;exclusion_reason&quot;,
+    ])
+    aligned[&quot;known_at&quot;] = pd.to_datetime(aligned[&quot;known_at&quot;], utc=True)
+    aligned[&quot;decision_at&quot;] = pd.to_datetime(aligned[&quot;decision_at&quot;], utc=True)
+    return aligned, excluded
+
+aligned, excluded_observations = align_observations(raw_observations, raw_decisions)
+
+def result_view(result):
+    return pd.DataFrame({
+        &quot;판단 ID&quot;: result[&quot;decision_id&quot;],
+        &quot;선택 ID&quot;: result[&quot;selected_id&quot;].fillna(&quot;&quot;),
+        &quot;값&quot;: result[&quot;value&quot;].fillna(&quot;&quot;),
+        &quot;사용 가능 시각 (KST)&quot;: result[&quot;known_at&quot;].dt.tz_convert(&quot;Asia/Seoul&quot;).dt.strftime(&quot;%Y-%m-%d %H:%M&quot;).fillna(&quot;&quot;),
+        &quot;판단 시각 (KST)&quot;: result[&quot;decision_at&quot;].dt.tz_convert(&quot;Asia/Seoul&quot;).dt.strftime(&quot;%Y-%m-%d %H:%M&quot;),
+        &quot;사유&quot;: result[&quot;reason&quot;],
+    })
+
+display(result_view(aligned).style.hide(axis=&quot;index&quot;))
+display(excluded_observations[[&quot;observation_id&quot;, &quot;symbol&quot;, &quot;series&quot;, &quot;exclusion_reason&quot;]]
+        .rename(columns={&quot;observation_id&quot;: &quot;제외 ID&quot;, &quot;symbol&quot;: &quot;종목&quot;, &quot;series&quot;: &quot;계열&quot;,
+                         &quot;exclusion_reason&quot;: &quot;제외 사유&quot;}).style.hide(axis=&quot;index&quot;))</code></pre><p><strong>저장된 실행 결과</strong></p><div class="table-scroll" tabindex="0" role="region" aria-label="노트북 실행 결과 표">
+<table id="T_57ee5">
+  <thead>
+    <tr>
+      <th id="T_57ee5_level0_col0" class="col_heading level0 col0" >판단 ID</th>
+      <th id="T_57ee5_level0_col1" class="col_heading level0 col1" >선택 ID</th>
+      <th id="T_57ee5_level0_col2" class="col_heading level0 col2" >값</th>
+      <th id="T_57ee5_level0_col3" class="col_heading level0 col3" >사용 가능 시각 (KST)</th>
+      <th id="T_57ee5_level0_col4" class="col_heading level0 col4" >판단 시각 (KST)</th>
+      <th id="T_57ee5_level0_col5" class="col_heading level0 col5" >사유</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_57ee5_row0_col0" class="data row0 col0" >d1</td>
+      <td id="T_57ee5_row0_col1" class="data row0 col1" >A</td>
+      <td id="T_57ee5_row0_col2" class="data row0 col2" >10</td>
+      <td id="T_57ee5_row0_col3" class="data row0 col3" >2026-09-07 18:00</td>
+      <td id="T_57ee5_row0_col4" class="data row0 col4" >2026-09-08 09:00</td>
+      <td id="T_57ee5_row0_col5" class="data row0 col5" >조건 충족: 가장 늦은 사용 가능 관측</td>
+    </tr>
+    <tr>
+      <td id="T_57ee5_row1_col0" class="data row1 col0" >d2</td>
+      <td id="T_57ee5_row1_col1" class="data row1 col1" >B</td>
+      <td id="T_57ee5_row1_col2" class="data row1 col2" >20</td>
+      <td id="T_57ee5_row1_col3" class="data row1 col3" >2026-09-08 18:00</td>
+      <td id="T_57ee5_row1_col4" class="data row1 col4" >2026-09-08 19:00</td>
+      <td id="T_57ee5_row1_col5" class="data row1 col5" >조건 충족: 가장 늦은 사용 가능 관측</td>
+    </tr>
+    <tr>
+      <td id="T_57ee5_row2_col0" class="data row2 col0" >d3</td>
+      <td id="T_57ee5_row2_col1" class="data row2 col1" ></td>
+      <td id="T_57ee5_row2_col2" class="data row2 col2" ></td>
+      <td id="T_57ee5_row2_col3" class="data row2 col3" ></td>
+      <td id="T_57ee5_row2_col4" class="data row2 col4" >2026-09-08 09:00</td>
+      <td id="T_57ee5_row2_col5" class="data row2 col5" >판단 시각까지 사용 가능한 관측 없음</td>
+    </tr>
+    <tr>
+      <td id="T_57ee5_row3_col0" class="data row3 col0" >d4</td>
+      <td id="T_57ee5_row3_col1" class="data row3 col1" ></td>
+      <td id="T_57ee5_row3_col2" class="data row3 col2" ></td>
+      <td id="T_57ee5_row3_col3" class="data row3 col3" ></td>
+      <td id="T_57ee5_row3_col4" class="data row3 col4" >2026-09-08 19:00</td>
+      <td id="T_57ee5_row3_col5" class="data row3 col5" >known_at 미확인 관측만 있어 선택 불가</td>
+    </tr>
+    <tr>
+      <td id="T_57ee5_row4_col0" class="data row4 col0" >d5</td>
+      <td id="T_57ee5_row4_col1" class="data row4 col1" >B</td>
+      <td id="T_57ee5_row4_col2" class="data row4 col2" >20</td>
+      <td id="T_57ee5_row4_col3" class="data row4 col3" >2026-09-08 18:00</td>
+      <td id="T_57ee5_row4_col4" class="data row4 col4" >2026-09-08 18:00</td>
+      <td id="T_57ee5_row4_col5" class="data row4 col5" >조건 충족: 가장 늦은 사용 가능 관측</td>
+    </tr>
+    <tr>
+      <td id="T_57ee5_row5_col0" class="data row5 col0" >d6</td>
+      <td id="T_57ee5_row5_col1" class="data row5 col1" >Z</td>
+      <td id="T_57ee5_row5_col2" class="data row5 col2" >900</td>
+      <td id="T_57ee5_row5_col3" class="data row5 col3" >2026-09-08 08:00</td>
+      <td id="T_57ee5_row5_col4" class="data row5 col4" >2026-09-08 09:00</td>
+      <td id="T_57ee5_row5_col5" class="data row5 col5" >조건 충족: 가장 늦은 사용 가능 관측</td>
+    </tr>
+    <tr>
+      <td id="T_57ee5_row6_col0" class="data row6 col0" >d7</td>
+      <td id="T_57ee5_row6_col1" class="data row6 col1" ></td>
+      <td id="T_57ee5_row6_col2" class="data row6 col2" ></td>
+      <td id="T_57ee5_row6_col3" class="data row6 col3" ></td>
+      <td id="T_57ee5_row6_col4" class="data row6 col4" >2026-09-06 09:00</td>
+      <td id="T_57ee5_row6_col5" class="data row6 col5" >판단 시각까지 사용 가능한 관측 없음</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="table-scroll" tabindex="0" role="region" aria-label="노트북 실행 결과 표">
+<table id="T_ab3b3">
+  <thead>
+    <tr>
+      <th id="T_ab3b3_level0_col0" class="col_heading level0 col0" >제외 ID</th>
+      <th id="T_ab3b3_level0_col1" class="col_heading level0 col1" >종목</th>
+      <th id="T_ab3b3_level0_col2" class="col_heading level0 col2" >계열</th>
+      <th id="T_ab3b3_level0_col3" class="col_heading level0 col3" >제외 사유</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_ab3b3_row0_col0" class="data row0 col0" >C</td>
+      <td id="T_ab3b3_row0_col1" class="data row0 col1" >SYNTH-A</td>
+      <td id="T_ab3b3_row0_col2" class="data row0 col2" >unknown</td>
+      <td id="T_ab3b3_row0_col3" class="data row0 col3" >known_at 미확인: 추정하지 않고 제외</td>
+    </tr>
+  </tbody>
+</table>
+</div></section><section class="notebook-cell"><p class="eyebrow">코드</p><pre><code>future_count = int(aligned[&quot;known_at&quot;].gt(aligned[&quot;decision_at&quot;]).sum())
+assert future_count == 0
+assert len(aligned) == len(raw_decisions)
+assert aligned[&quot;decision_id&quot;].tolist() == raw_decisions[&quot;decision_id&quot;].tolist()
+assert aligned[&quot;selected_id&quot;].fillna(&quot;&quot;).tolist() == [&quot;A&quot;, &quot;B&quot;, &quot;&quot;, &quot;&quot;, &quot;B&quot;, &quot;Z&quot;, &quot;&quot;]
+assert excluded_observations[&quot;observation_id&quot;].tolist() == [&quot;C&quot;]
+assert aligned.loc[aligned[&quot;decision_id&quot;].eq(&quot;d4&quot;), &quot;excluded_ids&quot;].item() == &quot;C&quot;
+aligned.to_csv(base / &quot;aligned-observations.csv&quot;, index=False, na_rep=&quot;&quot;)
+display(pd.DataFrame({&quot;검사&quot;: [&quot;미래 매칭&quot;, &quot;판단 행 보존&quot;],
+                      &quot;결과&quot;: [f&quot;{future_count}건&quot;, f&quot;{len(aligned)}/{len(raw_decisions)}행, ID·순서 일치&quot;]})
+        .style.hide(axis=&quot;index&quot;))</code></pre><p><strong>저장된 실행 결과</strong></p><div class="table-scroll" tabindex="0" role="region" aria-label="노트북 실행 결과 표">
+<table id="T_a8e59">
+  <thead>
+    <tr>
+      <th id="T_a8e59_level0_col0" class="col_heading level0 col0" >검사</th>
+      <th id="T_a8e59_level0_col1" class="col_heading level0 col1" >결과</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_a8e59_row0_col0" class="data row0 col0" >미래 매칭</td>
+      <td id="T_a8e59_row0_col1" class="data row0 col1" >0건</td>
+    </tr>
+    <tr>
+      <td id="T_a8e59_row1_col0" class="data row1 col0" >판단 행 보존</td>
+      <td id="T_a8e59_row1_col1" class="data row1 col1" >7/7행, ID·순서 일치</td>
+    </tr>
+  </tbody>
+</table>
+</div></section><section class="notebook-cell"><h3>5. 공개 지연 실험 — 실행 전 예상</h3>
+<p>B의 <code>published_at</code>과 <code>known_at</code>을 모두 2026-09-08 20:00+09:00으로 옮기면, 같은 날 19시와 21시 판단은 어떤 관측을 선택할까요? 아래 예상 칸을 먼저 작성하세요. 원본 시나리오와 변경 시나리오의 실제 비교는 다음 코드 셀에서 실행합니다.</p>
+<table>
+<thead>
+<tr>
+<th>판단 시각</th>
+<th>변경 전 선택 ID 예상</th>
+<th>변경 후 선택 ID 예상</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>19:00+09:00</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>21:00+09:00</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></section><section class="notebook-cell"><p class="eyebrow">코드</p><pre><code>experiment_decisions = pd.DataFrame({
+    &quot;decision_id&quot;: [&quot;experiment-19&quot;, &quot;experiment-21&quot;],
+    &quot;symbol&quot;: [&quot;SYNTH-A&quot;, &quot;SYNTH-A&quot;], &quot;series&quot;: [&quot;signal&quot;, &quot;signal&quot;],
+    &quot;decision_at&quot;: [&quot;2026-09-08T19:00:00+09:00&quot;, &quot;2026-09-08T21:00:00+09:00&quot;],
+})
+shifted = raw_observations.copy(deep=True)
+shifted.loc[shifted[&quot;observation_id&quot;].eq(&quot;B&quot;), [&quot;published_at&quot;, &quot;known_at&quot;]] = &quot;2026-09-08T20:00:00+09:00&quot;
+before, _ = align_observations(raw_observations, experiment_decisions)
+after, _ = align_observations(shifted, experiment_decisions)
+comparison = pd.concat([
+    result_view(before).assign(시나리오=&quot;변경 전&quot;),
+    result_view(after).assign(시나리오=&quot;B 공개·사용 가능 시각 20시&quot;),
+], ignore_index=True)
+display(comparison[[&quot;시나리오&quot;, &quot;판단 ID&quot;, &quot;선택 ID&quot;, &quot;값&quot;, &quot;사용 가능 시각 (KST)&quot;, &quot;판단 시각 (KST)&quot;, &quot;사유&quot;]]
+        .style.hide(axis=&quot;index&quot;))
+assert before[&quot;selected_id&quot;].tolist() == [&quot;B&quot;, &quot;B&quot;]
+assert after[&quot;selected_id&quot;].tolist() == [&quot;A&quot;, &quot;B&quot;]
+for result in [before, after]:
+    assert not result[&quot;known_at&quot;].gt(result[&quot;decision_at&quot;]).any()
+    assert result[&quot;decision_id&quot;].tolist() == experiment_decisions[&quot;decision_id&quot;].tolist()
+pd.testing.assert_frame_equal(raw_observations, pd.read_csv(base / &quot;delayed-observations.csv&quot;))
+pd.testing.assert_frame_equal(raw_decisions, pd.read_csv(base / &quot;decisions.csv&quot;))</code></pre><p><strong>저장된 실행 결과</strong></p><div class="table-scroll" tabindex="0" role="region" aria-label="노트북 실행 결과 표">
+<table id="T_6971b">
+  <thead>
+    <tr>
+      <th id="T_6971b_level0_col0" class="col_heading level0 col0" >시나리오</th>
+      <th id="T_6971b_level0_col1" class="col_heading level0 col1" >판단 ID</th>
+      <th id="T_6971b_level0_col2" class="col_heading level0 col2" >선택 ID</th>
+      <th id="T_6971b_level0_col3" class="col_heading level0 col3" >값</th>
+      <th id="T_6971b_level0_col4" class="col_heading level0 col4" >사용 가능 시각 (KST)</th>
+      <th id="T_6971b_level0_col5" class="col_heading level0 col5" >판단 시각 (KST)</th>
+      <th id="T_6971b_level0_col6" class="col_heading level0 col6" >사유</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_6971b_row0_col0" class="data row0 col0" >변경 전</td>
+      <td id="T_6971b_row0_col1" class="data row0 col1" >experiment-19</td>
+      <td id="T_6971b_row0_col2" class="data row0 col2" >B</td>
+      <td id="T_6971b_row0_col3" class="data row0 col3" >20</td>
+      <td id="T_6971b_row0_col4" class="data row0 col4" >2026-09-08 18:00</td>
+      <td id="T_6971b_row0_col5" class="data row0 col5" >2026-09-08 19:00</td>
+      <td id="T_6971b_row0_col6" class="data row0 col6" >조건 충족: 가장 늦은 사용 가능 관측</td>
+    </tr>
+    <tr>
+      <td id="T_6971b_row1_col0" class="data row1 col0" >변경 전</td>
+      <td id="T_6971b_row1_col1" class="data row1 col1" >experiment-21</td>
+      <td id="T_6971b_row1_col2" class="data row1 col2" >B</td>
+      <td id="T_6971b_row1_col3" class="data row1 col3" >20</td>
+      <td id="T_6971b_row1_col4" class="data row1 col4" >2026-09-08 18:00</td>
+      <td id="T_6971b_row1_col5" class="data row1 col5" >2026-09-08 21:00</td>
+      <td id="T_6971b_row1_col6" class="data row1 col6" >조건 충족: 가장 늦은 사용 가능 관측</td>
+    </tr>
+    <tr>
+      <td id="T_6971b_row2_col0" class="data row2 col0" >B 공개·사용 가능 시각 20시</td>
+      <td id="T_6971b_row2_col1" class="data row2 col1" >experiment-19</td>
+      <td id="T_6971b_row2_col2" class="data row2 col2" >A</td>
+      <td id="T_6971b_row2_col3" class="data row2 col3" >10</td>
+      <td id="T_6971b_row2_col4" class="data row2 col4" >2026-09-07 18:00</td>
+      <td id="T_6971b_row2_col5" class="data row2 col5" >2026-09-08 19:00</td>
+      <td id="T_6971b_row2_col6" class="data row2 col6" >조건 충족: 가장 늦은 사용 가능 관측</td>
+    </tr>
+    <tr>
+      <td id="T_6971b_row3_col0" class="data row3 col0" >B 공개·사용 가능 시각 20시</td>
+      <td id="T_6971b_row3_col1" class="data row3 col1" >experiment-21</td>
+      <td id="T_6971b_row3_col2" class="data row3 col2" >B</td>
+      <td id="T_6971b_row3_col3" class="data row3 col3" >20</td>
+      <td id="T_6971b_row3_col4" class="data row3 col4" >2026-09-08 20:00</td>
+      <td id="T_6971b_row3_col5" class="data row3 col5" >2026-09-08 21:00</td>
+      <td id="T_6971b_row3_col6" class="data row3 col6" >조건 충족: 가장 늦은 사용 가능 관측</td>
+    </tr>
+  </tbody>
+</table>
+</div></section><section class="notebook-cell"><h3>6. 같은 순간을 다른 시간대로 표현하기</h3>
+<p>같은 날짜의 <code>09:00+09:00</code>과 <code>00:00Z</code>를 실제로 UTC로 변환하고 비교합니다. 시간대 없는 입력에 UTC를 임의로 붙이는 것과는 다릅니다.</p></section><section class="notebook-cell"><p class="eyebrow">코드</p><pre><code>kst_stamp = pd.Timestamp(&quot;2026-09-08T09:00:00+09:00&quot;)
+utc_stamp = pd.Timestamp(&quot;2026-09-08T00:00:00Z&quot;)
+converted = kst_stamp.tz_convert(&quot;UTC&quot;)
+assert converted == utc_stamp
+assert converted.value == utc_stamp.value
+display(pd.DataFrame({&quot;입력&quot;: [kst_stamp.isoformat(), utc_stamp.isoformat()],
+                      &quot;UTC 변환&quot;: [converted.isoformat(), utc_stamp.tz_convert(&quot;UTC&quot;).isoformat()],
+                      &quot;같은 순간&quot;: [converted == utc_stamp, converted.value == utc_stamp.value]})
+        .style.hide(axis=&quot;index&quot;))</code></pre><p><strong>저장된 실행 결과</strong></p><div class="table-scroll" tabindex="0" role="region" aria-label="노트북 실행 결과 표">
+<table id="T_5d7fd">
+  <thead>
+    <tr>
+      <th id="T_5d7fd_level0_col0" class="col_heading level0 col0" >입력</th>
+      <th id="T_5d7fd_level0_col1" class="col_heading level0 col1" >UTC 변환</th>
+      <th id="T_5d7fd_level0_col2" class="col_heading level0 col2" >같은 순간</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_5d7fd_row0_col0" class="data row0 col0" >2026-09-08T09:00:00+09:00</td>
+      <td id="T_5d7fd_row0_col1" class="data row0 col1" >2026-09-08T00:00:00+00:00</td>
+      <td id="T_5d7fd_row0_col2" class="data row0 col2" >True</td>
+    </tr>
+    <tr>
+      <td id="T_5d7fd_row1_col0" class="data row1 col0" >2026-09-08T00:00:00+00:00</td>
+      <td id="T_5d7fd_row1_col1" class="data row1 col1" >2026-09-08T00:00:00+00:00</td>
+      <td id="T_5d7fd_row1_col2" class="data row1 col2" >True</td>
+    </tr>
+  </tbody>
+</table>
+</div></section><section class="notebook-cell"><h3>7. 잘못된 입력은 결합 전에 중단되는지 검사</h3>
+<p>시간대 누락, 시각 역전, 같은 종목·계열의 동일한 사용 가능 시각을 복사본에 주입합니다. 충돌은 UTC 변환 뒤 검사하므로 표기가 다른 같은 순간도 잡힙니다.</p></section><section class="notebook-cell"><p class="eyebrow">코드</p><pre><code>def must_reject(obs, dec, expected):
+    try:
+        align_observations(obs, dec)
+    except ValueError as exc:
+        assert expected in str(exc), str(exc)
+    else:
+        raise AssertionError(f&quot;중단하지 않음: {expected}&quot;)
+
+for column in TIME_COLUMNS:
+    invalid = raw_observations.copy(deep=True)
+    invalid.loc[0, column] = &quot;2026-09-07T15:00:00&quot;
+    must_reject(invalid, raw_decisions, &quot;시간대 없는&quot;)
+invalid_decisions = raw_decisions.copy(deep=True)
+invalid_decisions.loc[0, &quot;decision_at&quot;] = &quot;2026-09-08T09:00:00&quot;
+must_reject(raw_observations, invalid_decisions, &quot;시간대 없는&quot;)
+for column, stamp in [(&quot;published_at&quot;, &quot;2026-09-07T14:00:00+09:00&quot;),
+                       (&quot;known_at&quot;, &quot;2026-09-07T17:00:00+09:00&quot;)]:
+    invalid = raw_observations.copy(deep=True)
+    invalid.loc[0, column] = stamp
+    must_reject(invalid, raw_decisions, &quot;역전&quot;)
+invalid = raw_observations.copy(deep=True)
+invalid.loc[0, [&quot;published_at&quot;, &quot;known_at&quot;]] = &quot;2026-09-08T09:00:00Z&quot;
+must_reject(invalid, raw_decisions, &quot;known_at 충돌&quot;)
+print(&quot;시간대 누락·시각 역전·동일 순간 충돌: 모두 오류로 중단 확인&quot;)</code></pre><p><strong>저장된 실행 결과</strong></p><pre>시간대 누락·시각 역전·동일 순간 충돌: 모두 오류로 중단 확인
+</pre></section><div class="footer-links"><a href="../">과정 2 소개</a><a href="../../../">강의 홈</a><a href="https://www.youtube.com/playlist?list=PLcNmateMPFTE">공개 영상 이어보기</a></div></main></body></html>
