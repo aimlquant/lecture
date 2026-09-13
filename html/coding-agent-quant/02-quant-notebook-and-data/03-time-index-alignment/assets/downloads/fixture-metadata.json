@@ -1,0 +1,13 @@
+{
+  "synthetic": true,
+  "timezone": "Asia/Seoul",
+  "units": {
+    "close": "합성 가격 단위",
+    "value": "합성 지표 단위"
+  },
+  "calendar": "합성 교육 달력; 9월4일 휴장은 실제 거래소 규칙이 아님",
+  "known_at": "이 예제에서만 published_at과 같다고 가정; 실제 취득 경로의 지연을 실증하지 않음",
+  "retrieved_at": "예제 설정 시각; 실제 다운로드 관측 기록이 아님",
+  "rule": "동일 symbol/series, known_at<=decision_at 중 최신; 시각 미확인은 제외 기록; 상충하는 동시 관측은 오류",
+  "expected": "구현 전 사람이 작성한 일곱 판단 행; 모두 공란인 구현은 실패"
+}
